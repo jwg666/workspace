@@ -1,0 +1,82 @@
+@charset "utf-8";
+
+/* 封屏部分 */
+.grapidui_bg {background: url("gbgbg.png") repeat;}
+/* 浮层部分 */
+.grapidui_float{border:1px solid #CCCCCC;padding:3px;font-size:12px;background-color:#FFF8EF;color:#000000;}
+/* 弹出层部分*/
+.grapidui_msg *{ margin:0; padding:0; font-size:12px; line-height:12px;color:#676767;font-family:"SimSun"; }
+
+.grapidui_msg_tr1 td{height:9px;line-height:9px;font-size:0%;}
+.grapidui_msg_td1{background:url(gmsg_1.png) no-repeat;_background:none;width:13px;}
+.grapidui_msg_td2{background:url(gmsg_2.png) repeat-x;_background:none;}
+.grapidui_msg_td3{background:url(gmsg_3.png) no-repeat;_background:none;width:13px;}
+
+.grapidui_msg_td5{background:url(gmsg_5.png) repeat-x;text-align:left;*background:url(gmsg_5ie.jpg);background:url(gmsg_5ie.jpg)\9;}
+
+.grapidui_msg_td7{background:url(gmsg_7.png) repeat-y;_background:none;width:13px;}
+.grapidui_msg_td8{background-color:#FFFFFF;padding:5px;}
+.grapidui_msg_td9{background:url(gmsg_9.png) repeat-y;_background:none;width:13px;}
+
+.grapidui_msg_td10{background:url(gmsg_10.png) repeat-y;_background:none;width:13px;}
+.grapidui_msg_td11{background:#f1f1f1; border-top:1px solid #ccc;vertical-align:middle;text-align:center;height:40px;}
+.grapidui_msg_td12{background:url(gmsg_12.png) repeat-y;_background:none;width:13px;}
+
+.grapidui_msg_tr5 td{height:13px;line-height:13px;font-size:0%;}
+.grapidui_msg_td13{background:url(gmsg_13.png) no-repeat;_background:none;width:13px;}
+.grapidui_msg_td14{background:url(gmsg_14.png) repeat-x;_background:none;}
+.grapidui_msg_td15{background:url(gmsg_15.png) no-repeat;_background:none;width:13px;}
+
+.grapidui_msg_ctrl_close{display:none;width:28px;height:17px;cursor:pointer;background:url(ctrl_close.gif) no-repeat;float:right;margin-top:-1px;}
+.grapidui_msg_ctrl_close:hover{background:url(ctrl_close_hover.gif) no-repeat;}
+.grapidui_msg_ctrl_close_hover{background:url(ctrl_close_hover.gif) no-repeat;}
+.grapidui_msg_ctrl_help{display:none;width:28px;height:17px;cursor:help;background:url(ctrl_help.gif) no-repeat;float:right;margin-top:-1px;}
+.grapidui_msg_ctrl_help:hover{background:url(ctrl_help_hover.gif) no-repeat;}
+.grapidui_msg_ctrl_help_hover{background:url(ctrl_help_hover.gif) no-repeat;}
+.grapidui_msg_ctrl_min{display:none;width:28px;height:17px;cursor:pointer;background:url(ctrl_min.gif) no-repeat;float:right;margin-top:-1px;}
+.grapidui_msg_ctrl_min:hover{background:url(ctrl_min_hover.gif) no-repeat;}
+.grapidui_msg_ctrl_min_hover{background:url(ctrl_min_hover.gif) no-repeat;}
+
+.grapidui_msg_title{text-align:left;height:24px;line-height:22px;overflow:hidden;font-size:14px;font-weight:bold;padding:0 5px;}
+.grapidui_msg_logo{display:none;width:50px;height:20px;cursor:pointer;background:url(logo.gif) no-repeat;float:left;}
+
+.grapidui_msg_type_warning{background:url(type_warning.png) no-repeat scroll 10px center #FFFFFF;height:80px;padding-left:90px;vertical-align:middle;}
+.grapidui_msg_type_error{background:url(type_error.png) no-repeat scroll 10px center #FFFFFF;height:80px;padding-left:90px;vertical-align:middle;}
+.grapidui_msg_type_success{background:url(type_success.png) no-repeat scroll 10px center #FFFFFF;height:80px;padding-left:90px;vertical-align:middle;}
+.grapidui_msg_type_help{background:url(type_help.png) no-repeat scroll 10px center #FFFFFF;height:80px;padding-left:90px;vertical-align:middle;}
+.grapidui_msg_type_important{background:url(type_impt.png) no-repeat scroll 10px center #FFFFFF;height:80px;padding-left:90px;vertical-align:middle;}
+.grapidui_msg_type_refresh{background:url(type_refresh.png) no-repeat scroll 10px center #FFFFFF;height:80px;padding-left:90px;vertical-align:middle;}
+
+.grapidui_msg_td11 .grapidui_msg_sp,.grapidui_msg_td11 .grapidui_msg_sp .grapidui_msg_sc{background:url(button.gif) no-repeat;display:inline-block; cursor:pointer;height:21px;line-height:21px;color:#005372;}
+.grapidui_msg_td11 .grapidui_msg_sp{background-position:left -21px;color:#017ead; margin-right:10px;}
+.grapidui_msg_td11 .grapidui_msg_sp .grapidui_msg_sc{background-position:right 0;padding:0 8px; margin-right:-2px;_position:fixed;}
+.grapidui_msg_td11 .grapidui_msg_sp:hover{background-position:left -63px;}
+.grapidui_msg_td11 .grapidui_msg_sp:hover .grapidui_msg_sc{background-position:right -42px;color:#017ead;}
+.grapidui_msg_td11 .span_hover{background-position:left -63px;}
+.grapidui_msg_td11 .span_hover .grapidui_msg_sc{background-position:right -42px;color:#017ead;}
+
+.grapidui_msg_tr4 .grapidui_msg_wait{text-align:center;}
+
+/* 菜单 */
+.grapidui_gmenu *{ margin:0; padding:0; font-size:12px;color:#333333;font-family:"SimSun"; }
+.grapidui_gmenu{margin:0; padding:0;border:1px solid #999;background:#EEE;width:100%;}
+.grapidui_gmenu .grapidui_gmenu_tr{cursor:default;height:20px;line-height:20px;vertical-align:middle;}
+.grapidui_gmenu .grapidui_gmenu_title *{padding:5px;font-weight:bold;background:#CCC;cursor:default;}
+.grapidui_gmenu .grapidui_gmenu_tr .td_left{display:none;background-color:#DDD;}
+.grapidui_gmenu .grapidui_gmenu_tr.grapidui_gmenu_icon .td_left{display:block;width:20px;overflow:hidden;}
+.grapidui_gmenu .grapidui_gmenu_tr .td_item{padding-left:5px;}
+.grapidui_gmenu .grapidui_gmenu_tr .td_right{width:20px;overflow:hidden;}
+.grapidui_gmenu .grapidui_gmenu_tr.child .td_right{background-image:url(gmenu_6.gif);background-position:6px 4px;background-repeat:no-repeat;}
+.grapidui_gmenu .grapidui_gmenu_line{height:7px;line-height:7px;font-size:0;overflow:hidden;}
+.grapidui_gmenu .grapidui_gmenu_tr:hover *{color:white; background-color:#039;}
+
+.grapidui_gmenu .grapidui_gmenu_tr.grapidui_gmenu_icon.icon1 .td_left{background-image:url(gmenu_1.gif);background-position:2px 2px;background-repeat:no-repeat;}
+.grapidui_gmenu .grapidui_gmenu_tr.grapidui_gmenu_icon.icon2 .td_left{background-image:url(gmenu_2.gif);background-position:3px 5px;background-repeat:no-repeat;}
+.grapidui_gmenu .grapidui_gmenu_tr.grapidui_gmenu_icon.icon3 .td_left{background-image:url(gmenu_3.gif);background-position:-2px -2px;background-repeat:no-repeat;}
+.grapidui_gmenu .grapidui_gmenu_tr.grapidui_gmenu_icon.icon4 .td_left{background-image:url(gmenu_4.gif);background-position:1px 2px;background-repeat:no-repeat;}
+.grapidui_gmenu .grapidui_gmenu_tr.grapidui_gmenu_icon.icon5 .td_left{background-image:url(gmenu_5.gif);background-position:4px 3px;background-repeat:no-repeat;}
+.grapidui_gmenu .grapidui_gmenu_tr.grapidui_gmenu_icon.icon6 .td_left{background-image:url(gmenu_6.gif);background-position:5px 4px;background-repeat:no-repeat;}
+.grapidui_gmenu .grapidui_gmenu_tr.grapidui_gmenu_icon.icon7 .td_left{background-image:url(gmenu_7.gif);background-position:4px 4px;background-repeat:no-repeat;}
+
+
+

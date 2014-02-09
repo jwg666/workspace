@@ -1,0 +1,441 @@
+@charset "utf-8";
+/*首页-查询页面*/
+.chaxun {
+	background-color:#f1f1f1;
+	width:1024px;
+	overflow:hidden;
+	margin:10px auto 0 auto;
+	border:1px solid #8493aa;
+	font-family:"宋体";
+}
+.chaxun a {
+	text-decoration:none;
+}
+.chaxun-wrap {
+	width:1024px;
+	height:27px;
+	line-height:27px;
+	padding-left:10px;
+	background-color:#b6d0f2;
+	border-bottom:1px solid #8f8f8f;
+}
+.chaxun-wrap span {
+	font-size:16px;
+	color:#666;
+}
+.chaxun-wrap-01 {
+	width:1004px;
+	margin: 10px 10px 0;
+	overflow:hidden;
+}
+.chaxun-caozuo {
+	height:20px;
+	line-height:20px;
+	background-color:#c9def3;
+	border-bottom:1px solid #8f8f8f;
+	margin-bottom: 10px;
+}
+.chaxun-caozuo span {
+	font-size:14px;
+	font-family:"微软雅黑";
+	color:#666;
+	padding-left:10px;
+}
+.chaxun-tiaojian {
+	border:1px solid #cdcdcd;
+	background-color:#eaeaea;
+	overflow:hidden;
+	padding: 10px 0;
+}
+.chaxun-tiaojian span {
+	color:#666;
+	display:inline-block;
+	padding: 10px 10px 0;
+}
+.chaxun-tiaojian-content {
+	color: #666666;
+	padding: 0 10px 10px;
+}
+.chaxun-tiaojian-content ul li {
+	vertical-align:middle;
+	padding:0px 0px 10px 0px;
+}
+.chaxun-tiaojian-content ul li input[type="text"] {
+	border: 1px solid #B2B2B2;
+	border-radius: 3px 3px 3px 3px;
+	box-shadow: 0 1px 1px #DDDDDD inset;
+	height: 21px;
+	line-height:21px;
+	width: 182px;
+}
+.chaxun-tiaojian-content ul li span.youxiaoqi {
+	display: inline-block;
+	margin-left: 100px;
+}
+.chaxun-tiaojian-content ul li span.youxiaoqi span {
+	padding-right:15px;
+}
+.chaxun-tiaojian-content ul li span.youxiaoqi input[type="text"] {
+	width:100px;
+}
+.chaxun-tiaojian-content ul li span.youxiaoqi a {
+	width:32px;
+	height:19px;
+	line-height:19px;
+}
+.chaxun-tiaojian-content ul li a span.icon-href {
+	padding-top: 0;
+	vertical-align: middle;
+}
+.chaxun-tiaojian-content ul li a span.li-list {
+	background-color: #F5f5F5;
+	border: 1px solid #B4B4B4;
+	border-radius: 3px 3px 3px 3px;
+	display: inline-block;
+	height: 21px;
+	line-height: 21px;
+	padding: 0;
+	width: 65px;
+}
+.chaxun-tiaojian-content ul li a span.li-list span.guojia {
+	background: url("../images/icon-chaxun-sanjiao.png") no-repeat scroll right center transparent;
+	padding: 0 10px;
+	width: 35px;
+}
+.chaxun-button {
+	background: url("../images/chaxun-button.png") no-repeat scroll center center transparent;
+	float: left;
+	height: 25px;
+	line-height: 25px;
+	margin-right: 10px;
+	text-align: center;
+	width: 67px;
+}
+.fuzhi-button{ float:none;}
+.fujian-baocun{ padding: 0 452px;}
+.chaxun-button span.yemian {
+    overflow:hidden;
+	width: 1024px;
+}
+.there-button {
+	float: left;
+	padding: 10px 348px 3px;
+}
+.the-button {
+	padding:10px 424px 3px;
+}
+.this-button {
+	padding:10px 385px 3px;
+}
+/*查询列表*/
+.chaxun-list {
+	background-color: #F1F1F1;
+	border-bottom: 1px solid #8493AA;
+	border-left: 1px solid #8493AA;
+	border-right: 1px solid #8493AA;
+	overflow: hidden;
+	right: 127px;
+	padding:10px;
+	top: 327px;
+	width: 1004px;
+	display:block;
+	margin:0 auto;
+}
+/*表格公用样式开始*/	
+/* table { */
+/* 	border-collapse:collapse; */
+/* 	width: 1004px; */
+/* } */
+/* td { */
+/* 	border: 1px solid #bfbfbf; */
+/* 	color: #666666; */
+/* 	padding: 5px 0; */
+/* } */
+/*公用样式结束*/
+.chaxun-one {
+	background-color:#ced7f4;
+}
+.chaxun-two {
+	background-color:#eaeaea;
+}
+/*首页-查询页面结束*/
+/*客户经理和订单经理录入页面*/
+.luru {
+	width:1024px;
+	overflow:hidden;
+	margin:10px auto;
+	border:1px solid #ddd;
+	background-color:#FFF;
+	padding-bottom: 10px;
+}
+.luru-one {
+	width:1024px;
+	overflow:hidden;
+}
+.luru-one-title {
+	height:64px;
+	line-height:64px;
+	border-bottom:1px solid #ddd;
+	text-align:center;
+}
+.luru-one-title span {
+	font-size:14px;
+}
+.luru-one-title span.font-style {
+}
+.luru-one-content {
+	border-bottom: 1px solid #DDDDDD;
+	float: left;
+	width: 1024px;
+}
+.luru-one-content-01 {
+	float: left;
+	padding: 10px 35px 10px 10px;
+}
+.luru-one-content-01 span {
+	color: #666666;
+	padding:0px;
+}
+.luru-one-content-01 span img {
+	border-top: 1px solid #F0F0F0;
+	vertical-align: middle;
+}
+.luru-one-content-01 span span.li-list {
+	border: 1px solid #B2B2B2;
+	border-radius: 3px 3px 3px 3px;
+	box-shadow: 0 1px 1px #DDDDDD inset;
+	display: inline-block;
+	height: 5px;
+	line-height: 5px;
+	padding: 5px;
+	width: 100px;
+	background: url(../images/icon-chaxun-sanjiao.png) no-repeat scroll 88px center transparent;
+}
+.luru-two {
+	width:1004px;
+	overflow:hidden;
+	margin: 10px;
+	color:#666;
+}
+.luru-two-title {
+	background-color:#b3e4d2;
+	height:20px;
+	line-height:20px;
+	border-bottom:1px solid #8f8f8f;
+	text-align:left;
+	padding-left:10px;
+}
+.luru-two-content {
+	border-color: -moz-use-text-color #DDDDDD #DDDDDD;
+	border-style: none solid solid;
+	border-width: medium 1px 1px;
+	overflow: hidden;
+	width: 1002px;
+}
+.luru-two-content-left {
+	float: left;
+	width: 480px;
+}
+.luru-two-content-left input.one {
+	width: 380px;
+}
+.luru-two-content-right {
+	border-left:1px solid #ddd;
+	float:left;
+	width:501px;
+}
+.luru-two-content-right-01 {
+	clear: both;
+}
+.luru-one-content-01 input.three {
+	width: 166px;
+}
+.luru-one-content-01 span input.five {
+	width: 30px;
+}
+.luru-three {
+	width:1004px;
+	overflow:hidden;
+	margin: 10px;
+	color:#666;
+	text-align: center;
+}
+.luru-three-content input.six {
+	border:none;
+}
+.luru-three-content td.td-c {
+	text-align:left;
+}
+.luru-three-content td span {
+	padding:0px 10px;
+}
+.luru-four {
+	width:1004px;
+	overflow:hidden;
+	margin: 10px;
+	color:#666;
+}
+.luru-four-content {
+	border-color: -moz-use-text-color #DDDDDD #DDDDDD;
+	border-style: none solid solid;
+	border-width: medium 1px 1px;
+	overflow: hidden;
+	width: 1002px;
+}
+.luru-one-content-01 input.four {
+	width: 907px;
+}
+.luru-four-content-01 {
+	width:983px;
+	overflow:hidden;
+	margin: 10px;
+	color:#666;
+}
+.luru-one-content-last {
+	clear:both;
+	width:502px;
+	height:15px;
+	line-height:15px;
+}
+.luru-four-content-01-left {
+	float: left;
+	width: 502px;
+}
+.luru-four-content-01-left span {
+	display:block;
+}
+.luru-four-content-01-right span {
+	display:block;
+}
+.luru-four-button {
+	margin: 10px 0 0;
+	overflow: hidden;
+	padding: 0 282px;
+}
+.kehujingli {
+	width:1004px;
+	text-align:left;
+	background-color: #B3E4D2;
+	margin: 0 auto;
+	line-height:21px;
+	height: 21px;
+	text-align:left;
+}
+.kehujingli span {
+	padding-left:10px;
+}
+.dingdanjingli span {
+	padding-left:10px;
+}
+.dingdanjingli {
+	width:1004px;
+	height:21px;
+	line-height:21px;
+	text-align:left;
+	background-color: #B3E4D2;
+	margin:10px auto 0px auto;
+}
+.kehu {
+	display:block;
+}
+.dingdan {
+	display:block;
+}
+.kehujingli img {
+	padding: 0 448px;
+}
+.dingdanjingli img {
+	padding:0px 448px;
+}
+/*客户经理/订单经理*/
+.neirong {
+	padding:0px 10px;
+	width:1004px;
+	overflow:hidden;
+}
+.biaoge {
+	text-align:center;
+}
+.radio-xinxi span.lp-text {
+	padding:0px;
+}
+.neirong .xinxi {
+	text-align:center;
+	display:inline;
+}
+.neirong .xinxi span.xinxi-style {
+	background-color: #F5F5F5;
+	border: 1px solid #DDDDDD;
+	border-radius: 3px 3px 3px 3px;
+	display: inline-block;
+	height: 20px;
+	line-height: 20px;
+	margin: 0 10px;
+	width: 120px;
+}
+.neirong .radio-xinxi {
+	display:inline;
+	padding-left:10px;
+}
+/*表格*/
+.dingdan-chaxun {
+	width:1024px;
+	margin:0px auto;
+	overflow:hidden;
+	text-align: center;
+}
+.luru-one-content-01 span.chaxun {
+	padding: 1px 5px;
+}
+.chaxun-button-01 span {
+	padding-left:55px;
+}
+/*银行开户*/
+.yinhang-kaihu {
+	width:1024px;
+	margin:0px auto;
+	overflow:hidden;
+	text-align: center;
+}
+/*附件*/
+.fujian {
+	width:1024px;
+	margin:10px auto;
+	overflow:hidden;
+}
+.fuzhi {
+	padding:2px 15px;
+	margin:0px;
+}
+.baocun {
+	padding:2px 15px;
+}
+.center-f {
+	text-align:center;
+	background-color:#CCFFFF;
+	height:21px;
+	line-height:21px;
+	font-size:14px;
+}
+.fujian-content {
+	margin: 10px 0;
+}
+.fujian-content td.center-c {
+	text-align:center;
+	padding:10px;
+}
+.luru-one-content-02 {
+	padding-right: 18px;
+}
+/*复制弹出的窗口*/
+.fuzhi-chuangkou {
+	width:1024px;
+	margin:10px auto;
+	overflow:hidden;
+}
+.fuzhi-chuangkou td span.zhenghao {
+	display: block;
+	height: 15px;
+	line-height: 15px;
+	padding: 10px;
+}

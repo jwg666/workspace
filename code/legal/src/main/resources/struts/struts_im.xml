@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="im" extends="hrois" namespace="/im">
+
+		<!-- 更新文件信息 -->
+		<action name="imAction!*" class="imAction" method="{1}">
+			<result name="onlineUser" type="json">
+				<param name="root">onlineUser</param>
+				<param name="excludeProperties"></param>
+			</result>
+			<result name="goIm">/WEB-INF/pages/im/imMain.jsp</result>
+			<result name="toChart">/WEB-INF/pages/im/IM2.jsp</result>
+		</action>
+
+	</package>
+</struts>

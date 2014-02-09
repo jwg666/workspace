@@ -1,0 +1,519 @@
+* {
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+}
+.ro{
+	background-color: #dcdcdc;
+}
+/*---------页面整体样式和导航样式-----------*/
+
+/*---------<body class="zoc">-----------*/
+
+.zoc{
+	background-image: url(../img/ibg.png);
+}
+body {
+	font-size: 12px;
+}
+body.zoc {
+	color: #4a4a4a;
+}
+.navhead_zoc {
+	background-image: url(../img/headnavi.png);
+	background-repeat: repeat-x;
+	height: 28px;
+	text-align: center;
+	margin-bottom: 5px;
+	min-width:970px;
+	border-bottom: 1px solid #B5B6B7;
+}
+
+.navhead_popover_zoc {
+	background-image: url(../img/headnavi.png);
+	background-repeat: repeat-x;
+	height: 28px;
+	text-align: center;
+	margin-bottom: 5px;
+	min-width: 480px;
+}
+
+.navhead_zoc span {
+	/* color: white; */
+	font-weight: bold;
+	line-height: 28px;
+}
+
+.rolenavi {
+	background-image: url(../img/rolenavi.png);
+	border-radius: 4px 4px 4px 4px;
+	margin: 2px auto;
+	height: 28px;
+}
+.rolenavi li {
+	float: left;
+}
+
+/*----------页面分区样式-----------*/
+.part_zoc {
+	/* background-color: #ebeced; */
+	border: 1px solid #989898;
+	border-radius: 4px 4px 4px 4px;
+	margin: 0px 10px 10px 10px;
+	overflow: hidden;
+	min-width: 970px;
+}
+.part_popover_zoc {
+	background-color: #ebeced;
+	border: 1px solid #989898;
+	border-radius: 4px 4px 4px 4px;
+	margin: 0px 10px 10px 10px;
+	overflow: hidden;
+	min-width: 480px;
+}
+
+.partnavi_zoc {
+	background-image: url(../img/partnavi.png);
+	background-repeat: repeat-x;
+	border-radius: 4px 4px 0px 0px;
+	height: 25px;
+	border: 1px solid #B5B6B7;
+}
+.partnavi_zoc span {
+	font-size:12px;
+	font-weight:normal;
+	line-height: 25px;
+	padding-left: 10px;
+}
+/*-----分栏元素样式，名称中数字分别代表元素div所占的页面宽度的百分比-----*/
+.oneline {
+	border-bottom: 1px solid #B5B6B7;
+	overflow: hidden;
+}
+.item33, .item66, .item100, .item25, .item50 {
+	height: 25px;
+	line-height: 25px;
+	border-right: 1px solid #b5b6b7;
+	margin-left: -1px;
+	overflow: hidden;
+	float: left;
+	font-size: 0;
+	text-align: left;
+} 
+.linehigh .item33, .linehigh .item66, .linehigh .item100, .linehigh .item25, .linehigh .item50 {
+	height: 40px;
+	line-height: 40px;
+}
+.item25 {
+	width: 240px;
+}
+.item33 {
+	width: 320px;
+}
+.item50 {
+	width: 480px;
+}
+.item66 {
+	width: 640px;
+}
+.item100 {
+	width: 960px;
+}
+.lastitem {
+	border-right: none;
+}
+.itemleft {
+	width: 120px;
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+	padding-left: 10px;
+	font-size: 12px;
+	text-align: left;
+}
+
+.itemLabelRight {
+	width: 120px;
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+	font-size: 12px;
+	text-align: right;
+}
+
+.itemleft100 {
+	width: 100px;
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+	padding-left: 10px;
+	font-size: 12px;
+	text-align: left;
+}
+.itemleft80 {
+	width: 80px;
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+	padding-left: 10px;
+	font-size: 12px;
+	text-align: left;
+}
+.itemleft60 {
+	width: 60px;
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+	padding-left: 10px;
+	font-size: 12px;
+	text-align: left;
+}
+
+/*------左右两栏的布局------*/
+.half_zoc {
+	width: 50%;
+	line-height: 40px;
+	border-left: 1px solid #b5b6b7;
+	margin-left: -1px;
+	overflow: hidden;
+	text-align: center;
+	float: left;
+	padding-bottom: 10px;
+}
+.half_zoc span {
+	padding: 15px;
+	display: block;
+	font-size: 12px;
+	font-weight: normal;
+}
+.halfstring_zoc {
+	text-align: left;
+	width: 95%;
+}
+/*----------表单元素上下位置样式-----------*/
+.rightstring {
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+	margin-right: 10px;
+	height: 25px;
+	line-height:25px;
+	overflow: hidden;
+	vertical-align: top;
+	font-size: 12px;
+}
+.linehigh .rightstring{
+	height: 40px;
+	line-height: 40px;
+}
+.rightradio {
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+	padding-left: 5px;
+	height: 24px;	
+	line-height: 24px;	
+	padding-top: 1px;
+	padding-left: 5px;
+	overflow: hidden;
+	vertical-align: top;
+	font-size: 12px;
+}
+.linehigh .rightradio{
+	height: 32px;
+	line-height: 32px;
+	padding-top: 8px;
+}
+.rightcheckbox {
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+	height: 24px;	
+	line-height: 24px;
+	padding-top: 1px;
+	padding-left: 5px;
+	overflow: hidden;
+	vertical-align: top;
+	font-size: 12px;
+}
+.linehigh .rightcheckbox{
+	height: 32px;
+	line-height: 32px;
+	padding-top: 8px;
+}
+.righttext {
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+	height:24px;
+	line-height:24px;
+	padding-top:1px;
+	overflow: hidden;
+	vertical-align: top;
+	font-size: 12px;
+}
+.linehigh .righttext{
+	height: 30px;
+	line-height: 30px;
+	padding-top: 10px;
+}
+
+.rightselect{
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+	height:24px;
+	line-height:24px;
+	padding-top:1px;
+	overflow: hidden;
+	vertical-align: top;
+	font-size: 12px;
+}
+.linehigh .rightselect{
+	height: 30px;
+	line-height: 30px;
+	padding-top: 10px;
+}
+
+.rightselect_easyui,.righttext_easyui{
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+	height:22px;
+	line-height:22px;
+	padding-top:1px;
+	overflow: hidden;
+	vertical-align: top;
+	font-size: 12px;
+}
+.linehigh .rightselect_easyui,.linehigh .righttext_easyui{
+	height: 36px;
+	line-height: 36px;
+	padding-top: 4px;
+}
+
+/*---------------------行高25--------------------*/
+
+.righttext_easyui .combo,.rightselect_easyui .combo{
+	height:22px;
+	line-height:22px;
+}
+
+.righttext_easyui input[type="text"].combo-text,.rightselect_easyui input[type="text"].combo-text{
+	height:22px;
+	line-height:22px;
+	border:none;
+}
+
+
+.rightselect_easyui .combo-arrow{
+	height:22px;
+	line-height:22px;
+	border:none;
+}
+
+.rightbutt {
+	/*----弹出选框按钮样式---*/
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+	height:24px;
+	line-height:24px;
+	padding-top:1px;
+	overflow: hidden;
+	vertical-align: top;
+	font-size: 12px;
+}
+.linehigh .rightbutt{
+	height: 30px;
+	line-height: 30px;
+	padding-top: 10px;
+}
+/*---表单元素样式--*/
+.oprationbutt {
+	text-align: center;
+	line-height: 25px;
+}
+.linehigh .oprationbutt{
+	line-height: 40px;
+}
+.item25 input[type="text"], .item33 input[type="text"], .item50 input[type="text"], .item66 input[type="text"], .item100 input[type="text"] {
+	border: 1px solid #b5b6b7;
+	height: 20px;
+	width: 160px;
+}
+input[type="text"].short30{
+	border: 1px solid #b5b6b7;
+	height: 20px;
+	width: 60px;
+}
+
+input[type="text"].short50 {
+	border: 1px solid #b5b6b7;
+	height: 20px;
+	width: 100px;
+}
+
+input[type="text"].short80 {
+	border: 1px solid #b5b6b7;
+	height: 20px;
+	width: 130px;
+}
+
+input[type="text"].long80 {
+	border: 1px solid #b5b6b7;
+	height: 20px;
+	width: 240px;
+}
+
+input[type="text"].long90 {
+	border: 1px solid #b5b6b7;
+	height: 20px;
+	width: 340px;
+}
+
+input[type="text"].long100 {
+	border: 1px solid #b5b6b7;
+	height: 20px;
+	width: 800px;
+}
+input[type="text"].long1001 {
+	border: 1px solid #b5b6b7;
+	height: 20px;
+	width: 820px;
+}
+.item25 input[type="radio"], [type="checkbox"], .item33 input[type="radio"], [type="checkbox"], .item50 input[type="radio"], [type="checkbox"], .item66 input[type="radio"], [type="checkbox"], .item100 input[type="radio"], [type="checkbox"] {
+	margin: 5px;
+}
+.item25 input[type="button"], .item33 input[type="button"], .item50 input[type="button"], .item66 input[type="button"], .item100 input[type="button"] {
+	background-image: url(../img/oprbuttonshort.png);
+	background-repeat: no-repeat;
+	width: 83px;
+	height: 23px;
+	border: 0px;
+	color: #363636;
+	font-size: 12px;
+	margin: 1px 5px;
+	cursor: pointer;
+}
+
+.linehigh .item25 input[type="button"], .linehigh .item33 input[type="button"], .linehigh .item50 input[type="button"], .linehigh .item66 input[type="button"], .linehigh .item100 input[type="button"] {
+	background-image: url(../img/oprbutton.png);
+	background-repeat: no-repeat;
+	width: 96px;
+	height: 27px;
+	border: 0px;
+	color: #363636;
+	font-size: 12px;
+	margin: 5px;
+}
+
+
+select.select100_zoc{
+	border: 1px solid #b5b6b7;
+	height: 22px;
+	width:100px;
+}
+
+select.select160_zoc{
+	border: 1px solid #b5b6b7;
+	height: 22px;
+	width:160px;
+}
+select.select240_zoc{
+	border: 1px solid #b5b6b7;
+	height: 22px;
+	width:240px;
+}
+
+select.select340_zoc{
+	border: 1px solid #b5b6b7;
+	height: 22px;
+	width:340px;
+}
+
+.item25 input.bigbutt ,.item33 input.bigbutt ,.item66 input.bigbutt,.item50 input.bigbutt ,.item100 input.bigbutt {
+	background-image: url(../img/bigbutton.png);
+	background-repeat: no-repeat;
+	width: 158px;
+	height: 25px;
+	border: 0px;
+	color: #363636;
+	font-size: 12px;
+	margin: 5px;
+}
+
+textarea.mod1 {
+	width: 95%;
+	height: 100px;
+}
+
+/*--------表格样式-------*/
+table.table1 {
+	margin-top: 5px;
+	width: 100%;
+	border-collapse: collapse;
+}
+.table1 th {
+	height: 33px;
+	background-image: url(../img/tablenavibg.png);
+	background-repeat: repeat-x;
+	/* color: white; */
+	font-weight: normal;
+	padding-left: 10px;
+	height: 33px;
+	border-right: 1px solid #B5B6B7;
+	border-bottom: 1px solid #B5B6B7;
+}
+.table1 td {
+	text-align: center;
+	height: 40px;
+	padding-left: 10px;
+	border-right: 1px solid #B5B6B7;
+	border-bottom: 1px solid #B5B6B7;
+}
+
+table.table2 {
+	margin-top: 5px;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.table2 th {
+	height: 33px;
+	background-image: url(../img/tablenavibg.png);
+	background-repeat: repeat-x;
+	/* color: white; */
+	font-weight: normal;
+	padding-left: 10px;
+	height: 33px;
+	border-right: 1px solid #979a9d;
+	border-bottom: 1px solid #B5B6B7;
+}
+
+.table2 tr td {
+	height: 32px;
+	padding-left: 10px;
+	border-right: 1px solid #979a9d;
+	border-bottom: 1px solid #979a9d;
+}
+
+.table2 tr.bgc1 td {
+	background-color: #b4c2cf;
+}
+
+.table2 tr.bgc2 td {
+	background-color: #d2dae2;
+}
+.myButton{
+    background-image: url("../img/oprbutton.png");
+    background-repeat: no-repeat;
+    border: 0 none;
+    color: #363636;
+    font-size: 12px;
+    height: 27px;
+    margin: 5px;
+    width: 96px;
+}
+
+

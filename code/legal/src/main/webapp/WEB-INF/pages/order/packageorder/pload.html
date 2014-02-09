@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>装箱</title>
+<script type="text/javascript">
+//以下装箱软件 调用 -----
+function registPloadEvent(obj, name, func)
+   {
+       //alert("注册事件");
+   	if (obj.attachEvent) {
+           obj.attachEvent("on"+name, func);
+       } else {
+           obj.addEventListener(name, func, false); 
+       }
+   }        
+
+	function startPload(){	
+		var val = document.getElementById("val").value;
+		//alert("准备调用装箱，参数:"+val);
+		var plugin = document.getElementById('plugin0');
+		registPloadEvent(plugin, 'pstart', function(){});
+		plugin.pstart(val,"2");
+	}
+	//以上装箱软件 调用 -----
+    </script>
+</head>
+    
+<body >
+<object id="plugin0" type="application/x-pload"  >
+    <param name="onload" value="pluginLoaded" />
+</object>
+ 参数：<input type='text' id='val' name='val'>   <br />
+
+<a href="#" onclick="javascript:startPload()">启动</a> <br />
+</body>
+</html>

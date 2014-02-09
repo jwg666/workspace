@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:lang="http://www.springframework.org/schema/lang"
+	xsi:schemaLocation="
+     http://www.springframework.org/schema/beans 
+     http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+     http://www.springframework.org/schema/tx
+     http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+     http://www.springframework.org/schema/aop 
+     http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+     http://www.springframework.org/schema/jee 
+     http://www.springframework.org/schema/jee/spring-jee-3.1.xsd
+     http://www.springframework.org/schema/context
+     http://www.springframework.org/schema/context/spring-context-3.1.xsd
+     http://www.springframework.org/schema/lang
+     http://www.springframework.org/schema/lang/spring-lang-3.1.xsd">
+	
+	<!-- Activiti begin -->
+	<bean id="processEngineConfiguration" class="com.neusoft.activiti.handler.factory.BaseSpringProcessEngineConfiguration">
+		<property name="dataSource" ref="dataSource" />
+		<property name="transactionManager" ref="transactionManager" />
+		<property name="databaseSchemaUpdate" value="true" />
+		<property name="jobExecutorActivate" value="false" />
+		<property name="history" value="full" />
+		<property name="processDefinitionCacheLimit" value="80" />
+		<property name="customPostDeployers">
+		<list>
+       <bean class="org.activiti.engine.impl.rules.RulesDeployer" />
+        </list>
+		</property>
+		<!-- 生成流程图的字体 -->
+		<property name="activityFontName" value="宋体" />
+		<!-- 缓存支持 -->	
+		<property name="labelFontName" value="宋体" />
+
+		<property name="postBpmnParseHandlers">
+			<list>
+				<bean class="com.neusoft.activiti.handler.UserTaskRefactorHandler"/>			
+				<bean class="com.neusoft.activiti.handler.ProcessStartRefactorHandler"/>			
+				<bean class="com.neusoft.activiti.handler.ProcessEndRefactorHandler"/>			
+				<bean class="com.neusoft.activiti.handler.ReceiveTaskParseHandler"/>			
+				<bean class="com.neusoft.activiti.handler.ServiceTaskParseHandler"/>			
+				<!-- <bean class="com.neusoft.activiti.handler.SequenceFlowParseHandler"/>	 -->		
+			</list>
+		</property>
+	 	<property name="taskService" ref="taskService"/>
+	 	<property name="repositoryService" ref="repositoryService"/>
+	 	<property name="runtimeService" ref="runtimeService"/>
+	 	<property name="activityBehaviorFactory" ref="activityBehaviorFactory" ></property>
+	</bean>
+
+	<bean id="processEngine" class="org.activiti.spring.ProcessEngineFactoryBean">
+		<property name="processEngineConfiguration" ref="processEngineConfiguration" />
+	</bean>
+	
+	<bean id="activityBehaviorFactory" class="com.neusoft.activiti.handler.factory.BaseActivityBehaviorFactory" />
+		
+	<!-- 
+	<bean id="repositoryService" factory-bean="processEngine" factory-method="getRepositoryService" />
+	<bean id="runtimeService" factory-bean="processEngine" factory-method="getRuntimeService" /> -->
+	<bean id="formService" factory-bean="processEngine" factory-method="getFormService" />
+	<bean id="identityService" factory-bean="processEngine" factory-method="getIdentityService" />
+	<!-- <bean id="taskService" factory-bean="processEngine" factory-method="getTaskService" /> -->
+	<bean id="historyService" factory-bean="processEngine" factory-method="getHistoryService" />
+	<bean id="managementService" factory-bean="processEngine" factory-method="getManagementService" />
+	<!-- Activiti end -->
+</beans>

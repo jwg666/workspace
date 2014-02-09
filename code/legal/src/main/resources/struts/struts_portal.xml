@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="portal" extends="cms" namespace="/portal">	
+		<!--portal -->
+		<action name="portal" class="portalAction" method="portal">
+			<result>/WEB-INF/portal/portal.jsp</result>
+		</action>
+		<action name="taskCount" class="portalAction" method="taskCount">
+			<result type="json">
+				<param name="root">json</param>
+				<param name="excludeProperties"></param>
+			</result>
+		</action>
+		<action name="ajax" class="portalAction" method="ajax">
+			<result type="json">
+				<param name="root">json.obj</param>
+				<param name="excludeProperties"></param>
+			</result>
+			<result type="json" name="json">
+				<param name="root">json</param>
+				<param name="excludeProperties"></param>
+			</result>
+		</action>
+		<!-- 设置壁纸 -->
+		<action name="wallpaper" class="portalAction" method="wallpaper">
+			<result>/WEB-INF/portal/wallpaper.jsp</result>
+		</action>
+		<!-- 自定义壁纸 -->
+		<action name="wallpaperCustom" class="portalAction" method="wallpaperCustom">
+			<result>/WEB-INF/portal/wallpaper_custom.jsp</result>
+		</action>
+		<!-- 皮肤 -->
+		<action name="skin" class="portalAction" method="skin">
+			<result>/WEB-INF/portal/skin.jsp</result>
+		</action>
+		<!-- 桌面设置 -->
+		<action name="desksetting" class="portalAction" method="desksetting">
+			<result>/WEB-INF/portal/desksetting.jsp</result>
+		</action>
+		<!-- 新建私人应用 -->
+		<action name="papp" class="portalAction" method="papp">
+			<result type="json">
+				<param name="root">json.obj</param>
+				<param name="excludeProperties"></param>
+			</result>
+			<result name="input">/WEB-INF/portal/papp.jsp</result>
+			<result name="realapp">/WEB-INF/portal/app.jsp</result>
+		</action>
+		<!-- 应用市场 -->
+		<action name="appmarket" class="portalAction" method="appmarket">
+			<result>/WEB-INF/portal/appmarket.jsp</result>
+			<result type="json" name="json">
+				<param name="root">data</param>
+				<param name="excludeProperties"></param>
+			</result>
+		</action>
+		<!-- 上传 -->
+		<action name="uploadImg" class="portalAction" method="uploadImg">
+			<result type="json">
+				<param name="root">json</param>
+				<param name="excludeProperties"></param>
+			</result>
+			<interceptor-ref name="fileUpload">
+				<!-- 在org.apache.struts2.interceptor.FileUploadInterceptor找限制大小和类型的参数 
+					限制每个每个上传文件的大小，允许上传的类型，类型在tomcat->conf->web.xml中寻找 -->
+				<param name="maximumSize">1024000</param>
+				<param name="allowedTypes">image/jpeg,image/x-ms-bmp,image/png,image/gif</param>
+			</interceptor-ref>
+			<!-- 默认拦截器defaultStack要显示的调用，当你调用其他的拦截器后，默认拦截器不会再自动调用 -->
+			<interceptor-ref name="crudStack"></interceptor-ref>
+		</action>
+		<!-- portal end -->
+
+
+		<!-- 文件上传相关配置 -->
+
+		<action name="goUploadFile" class="fileUploadAction">
+			<result name="success">/WEB-INF/pages/basic/uploadFile.jsp</result>
+		</action>
+		<!-- 搜索文件信息 -->
+		<action name="searchUploadFile" class="fileUploadAction"
+			method="searchUploadFile"></action>
+
+		<!-- 上传文件 -->
+		<action name="uplaodFile" class="fileUploadAction" method="uplaodFile">
+			<result type="json">
+				<param name="root">json</param>
+				<param name="excludeProperties"></param>
+			</result>
+			<interceptor-ref name="fileUpload">
+				<!-- 在org.apache.struts2.interceptor.FileUploadInterceptor找限制大小和类型的参数 
+					限制每个每个上传文件的大小，允许上传的类型，类型在tomcat->conf->web.xml中寻找 -->
+				<param name="maximumSize">4096000</param>
+				<!-- <param name="allowedTypes">image/jpeg,image/x-ms-bmp,image/png,image/gif</param> -->
+			</interceptor-ref>
+			<!-- 默认拦截器defaultStack要显示的调用，当你调用其他的拦截器后，默认拦截器不会再自动调用 -->
+			<interceptor-ref name="crudStack"></interceptor-ref>
+		</action>
+		<!-- 上传文件 -->
+		<action name="uplaodFileToLocal" class="fileUploadAction"
+			method="uplaodFileToLocal">
+			<result type="json">
+				<param name="root">json</param>
+				<param name="excludeProperties"></param>
+			</result>
+			<interceptor-ref name="fileUpload">
+				<!-- 在org.apache.struts2.interceptor.FileUploadInterceptor找限制大小和类型的参数 
+					限制每个每个上传文件的大小，允许上传的类型，类型在tomcat->conf->web.xml中寻找 -->
+				<param name="maximumSize">4096000</param>
+				<!-- <param name="allowedTypes">image/jpeg,image/x-ms-bmp,image/png,image/gif</param> -->
+			</interceptor-ref>
+			<!-- 默认拦截器defaultStack要显示的调用，当你调用其他的拦截器后，默认拦截器不会再自动调用 -->
+			<interceptor-ref name="crudStack"></interceptor-ref>
+		</action>
+		<!-- 下载图片 -->
+		<action name="downloadImage" class="fileUploadAction" method="downloadImage">
+			<result name="imgstream" type="stream">
+				<param name="contentType">image/png</param>
+				<param name="inputName">fileAsStream</param>
+				<param name="bufferSize">4096</param>
+			</result>
+			<result name="nofile">/error_nofile.jsp</result>
+		</action>
+		<!-- 下载文件 -->
+		<action name="downloadFile" class="fileUploadAction" method="downloadFile">
+			<result name="filestream" type="stream">
+				<param name="inputName">fileAsStream</param>
+				<param name="contentType">${downloadContentType}</param>
+				<param name="contentDisposition">attachment;filename="${downloadFileName}"</param>
+				<param name="bufferSize">4096</param>
+			</result>
+			<result name="nofile">/error_nofile.jsp</result>
+            <result name="filezip" type="httpheader">
+                <param name="status">200</param>
+            </result>
+		</action>
+		<!-- 下载文件 -->
+		<action name="downloadFileByItemCode" class="fileUploadAction"
+			method="downloadFileByItemCode">
+			<result name="filestream" type="stream">
+				<param name="inputName">fileAsStream</param>
+				<param name="contentType">${downloadContentType}</param>
+				<param name="contentDisposition">attachment;filename="${downloadFileName}"</param>
+				<param name="bufferSize">4096</param>
+			</result>
+			<result name="nofile">/error_nofile.jsp</result>
+		</action>
+		<!-- 删除文件 -->
+		<action name="deleteFile" class="fileUploadAction" method="deleteFile">
+			<result type="json">
+				<param name="root">json</param>
+				<param name="excludeProperties"></param>
+			</result>
+		</action>
+
+		<!-- 更新文件信息 -->
+		<action name="updateFile" class="fileUploadAction" method="updateFile">
+			<result type="json">
+				<param name="root">json</param>
+				<param name="excludeProperties"></param>
+			</result>
+			<interceptor-ref name="fileUpload">
+				<!-- 在org.apache.struts2.interceptor.FileUploadInterceptor找限制大小和类型的参数 
+					限制每个每个上传文件的大小，允许上传的类型，类型在tomcat->conf->web.xml中寻找 -->
+				<param name="maximumSize">4096000</param>
+				<!-- <param name="allowedTypes">image/jpeg,image/x-ms-bmp,image/png,image/gif</param> -->
+			</interceptor-ref>
+			<!-- 默认拦截器defaultStack要显示的调用，当你调用其他的拦截器后，默认拦截器不会再自动调用 -->
+			<interceptor-ref name="crudStack"></interceptor-ref>
+		</action>
+		
+
+		<!--datagrid 导出excel 下载文件 -->
+		<action name="export" class="exportDataGridAction" method="export">
+			<result type="httpheader">
+				<param name="status">200</param>
+			</result>
+			<result name="nofile">/error_nofile.jsp</result>
+		</action>
+		
+	</package>
+</struts>

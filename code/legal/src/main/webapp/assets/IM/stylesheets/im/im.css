@@ -1,0 +1,675 @@
+.osCtnExitIco, .osCtnMaxIco, .osCtnRestoreIco, .osTalkGroupIco, .osCtnUserIco, .osCtnSchBtn, .item h2, .item h3, .osConnectionResizeBtn, .osCtnMenuBtnJib, .osTalkStarOn, .osTalkStarOff, .osTalkAccess, .osTalkEnable, .osTalkUnable, .wwTitleTxt, .wwChatTipClose, .wwIco, .wwTipModifyGroup li, .wwSelected, .wwSendIco, .osCtnUserList h4, .wwUploadIco, .wwFlushIco, .osTipModifyGroup li, .wwHisModifyGroup li, .wwHisTitleTxt, .wwHisSelectCurrent, .wwHisHome, .wwHisPrev, .wwHisNext, .wwHisEnd, .wwHisDateIco, .osStsOnline, .osStsAfk, .osStsBusy, .osStsDND, .osStsHiding, .osStsOffline, .osStsClient, .osJib, .wwFormCheck_checked, .wwFormCheck_default, .wwFormRadio_default, .wwFormRadio_checked, .wwImgTip:after,.wwIcoFolder{ background-image:url(images/wwIco.png?v=20130424); background-repeat:no-repeat; }
+
+.wwLine, .osCtnTopBg, .osUserSign:hover, .osCtnUserTabWrap, .osCtnHandle, .osCtnMenuBtn, .wwChatName, .wwTopBtn, .wwToolBar, .wwToolBarBtn:hover, .wwSendBtn, .osCtnBtn:hover, .osCtnAddBtn, .wwTab, .wwTab .selected, .wwToolBar .selected, .wwHisBtn, .wwImgTip{ background-image:url(images/wwLine.png?v=1129); background-repeat:repeat-x; }
+.osCtnStatus, .osJib, .osStsOnline, .osStsClient, .osStsAfk, .osStsBusy, .osStsDND, .osStsHiding, .osStsOffline, .osCtnLetterIco, .osCtnChatIco, .osCtnLetter, .osCtnChat, .osCtnAddGroupIco, .osCtnAddGroup, .osCtnChatIco2, .osJib{ display:inline-block; }
+
+.wwIco02{ background-position:0 -907px; }
+.wwIco03{ background-position:0 -932px; }
+.wwIco04{ background-position:0 -959px; }
+.wwIco05{ background-position:0 -982px; }
+.wwIco09{ background-position:0 -1007px; }
+.wwIco10{ background-position:0 -1032px; }
+.wwIco11{ background-position:0 -1057px; }
+.wwIco12{ background-position:0 -1082px; }
+.wwIco13{ background-position:0 -1107px; }
+.wwIco16{ background-position:0 -1132px; }
+.wwIco17{ background-position:0 -1157px; }
+.wwIco18{ background-position:0 -1182px; }
+.wwIco19{ background-position:0 -1207px; width:13px; height:13px; }
+.wwIco20{ background-position:0 -1229px; width:13px; height:13px; }
+.wwIco21{ background-position:0 -1251px; width:15px; height:12px; }
+.wwIco23{ background-position:0 -1272px; width:17px; height:19px; }
+.wwIco24{ background-position:0 -1300px; width:17px; height:19px; }
+.wwIco25{ background-position:0 -1329px; width:17px; height:19px; }
+.wwIco26{ background-position:0 -1356px; margin:3px 0 0; }
+.wwIco27{ background-position:0 -1536px; }
+.wwIco28{ background-position:0 -1563px; }
+.wwIco29{ background-position:0 -1590px; }
+.wwIco30{ background-position:0 -1617px; }
+.wwSearch{ background-position:1px -342px; }
+/*.wwIco31{background-position:0 -143px;}*/
+.wwIco32{ background-position:0 -166px; }
+
+/*IM*/
+.chatWinMax .wwWrap, .chatWinMax .wwTop, .chatWinMax .osCtnTopBg{ border-radius:0; }
+
+.wwGrey{ color:#a0a0a0;}
+.osConnectionWrap{ position:absolute; border-radius:8px; border:1px solid #bdc2cc; min-width:288px; left:0; right:0; bottom:0; top:0; }
+.wwWrap, .osConnectionWrap{ box-shadow:0 3px 12px rgba(0, 0, 0, .4); }
+.osConnectionResizeBtn{ position:absolute; bottom:4px; right:4px; background-position:0 -97px; width:11px; height:11px; z-index:11; cursor:nw-resize; }
+.osConnectionTop{ color:#4e4e4e; height:82px; padding:0 0 0 14px; position:relative; background-color:#dee2eb; z-index:18; border-radius:6px 6px 0 0 }
+.osCtnTopBg{ position:absolute; top:0; left:0; width:100%; height:19px; background-position:0 -219px; border-radius:8px 8px 0 0; z-index:-1; opacity:.7; filter:alpha(opacity = 70); }
+.oWindow_current .osCtnTopBg{ opacity:1; filter:alpha(opacity = 100); }
+.osCtnTopTxt{ color:#505867; text-shadow:0 1px 0 #fff; padding:9px 0; display:block; }
+.osCtnTopBtn{ position:absolute; top:0; right:0; width:95px; z-index:9; }
+
+.osCtnBtn{ }
+.osCtnBtn:hover{ background-position:0 -485px; }
+.osUserNameBox{ position:absolute; left:39px; right:3px; top:0; }
+.osUsername{ text-shadow:1px 1px 0 #fff; position:absolute; left:0; height:15px; right:0; top:2px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+.osConnectionBox{ position:relative; height:100%; z-index:8; }
+.osCtnStatusWrap{ position:relative }
+.osCtnHeadLoading, .osCtnHead{ width:40px; height:40px; border-radius:5px; cursor:pointer; }
+.osCtnHeadLoading{ position:absolute; z-index:2; opacity:.2; filter:alpha(opacity = 20); background-color:#FFF; top:0; left:0 }
+
+.osCtnStatusWrap dt{ float:left; margin:0 5px 0 0; position:relative; }
+.osCtnStatusWrap dd{ position:relative; height:20px; margin-left:49px; }
+.osCtnStatus, .osUsername, .osStsOnline, .osJib, .osStsAfk, .osStsBusy, .osStsDND, .osStsHiding, .osStsOffline, .osStsClient{ vertical-align:middle; }
+.osCtnStatus{ margin:0 2px; padding:0 2px; position:relative; border-radius:2px; }
+.osCtnStatus:hover{ border-color:#c8c8c8; background-image:-moz-linear-gradient(center top, #fff, #e4e4e4); background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#e4e4e4)); }
+/*.osCtnStatusTxt{color:#98abba;float:right;}*/
+.osStsOnline{ background-position:0 -1384px; }
+.osStsAfk{ background-position:-0 -1409px; }
+.osStsBusy{ background-position:-0 -1432px; }
+.osStsDND{ background-position:-0 -1456px; }
+.osStsHiding{ background-position:-0 -1480px; }
+.osStsOffline{ background-position:-0 -1504px; }
+.osStsClient{ background-position:0 -1963px; }
+.osStsOnline, .osStsAfk, .osStsBusy, .osStsDND, .osStsHiding, .osStsOffline, .osStsClient{ width:13px; height:13px; }
+.osJib{ margin:0 0 0 5px; background-position:0 -368px; width:8px; height:5px; }
+.osUserSignBox{ position:absolute; left:0; right:95px; }
+.osUserSign{ background-color:transparent; border-style:solid; border-width:1px; border-color:transparent; color:#666; cursor:default; padding:0 2px; height:20px; width:100%; }
+.osUserSign, .osCtnAddBtn{ vertical-align:middle; }
+.osUserSignTxt{ text-overflow:ellipsis; overflow:hidden; white-space:nowrap; height:20px; line-height:20px; }
+.osUserSign:hover{ background-position:0 -165px; color:#666; border-color:#c8c8c8; }
+.osUserSign:focus{ background-color:#FFF; opacity:.8; border-color:#c8c8c8; background-image:none; }
+.osCtnStatusList{ top:20px; left:-3px; color:#000; display:none; z-index:19; padding:3px 0; }
+.osCtnStatusList dl{ clear:both; height:19px; cursor:pointer; width:100px; border-radius:4px; margin:1px 2px; }
+.osCtnStatusList dl:hover{ background-color:#c2d0e3; }
+.osCtnStatusList dt{ padding:3px 0 3px 5px; float:left; line-height:0; margin:0; width:16px; }
+.osCtnStatusList dd{ float:left; padding:0 0 0 5px; height:19px; line-height:19px; margin-left:0; }
+.osStsLine{ display:block; height:1px; margin:4px; border-top:1px dotted #ccc; }
+.osCtnBar{ position:relative; color:#fff; padding:0 9px; }
+.osCtnLetterIco, .osCtnChatIco, .osCtnBar s, .osCtnChat, .osCtnLetter{ vertical-align:middle; }
+.osCtnLetterIco{ width:18px; height:13px; background-position:-449px -3px }
+.osCtnAddBtn{ font-size:12px; line-height:12px; [; line-height:18px; ]; line-height:18px  \9; cursor:pointer; padding:0 3px; height:20px; float:right; margin-right:5px; min-width:79px; }
+.osCtnAddBtn, .osCtnMenuBtn{ border:1px solid #78b0e2; background-color:transparent; background-position:0 -266px; border-radius:4px; color:#fff; text-shadow:0 1px 0 #2d84d3; box-shadow:0 1px 0 #b0d1ef inset, 0 1px 0 #fff; white-space:nowrap; }
+.osCtnAddBtn:hover, .osCtnMenuBtn:hover{ background-position:0 -286px; box-shadow:0 1px 0 #fff; color:#fff; }
+.osCtnAddBtn:active, .osCtnMenuBtn:active{ background-position:0 -306px; box-shadow:0 1px 0 #fff, 0 1px 0 #6098cd inset; }
+
+.osCtnChatIco{ width:21px; height:20px; background-position:-470px 0 }
+.osCtnAddGroup{ float:right; }
+.osCtnAddGroupIco{ width:24px; height:20px; background-position:-398px 0; }
+.osCtnSearchWrap{ position:relative; z-index:12; margin:4px 0 0; border-bottom:1px solid #d0d0d0; }
+.osCtnSearchBox{ border:1px solid #c8c8c9; background-color:#eee; height:22px; margin:5px 7px; border-radius:12px; box-shadow:0 1px 0 #e5e5e5 inset; }
+.osCtnSearchIpt{ background-color:transparent; border-width:0; width:91%; height:100%; padding-left:4px; }
+.osCtnSchBtn{ border-width:0; background-color:transparent; background-position:0 -344px; width:15px; height:15px; position:absolute; right:13px; top:6px; cursor:pointer; }
+.osCtnSchCloseBtn{ background-position:2px -548px; }
+.osCtnSearchList{ padding:5px 0 0; position:absolute; z-index:12; top:19px; left:-1px; width:100%; background-color:#f0f0f0; border:1px solid #fff; border-radius:3px; -webkit-box-shadow:0 0 3px rgba(0, 0, 0, .6) inset; box-shadow:0 0 3px rgba(0, 0, 0, .6) inset; }
+.osCtnSearchList li{ padding:4px 5px 4px 9px; cursor:pointer; min-height:31px; _height:31px; clear:both; }
+.osCtnSearchList img{ width:30px; height:30px; vertical-align:top; margin-right:6px; float:left; display:inline; -webkit-box-shadow:0 0 8px #ccc; box-shadow:0 0 8px #ccc; }
+.osCtnSearchList span{ padding:1px 0 2px; display:block; }
+.osCtnSearchList i{ vertical-align:middle; }
+.osCtnSearchListbtm{ height:22px; line-height:22px; padding:0 9px; background-color:#c0c4e4; color:#3074d7; }
+
+.osCtnUserWrap{ /* position:relative;z-index:9; */ background-color:#e8ebf0; left:0; right:0; top:82px; bottom:36px; position:absolute; width:100%; z-index:9; }
+.osCtnUserTabWrap{ background-position:0 -186px; height:29px; border:1px solid #5290be; padding:2px 40px 0; position:relative; margin-right:-2px; left:-1px; }
+.osCtnUserTab{ cursor:pointer; position:relative; height:23px; margin:0 auto; background-color:#326a8e; border:1px solid #326a8e; border-radius:16px; box-shadow:0 0 12px rgba(0, 0, 0, .2) inset, 0 1px 0 #9cbdd7; }
+
+.osTalkGroupIco{ background-position:0 -48px; left:24%; }
+.osCtnUserIco{ background-position:0 -26px; right:22%; }
+.osTalkGroupIco, .osCtnUserIco{ width:16px; height:16px; position:absolute; z-index:90; top:5px; text-indent:-999px; overflow:hidden; color:#333; pointer-events:none; }
+.osCtnUserTab .Selected{ text-indent:-14px; background-image:none; overflow:visible; white-space:nowrap; text-shadow:1px 1px 0 #e5ebf3; color:#4E4E4E; }
+.osCtnHandle{ height:23px; border-radius:15px; background-position:0 -241px; width:60%; position:absolute; top:0; }
+.osCtnHandle:hover, .osCtnHandle.hover{ background-position:0 -241px; opacity:.9; }
+
+.osCtnUserListWrap{ color:#4d4d4d; position:relative; }
+.osCtnUserList{ height:100%; position:absolute; top:0; left:0; right:0; }
+.osCtnBtm{ min-height:36px; background-color:#dee2eb; border-radius:0 0 6px 6px; border-top:1px solid #bdc2cc; -webkit-box-shadow:0 1px 0 #eee inset; box-shadow:0 1px 0 #eee inset; position:absolute; z-index:10; left:0; bottom:0; right:0; }
+.osCtnBtm .msgtip{ margin-left:0; left:14px; top:-36px; }
+.osCtnBtm .msgtipjibbottom:after, .osCtnBtm .msgtipjibbottom:before{ left:22px; }
+.osCtnGroupBtnBox{ height:22px; padding:6px 0 0 50px; position:relative; }
+.osCtnGroupBtnBox .wwTopBtn{ float:left; white-space:nowrap; margin:0 0 0 3px; min-width:62px; }
+.osCtnBtmTk{ padding:11px 0 0 21px; }
+/* .osCtnGroupBtnBox .wwTopBtn:first-child{width:82px;} */
+
+.osTipModifyGroup{ padding:3px 0; top:auto; bottom:34px; left:59px; line-height:18px; overflow-y:auto; overflow-x:hidden; max-height:220px; white-space:nowrap; }
+.osTipModifyGroup li{ color:#738595; max-width:110px; padding:0 20px 0 30px; margin:6px 0; background-position:10px -1132px; cursor:pointer; overflow:hidden; max-height:190px; text-overflow:ellipsis; }
+.osTipModifyGroup .wwSelectAll{ background-position:8px -1156px; }
+.osTipModifyGroup .wwSelectPart{ background-position:9px -527px; }
+.osTipModifyGroup .wwSendBtn{ margin:4px 0 3px 9px; }
+
+.osCtnMenuBtn{ position:absolute; top:7px; left:2px; padding:1px 7px 1px 6px; }
+.osCtnMenuBtnJib{ background-position:0 -83px; width:5px; height:7px; display:inline-block; margin:0 4px 0 0; }
+.osCtnMenuShow .osCtnMenuBtnJib{ background-position:0 -69px; }
+
+.osCtnGroupListMenu{ background-color:#dee2eb; display:none; position:absolute; bottom:37px; left:-154px; border:1px solid #bdc2cc; border-radius:8px 6px 6px 8px; padding:5px 0; -webkit-box-shadow:-2px 0 3px #d1d1d1 inset; box-shadow:-2px 0 3px #d1d1d1 inset, 0 0 1px #fff inset, 0 0 12px rgba(0, 0, 0, .2); height:315px; width:152px; overflow:hidden; }
+.osCtnGroupListMenu .osJib{ border-radius:7px; position:absolute; z-index:2; width:13px; height:12px; cursor:pointer; top:8px; right:1px; background-position:3px -364px; }
+.osCtnGroupListMenu .osJib:hover{ background-color:#ccc; }
+.osCtnGroupListScrollWrap{ position:relative; overflow:auto; margin:3px 2px 0 0; height:317px; }
+.osCtnGroupListScroll{ position:absolute; top:0; left:0; right:0; height:auto; }
+.osCtnGroupListMenu .wwIco{ margin:6px 0 0 7px; }
+.osCtnGroupListMenu li{ z-index:0; height:26px; border-width:0 0 1px; border-style:solid; border-color:transparent transparent #cbcbcd; padding:1px 0 1px 1px; position:relative; overflow:hidden; text-overflow:ellipsis; }
+.osCtnGroupListMenu a{ color:#4d4d4d; line-height:26px; display:block; padding:0 0 0 10px; white-space:nowrap; height:100%; overflow:hidden; text-overflow:ellipsis; padding-right:9px; }
+.osCtnGroupListMenu li:hover{ background-color:#c1dbee; text-shadow:1px 1px 0 #fff; }
+.osCtnGroupListMenu .osCtnAddBtnBox, .osCtnGroupListMenu .osCtnAddBtnBox:hover{ background-color:transparent; }
+.osCtnGroupListMenu .osCtnInputLi{ border-width:0; }
+.osCtnGroupListMenu .li_hover{ -webkit-animation:groupmenuheightlight 0 ease-out 0, groupmenuheightlight1 1.4s ease-in-out 0; -moz-animation:groupmenuheightlight 1.4s ease-in-out 0.1s; animation:groupmenuheightlight 1.4s ease-in-out 0.1s; }
+.osCtnGroupListMenu .li_hover{ position:absolute; z-index:-1; left:0; right:0; top:0; bottom:0; opacity:0; }
+.osCtnGroupListMenu .selected a, .osCtnGroupListMenu .li_hover{ background-color:#c1dbee; }
+.osCtnAddNewInput{ width:85px; height:20px; border:1px solid #c6c6c6; margin:2px 0 0 7px; }
+.osCtnGroupListScroll .osCtnAddBtn{ margin:2px 0 0 7px; float:none; }
+.osCtnGroupListScroll .osCtnAddBtn .wwIco{ margin:3px 0 0; }
+.osCtnGroupListScroll .osCtnMenuBtn{ top:3px; left:96px; padding:1px 5px 1px 4px; }
+.osCtnGroupListUl a{ padding:0 0 0 7px; }
+
+.addr_alllink, .addr_business{ position:relative; z-index:8; }
+.addr_alllink_h4_hide >h4{ display:none; }
+.addr_alllink_h4_hide >.item{ padding:0; }
+.osCtnUserList h4{ padding:0 9px 3px; cursor:pointer; font-weight:normal; }
+
+.osCtnChatIco2{ background-position:-425px 0; width:19px; height:17px; }
+.item{ padding:0 0 0 10px; }
+.item>ul{ }
+.item h2, .osCtnUserList h4{ font-size:12px; padding:0 0 0 20px; background-position:10px -378px; }
+.item h2.open, .osCtnUserList h4.open{ background-position:10px -359px; }
+.item ul{ display:none; padding:0 0 0 11px; }
+.template_my_link_halt{ padding:2px 0 2px 10px; cursor:default; min-height:20px; _height:20px; clear:both; line-height:20px; margin:0 0 2px; position:relative; }
+
+.osItemSts{ position:absolute; top:12px; margin-left:9px; }
+
+.item .osHead{ width:20px; height:20px; vertical-align:top; }
+.template_my_link_halt i{ font-style:normal; }
+.wwHead, .osHead{ border-radius:4px; }
+.osHeadBox{ border-radius:5px; }
+.item .img_wrapper{ margin-right:6px; }
+.item span{ display:block; overflow:hidden; white-space:nowrap; }
+.osSign{ font-style:normal; color:#999; padding:0 0 0 10px; }
+.item i{ font-style:normal; }
+.item .itemchild{ clear:both; min-height:18px; _height:18px; background-image:none; padding:0; background-color:transparent; }
+.item .itemchild li{ }
+.item .itemchild:hover{ background-image:none; background-color:transparent }
+.item h3{ background-position:9px -378px; padding:0 0 0 20px; }
+.item h3.open{ background-position:9px -359px; }
+.item h3, .item h2, .osCtnUserList h4{ cursor:pointer; white-space:nowrap; height:22px; line-height:22px; font-size:12px; position:relative; }
+.item h3, .item h2{ font-weight:normal; }
+
+.osCtnLetter, .osCtnChat, .osCtnStatus, .osCtnAddGroup{ padding:2px 2px 1px; border:1px solid transparent; cursor:pointer; }
+.osCtnLetter:hover, .osCtnChat:hover, .osCtnAddGroup:hover{ border:1px solid rgba(255, 255, 255, .1); background-image:url(../images/os/osverline.png); background-position:0 -320px; }
+
+.osCtnTalkListWrap{ }
+.osCtnTabContent{ position:absolute; top:69px; left:0; right:0; bottom:0; overflow-y:auto; overflow-x:hidden; }
+.osCtnTalkList{ height:100%; position:absolute; left:0; right:0; top:0; }
+.osCtnTip{ position:absolute; left:50%; top:50%; text-align:left; line-height:22px; margin:-33px 0 0 -40px; }
+.osTalkItem{ border-bottom:1px solid #d6d8da; padding:6px 9px 6px 7px; clear:both; height:35px; cursor:default; }
+.osTalkItem .wwChatTipClose{ position:absolute; right:-18px; top:-2px; display:none; }
+.osTalkItem.imClose:hover .wwChatTipClose{ display:block; }
+.osTalkItem .wwChatTipClose:hover{ background-color:transparent; opacity:.6; }
+.osTalkItem>.fl{ width:16px; }
+.osTalkItem .osStsIco{ position:absolute; right:-3px; bottom:-5px; }
+
+.wwHisGroupListUl a:hover, .osTalkItem:hover, .wwTabAccessItem:hover, .item h2:hover, .item h3:hover, .osCtnUserList h4:hover, .wwChatMsgBox:hover, .my_link_hover, .wwChatMsgBoxWrap:hover{ background-color:#d5e6f4; }
+.wwChatMsgBoxWrap:after{ content:""; clear:both; display:block; }
+.item .selected, .wwTipSearchListScroll .selected, .wwHisTalkList .selected, .wwChatMsgBoxSelected, .wwChatMsgBoxSelected:hover, .wwHisGroupListUl .selected, .selected .my_link_hover{ background-color:#b4c6dd; }
+
+.template_my_link_halt:hover>.my_link_hover, .item h3:hover .my_link_hover, .selected .my_link_hover{ display:block; }
+.my_link_hover{ position:absolute; height:24px; display:none; top:0; right:0; left:-9999px; z-index:-1; }
+/*.wwChatMsgReplyBox:hover .wwJibb{color:#d3e6f3;}*/
+.osTalkItemDd{ overflow:hidden; padding:0 8px; }
+.osTalkItem input{ display:block; width:13px; height:13px; }
+.osTalkItemTitle{ padding:0 0 5px; height:14px; position:relative; }
+/* .osTalkItemTitle .fr{*width:74px;} */
+.osTalkItemTitleTxt{ white-space:nowrap; overflow:hidden; position:absolute; text-overflow:ellipsis; left:0; top:0; right:81px; }
+.osTalkStarOn, .osTalkStarOff, .osTalkAccess{ width:17px; height:17px; float:right; display:inline; margin:0 4px 0 0; cursor:pointer; }
+.osTalkStarOff{ background-position:0 -306px; }
+.osTalkStarOn{ background-position:0 -286px; }
+.osTalkAccess{ background-position:3px -325px; }
+.osTalkNum{ color:#fff; background-color:#8d9bae; font-style:normal; padding:1px 5px; border-radius:8px; margin:0 4px 0 0; float:right; }
+.osTalkLast{ height:14px; color:#4d4d4d; white-space:nowrap; overflow:hidden; position:relative; }
+.osTalkLast>.fl{ position:absolute; left:0; top:0; right:139px; overflow:hidden; text-overflow:ellipsis; }
+.osTalkLastTime{ position:absolute; top:0; right:0; padding-left:4px; }
+.osTalkEnable{ background-position:0 -268px; display:none; }
+.osTalkItem:hover .osTalkEnable{ display:block; }
+.osTalkUnable{ background-position:0 -249px; display:block; }
+.osTalkEnable, .osTalkUnable{ width:13px; height:12px; margin:7px 0 0 2px; float:left; }
+.osTalkItem .osTalkHeadBox{ position:relative; font-size:0; width:35px; height:35px; background:url(images/defaultHead_35_35.png); border-radius:6px; }
+.osTalkHead{ width:35px; height:35px; border-radius:5px; }
+.osTalkHeadBox .osTalkEnable, .osTalkHeadBox .osTalkUnable{ position:absolute; left:-1px; bottom:-3px; z-index:5; }
+
+.wwWrap{ position:absolute; top:0; left:0; bottom:0; right:0; z-index:99; border:1px solid #bebebe; border-radius:8px; background-color:#e8ebf0; color:#333; /* box-shadow:0 0 1px #fff inset; */ }
+.wwTop{ height:59px; border-bottom:1px solid #c5c4c4; background-color:#DEE2EB; border-radius:8px 8px 0 0; position:relative; z-index:2; box-shadow:0 1px 5px #ccc; }
+.wwTop .wwTopBtn{ float:left; }
+.wwTitle{ position:relative; }
+.wwTitle .wwChatNameBox{ float:left; position:relative; }
+.wwChatNameBox .wwChatName{ width:100%; position:absolute; left:0; top:0; }
+.wwTitle, .wwTipTitle{ padding:9px 0 0 12px; }
+.wwTipTitle{ border-bottom:1px solid #ccc; padding-bottom:4px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; padding-right:22px; }
+.wwChatName, .wwTitleTxt, .wwSendBtn{ text-shadow:0 1px 0 #fff; }
+.wwTitleTxt{ background-position:0 -1709px; padding:1px 0 3px 24px; margin:3px 0 0; float:left; }
+.wwChatName{ font-weight:bold; background-color:transparent; border-style:solid; border-width:1px; border-color:transparent; cursor:default; padding:0 2px; height:20px; background-position:0 22px; line-height:22px; }
+.wwChatName:hover{ background-position:0 -165px; color:#666; border-color:#c8c8c8; }
+.wwChatName:focus{ background-color:#FFF; color:#000; opacity:.8; border-color:#c8c8c8; font-style:normal; text-shadow:none; }
+.wwChatTxt{ display:inline-block; min-height:12px; min-width:100px; visibility:hidden; padding-right:10px; }
+.wwTopBtnBox{ color:#ccc; height:18px; padding:4px 0 0 7px; position:relative; z-index:99; clear:both; }
+.wwTopBtnBox .pContact{ position:relative; top:3px; }
+.wwTopBtn{ border:1px solid transparent; color:#677c8d; background-position:0 120px; padding:1px 5px; height:20px; line-height:20px; display:inline-block; margin:0 2px; }
+.wwTopBtn:hover{color:#677c8d; }
+
+.wwTopBtn .wwIco{ margin:2px 5px 0 1px; }
+.wwLeft{ z-index:1;border-right:1px solid #dcdcdc; padding:0 1px; position:absolute; top:60px; left:0; bottom:0; }
+
+/*
+.wwLeft ,.wwInputBoxScroll ,.wwWhisperSign ,.wwHisTalkContentWrap{-webkit-user-select:auto;-moz-user-select:-moz-all;}
+*/
+.wwLeft>.msgtip{ margin:0; top:1px; left:0; right:0; display:none; }
+
+.wwLeftMsgtip-show .msgtip{ display:block; }
+.wwLeftMsgtip-show .wwChatListBox{ top:24px; }
+
+.wwChatListBox{ position:absolute; top:0; left:0; right:0; overflow-y:auto; overflow-x:hidden; }
+.wwChatListBoxScroll{ position:absolute; height:auto; top:0; left:0; right:0; }
+/*new */
+.wwChatListBox .wwChatMsgBox, .wwHisTalkContent .wwChatMsgBox{ position:relative; margin:11px 13px 11px 52px; border:1px solid #a9c9dd; border-radius:4px; clear:both; float:left; box-shadow:0 2px 3px rgba(0, 0, 0, .1), 0 1px 0 rgba(255, 255, 255, .6) inset; background-color:#d1e5f2; background-image:-moz-linear-gradient(top, #d7e8f3 0%, #cfe3f1 50%, #d6e7f3 100%); background-image:-o-linear-gradient(top, #d7e8f3 0%, #cfe3f1 50%, #d6e7f3 100%); background-image:-webkit-linear-gradient(top, #d7e8f3 0%, #cfe3f1 50%, #d6e7f3 100%); background-image:linear-gradient(to bottom, #d7e8f3 0%, #cfe3f1 50%, #d6e7f3 100%); }
+.wwChatMsgBody{ line-height:18px; padding:4px 12px; color:#999; position:relative; }
+.wwPartition{ position:relative; text-align:center; color:#bebebe; margin:5px; clear:both; }
+.wwPartitionL{ position:absolute; z-index:-1; top:7px; left:0; right:0; height:1px; background-color:#bebebe; }
+.wwPartitionTxt{ padding:4px; background-color:#e8ebf0; }
+
+.wwHisTalkContentWrap .selected .wwChatMsgBody{ background-color:#f0f0f0; }
+.wwChatMsgDiv{ clear:both; color:#333; word-break:break-all; word-wrap:break-word }
+.wwChatMsgDiv .img{ max-width:100%; }
+.wwChatMsgDiv br{ line-height:0; height:0 }
+.wwChatReplyBtn{ margin:0 4px; padding:3px 4px; }
+
+/*.wwChatReplyBtn:hover{background-color:#abc8db;}*/
+.wwChatReply{ visibility:hidden; margin:0 -19px 0 0; }
+.wwReplyBtn{ cursor:pointer; border:1px solid #c7c7c7; width:26px; height:9px; border-radius:4px; background-color:#ececec; background-image:-moz-linear-gradient(#f9f9f9, #ececec); background-image:-webkit-linear-gradient(#f9f9f9, #ececec); }
+.wwReplyBtn .wwIco{ height:5px; background-position:0 -1912px; margin:3px 0 0 6px; }
+.wwChatMsgBody:hover .wwChatReply, .wwChatHead:hover .wwChatReply, .wwChatMsgBox:hover .wwChatHead .wwChatReply, .wwChatMsgBoxWrap:hover .wwChatReply{ visibility:visible; }
+.wwChatMsgReplyBox{ position:relative; margin:6px 4px 0 12px; background-color:#dbdbdb; border:1px solid #d2d2d2; border-radius:4px; }
+.wwChatListBox .wwChatMsgReplyBox, .wwHisTalkContent .wwChatMsgReplyBox{ position:relative; margin:6px 8px; background-color:#e2edf0; border:1px solid #accfe5; }
+.wwChatMsgReplyBox .wwChatMsgBox{ border:none; margin:0; float:none; background-image:none; background-color:transparent }
+
+.wwChatTip{ clear:both; margin:5px 9px; padding:8px 9px; border-radius:4px; color:#502d18; background-color:#fbf3c4; border:1px solid #eacbb1; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+.wwChatTipUl{ color:#268abf; padding-top:5px; }
+.wwChatTipLi{ padding:3px 0 0; position:relative; height:16px; white-space:nowrap; overflow:hidden; }
+.wwChatTipSpan{ position:absolute; top:3px; left:0; overflow:hidden; text-overflow:ellipsis; right:111px; }
+.wwChatTipActive{ padding:0 3px; }
+.wwChatTipErr{ padding:4px 5px; margin:5px 8px 5px 7px; background-image:-webkit-linear-gradient(270deg, #ffe9a6, #ffe592); background-image:-moz-linear-gradient(270deg, #ffe9a6, #ffe592); background-image:-o-linear-gradient(270deg, #ffe9a6, #ffe592); background-image:linear-gradient(180deg, #ffe9a6, #ffe592); box-shadow:0 1px 2px rgba(0, 0, 0, .1), 0 1px 0 rgba(255, 255, 255, .8) inset; border-color:#eacbb1; border-radius:0; }
+.wwChatTipTxt{ margin-right:20px; }
+.wwChatTipClose{ background-position:0 -549px; width:11px; height:11px; float:right; margin:4px 8px 0 0; }
+.wwChatTipClose:hover{ background-color:#b1d2ec; }
+
+.wwChatMsgBoxJib{ position:absolute; top:5px; right:-14px; background-position:5px -1869px; }
+.wwChatHead{ position:absolute; left:-44px; height:50px; }
+.wwChatHead .wwChatReply{ margin:5px 0 0; white-space:nowrap; float:none; text-align:center; }
+.wwChatHead .wwChatReplyBtn{ margin:0; padding:0; }
+.wwChatHeadImg{ width:30px; height:30px; border-radius:3px; box-shadow:0 1px 2px rgba(0, 0, 0, .3); display:block; }
+
+.wwChatListBox .wwChatSelf, .wwHisTalkContent .wwChatSelf{ background-color:#dff0c8; background-image:-moz-linear-gradient(top, #e1f2cd 0%, #dcefc3 50%, #e1f1cc 100%); background-image:-o-linear-gradient(top, #e1f2cd 0%, #dcefc3 50%, #e1f1cc 100%); background-image:-webkit-linear-gradient(top, #e1f2cd 0%, #dcefc3 50%, #e1f1cc 100%); background-image:linear-gradient(to bottom, #e1f2cd 0%, #dcefc3 50%, #e1f1cc 100%); border-color:#b0d67d; display:inline-block; text-align:left; float:right; margin:11px 52px 11px 13px; }
+.wwChatListBox .wwChatSelf .wwChatMsgReplyBox, .wwHisTalkContent .wwChatSelf .wwChatMsgReplyBox{ background-color:#ebf2e5; border-color:#aeca82; }
+.wwChatListBox .wwChatSelf .wwChatMsgBox, .wwHisTalkContent .wwChatSelf .wwChatMsgBox{ background-color:#ebf2e5; border-color:#aeca82; background-image:none; }
+.wwChatListBox .wwChatSelf .wwChatSelfname, .wwHisTalkContent .wwChatSelf .wwChatSelfname{ color:#2d5000; cursor:default }
+.wwChatListBox .wwChatSelf .wwChatHead, .wwHisTalkContent .wwChatSelf .wwChatHead{ left:auto; right:-46px; }
+.wwChatListBox .wwChatSelf .wwChatMsgBoxJib, .wwHisTalkContent .wwChatSelf .wwChatMsgBoxJib{ left:-16px; right:auto; background-position:0 -1887px; }
+
+.wwInBoxWrap{ position:absolute; left:0; right:0; bottom:0; top:auto; height:154px; }
+
+.wwToolBar{ height:26px; background-position:0 -137px; padding:0 6px; overflow:hidden; }
+.wwIco{ width:16px; height:16px; float:left; }
+.wwIco1{ background-position:0 -567px; }
+.wwIco2{ background-position:0 -590px; }
+.wwIco3{ background-position:0 -613px; }
+.wwIco4{ background-position:0 -637px; }
+.wwIco4_a{ background-position:0 -469px }
+.wwIco5{ background-position:0 -659px; }
+.wwIco6{ background-position:0 -447px; padding-right:4px; }
+.wwToolBarBtn{ float:left; padding:2px 4px; margin:3px 3px; line-height:16px; height:16px; border:1px solid transparent; color:#677C8D; }
+.wwToolBarBtn:hover{ color:#677C8D; }
+.wwToolBarBtn:hover, .wwToolBar .selected, .wwTopBtn:hover{ border:1px solid #abb2b8; background-position:0 -61px; }
+.wwToolBarBtn:active, .wwTopBtn:active{ border:1px solid #c8c8c8; background-position:0 -421px; }
+.wwDropBtn{ padding:2px 10px 2px 4px; position:relative;}
+.wwToolBarIcoJib{ width:8px;position:absolute; top:0; right:0; bottom:0; border-left:1px solid transparent; background-position:0 33px; }
+.wwDropBtn:hover .wwToolBarIcoJib{ border-left-color:#abb2b8 }
+.wwToolBarIcoJib .wwIco{ width:8px; height:4px; background-position:2px -683px; position:absolute;top:50%;left:50%; margin:-2px 0 0 -4px;}
+.wwToolBarBtn:active .wwToolBarIcoJib, .wwTopBtn:active .wwToolBarIcoJib, .wwToolBarIcoJib:hover{ background-position:0 -61px; border-left-color:#c8c8c8 }
+.wwToolBarBtn:hover .wwToolBarIcoJib:active,.wwTopBtn:hover .wwToolBarIcoJib:active, .wwToolBarIcoJib:active{ background-position:0 -351px; border-left-color:#c8c8c8 }
+
+.wwInputBox{ position:absolute; left:5px; right:0; bottom:36px; top:29px; }
+.wwInputBoxScroll{ overflow-y:auto; overflow-x:hidden; position:absolute; top:0; left:0; right:0; bottom:0; outline:none; resize:none; background-color:transparent; word-break:break-all; word-wrap:break-word; cursor:text; }
+.wwToolFontStyle{ height:25px; position:absolute; left:0; right:0; top:-26px; border-top:1px solid #ccd7e6; background-color:#dae4f0; }
+.wwFontStyleSelect{ float:left; margin:2px 4px 0 3px; }
+.wwToolFontStyle .wwIco{ width:20px; height:20px; }
+.wwFontStyleBtn{ float:left; margin:2px 0 0 8px; border-radius:2px; }
+.wwFontStyleBtn:hover{ background-color:#b0d0e7; }
+.wwToolFontStyle .selected, .wwFontStyleBtn:active{ box-shadow:1px 1px 2px rgba(0, 0, 0, .3) inset; background-color:#b0d0e7; border:none; background-image:none; padding:0; }
+.wwReplyTo_show .wwReplyTo{ display:block; }
+.wwReplyTo_show .wwInputBoxScroll{ top:22px; }
+.wwReplyTo{ color:#999; padding:2px 0; border:1px solid #ccc; border-radius:3px; display:none; margin-bottom:2px; text-indent:3px; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; max-width:99%; position:relative; }
+.wwInputContent{ line-height:16px; word-break:break-all; word-wrap:break-word; resize:none; }
+.wwLeftBottom{ height:36px; border-radius:0 0 0 8px; }
+.wwLeftBottom .wwSendBtn{ position:relative; top:7px; right:9px; }
+.wwSendKeyBtn{ width:83px; text-align:right; }
+.wwSendIco{ width:5px; height:3px; background-position:0 -715px; display:inline-block; margin:8px 6px 0 0; }
+.wwSendIcoShow{ background-position:-5px -715px; }
+.wwSendTxt{ float:right; line-height:18px; }
+.wwSendIco, .wwSendTxt{ vertical-align:top; }
+.wwSendBtn{ color:#34658b; border:1px solid #c8c8c8; border-radius:2px; height:22px; line-height:22px; text-align:center; padding:0 14px; background-position:0 -327px; box-shadow:0 0 1px #fff inset; }
+.wwSendBtn:hover{ background-position:0 -375px; -webkit-box-shadow:0 0 2px #b1c2cb inset; box-shadow:0 0 2px #b1c2cb inset; border-color:#778e9f; }
+.wwSendBtn:active{ background-position:0 -351px; border-color:#bdbdbd; -webkit-box-shadow:0 0 1px #fff inset; box-shadow:0 0 1px #fff inset; }
+.wwLeftBottom .wwTopBtn{ position:relative; top:10px; right:10px; }
+
+.wwRight{ position:absolute; top:60px; right:0; bottom:0; z-index:3; }
+/*.wwTabBox{margin-bottom:9px;}*/
+.wwTab{ height:25px; line-height:26px; background-position:0 -83px; overflow:hidden; }
+.wwTab li{ position:relative; cursor:pointer; padding:0 20px 0 10px; height:26px; float:left; border-right:1px solid #cdcdcd; }
+.wwTab .selected{ background-position:0 -110px; display:block; }
+.wwTab .wwChatTipClose{ float:none; position:absolute; right:-3px; top:4px; }
+.wwTabContent{ padding:0 1px; position:absolute; top:29px; bottom:0; left:0; right:0; }
+.wwTabUserBox .eMail{ margin-right:12px; }
+.wwTabCtnTop{ padding:0 5px 0 3px; overflow:hidden;}
+.wwTabCtnTop .wwLink{ margin:2px 8px 0 2px;position: relative;}
+.wwTabContent .wwTipTranScrollWrap{bottom:35px;}
+.wwTabContent .oPager{ position:absolute; bottom:5px; text-align:center; left:0; right:0; }
+.wwTabUserBox .wwAddUserBtn{ margin:0 0 0 2px; border:none; background-color:transparent; font-weight:bold; cursor:pointer; width:81px; }
+.wwAddUserBtn .wwIco32{ margin:0 5px 0 0; }
+.wwIco32{ -webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; transition:all .2s ease-in-out; -moz-transform-origin:center center; }
+.wwAddUserBtn:hover .wwIco32{ -webkit-transform:scale(.8); -moz-transform:scale(.8); transform:scale(.8); }
+.wwTabUserListScrollWrap{ position:absolute; top:22px; left:0; right:0; bottom:10px; overflow:auto; border-top:1px solid #DDDEE1; }
+.wwTabUserList{ position:absolute; top:0; left:0; right:0; height:auto; }
+.wwTabUserList li{ line-height:20px; height:20px; padding:2px 10px 2px 12px; margin:4px 0; position:relative; }
+.wwTabUserList li:hover, .wwTabUserList .li_hover{ background-color:#c1dbee; }
+
+.wwHead{ width:20px; height:20px; -webkit-box-shadow:0 2px 1px #d9d9d9; box-shadow:0 2px 1px #d9d9d9; }
+.wwTabUserList .osHead{ width:20px; height:20px; }
+.wwUserName{ display:block; overflow:hidden; white-space:nowrap; cursor:default; margin-right:40px; text-overflow:ellipsis; }
+.wwUserIcoBox{ padding:1px; margin-top:2px; display:none; }
+.wwTabUserList li:hover .wwUserIcoBox, .wwTabUserList .li_hover .wwUserIcoBox{ display:block; }
+.wwUserIco{ background-position:0 -486px; }
+
+.wwTabAccess{ }
+.wwUploadIco, .wwFlushIco{ width:16px; height:16px; float:left; display:inline; margin:2px 3px 0 0; }
+.wwUploadIco{ background-position:0 -725px; }
+.wwFlushIco{ background-position:0 -745px; margin-left:9px;}
+.wwTabAccessListScrollWrap{ border-top:1px solid #d0d0d0; position:absolute; top:22px; left:0; right:0; bottom:10px; overflow:auto; }
+.wwTabAccessList{ position:absolute; left:0; right:0; height:auto; bottom:9px; top:0px; }
+.wwTabAccessItem{ border-bottom:1px solid #d0d0d0; padding:7px 12px 5px 10px; min-height:36px; position:relative; }
+.wwTabAccessItemNone{ position:absolute; width:80px; text-align:center; left:50%; margin-left:-40px; top:45%; }
+.wwAccessImg{ float:left; width:30px; height:30px; }
+.wwAccessIco{ width:25px; }
+.wwTabAccessItem dd{ line-height:18px; overflow:hidden; }
+.wwAccessBrief{ color:#999; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.wwAccBtn{ position:absolute; top:50%; margin-top:-17px; right:5px; }
+.wwAccessName{ margin-right:85px; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; }
+.wwAccessUploading .wwAccessName{ margin-right:0px; position:relative;}
+.wwAccessUploading .wwAccessName>.wwGrey{ position:absolute;right:0;}
+.wwAccessUploading .wwAccessName>.fl{ margin-right:61px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; float:none; display:block;}
+.wwAccessUploading .wwAccBtn{ margin-top:-10px;}
+.wwProgress{ margin:3px 40px 4px 0;position:relative; border:1px solid #b6bfcb;height:8px;border-radius:.55em;  background-image: -webkit-linear-gradient(-90deg, #f9f9f9,#e9e9e9);
+background-image: -moz-linear-gradient(-90deg, #f9f9f9,#e9e9e9);
+background-image: -o-linear-gradient(-90deg, #f9f9f9,#e9e9e9);
+background-image: linear-gradient(180deg, #f9f9f9,#e9e9e9);}
+.wwProgressInner{max-width:100%; background-color:#57a7f1; position:absolute;left:0;top:1px; bottom:1px;border-radius:.44em;}
+
+.wwTipModifyGroup{ padding:3px 0; top:27px; left:95px; line-height:18px; }
+.wwTipModifyGroup li{ padding:0 0 0 28px; margin:6px 0; background-position:10px -507px; cursor:pointer; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:110px; }
+.wwTipModifyGroup .wwSelectAll{ background-position:9px -688px; }
+.wwTipModifyGroup .wwSelectPart{ background-position:9px -527px; }
+.wwTipBox .wwTipModifyGroupAdd{ background-position:9px -115px; }
+.wwTipBox .wwTipModifyGroupBtn{ background-image:none; }
+.wwTipBox .wwSendBtn{ margin:0; *width:60px; }
+.wwTipAddInput{ border:1px solid #ccc; width:80px; margin:0 8px 7px 9px; }
+.wwTipModifyGroupScrollWrap{ overflow:auto; position:relative; width:120px; max-height:190px; min-height:120px }
+.wwTipModifyGroupScroll{ position:absolute; top:0; left:0; right:0; height:auto; }
+
+.wwTipSendKey{ padding:3px 2px; top:-42px; right:69px; }
+.wwTipSendKey li{ height:20px; line-height:20px; padding:0 5px 0 20px; border-radius:4px; cursor:pointer; }
+.wwTipSendKey li:hover{ background-color:#c2d0e3; }
+.wwTipSendKey .wwSelected{ background-position:6px -426px; }
+
+.wwTipBox{ background-color:#fff; background-color:#eee; border:1px solid #d2d2d2; border-radius:2px; position:absolute; color:#333; display:none; box-shadow:1px 1px 1px #9ea2a5; }
+.wwTipBox .wwJibTop, .wwTipBox .wwJibBottom{ font-size:14px; }
+.wwTipBox .wwJibb{ color:#fff; color:rgba(255, 255, 255, .9); }
+.wwHisTop{ height:29px; overflow:hidden; border-bottom:1px solid #d0d0d0; position:relative; border-radius:15px 15px 0 0; -webkit-box-shadow:0 -1px 0 #fff inset; box-shadow:0 -1px 0 #e9ecf1 inset; background-color:#DEE2EB; z-index:1; }
+
+.wwHisTitleTxt{ padding:4px 0 3px 24px; background-position:0 -446px; }
+.wwHisGroupList{ background-color:#d9dfe7; border-right:1px solid #99a5ab; border-radius:0 0 0 8px; box-shadow:-1px 0 0 #edf0f4 inset; position:absolute; top:30px; right:auto; bottom:0; left:0; width:167px; }
+.wwHisGroupList .osCtnUserTabWrap{ padding:6px 9px 0; background-image:none; border:none; box-shadow:none; }
+.wwHisGroupList .osCtnUserIco{ right:25px; }
+.wwHisGroupList .osTalkGroupIco{ left:37px; }
+.wwHisGroupList .osTalkGroupIco, .wwHisGroupList .osCtnUserIco{ text-indent:-14px; white-space:nowrap; color:#90bad6; background-image:none; overflow:visible; cursor:default; }
+.wwHisGroupList .osCtnHandle{ width:82px; }
+.wwHisGroupList .Selected{ color:#4E4E4E; }
+.wwHisGroupListUl{ position:absolute; top:0; left:0; right:0; }
+.wwHisGroupListUl li{ margin:3px 0 0; }
+.wwHisGroupListUl a{ height:26px; display:block; line-height:26px; padding-left:28px; color:#4d4d4d; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+/*.wwHisGroupListUl a:hover{background-color:#c2d0e3;}*/
+.wwHisContent{ overflow:hidden; position:absolute; top:30px; left:168px; right:0; bottom:0; }
+.wwHisSch{ height:38px; background-color:#dee2eb; box-shadow:0 0 1px #e9ecf1 inset; border-bottom:1px solid #bdc2cc; }
+.wwHisSch .wwHisSchTxt{ float:left; display:inline; margin:12px 2px 0 17px; color:#667b8d; }
+.wwHisSch /*,.wwHisPager*/ { background-color:#dee2eb; box-shadow:0 0 1px #eaedf2 inset; }
+.wwHisSelectBox{ cursor:pointer; padding-right:6px; height:20px; border:1px solid transparent; border-radius:12px; float:left; display:inline; text-indent:7px; position:relative; z-index:12; margin:8px 3px 0 0; }
+.wwHisSelectBox:hover{ background-color:#e0e6eb; background-image:-moz-linear-gradient(0% 0% 270deg, #f5f7f9, #e0e6eb); background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#f5f7f9), to(#e0e6eb)); border-color:#9d9d9d; box-shadow:0 1px 1px rgba(0, 0, 0, .13); }
+.wwHisSelectCurrent{ line-height:20px; display:block; background-position:right -766px; color:#626262; white-space:nowrap; padding-right:14px; }
+.wwHisSelectDrop{ position:absolute; left:-1px; top:20px; width:90px; display:none; }
+.wwHisSelectDrop li{ height:24px; border-radius:5px; line-height:24px; white-space:nowrap; overflow:hidden; margin:1px; cursor:pointer; }
+.wwHisSelectDrop li:hover{ background-color:#c2d0e3; }
+.wwHisIpt{ border:1px solid #d5d5d5; height:20px; width:140px; margin:8px 4px 0 0; float:left; border-radius:11px; padding:0 0 0 10px; }
+.wwHisBtn:hover{ background-color:#f1f1f1; }
+.wwHisBtn, .wwHisBtnDisabled, .wwHisBtnDisabled:hover{ color:#6e90bd; border:1px solid #a9a8a8; height:22px; padding:0 11px; border-radius:12px; float:left; margin:7px 0 0 6px; -webkit-box-shadow:0 1px 1px rgba(0, 0, 0, .13); box-shadow:0 1px 1px rgba(0, 0, 0, .13); background-position:0 -398px; background-color:transparent; cursor:pointer; width:66px; line-height:20px  \9; }
+.wwHisBtnDisabled, .wwHisBtnDisabled:hover{ opacity:.5; filter:alpha(opacity = 50); cursor:default; }
+.wwHisBtn .osCtnSchBtn{ position:static; float:left; margin:2px 5px 0 0; display:none; }
+.wwHisTalkLiskBox{ border-right:1px solid #d0d0d0; width:289px; position:absolute; top:39px; left:0; bottom:0; }
+.wwHisTalkBtnBox{ height:28px; position:relative; z-index:9; background-color:#e0e4ec; background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#d7d9de), to(#e0e4ec), step-color(#e0e4ec, 90%)); background-image:-moz-linear-gradient(0% 0% 270deg, #d7d9de, #e0e4ec, #e0e4ec 90%); padding:7px 0 0 19px; }
+.wwHisTalkBtnBox .wwHisModifyGroup{ top:29px; left:20px; bottom:auto; }
+.wwHisTalkBtnBox .wwHisSelectBox{ margin:-1px 5px 0 0; color:#667b8d; }
+.wwHisTalkBtnBox .wwHisDelPart{ line-height:20px; text-indent:12px; margin:-1px 15px 0 -6px; color:#76889d; text-shadow:0 1px 0 #fff; border:1px solid #a7b9c9; background:#dfe4eb -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f2f6f9), to(#dfe4eb)); background:#dfe4eb -moz-linear-gradient(0% 0% 270deg, #f2f6f9, #dfe4eb); }
+.wwHisTalkBtnBox .wwHisDelPart:hover{ box-shadow:none; }
+.wwHisTalkBtnBox .wwHisSelectCurrent{ color:#76889D; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAFCAMAAACgjTZZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURXaMn/X19f46WSIAAAACdFJOU/8A5bcwSgAAAAlwSFlzAAAOwwAADsMBx2+oZAAAABxJREFUGFdjYIADRiiLkYERwgRSjGAmiARiCAEAAV4AFRCNcLMAAAAASUVORK5CYIIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==) no-repeat right 8px; }
+.wwHisTalkBtnBox .wwHisSchTxt{ margin:3px 0 0 5px; }
+.wwHisModifyGroup{ padding:3px 0; bottom:34px; left:59px; line-height:18px; }
+.wwHisModifyGroup li{ padding:0 20px 0 28px; margin:6px 0; background-position:10px -507px; cursor:pointer; }
+.wwHisModifyGroup .wwSelectAll{ background-position:9px -688px; }
+.wwHisModifyGroup .wwSelectPart{ background-position:9px -527px; }
+.wwHisTalkListScrollWrap{ overflow-y:auto; overflow-x:hidden; position:absolute; top:35px; left:0; right:0; bottom:34px; }
+
+.wwHisTalkList{ position:absolute; top:0; right:0; left:0; }
+/*.wwHisTalkList .selected{background-color:#f3ecdd;}*/
+.wwHisTalkList .osTalkItemTitleTxt{ width:130px; text-overflow:ellipsis; }
+.wwHisTalkContentWrap{ position:absolute; top:39px; right:0; bottom:0; left:290px; overflow:hidden; }
+.wwHisTalkContentScrollWrap{ position:absolute; overflow:auto; top:35px; left:0; right:0; bottom:34px; }
+.wwHisTalkContent{ position:absolute; top:0; left:0; right:0; height:auto; bottom:0; overflow:auto; }
+.wwHisPager{ height:34px; background-color:#dee2eb; margin:0 1px; text-align:center; position:absolute; right:0; bottom:0; left:0; border-top:1px solid #bdc2cc; box-shadow:0 1px 0 #f7f8fa inset; border-radius:0 0 5px; }
+.wwHisPager .oPager{ margin:7px 0 0; }
+.wwPagerBtn{ width:20px; height:20px; border-radius:3px; border-style:solid; border-width:1px; border-color:transparent; }
+.wwPagerBtn:hover, .wwHisDatePaker:focus, .wwHisDatePaker:hover{ border-color:#c8c8c8; background-image:-moz-linear-gradient(0% 0% 270deg, #fff, #e4e4e4); background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#e4e4e4)); -webkit-box-shadow:0 0 1px #fff inset; box-shadow:0 0 1px #fff inset; }
+.wwHisHome, .wwHisPrev, .wwHisNext, .wwHisEnd{ display:block; height:20px; }
+.wwHisHome{ background-position:4px -804px; }
+.wwHisPrev{ background-position:4px -820px; }
+.wwHisNext{ background-position:4px -839px; }
+.wwHisEnd{ background-position:4px -856px; }
+.wwPagerTxt, .wwPagerIpt, .wwPagerBtn{ vertical-align:middle; margin-top:6px; display:inline-block; }
+.wwPagerTxt, .wwPagerIpt{ margin-top:4px; }
+.wwPagerIpt{ border:1px solid #d5d5d5; width:24px; height:20px; text-align:center; }
+.wwHisPagerOther{ }
+.wwHisPagerLeft{ padding:6px 0 0 7px; position:relative; }
+.wwHisPagerRight{ padding:0 20px 0 0; }
+.wwHisDatePaker{ width:72px; height:22px; text-align:right; border-radius:3px; background-color:transparent; padding:1px 5px 1px 24px; border:1px solid transparent; cursor:pointer; }
+.wwHisDateIco{ position:absolute; top:10px; left:12px; height:16px; width:16px; background-position:0 -882px; }
+.wwHisLeftScrollWrap{ position:absolute; top:39px; left:0; right:0; bottom:0; overflow-y:auto; overflow-x:hidden; }
+
+.wwHisSchRtn, .wwHisSchRlt{ margin:5px 9px 0 0; float:left; }
+.wwHisSchRlt{ position:absolute; left:65px; right:5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.wwYellow{ color:#698dba; background-color:#fcff00; }
+.wwHisFwb{ font-weight:bold; padding:3px 0 3px 12px; }
+
+.wwTabNote{ }
+.wwNoteTxtBox{ position:absolute; top:0; right:4px; bottom:48px; left:4px; line-height:18px; }
+.wwNoteTxtDiv{ padding:1px; position:absolute; top:0; bottom:0; left:0; right:0; cursor:text; word-break:break-all; word-wrap:break-word; overflow:auto; }
+.wwNoteTextarea{ font-size:12px; border:1px solid transparent; line-height:18px; border-radius:2px; background-color:transparent; cursor:default; display:table-cell; position:absolute; top:0; right:0; left:0; bottom:0; resize:none; width:100%; height:100%; padding:0; }
+.wwNoteTextarea:hover{ border-color:#bbb; box-shadow:0 0 1px #fff; cursor:text; }
+.wwNoteTextarea:focus{ border-color:#bbb; background-color:#fff; box-shadow:0 0 1px #fff; cursor:text; }
+.wwNoteBtm{ border-top:2px solid #dee0e3; position:absolute; left:0; right:0; bottom:10px; padding:5px 10px 0 5px; }
+.wwWhisperHeadBox{ padding:8px 0 0; }
+.wwWhisperHeadBox .wwTopBtnBox{ clear:none; }
+.wwWhisperHeader{ float:left; margin:0 0 0 6px; position:relative; width:45px; height:45px; border-radius:7px; background:url(images/defaultHead_45_45.png); }
+.wwWhisperHeader >b, .wwWhisperHeader .wwIcoWriting{ position:absolute; right:0; bottom:0; }
+.wwWhisperHeader .wwIcoWriting{ width:16px; height:13px; background-image:url(images/wwIcoWriting.gif); }
+.wwWhisperHeaderImg{ width:45px; height:45px; border-radius:5px; }
+.wwWhisperNameBox{ margin:0 120px 0 62px; position:relative; }
+.wwWhisperName{ padding:0 8px 10px 0; }
+.wwWhisperName, .wwWhisperSign{ text-shadow:0 1px 0 #fff; white-space:nowrap; }
+.wwWhisperSign{ position:absolute; top:0; right:0; }
+.wwIptHolder{ float:left; padding:0 2px; position:relative; max-width:100%; }
+.wwWhsSi_s{ border:none; background-color:transparent; width:100%; position:absolute; left:0; top:0; cursor:text; }
+.wwIptCopy{ visibility:hidden; display:inline-block; }
+.wwWhisperHeadBox .wwTopBtnBox{ padding:9px 0 0; margin-left:54px; }
+.wwWhisperUserInfo{ width:137px; padding:12px 0 0; margin:0 auto; text-align:center; }
+.wwWhisperUserImgBox{ width:128px; height:128px; border:1px solid #d7dbe1; padding:3px; box-shadow:0 0 1px #fff inset; margin-bottom:9px; background:#e0e4ec url(images/defaultHead_128_128.png) center center no-repeat; }
+.wwWhisperUserImg{ width:128px; height:128px; }
+.wwWhisperUserInfo .wwMediaIngBox{ margin:9px; }
+.wwWhisperUserInfo .wwIco37{ margin:0 0 0 14px; }
+
+.wwLongBtn{ border-radius:11px; height:22px; padding:0 11px; cursor:pointer; }
+.pAccept:hover, .pRefuse:hover, .pLBtn:hover{ border-color:#477498; color:#477498; }
+.wwLongBtn:hover{ border-color:#477498; color:#477498; }
+.wwLongBtn:active{ border-color:#99acbe; color:#527290; }
+
+.wwWhisperUserInfo_P{ padding:0 0 7px; color:#527290; }
+.wwWhisperUserInfo_P .pLBtn{ margin-right:12px; }
+.wwWhisperUserInfo_P>.oVam:first-child{ max-width:113px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-size:12px; }
+.wwWhisperCardBtn{ cursor:pointer; float:left; margin:5px 0 0; }
+.wwChatTransCount{ position:absolute; bottom:4px; right:2px; }
+
+.wwTipBody{ position:absolute; top:0; right:0; bottom:0; left:0; background-color:#efefee; }
+.wwTipBtm{ position:absolute; right:0; bottom:0; left:0; height:28px; text-align:center; line-height:28px; background-color:#cdd7e4; padding:5px 8px 5px 12px; border-top:1px solid #bec8d4; }
+.wwTipBtm>.fl{ margin-right:18px; }
+
+.wwTipTranScrollWrap{ position:absolute; top:0; right:0; bottom:0; left:0; overflow-y:auto; overflow-x:hidden; }
+.wwTipNoteListScroll{ white-space:nowrap; margin:10px; }
+.wwTipNoteListScroll .wwChatMsgDiv{ text-overflow:ellipsis; overflow:hidden; cursor:pointer; white-space:nowrap; word-break:keep-all; word-wrap:normal; }
+.wwTipNoteListScroll .wwChatMsgBox:hover{ background-color:transparent; }
+.wwTipNoteListScroll >.wwChatMsgBox{ padding-bottom:13px; }
+.wwTipNoteListScroll .wwChatMsgBody{ padding-left:8px; }
+.wwTipNoteListScroll .wwChatMsgReplyBox{ margin-left:8px; cursor:pointer; }
+/*.wwTipNoteListScroll .wwChatMsgReplyBox:hover{background-color:#c1dbee;}*/
+/*.wwTipNoteListScroll .wwChatMsgReplyBox:hover .wwJibb{color:#c1dbee;}*/
+
+.wwTipNoteDetail, .wwTipNoteListScrollWrap{ position:absolute; top:10px; right:10px; bottom:50px; left:10px; /*overflow:hidden;*/ }
+.wwTipNoteListScrollWrap{ left:0; top:0; right:0; overflow-x:hidden; overflow-y:auto; }
+.wwTipNoteNull{ position:absolute; top:50%; left:50%; margin:-20px 0 0 -65px; height:40px; line-height:40px; padding-left:49px; background:url(../ctrl/images/graySmile.png) no-repeat; }
+.wwTipTranScroll .wwChatMsgBox{ border-bottom:1px solid #d6d8da; margin:0; }
+
+.wwTabUserPartition{ line-height:24px; text-indent:12px; color:#595959; border-bottom:1px solid #dddee1; background-color:#dcdedf; background-image:-moz-linear-gradient(center top, #d9dadb, #e6eaee); background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#d9dadb), to(#e6eaee)); }
+
+/* 三角 */
+.wwJibTop, .wwJibBottom{ font-size:11px; position:absolute; left:22px; -moz-user-select:-moz-none; -webkit-user-select:none; }
+.wwJibBottom{ bottom:9px; }
+.wwJibTop{ top:-11px; }
+.wwJiba, .wwJibb{ height:19px; width:17px; overflow:hidden; position:absolute; font-family:Simsun; line-height:21px; font-style:normal; text-shadow:none; }
+.wwJiba{ color:#d2d2d2; }
+.wwJibb{ color:#DBDBDB; }
+.wwJibTop .wwJibb{ top:1px; }
+.wwJibBottom .wwJibb{ top:-1px; }
+
+.wwOffLineMask{ background-color:#fff; opacity:0.65; filter:alpha(opacity = 65); position:absolute; top:0; right:0; left:0; bottom:0; border-radius:5px; }
+.osTalkHeadBox .wwOffLineMask{ border-radius:5px; z-index:0; }
+.osHeadBox{ float:left; margin-right:6px; position:relative; width:20px; height:20px; background:url(images/defaultHead.png) center center no-repeat; }
+.osHeadBox .wwOffLineMask{ border-radius:4px; }
+.im_user_setting{ }
+.wwSetting{ position:absolute; top:0; left:0; right:0; bottom:0; background-color:#f1f1f0; overflow-x:hidden; overflow-y:auto; }
+.wwSetting .mdBtnbox{ position:absolute; left:0; right:0; bottom:0; }
+.wwFormBox{ padding:22px 0 0 24px; color:#585757; }
+.wwSettingTitle{ font-weight:normal; margin:4px 20px 13px 0; border-bottom:1px dashed #cad5e2; }
+.wwSettingTitleTxt{ display:inline-block; margin-bottom:-7px; background-color:#F1F1F0; }
+.wwSetting .dropBtn{ vertical-align:middle; text-indent:0; display:inline-block; line-height:24px; float:left; margin:-4px 0 0 3px; }
+.wwSetting .dropmenu{ left:115px; top:22px; z-index:9; }
+.wwSetting .dropmenu li{ text-indent:0; line-height:1; height:15px; padding:3px 12px 3px 9px; margin:0; }
+
+.wwForm >li{ cursor:default; height:16px; margin-bottom:11px; padding-left:27px; position:relative; }
+.wwFormCheck_checked{ background-position:0 -1157px; }
+.wwFormCheck_default{ background-position:0 -1132px; }
+.wwFormRadio_checked{ background-position:0 -1647px; }
+.wwFormRadio_default{ background-position:0 -1677px; }
+.wwFormCheck_checked, .wwFormCheck_default, .wwFormRadio_checked, .wwFormRadio_default{ line-height:16px; }
+.wwFormNumIpt{ width:42px; border:1px solid #ccc; height:18px; }
+.wwFormHasMenu{ z-index:8; }
+.wwFormIptTxt{ border:1px solid #ccc; padding:5px 5px 5px 27px; width:270px; margin:-4px 5px 0 0;}
+.wwFormIptTxt.wwIcoFolder{background-position:5px -1981px;}
+
+.wwActive{ position:absolute; top:0; left:20px; right:20px; bottom:0px; padding:20px 0 0; }
+.wwActiveSch{ position:relative; margin-bottom:10px; border:1px solid #677d95; -webkit-box-shadow:0 1px 0 #fff; box-shadow:0 1px 0 #fff; border-radius:12px; padding:5px 0 5px 0; color:#c9c9c9; background-color:#fff; background-position:3px -186px; }
+.wwActiveSch_iptbox{ margin:0 27px 0 5px; }
+.wwActiveSch_ipt{ width:100%; border:none; background-color:transparent; }
+.wwActiveSch_ipt:focus{ color:#444; }
+.wwActiveSch_btn{ position:absolute; right:4px; top:2px; background-position:0px -190px; width:20px; height:20px; cursor:pointer; }
+.wwActiveCardList{ margin:0 0 0 -14px; overflow:hidden; }
+.wwActiveCardList .pCard{ margin:9px 0 9px 13px; width:200px; display:inline-block; }
+.wwActiveCardList .pCardBtn{ padding:4px 9px 0 0; }
+.wwActiveCardList .msgtip{ margin:0; top:-40px; left:64px; padding:4px 9px; width:127px; }
+.wwActiveCardList .msgtip .fl{ padding:5px 5px 0 0; }
+.wwActiveCardList .pBindBtn{ margin:0; float:left; }
+.wwActiveCardList .msgtipjibbottom:before, .wwActiveCardList .msgtipjibbottom:after{ left:107px; }
+.wwTipSearchListScrollWrap{ position:absolute; top:6px; left:0; right:0; bottom:2px; overflow-y:auto; overflow-x:hidden; }
+.wwTipSearchListScrollWrap .osTalkItem, .wwTipSearchListScrollWrap .template_my_link_halt{ cursor:pointer; }
+.wwTipSearchListScrollWrap input{ visibility:hidden; }
+
+.wwTipSearchListScroll{ position:absolute; top:0; right:0; left:0; height:auto; }
+.chatWin{ }
+.chatWin .osConnectionResizeBtn{ display:none; }
+.wwBtnDisabled, .wwDisabled{ opacity:0.6; cursor:default; filter:alpha(opacity = 60); }
+.wwBtnDisabled:hover{ background-image:none; border-color:transparent; box-shadow:none; }
+.wwDragSizeBar, .wwDragSizeBarClone{ position:absolute; z-index:12; left:0; top:-4px; right:0; height:7px; cursor:s-resize; }
+.wwDragSizeBarClone{ border-top:1px dashed #000; }
+
+/*语音视频*/
+.wwBigVideo .wwMediaLogoWrap{ width:390px; height:350px; }
+.wwBigVideo .wwMediaTxt{ color:#fff; margin:228px 0 0 15px; }
+.wwBigVideo .wwMediaIngBox{ margin:5px 12px 0; }
+.wwBigVideo .wwIco37{ margin:0 5px 0 0; }
+.wwBigVideo .wwButton{ margin:5px 9px 0; }
+.wwMediaLogoWrap{ margin:0 auto; position:relative; width:140px; height:140px; border:1px solid #d4d7df; background-color:#eaf1f5; background-image:-moz-linear-gradient(0% 0% 270deg, #eaf1f5, #dde7ed, #eaf1f5 30%); background-image:-webkit-linear-gradient(#eaf1f5, #dde7ed 30%, #eaf1f5); }
+.wwMediaLogoBox{ position:absolute; top:3px; left:3px; bottom:3px; right:3px; background-color:#61b9fd; background-image:-moz-linear-gradient(0% 0% 270deg, #61b9fd, #acdcfb); background-image:-webkit-linear-gradient(#61b9fd, #acdcfb); }
+.wwMediaLogo{ width:82px; height:107px; position:absolute; top:50%; left:50%; margin:-53px 0 0 -41px; }
+
+.wwAudio .wwMediaLogo{ background-image:url(images/wwIco_03.png); }
+.wwVideo .wwMediaLogo{ background-image:url(images/wwIco_02.png); }
+
+.wwMediaTxt{ color:#5a5a5a; text-align:center; padding:15px 0 0; }
+.wwButton{ border-radius:4px; padding:5px 10px; }
+.wwButton .wwIco{ margin:2px 2px 0 0; }
+.wwButton:hover{ background-color:#dfe7ed; background-image:-moz-linear-gradient(0% 0% 270deg, #fff, #dfe7ed); background-image:-webkit-linear-gradient(#fff, #dfe7ed); }
+
+.wwLongBtn, .wwButton{ background-color:#f3f3f4; background-image:-moz-linear-gradient(0% 0% 270deg, #f3f3f4, #d6dbdf); background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#f3f3f4), to(#d6dbdf)); border:1px solid #99acbe; color:#527290; box-shadow:0 1px 0 rgba(255, 255, 255, .9) inset; }
+.wwLongBtn:active, .wwButton:active{ background-color:#d5dade; background-image:-moz-linear-gradient(0% 0% 270deg, #d5dade, #f2f2f3); background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#d5dade), to(#f2f2f3)); box-shadow:0 1px 0 #c4d0db inset; }
+
+.wwAudio .wwMediaIngBox{ margin:9px auto 0; width:88px; }
+.wwVideo .wwMediaIngBox{ float:left; }
+.wwMediaIngBox{ text-align:center; padding:6px 9px; background-color:#e5e9f1; border:1px solid #c5cdd7; box-shadow:0 0 3px #fff inset; border-radius:4px }
+.wwMediaIng{ }
+.wwMediaIng .wwIco{ width:18px; height:12px; }
+
+.wwIco33{ background-position:0 -1748px; }
+.wwIco34{ background-position:0 -1769px; }
+.wwIco35{ background-position:0 -1790px; }
+.wwIco36{ background-position:0 -1811px; }
+.wwIco37{ background-position:0 -1832px; }
+.wwIco33, .wwIco34, .wwIco35, .wwIco36{ width:18px; height:13px; }
+
+.wwImgLoading{ border:1px solid #d9d7d7; padding:3px; background:#fff url(images/imgLoading.png) center center no-repeat; width:86px; height:62px; box-shadow:0 1px 2px rgba(0, 0, 0, .2); cursor:pointer }
+
+.wwImgTip{ text-shadow:1px 0 0 #fff; color:#c0cdd8; border-radius:4px; position:absolute; top:0; left:0; z-index:999; border:1px solid #8f9dab; width:64px; padding:0 0 0 2px; text-align:center; height:23px; line-height:23px; box-shadow:0 1px 0 #fff inset, 0 1px 2px rgba(0, 0, 0, .2); background-position:0 -447px; }
+.wwImgTip:after{ content:""; position:absolute; left:50%; margin-left:-5px; bottom:-7px; width:10px; height:7px; background-position:0 -1857px; }
+.wwImgAddFace{ background-position:1px -1919px; }
+.wwImgSave{ background-position:2px -1939px; }
+.wwImgAddFace, .wwImgSave{ width:21px; height:19px; margin:2px 4px 0; cursor:pointer; position:relative; }
+.wwImgAddFace:hover:after, .wwImgSave:hover:after{ content:""; z-index:-1; position:absolute; top:0; left:0; width:100%; height:100%; background-color:#b1d9ff; box-shadow:0 1px 0 rgba(0, 0, 0, .2) inset; }
+
+.wwTipBtn{ background-image:url(images/imIco_tipBtn.png); margin:4px 0 0 7px; font-weight:bold; width:62px; height:34px; text-align:center; line-height:24px; color:#fff; text-shadow:0 -1px 0 #678baa; }
+.wwTipBtn:hover{ background-position:0 -35px; color:#fff; }
+.wwTipBtn:active{ background-position:0 -70px; }
+
+.wwLaTipJib.msgtipjibbottom:after, .wwLaTipJib.msgtipjibbottom:before{ margin-left:36px; }
+.wwBlackTipJib.msgtipjibbottom:after, .wwBlackTipJib.msgtipjibbottom:before{ margin-left:-2px; left:auto; }
+
+/*for safari*/
+.wwFlashUploadBox,.wwFlashUploadBox:hover{color:#667B8D;}
+.wwFlashUploadBox li{position:relative;}
+
+/* for ie */
+.startMenu, .taskMsgListBG{ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr = #99000000, endColorstr = #99000000); }
+.startMenuChildBG, .topNavbg, .osAppItemBg{ filter:alpha(opacity:50); }
+.osStartMenubg{ display:none; }
+* + html .osStartMenubg{ display:block; position:absolute; top:0; left:0; height:100%; width:100%; background-color:#000; border:1px solid #ccc; filter:alpha(opacity:50); }
+.osLock:hover, .osMsg:hover, .osContectBook:hover{ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr = #99000000, endColorstr = #99000000); }
+.osOffline{ filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale = 1) }

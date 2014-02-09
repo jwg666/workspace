@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="云计算,办公软件,OA系统,云存储,企业即时通讯,企业管理软件,云服务,云办公" />
+    <meta name="description" content="杭州格畅科技有限公司分为广州研发中心和杭州运营中心。公司拥有云计算，云存储等大量的核心自主技术。旗下产品有：Gleasy云服务平台和Gleasy一站式云办公平台。Gleasy依靠自身基础服务以及系统的整合能力，将分散在网络的各类孤立在线应用(个人应用、企业管理软件、定制应用）有机地联系起来，让用户只需一个帐号就能轻松使用各种在线应用，并且应用之间完成无缝对接，功能和体验上成倍增加。" />
+    <title>Gleasy404错误-云计算、云存储和办公软件等解决方案</title>
+    <link rel="stylesheet" type="text/css" href="style/website.css" media="all" />
+    <link href="style/images/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+</head>
+
+<body>
+	<div class="wrp">
+	    <div class="header">
+    <div class="subWrp">
+        <a href="/home.shtml" class="logo"></a>
+        <ul class="nav">
+            <li>
+                <a href="/home.shtml" class="navLink">首&nbsp;&nbsp;页</a>
+            </li>
+            <li>
+                <a href="product.shtml" class="navLink">产&nbsp;&nbsp;品</a>
+            </li>
+            <li>
+                <a href="about.shtml" class="navLink">公&nbsp;&nbsp;司</a>
+            </li>
+            <li>
+                <a href="news-list.shtml" class="navLink">新&nbsp;&nbsp;闻</a>
+            </li>
+            <li>
+                <a href="client.shtml" class="navLink" style="display:none;">客户端</a>
+            </li>
+            <li>
+                <a href="#" class="navLink linkDisable" style="display:none;">开放平台</a>
+            </li>
+            <li>
+                <a href="hr.shtml" class="navLink">招&nbsp;&nbsp;聘</a>
+            </li>
+            <li>
+                <a href="channel.shtml" class="navLink">渠道商</a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+<div class="sd"></div>
+        <div class="content">
+            <div class="n404">
+                <h2 class="n404_h2">很抱歉，您要访问的页面不存在！</h2>
+                <div>1.请检查您访问的网址是否正确</div>
+                <div>2.登陆gleasy云服务平台（<a href="http://www.gleasy.com">www.gleasy.com</a>）</div>
+                <div>3.登陆gleasy一站式云办公平台（<a href="http://qiye.gleasy.com">qiye.gleasy.com</a>）</div>
+                <div>4.登录gleasy公司主页（<a href="http://www.gleasy.com/home.shtml">www.gleasy.com/home.shtml</a>）</div>
+            </div>
+        </div>
+		<div class="copy">
+    <div class="copyBg"></div>
+    <span>©2012 <strong><a target="_blank" href="http://www.gleasy.com">gleasy.com</a></strong> 浙ICP备12028668号 增值电信业务经营许可证浙B2-20130019</span>
+    <a title="gleasy官方微博" href="http://weibo.com/gleasy" class="weibo"></a>
+    <a href="mailto:info@gleasy.net" class="mail"></a>
+    <a href="http://bbs.gleasy.com" class="bbs"></a>
+    <a href="http://rdc.gleasy.com/" class="ged"></a>
+</div>
+    </div>
+    <script type="text/javascript">
+        var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F9a83cfeacf19c31287d330a359a65746' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</body>
+</html>

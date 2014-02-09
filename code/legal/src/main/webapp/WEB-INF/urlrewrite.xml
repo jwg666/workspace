@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 3.1//EN" "http://tuckey.org/res/dtds/urlrewrite3.1.dtd">
+
+<urlrewrite>
+	<rule>
+		<note>首页</note>
+		<from>^/?(index.html)?$</from>
+		<to>layout/index.act</to>
+	</rule>
+	<rule>
+		<note>后台登录</note>
+		<from>^/mlogin?$</from>
+		<to>layout/mlogin.act</to>
+	</rule>
+	<rule>
+		<note>后台首页</note>
+		<from>^/manage/?(index.html)?$</from>
+		<to>/manage/index.act</to>
+	</rule>
+</urlrewrite>

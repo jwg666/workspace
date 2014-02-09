@@ -1,0 +1,675 @@
+.im_filter .osCtnExitIco,.im_filter  .osCtnMaxIco,.im_filter  .osCtnRestoreIco,.im_filter  .osTalkGroupIco,.im_filter  .osCtnUserIco,.im_filter  .osCtnSchBtn,.im_filter  .item h2,.im_filter  .item h3,.im_filter  .osConnectionResizeBtn,.im_filter  .osCtnMenuBtnJib,.im_filter  .osTalkStarOn,.im_filter  .osTalkStarOff,.im_filter  .osTalkAccess,.im_filter  .osTalkEnable,.im_filter  .osTalkUnable,.im_filter  .wwTitleTxt,.im_filter  .wwChatTipClose,.im_filter  .wwIco,.im_filter  .wwTipModifyGroup li,.im_filter  .wwSelected,.im_filter  .wwSendIco,.im_filter  .osCtnUserList h4,.im_filter  .wwUploadIco,.im_filter  .wwFlushIco,.im_filter  .osTipModifyGroup li,.im_filter  .wwHisModifyGroup li,.im_filter  .wwHisTitleTxt,.im_filter  .wwHisSelectCurrent,.im_filter  .wwHisHome,.im_filter  .wwHisPrev,.im_filter  .wwHisNext,.im_filter  .wwHisEnd,.im_filter  .wwHisDateIco,.im_filter  .osStsOnline,.im_filter  .osStsAfk,.im_filter  .osStsBusy,.im_filter  .osStsDND,.im_filter  .osStsHiding,.im_filter  .osStsOffline,.im_filter  .osStsClient,.im_filter  .osJib,.im_filter  .wwFormCheck_checked,.im_filter  .wwFormCheck_default,.im_filter  .wwFormRadio_default,.im_filter  .wwFormRadio_checked,.im_filter  .wwImgTip:after,.im_filter .wwIcoFolder{ background-image:url(images/wwIco.png?v=20130424); background-repeat:no-repeat; }
+
+.im_filter .wwLine,.im_filter  .osCtnTopBg,.im_filter  .osUserSign:hover,.im_filter  .osCtnUserTabWrap,.im_filter  .osCtnHandle,.im_filter  .osCtnMenuBtn,.im_filter  .wwChatName,.im_filter  .wwTopBtn,.im_filter  .wwToolBar,.im_filter  .wwToolBarBtn:hover,.im_filter  .wwSendBtn,.im_filter  .osCtnBtn:hover,.im_filter  .osCtnAddBtn,.im_filter  .wwTab,.im_filter  .wwTab .selected,.im_filter  .wwToolBar .selected,.im_filter  .wwHisBtn,.im_filter  .wwImgTip{ background-image:url(images/wwLine.png?v=1129); background-repeat:repeat-x; }
+.im_filter .osCtnStatus,.im_filter  .osJib,.im_filter  .osStsOnline,.im_filter  .osStsClient,.im_filter  .osStsAfk,.im_filter  .osStsBusy,.im_filter  .osStsDND,.im_filter  .osStsHiding,.im_filter  .osStsOffline,.im_filter  .osCtnLetterIco,.im_filter  .osCtnChatIco,.im_filter  .osCtnLetter,.im_filter  .osCtnChat,.im_filter  .osCtnAddGroupIco,.im_filter  .osCtnAddGroup,.im_filter  .osCtnChatIco2,.im_filter  .osJib{ display:inline-block; }
+
+.im_filter .wwIco02{ background-position:0 -907px; }
+.im_filter .wwIco03{ background-position:0 -932px; }
+.im_filter .wwIco04{ background-position:0 -959px; }
+.im_filter .wwIco05{ background-position:0 -982px; }
+.im_filter .wwIco09{ background-position:0 -1007px; }
+.im_filter .wwIco10{ background-position:0 -1032px; }
+.im_filter .wwIco11{ background-position:0 -1057px; }
+.im_filter .wwIco12{ background-position:0 -1082px; }
+.im_filter .wwIco13{ background-position:0 -1107px; }
+.im_filter .wwIco16{ background-position:0 -1132px; }
+.im_filter .wwIco17{ background-position:0 -1157px; }
+.im_filter .wwIco18{ background-position:0 -1182px; }
+.im_filter .wwIco19{ background-position:0 -1207px; width:13px; height:13px; }
+.im_filter .wwIco20{ background-position:0 -1229px; width:13px; height:13px; }
+.im_filter .wwIco21{ background-position:0 -1251px; width:15px; height:12px; }
+.im_filter .wwIco23{ background-position:0 -1272px; width:17px; height:19px; }
+.im_filter .wwIco24{ background-position:0 -1300px; width:17px; height:19px; }
+.im_filter .wwIco25{ background-position:0 -1329px; width:17px; height:19px; }
+.im_filter .wwIco26{ background-position:0 -1356px; margin:3px 0 0; }
+.im_filter .wwIco27{ background-position:0 -1536px; }
+.im_filter .wwIco28{ background-position:0 -1563px; }
+.im_filter .wwIco29{ background-position:0 -1590px; }
+.im_filter .wwIco30{ background-position:0 -1617px; }
+.im_filter .wwSearch{ background-position:1px -342px; }
+/*.im_filter .wwIco31{background-position:0 -143px;}*/
+.im_filter .wwIco32{ background-position:0 -166px; }
+
+/*IM*/
+.im_filter .chatWinMax .wwWrap,.im_filter  .chatWinMax .wwTop,.im_filter  .chatWinMax .osCtnTopBg{ border-radius:0; }
+
+.im_filter .wwGrey{ color:#a0a0a0;}
+.im_filter .osConnectionWrap{ position:absolute; border-radius:8px; border:1px solid #bdc2cc; min-width:288px; left:0; right:0; bottom:0; top:0; }
+.im_filter .wwWrap,.im_filter  .osConnectionWrap{ box-shadow:0 3px 12px rgba(0, 0, 0, .4); }
+.im_filter .osConnectionResizeBtn{ position:absolute; bottom:4px; right:4px; background-position:0 -97px; width:11px; height:11px; z-index:11; cursor:nw-resize; }
+.im_filter .osConnectionTop{ color:#4e4e4e; height:82px; padding:0 0 0 14px; position:relative; background-color:#dee2eb; z-index:18; border-radius:6px 6px 0 0 }
+.im_filter .osCtnTopBg{ position:absolute; top:0; left:0; width:100%; height:19px; background-position:0 -219px; border-radius:8px 8px 0 0; z-index:-1; opacity:.7; filter:alpha(opacity = 70); }
+.im_filter .oWindow_current .osCtnTopBg{ opacity:1; filter:alpha(opacity = 100); }
+.im_filter .osCtnTopTxt{ color:#505867; text-shadow:0 1px 0 #fff; padding:9px 0; display:block; }
+.im_filter .osCtnTopBtn{ position:absolute; top:0; right:0; width:95px; z-index:9; }
+
+.im_filter .osCtnBtn{ }
+.im_filter .osCtnBtn:hover{ background-position:0 -485px; }
+.im_filter .osUserNameBox{ position:absolute; left:39px; right:3px; top:0; }
+.im_filter .osUsername{ text-shadow:1px 1px 0 #fff; position:absolute; left:0; height:15px; right:0; top:2px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+.im_filter .osConnectionBox{ position:relative; height:100%; z-index:8; }
+.im_filter .osCtnStatusWrap{ position:relative }
+.im_filter .osCtnHeadLoading,.im_filter  .osCtnHead{ width:40px; height:40px; border-radius:5px; cursor:pointer; }
+.im_filter .osCtnHeadLoading{ position:absolute; z-index:2; opacity:.2; filter:alpha(opacity = 20); background-color:#FFF; top:0; left:0 }
+
+.im_filter .osCtnStatusWrap dt{ float:left; margin:0 5px 0 0; position:relative; }
+.im_filter .osCtnStatusWrap dd{ position:relative; height:20px; margin-left:49px; }
+.im_filter .osCtnStatus,.im_filter  .osUsername,.im_filter  .osStsOnline,.im_filter  .osJib,.im_filter  .osStsAfk,.im_filter  .osStsBusy,.im_filter  .osStsDND,.im_filter  .osStsHiding,.im_filter  .osStsOffline,.im_filter  .osStsClient{ vertical-align:middle; }
+.im_filter .osCtnStatus{ margin:0 2px; padding:0 2px; position:relative; border-radius:2px; }
+.im_filter .osCtnStatus:hover{ border-color:#c8c8c8; background-image:-moz-linear-gradient(center top, #fff, #e4e4e4); background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#e4e4e4)); }
+/*.im_filter .osCtnStatusTxt{color:#98abba;float:right;}*/
+.im_filter .osStsOnline{ background-position:0 -1384px; }
+.im_filter .osStsAfk{ background-position:-0 -1409px; }
+.im_filter .osStsBusy{ background-position:-0 -1432px; }
+.im_filter .osStsDND{ background-position:-0 -1456px; }
+.im_filter .osStsHiding{ background-position:-0 -1480px; }
+.im_filter .osStsOffline{ background-position:-0 -1504px; }
+.im_filter .osStsClient{ background-position:0 -1963px; }
+.im_filter .osStsOnline,.im_filter  .osStsAfk,.im_filter  .osStsBusy,.im_filter  .osStsDND,.im_filter  .osStsHiding,.im_filter  .osStsOffline,.im_filter  .osStsClient{ width:13px; height:13px; }
+.im_filter .osJib{ margin:0 0 0 5px; background-position:0 -368px; width:8px; height:5px; }
+.im_filter .osUserSignBox{ position:absolute; left:0; right:95px; }
+.im_filter .osUserSign{ background-color:transparent; border-style:solid; border-width:1px; border-color:transparent; color:#666; cursor:default; padding:0 2px; height:20px; width:100%; }
+.im_filter .osUserSign,.im_filter  .osCtnAddBtn{ vertical-align:middle; }
+.im_filter .osUserSignTxt{ text-overflow:ellipsis; overflow:hidden; white-space:nowrap; height:20px; line-height:20px; }
+.im_filter .osUserSign:hover{ background-position:0 -165px; color:#666; border-color:#c8c8c8; }
+.im_filter .osUserSign:focus{ background-color:#FFF; opacity:.8; border-color:#c8c8c8; background-image:none; }
+.im_filter .osCtnStatusList{ top:20px; left:-3px; color:#000; display:none; z-index:19; padding:3px 0; }
+.im_filter .osCtnStatusList dl{ clear:both; height:19px; cursor:pointer; width:100px; border-radius:4px; margin:1px 2px; }
+.im_filter .osCtnStatusList dl:hover{ background-color:#c2d0e3; }
+.im_filter .osCtnStatusList dt{ padding:3px 0 3px 5px; float:left; line-height:0; margin:0; width:16px; }
+.im_filter .osCtnStatusList dd{ float:left; padding:0 0 0 5px; height:19px; line-height:19px; margin-left:0; }
+.im_filter .osStsLine{ display:block; height:1px; margin:4px; border-top:1px dotted #ccc; }
+.im_filter .osCtnBar{ position:relative; color:#fff; padding:0 9px; }
+.im_filter .osCtnLetterIco,.im_filter  .osCtnChatIco,.im_filter  .osCtnBar s,.im_filter  .osCtnChat,.im_filter  .osCtnLetter{ vertical-align:middle; }
+.im_filter .osCtnLetterIco{ width:18px; height:13px; background-position:-449px -3px }
+.im_filter .osCtnAddBtn{ font-size:12px; line-height:12px; [; line-height:18px; ]; line-height:18px  \9; cursor:pointer; padding:0 3px; height:20px; float:right; margin-right:5px; min-width:79px; }
+.im_filter .osCtnAddBtn,.im_filter  .osCtnMenuBtn{ border:1px solid #78b0e2; background-color:transparent; background-position:0 -266px; border-radius:4px; color:#fff; text-shadow:0 1px 0 #2d84d3; box-shadow:0 1px 0 #b0d1ef inset, 0 1px 0 #fff; white-space:nowrap; }
+.im_filter .osCtnAddBtn:hover,.im_filter  .osCtnMenuBtn:hover{ background-position:0 -286px; box-shadow:0 1px 0 #fff; color:#fff; }
+.im_filter .osCtnAddBtn:active,.im_filter  .osCtnMenuBtn:active{ background-position:0 -306px; box-shadow:0 1px 0 #fff, 0 1px 0 #6098cd inset; }
+
+.im_filter .osCtnChatIco{ width:21px; height:20px; background-position:-470px 0 }
+.im_filter .osCtnAddGroup{ float:right; }
+.im_filter .osCtnAddGroupIco{ width:24px; height:20px; background-position:-398px 0; }
+.im_filter .osCtnSearchWrap{ position:relative; z-index:12; margin:4px 0 0; border-bottom:1px solid #d0d0d0; }
+.im_filter .osCtnSearchBox{ border:1px solid #c8c8c9; background-color:#eee; height:22px; margin:5px 7px; border-radius:12px; box-shadow:0 1px 0 #e5e5e5 inset; }
+.im_filter .osCtnSearchIpt{ background-color:transparent; border-width:0; width:91%; height:100%; padding-left:4px; }
+.im_filter .osCtnSchBtn{ border-width:0; background-color:transparent; background-position:0 -344px; width:15px; height:15px; position:absolute; right:13px; top:6px; cursor:pointer; }
+.im_filter .osCtnSchCloseBtn{ background-position:2px -548px; }
+.im_filter .osCtnSearchList{ padding:5px 0 0; position:absolute; z-index:12; top:19px; left:-1px; width:100%; background-color:#f0f0f0; border:1px solid #fff; border-radius:3px; -webkit-box-shadow:0 0 3px rgba(0, 0, 0, .6) inset; box-shadow:0 0 3px rgba(0, 0, 0, .6) inset; }
+.im_filter .osCtnSearchList li{ padding:4px 5px 4px 9px; cursor:pointer; min-height:31px; _height:31px; clear:both; }
+.im_filter .osCtnSearchList img{ width:30px; height:30px; vertical-align:top; margin-right:6px; float:left; display:inline; -webkit-box-shadow:0 0 8px #ccc; box-shadow:0 0 8px #ccc; }
+.im_filter .osCtnSearchList span{ padding:1px 0 2px; display:block; }
+.im_filter .osCtnSearchList i{ vertical-align:middle; }
+.im_filter .osCtnSearchListbtm{ height:22px; line-height:22px; padding:0 9px; background-color:#c0c4e4; color:#3074d7; }
+
+.im_filter .osCtnUserWrap{ /* position:relative;z-index:9; */ background-color:#e8ebf0; left:0; right:0; top:82px; bottom:36px; position:absolute; width:100%; z-index:9; }
+.im_filter .osCtnUserTabWrap{ background-position:0 -186px; height:29px; border:1px solid #5290be; padding:2px 40px 0; position:relative; margin-right:-2px; left:-1px; }
+.im_filter .osCtnUserTab{ cursor:pointer; position:relative; height:23px; margin:0 auto; background-color:#326a8e; border:1px solid #326a8e; border-radius:16px; box-shadow:0 0 12px rgba(0, 0, 0, .2) inset, 0 1px 0 #9cbdd7; }
+
+.im_filter .osTalkGroupIco{ background-position:0 -48px; left:24%; }
+.im_filter .osCtnUserIco{ background-position:0 -26px; right:22%; }
+.im_filter .osTalkGroupIco,.im_filter  .osCtnUserIco{ width:16px; height:16px; position:absolute; z-index:90; top:5px; text-indent:-999px; overflow:hidden; color:#333; pointer-events:none; }
+.im_filter .osCtnUserTab .Selected{ text-indent:-14px; background-image:none; overflow:visible; white-space:nowrap; text-shadow:1px 1px 0 #e5ebf3; color:#4E4E4E; }
+.im_filter .osCtnHandle{ height:23px; border-radius:15px; background-position:0 -241px; width:60%; position:absolute; top:0; }
+.im_filter .osCtnHandle:hover,.im_filter  .osCtnHandle.hover{ background-position:0 -241px; opacity:.9; }
+
+.im_filter .osCtnUserListWrap{ color:#4d4d4d; position:relative; }
+.im_filter .osCtnUserList{ height:100%; position:absolute; top:0; left:0; right:0; }
+.im_filter .osCtnBtm{ min-height:36px; background-color:#dee2eb; border-radius:0 0 6px 6px; border-top:1px solid #bdc2cc; -webkit-box-shadow:0 1px 0 #eee inset; box-shadow:0 1px 0 #eee inset; position:absolute; z-index:10; left:0; bottom:0; right:0; }
+.im_filter .osCtnBtm .msgtip{ margin-left:0; left:14px; top:-36px; }
+.im_filter .osCtnBtm .msgtipjibbottom:after,.im_filter  .osCtnBtm .msgtipjibbottom:before{ left:22px; }
+.im_filter .osCtnGroupBtnBox{ height:22px; padding:6px 0 0 50px; position:relative; }
+.im_filter .osCtnGroupBtnBox .wwTopBtn{ float:left; white-space:nowrap; margin:0 0 0 3px; min-width:62px; }
+.im_filter .osCtnBtmTk{ padding:11px 0 0 21px; }
+/* .im_filter .osCtnGroupBtnBox .wwTopBtn:first-child{width:82px;} */
+
+.im_filter .osTipModifyGroup{ padding:3px 0; top:auto; bottom:34px; left:59px; line-height:18px; overflow-y:auto; overflow-x:hidden; max-height:220px; white-space:nowrap; }
+.im_filter .osTipModifyGroup li{ color:#738595; max-width:110px; padding:0 20px 0 30px; margin:6px 0; background-position:10px -1132px; cursor:pointer; overflow:hidden; max-height:190px; text-overflow:ellipsis; }
+.im_filter .osTipModifyGroup .wwSelectAll{ background-position:8px -1156px; }
+.im_filter .osTipModifyGroup .wwSelectPart{ background-position:9px -527px; }
+.im_filter .osTipModifyGroup .wwSendBtn{ margin:4px 0 3px 9px; }
+
+.im_filter .osCtnMenuBtn{ position:absolute; top:7px; left:2px; padding:1px 7px 1px 6px; }
+.im_filter .osCtnMenuBtnJib{ background-position:0 -83px; width:5px; height:7px; display:inline-block; margin:0 4px 0 0; }
+.im_filter .osCtnMenuShow .osCtnMenuBtnJib{ background-position:0 -69px; }
+
+.im_filter .osCtnGroupListMenu{ background-color:#dee2eb; display:none; position:absolute; bottom:37px; left:-154px; border:1px solid #bdc2cc; border-radius:8px 6px 6px 8px; padding:5px 0; -webkit-box-shadow:-2px 0 3px #d1d1d1 inset; box-shadow:-2px 0 3px #d1d1d1 inset, 0 0 1px #fff inset, 0 0 12px rgba(0, 0, 0, .2); height:315px; width:152px; overflow:hidden; }
+.im_filter .osCtnGroupListMenu .osJib{ border-radius:7px; position:absolute; z-index:2; width:13px; height:12px; cursor:pointer; top:8px; right:1px; background-position:3px -364px; }
+.im_filter .osCtnGroupListMenu .osJib:hover{ background-color:#ccc; }
+.im_filter .osCtnGroupListScrollWrap{ position:relative; overflow:auto; margin:3px 2px 0 0; height:317px; }
+.im_filter .osCtnGroupListScroll{ position:absolute; top:0; left:0; right:0; height:auto; }
+.im_filter .osCtnGroupListMenu .wwIco{ margin:6px 0 0 7px; }
+.im_filter .osCtnGroupListMenu li{ z-index:0; height:26px; border-width:0 0 1px; border-style:solid; border-color:transparent transparent #cbcbcd; padding:1px 0 1px 1px; position:relative; overflow:hidden; text-overflow:ellipsis; }
+.im_filter .osCtnGroupListMenu a{ color:#4d4d4d; line-height:26px; display:block; padding:0 0 0 10px; white-space:nowrap; height:100%; overflow:hidden; text-overflow:ellipsis; padding-right:9px; }
+.im_filter .osCtnGroupListMenu li:hover{ background-color:#c1dbee; text-shadow:1px 1px 0 #fff; }
+.im_filter .osCtnGroupListMenu .osCtnAddBtnBox,.im_filter  .osCtnGroupListMenu .osCtnAddBtnBox:hover{ background-color:transparent; }
+.im_filter .osCtnGroupListMenu .osCtnInputLi{ border-width:0; }
+.im_filter .osCtnGroupListMenu .li_hover{ -webkit-animation:groupmenuheightlight 0 ease-out 0, groupmenuheightlight1 1.4s ease-in-out 0; -moz-animation:groupmenuheightlight 1.4s ease-in-out 0.1s; animation:groupmenuheightlight 1.4s ease-in-out 0.1s; }
+.im_filter .osCtnGroupListMenu .li_hover{ position:absolute; z-index:-1; left:0; right:0; top:0; bottom:0; opacity:0; }
+.im_filter .osCtnGroupListMenu .selected a,.im_filter  .osCtnGroupListMenu .li_hover{ background-color:#c1dbee; }
+.im_filter .osCtnAddNewInput{ width:85px; height:20px; border:1px solid #c6c6c6; margin:2px 0 0 7px; }
+.im_filter .osCtnGroupListScroll .osCtnAddBtn{ margin:2px 0 0 7px; float:none; }
+.im_filter .osCtnGroupListScroll .osCtnAddBtn .wwIco{ margin:3px 0 0; }
+.im_filter .osCtnGroupListScroll .osCtnMenuBtn{ top:3px; left:96px; padding:1px 5px 1px 4px; }
+.im_filter .osCtnGroupListUl a{ padding:0 0 0 7px; }
+
+.im_filter .addr_alllink,.im_filter  .addr_business{ position:relative; z-index:8; }
+.im_filter .addr_alllink_h4_hide >h4{ display:none; }
+.im_filter .addr_alllink_h4_hide >.item{ padding:0; }
+.im_filter .osCtnUserList h4{ padding:0 9px 3px; cursor:pointer; font-weight:normal; }
+
+.im_filter .osCtnChatIco2{ background-position:-425px 0; width:19px; height:17px; }
+.im_filter .item{ padding:0 0 0 10px; }
+.im_filter .item>ul{ }
+.im_filter .item h2,.im_filter  .osCtnUserList h4{ font-size:12px; padding:0 0 0 20px; background-position:10px -378px; }
+.im_filter .item h2.open,.im_filter  .osCtnUserList h4.open{ background-position:10px -359px; }
+.im_filter .item ul{ display:none; padding:0 0 0 11px; }
+.im_filter .template_my_link_halt{ padding:2px 0 2px 10px; cursor:default; min-height:20px; _height:20px; clear:both; line-height:20px; margin:0 0 2px; position:relative; }
+
+.im_filter .osItemSts{ position:absolute; top:12px; margin-left:9px; }
+
+.im_filter .item .osHead{ width:20px; height:20px; vertical-align:top; }
+.im_filter .template_my_link_halt i{ font-style:normal; }
+.im_filter .wwHead,.im_filter  .osHead{ border-radius:4px; }
+.im_filter .osHeadBox{ border-radius:5px; }
+.im_filter .item .img_wrapper{ margin-right:6px; }
+.im_filter .item span{ display:block; overflow:hidden; white-space:nowrap; }
+.im_filter .osSign{ font-style:normal; color:#999; padding:0 0 0 10px; }
+.im_filter .item i{ font-style:normal; }
+.im_filter .item .itemchild{ clear:both; min-height:18px; _height:18px; background-image:none; padding:0; background-color:transparent; }
+.im_filter .item .itemchild li{ }
+.im_filter .item .itemchild:hover{ background-image:none; background-color:transparent }
+.im_filter .item h3{ background-position:9px -378px; padding:0 0 0 20px; }
+.im_filter .item h3.open{ background-position:9px -359px; }
+.im_filter .item h3,.im_filter  .item h2,.im_filter  .osCtnUserList h4{ cursor:pointer; white-space:nowrap; height:22px; line-height:22px; font-size:12px; position:relative; }
+.im_filter .item h3,.im_filter  .item h2{ font-weight:normal; }
+
+.im_filter .osCtnLetter,.im_filter  .osCtnChat,.im_filter  .osCtnStatus,.im_filter  .osCtnAddGroup{ padding:2px 2px 1px; border:1px solid transparent; cursor:pointer; }
+.im_filter .osCtnLetter:hover,.im_filter  .osCtnChat:hover,.im_filter  .osCtnAddGroup:hover{ border:1px solid rgba(255, 255, 255, .1); background-image:url(../images/os/osverline.png); background-position:0 -320px; }
+
+.im_filter .osCtnTalkListWrap{ }
+.im_filter .osCtnTabContent{ position:absolute; top:69px; left:0; right:0; bottom:0; overflow-y:auto; overflow-x:hidden; }
+.im_filter .osCtnTalkList{ height:100%; position:absolute; left:0; right:0; top:0; }
+.im_filter .osCtnTip{ position:absolute; left:50%; top:50%; text-align:left; line-height:22px; margin:-33px 0 0 -40px; }
+.im_filter .osTalkItem{ border-bottom:1px solid #d6d8da; padding:6px 9px 6px 7px; clear:both; height:35px; cursor:default; }
+.im_filter .osTalkItem .wwChatTipClose{ position:absolute; right:-18px; top:-2px; display:none; }
+.im_filter .osTalkItem.imClose:hover .wwChatTipClose{ display:block; }
+.im_filter .osTalkItem .wwChatTipClose:hover{ background-color:transparent; opacity:.6; }
+.im_filter .osTalkItem>.fl{ width:16px; }
+.im_filter .osTalkItem .osStsIco{ position:absolute; right:-3px; bottom:-5px; }
+
+.im_filter .wwHisGroupListUl a:hover,.im_filter  .osTalkItem:hover,.im_filter  .wwTabAccessItem:hover,.im_filter  .item h2:hover,.im_filter  .item h3:hover,.im_filter  .osCtnUserList h4:hover,.im_filter  .wwChatMsgBox:hover,.im_filter  .my_link_hover,.im_filter  .wwChatMsgBoxWrap:hover{ background-color:#d5e6f4; }
+.im_filter .wwChatMsgBoxWrap:after{ content:""; clear:both; display:block; }
+.im_filter .item .selected,.im_filter  .wwTipSearchListScroll .selected,.im_filter  .wwHisTalkList .selected,.im_filter  .wwChatMsgBoxSelected,.im_filter  .wwChatMsgBoxSelected:hover,.im_filter  .wwHisGroupListUl .selected,.im_filter  .selected .my_link_hover{ background-color:#b4c6dd; }
+
+.im_filter .template_my_link_halt:hover>.my_link_hover,.im_filter  .item h3:hover .my_link_hover,.im_filter  .selected .my_link_hover{ display:block; }
+.im_filter .my_link_hover{ position:absolute; height:24px; display:none; top:0; right:0; left:-9999px; z-index:-1; }
+/*.im_filter .wwChatMsgReplyBox:hover .wwJibb{color:#d3e6f3;}*/
+.im_filter .osTalkItemDd{ overflow:hidden; padding:0 8px; }
+.im_filter .osTalkItem input{ display:block; width:13px; height:13px; }
+.im_filter .osTalkItemTitle{ padding:0 0 5px; height:14px; position:relative; }
+/*.im_filter .osTalkItemTitle .fr{*width:74px;} */
+.im_filter .osTalkItemTitleTxt{ white-space:nowrap; overflow:hidden; position:absolute; text-overflow:ellipsis; left:0; top:0; right:81px; }
+.im_filter .osTalkStarOn,.im_filter  .osTalkStarOff,.im_filter  .osTalkAccess{ width:17px; height:17px; float:right; display:inline; margin:0 4px 0 0; cursor:pointer; }
+.im_filter .osTalkStarOff{ background-position:0 -306px; }
+.im_filter .osTalkStarOn{ background-position:0 -286px; }
+.im_filter .osTalkAccess{ background-position:3px -325px; }
+.im_filter .osTalkNum{ color:#fff; background-color:#8d9bae; font-style:normal; padding:1px 5px; border-radius:8px; margin:0 4px 0 0; float:right; }
+.im_filter .osTalkLast{ height:14px; color:#4d4d4d; white-space:nowrap; overflow:hidden; position:relative; }
+.im_filter .osTalkLast>.fl{ position:absolute; left:0; top:0; right:139px; overflow:hidden; text-overflow:ellipsis; }
+.im_filter .osTalkLastTime{ position:absolute; top:0; right:0; padding-left:4px; }
+.im_filter .osTalkEnable{ background-position:0 -268px; display:none; }
+.im_filter .osTalkItem:hover .osTalkEnable{ display:block; }
+.im_filter .osTalkUnable{ background-position:0 -249px; display:block; }
+.im_filter .osTalkEnable,.im_filter  .osTalkUnable{ width:13px; height:12px; margin:7px 0 0 2px; float:left; }
+.im_filter .osTalkItem .osTalkHeadBox{ position:relative; font-size:0; width:35px; height:35px; background:url(images/defaultHead_35_35.png); border-radius:6px; }
+.im_filter .osTalkHead{ width:35px; height:35px; border-radius:5px; }
+.im_filter .osTalkHeadBox .osTalkEnable,.im_filter  .osTalkHeadBox .osTalkUnable{ position:absolute; left:-1px; bottom:-3px; z-index:5; }
+
+.im_filter .wwWrap{ position:absolute; top:0; left:0; bottom:0; right:0; z-index:99; border:1px solid #bebebe; border-radius:8px; background-color:#e8ebf0; color:#333; /* box-shadow:0 0 1px #fff inset; */ }
+.im_filter .wwTop{ height:59px; border-bottom:1px solid #c5c4c4; background-color:#DEE2EB; border-radius:8px 8px 0 0; position:relative; z-index:2; box-shadow:0 1px 5px #ccc; }
+.im_filter .wwTop .wwTopBtn{ float:left; }
+.im_filter .wwTitle{ position:relative; }
+.im_filter .wwTitle .wwChatNameBox{ float:left; position:relative; }
+.im_filter .wwChatNameBox .wwChatName{ width:100%; position:absolute; left:0; top:0; }
+.im_filter .wwTitle,.im_filter  .wwTipTitle{ padding:9px 0 0 12px; }
+.im_filter .wwTipTitle{ border-bottom:1px solid #ccc; padding-bottom:4px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; padding-right:22px; }
+.im_filter .wwChatName,.im_filter  .wwTitleTxt,.im_filter  .wwSendBtn{ text-shadow:0 1px 0 #fff; }
+.im_filter .wwTitleTxt{ background-position:0 -1709px; padding:1px 0 3px 24px; margin:3px 0 0; float:left; }
+.im_filter .wwChatName{ font-weight:bold; background-color:transparent; border-style:solid; border-width:1px; border-color:transparent; cursor:default; padding:0 2px; height:20px; background-position:0 22px; line-height:22px; }
+.im_filter .wwChatName:hover{ background-position:0 -165px; color:#666; border-color:#c8c8c8; }
+.im_filter .wwChatName:focus{ background-color:#FFF; color:#000; opacity:.8; border-color:#c8c8c8; font-style:normal; text-shadow:none; }
+.im_filter .wwChatTxt{ display:inline-block; min-height:12px; min-width:100px; visibility:hidden; padding-right:10px; }
+.im_filter .wwTopBtnBox{ color:#ccc; height:18px; padding:4px 0 0 7px; position:relative; z-index:99; clear:both; }
+.im_filter .wwTopBtnBox .pContact{ position:relative; top:3px; }
+.im_filter .wwTopBtn{ border:1px solid transparent; color:#677c8d; background-position:0 120px; padding:1px 5px; height:20px; line-height:20px; display:inline-block; margin:0 2px; }
+.im_filter .wwTopBtn:hover{color:#677c8d; }
+
+.im_filter .wwTopBtn .wwIco{ margin:2px 5px 0 1px; }
+.im_filter .wwLeft{ z-index:1;border-right:1px solid #dcdcdc; padding:0 1px; position:absolute; top:60px; left:0; bottom:0; }
+
+/*
+.im_filter .wwLeft ,.im_filter .wwInputBoxScroll ,.im_filter .wwWhisperSign ,.im_filter .wwHisTalkContentWrap{-webkit-user-select:auto;-moz-user-select:-moz-all;}
+*/
+.im_filter .wwLeft>.msgtip{ margin:0; top:1px; left:0; right:0; display:none; }
+
+.im_filter .wwLeftMsgtip-show .msgtip{ display:block; }
+.im_filter .wwLeftMsgtip-show .wwChatListBox{ top:24px; }
+
+.im_filter .wwChatListBox{ position:absolute; top:0; left:0; right:0; overflow-y:auto; overflow-x:hidden; }
+.im_filter .wwChatListBoxScroll{ position:absolute; height:auto; top:0; left:0; right:0; }
+/*new */
+.im_filter .wwChatListBox .wwChatMsgBox,.im_filter  .wwHisTalkContent .wwChatMsgBox{ position:relative; margin:11px 13px 11px 52px; border:1px solid #a9c9dd; border-radius:4px; clear:both; float:left; box-shadow:0 2px 3px rgba(0, 0, 0, .1), 0 1px 0 rgba(255, 255, 255, .6) inset; background-color:#d1e5f2; background-image:-moz-linear-gradient(top, #d7e8f3 0%, #cfe3f1 50%, #d6e7f3 100%); background-image:-o-linear-gradient(top, #d7e8f3 0%, #cfe3f1 50%, #d6e7f3 100%); background-image:-webkit-linear-gradient(top, #d7e8f3 0%, #cfe3f1 50%, #d6e7f3 100%); background-image:linear-gradient(to bottom, #d7e8f3 0%, #cfe3f1 50%, #d6e7f3 100%); }
+.im_filter .wwChatMsgBody{ line-height:18px; padding:4px 12px; color:#999; position:relative; }
+.im_filter .wwPartition{ position:relative; text-align:center; color:#bebebe; margin:5px; clear:both; }
+.im_filter .wwPartitionL{ position:absolute; z-index:-1; top:7px; left:0; right:0; height:1px; background-color:#bebebe; }
+.im_filter .wwPartitionTxt{ padding:4px; background-color:#e8ebf0; }
+
+.im_filter .wwHisTalkContentWrap .selected .wwChatMsgBody{ background-color:#f0f0f0; }
+.im_filter .wwChatMsgDiv{ clear:both; color:#333; word-break:break-all; word-wrap:break-word }
+.im_filter .wwChatMsgDiv .img{ max-width:100%; }
+.im_filter .wwChatMsgDiv br{ line-height:0; height:0 }
+.im_filter .wwChatReplyBtn{ margin:0 4px; padding:3px 4px; }
+
+.im_filter /*.wwChatReplyBtn:hover{background-color:#abc8db;}*/
+.im_filter .wwChatReply{ visibility:hidden; margin:0 -19px 0 0; }
+.im_filter .wwReplyBtn{ cursor:pointer; border:1px solid #c7c7c7; width:26px; height:9px; border-radius:4px; background-color:#ececec; background-image:-moz-linear-gradient(#f9f9f9, #ececec); background-image:-webkit-linear-gradient(#f9f9f9, #ececec); }
+.im_filter .wwReplyBtn .wwIco{ height:5px; background-position:0 -1912px; margin:3px 0 0 6px; }
+.im_filter .wwChatMsgBody:hover .wwChatReply,.im_filter  .wwChatHead:hover .wwChatReply,.im_filter  .wwChatMsgBox:hover .wwChatHead .wwChatReply,.im_filter  .wwChatMsgBoxWrap:hover .wwChatReply{ visibility:visible; }
+.im_filter .wwChatMsgReplyBox{ position:relative; margin:6px 4px 0 12px; background-color:#dbdbdb; border:1px solid #d2d2d2; border-radius:4px; }
+.im_filter .wwChatListBox .wwChatMsgReplyBox,.im_filter  .wwHisTalkContent .wwChatMsgReplyBox{ position:relative; margin:6px 8px; background-color:#e2edf0; border:1px solid #accfe5; }
+.im_filter .wwChatMsgReplyBox .wwChatMsgBox{ border:none; margin:0; float:none; background-image:none; background-color:transparent }
+
+.im_filter .wwChatTip{ clear:both; margin:5px 9px; padding:8px 9px; border-radius:4px; color:#502d18; background-color:#fbf3c4; border:1px solid #eacbb1; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+.im_filter .wwChatTipUl{ color:#268abf; padding-top:5px; }
+.im_filter .wwChatTipLi{ padding:3px 0 0; position:relative; height:16px; white-space:nowrap; overflow:hidden; }
+.im_filter .wwChatTipSpan{ position:absolute; top:3px; left:0; overflow:hidden; text-overflow:ellipsis; right:111px; }
+.im_filter .wwChatTipActive{ padding:0 3px; }
+.im_filter .wwChatTipErr{ padding:4px 5px; margin:5px 8px 5px 7px; background-image:-webkit-linear-gradient(270deg, #ffe9a6, #ffe592); background-image:-moz-linear-gradient(270deg, #ffe9a6, #ffe592); background-image:-o-linear-gradient(270deg, #ffe9a6, #ffe592); background-image:linear-gradient(180deg, #ffe9a6, #ffe592); box-shadow:0 1px 2px rgba(0, 0, 0, .1), 0 1px 0 rgba(255, 255, 255, .8) inset; border-color:#eacbb1; border-radius:0; }
+.im_filter .wwChatTipTxt{ margin-right:20px; }
+.im_filter .wwChatTipClose{ background-position:0 -549px; width:11px; height:11px; float:right; margin:4px 8px 0 0; }
+.im_filter .wwChatTipClose:hover{ background-color:#b1d2ec; }
+
+.im_filter .wwChatMsgBoxJib{ position:absolute; top:5px; right:-14px; background-position:5px -1869px; }
+.im_filter .wwChatHead{ position:absolute; left:-44px; height:50px; }
+.im_filter .wwChatHead .wwChatReply{ margin:5px 0 0; white-space:nowrap; float:none; text-align:center; }
+.im_filter .wwChatHead .wwChatReplyBtn{ margin:0; padding:0; }
+.im_filter .wwChatHeadImg{ width:30px; height:30px; border-radius:3px; box-shadow:0 1px 2px rgba(0, 0, 0, .3); display:block; }
+
+.im_filter .wwChatListBox .wwChatSelf,.im_filter  .wwHisTalkContent .wwChatSelf{ background-color:#dff0c8; background-image:-moz-linear-gradient(top, #e1f2cd 0%, #dcefc3 50%, #e1f1cc 100%); background-image:-o-linear-gradient(top, #e1f2cd 0%, #dcefc3 50%, #e1f1cc 100%); background-image:-webkit-linear-gradient(top, #e1f2cd 0%, #dcefc3 50%, #e1f1cc 100%); background-image:linear-gradient(to bottom, #e1f2cd 0%, #dcefc3 50%, #e1f1cc 100%); border-color:#b0d67d; display:inline-block; text-align:left; float:right; margin:11px 52px 11px 13px; }
+.im_filter .wwChatListBox .wwChatSelf .wwChatMsgReplyBox,.im_filter  .wwHisTalkContent .wwChatSelf .wwChatMsgReplyBox{ background-color:#ebf2e5; border-color:#aeca82; }
+.im_filter .wwChatListBox .wwChatSelf .wwChatMsgBox,.im_filter  .wwHisTalkContent .wwChatSelf .wwChatMsgBox{ background-color:#ebf2e5; border-color:#aeca82; background-image:none; }
+.im_filter .wwChatListBox .wwChatSelf .wwChatSelfname,.im_filter  .wwHisTalkContent .wwChatSelf .wwChatSelfname{ color:#2d5000; cursor:default }
+.im_filter .wwChatListBox .wwChatSelf .wwChatHead,.im_filter  .wwHisTalkContent .wwChatSelf .wwChatHead{ left:auto; right:-46px; }
+.im_filter .wwChatListBox .wwChatSelf .wwChatMsgBoxJib,.im_filter  .wwHisTalkContent .wwChatSelf .wwChatMsgBoxJib{ left:-16px; right:auto; background-position:0 -1887px; }
+
+.im_filter .wwInBoxWrap{ position:absolute; left:0; right:0; bottom:0; top:auto; height:154px; }
+
+.im_filter .wwToolBar{ height:26px; background-position:0 -137px; padding:0 6px; overflow:hidden; }
+.im_filter .wwIco{ width:16px; height:16px; float:left; }
+.im_filter .wwIco1{ background-position:0 -567px; }
+.im_filter .wwIco2{ background-position:0 -590px; }
+.im_filter .wwIco3{ background-position:0 -613px; }
+.im_filter .wwIco4{ background-position:0 -637px; }
+.im_filter .wwIco4_a{ background-position:0 -469px }
+.im_filter .wwIco5{ background-position:0 -659px; }
+.im_filter .wwIco6{ background-position:0 -447px; padding-right:4px; }
+.im_filter .wwToolBarBtn{ float:left; padding:2px 4px; margin:3px 3px; line-height:16px; height:16px; border:1px solid transparent; color:#677C8D; }
+.im_filter .wwToolBarBtn:hover{ color:#677C8D; }
+.im_filter .wwToolBarBtn:hover,.im_filter  .wwToolBar .selected,.im_filter  .wwTopBtn:hover{ border:1px solid #abb2b8; background-position:0 -61px; }
+.im_filter .wwToolBarBtn:active,.im_filter  .wwTopBtn:active{ border:1px solid #c8c8c8; background-position:0 -421px; }
+.im_filter .wwDropBtn{ padding:2px 10px 2px 4px; position:relative;}
+.im_filter .wwToolBarIcoJib{ width:8px;position:absolute; top:0; right:0; bottom:0; border-left:1px solid transparent; background-position:0 33px; }
+.im_filter .wwDropBtn:hover .wwToolBarIcoJib{ border-left-color:#abb2b8 }
+.im_filter .wwToolBarIcoJib .wwIco{ width:8px; height:4px; background-position:2px -683px; position:absolute;top:50%;left:50%; margin:-2px 0 0 -4px;}
+.im_filter .wwToolBarBtn:active .wwToolBarIcoJib,.im_filter  .wwTopBtn:active .wwToolBarIcoJib,.im_filter  .wwToolBarIcoJib:hover{ background-position:0 -61px; border-left-color:#c8c8c8 }
+.im_filter .wwToolBarBtn:hover .wwToolBarIcoJib:active,.im_filter .wwTopBtn:hover .wwToolBarIcoJib:active,.im_filter  .wwToolBarIcoJib:active{ background-position:0 -351px; border-left-color:#c8c8c8 }
+
+.im_filter .wwInputBox{ position:absolute; left:5px; right:0; bottom:36px; top:29px; }
+.im_filter .wwInputBoxScroll{ overflow-y:auto; overflow-x:hidden; position:absolute; top:0; left:0; right:0; bottom:0; outline:none; resize:none; background-color:transparent; word-break:break-all; word-wrap:break-word; cursor:text; }
+.im_filter .wwToolFontStyle{ height:25px; position:absolute; left:0; right:0; top:-26px; border-top:1px solid #ccd7e6; background-color:#dae4f0; }
+.im_filter .wwFontStyleSelect{ float:left; margin:2px 4px 0 3px; }
+.im_filter .wwToolFontStyle .wwIco{ width:20px; height:20px; }
+.im_filter .wwFontStyleBtn{ float:left; margin:2px 0 0 8px; border-radius:2px; }
+.im_filter .wwFontStyleBtn:hover{ background-color:#b0d0e7; }
+.im_filter .wwToolFontStyle .selected,.im_filter  .wwFontStyleBtn:active{ box-shadow:1px 1px 2px rgba(0, 0, 0, .3) inset; background-color:#b0d0e7; border:none; background-image:none; padding:0; }
+.im_filter .wwReplyTo_show .wwReplyTo{ display:block; }
+.im_filter .wwReplyTo_show .wwInputBoxScroll{ top:22px; }
+.im_filter .wwReplyTo{ color:#999; padding:2px 0; border:1px solid #ccc; border-radius:3px; display:none; margin-bottom:2px; text-indent:3px; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; max-width:99%; position:relative; }
+.im_filter .wwInputContent{ line-height:16px; word-break:break-all; word-wrap:break-word; resize:none; }
+.im_filter .wwLeftBottom{ height:36px; border-radius:0 0 0 8px; }
+.im_filter .wwLeftBottom .wwSendBtn{ position:relative; top:7px; right:9px; }
+.im_filter .wwSendKeyBtn{ width:83px; text-align:right; }
+.im_filter .wwSendIco{ width:5px; height:3px; background-position:0 -715px; display:inline-block; margin:8px 6px 0 0; }
+.im_filter .wwSendIcoShow{ background-position:-5px -715px; }
+.im_filter .wwSendTxt{ float:right; line-height:18px; }
+.im_filter .wwSendIco,.im_filter  .wwSendTxt{ vertical-align:top; }
+.im_filter .wwSendBtn{ color:#34658b; border:1px solid #c8c8c8; border-radius:2px; height:22px; line-height:22px; text-align:center; padding:0 14px; background-position:0 -327px; box-shadow:0 0 1px #fff inset; }
+.im_filter .wwSendBtn:hover{ background-position:0 -375px; -webkit-box-shadow:0 0 2px #b1c2cb inset; box-shadow:0 0 2px #b1c2cb inset; border-color:#778e9f; }
+.im_filter .wwSendBtn:active{ background-position:0 -351px; border-color:#bdbdbd; -webkit-box-shadow:0 0 1px #fff inset; box-shadow:0 0 1px #fff inset; }
+.im_filter .wwLeftBottom .wwTopBtn{ position:relative; top:10px; right:10px; }
+
+.im_filter .wwRight{ position:absolute; top:60px; right:0; bottom:0; z-index:3; }
+/*.im_filter .wwTabBox{margin-bottom:9px;}*/
+.im_filter .wwTab{ height:25px; line-height:26px; background-position:0 -83px; overflow:hidden; }
+.im_filter .wwTab li{ position:relative; cursor:pointer; padding:0 20px 0 10px; height:26px; float:left; border-right:1px solid #cdcdcd; }
+.im_filter .wwTab .selected{ background-position:0 -110px; display:block; }
+.im_filter .wwTab .wwChatTipClose{ float:none; position:absolute; right:-3px; top:4px; }
+.im_filter .wwTabContent{ padding:0 1px; position:absolute; top:29px; bottom:0; left:0; right:0; }
+.im_filter .wwTabUserBox .eMail{ margin-right:12px; }
+.im_filter .wwTabCtnTop{ padding:0 5px 0 3px; overflow:hidden;}
+.im_filter .wwTabCtnTop .wwLink{ margin:2px 8px 0 2px;position: relative;}
+.im_filter .wwTabContent .wwTipTranScrollWrap{bottom:35px;}
+.im_filter .wwTabContent .oPager{ position:absolute; bottom:5px; text-align:center; left:0; right:0; }
+.im_filter .wwTabUserBox .wwAddUserBtn{ margin:0 0 0 2px; border:none; background-color:transparent; font-weight:bold; cursor:pointer; width:81px; }
+.im_filter .wwAddUserBtn .wwIco32{ margin:0 5px 0 0; }
+.im_filter .wwIco32{ -webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; transition:all .2s ease-in-out; -moz-transform-origin:center center; }
+.im_filter .wwAddUserBtn:hover .wwIco32{ -webkit-transform:scale(.8); -moz-transform:scale(.8); transform:scale(.8); }
+.im_filter .wwTabUserListScrollWrap{ position:absolute; top:22px; left:0; right:0; bottom:10px; overflow:auto; border-top:1px solid #DDDEE1; }
+.im_filter .wwTabUserList{ position:absolute; top:0; left:0; right:0; height:auto; }
+.im_filter .wwTabUserList li{ line-height:20px; height:20px; padding:2px 10px 2px 12px; margin:4px 0; position:relative; }
+.im_filter .wwTabUserList li:hover,.im_filter  .wwTabUserList .li_hover{ background-color:#c1dbee; }
+
+.im_filter .wwHead{ width:20px; height:20px; -webkit-box-shadow:0 2px 1px #d9d9d9; box-shadow:0 2px 1px #d9d9d9; }
+.im_filter .wwTabUserList .osHead{ width:20px; height:20px; }
+.im_filter .wwUserName{ display:block; overflow:hidden; white-space:nowrap; cursor:default; margin-right:40px; text-overflow:ellipsis; }
+.im_filter .wwUserIcoBox{ padding:1px; margin-top:2px; display:none; }
+.im_filter .wwTabUserList li:hover .wwUserIcoBox,.im_filter  .wwTabUserList .li_hover .wwUserIcoBox{ display:block; }
+.im_filter .wwUserIco{ background-position:0 -486px; }
+
+.im_filter .wwTabAccess{ }
+.im_filter .wwUploadIco,.im_filter  .wwFlushIco{ width:16px; height:16px; float:left; display:inline; margin:2px 3px 0 0; }
+.im_filter .wwUploadIco{ background-position:0 -725px; }
+.im_filter .wwFlushIco{ background-position:0 -745px; margin-left:9px;}
+.im_filter .wwTabAccessListScrollWrap{ border-top:1px solid #d0d0d0; position:absolute; top:22px; left:0; right:0; bottom:10px; overflow:auto; }
+.im_filter .wwTabAccessList{ position:absolute; left:0; right:0; height:auto; bottom:9px; top:0px; }
+.im_filter .wwTabAccessItem{ border-bottom:1px solid #d0d0d0; padding:7px 12px 5px 10px; min-height:36px; position:relative; }
+.im_filter .wwTabAccessItemNone{ position:absolute; width:80px; text-align:center; left:50%; margin-left:-40px; top:45%; }
+.im_filter .wwAccessImg{ float:left; width:30px; height:30px; }
+.im_filter .wwAccessIco{ width:25px; }
+.im_filter .wwTabAccessItem dd{ line-height:18px; overflow:hidden; }
+.im_filter .wwAccessBrief{ color:#999; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.im_filter .wwAccBtn{ position:absolute; top:50%; margin-top:-17px; right:5px; }
+.im_filter .wwAccessName{ margin-right:85px; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; }
+.im_filter .wwAccessUploading .wwAccessName{ margin-right:0px; position:relative;}
+.im_filter .wwAccessUploading .wwAccessName>.wwGrey{ position:absolute;right:0;}
+.im_filter .wwAccessUploading .wwAccessName>.fl{ margin-right:61px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; float:none; display:block;}
+.im_filter .wwAccessUploading .wwAccBtn{ margin-top:-10px;}
+.im_filter .wwProgress{ margin:3px 40px 4px 0;position:relative; border:1px solid #b6bfcb;height:8px;border-radius:.55em;  background-image: -webkit-linear-gradient(-90deg,.im_filter  #f9f9f9,#e9e9e9);
+background-image: -moz-linear-gradient(-90deg, #f9f9f9,#e9e9e9);
+background-image: -o-linear-gradient(-90deg, #f9f9f9,#e9e9e9);
+background-image: linear-gradient(180deg,  #f9f9f9,#e9e9e9);}
+.im_filter .wwProgressInner{max-width:100%; background-color:#57a7f1; position:absolute;left:0;top:1px; bottom:1px;border-radius:.44em;}
+
+.im_filter .wwTipModifyGroup{ padding:3px 0; top:27px; left:95px; line-height:18px; }
+.im_filter .wwTipModifyGroup li{ padding:0 0 0 28px; margin:6px 0; background-position:10px -507px; cursor:pointer; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:110px; }
+.im_filter .wwTipModifyGroup .wwSelectAll{ background-position:9px -688px; }
+.im_filter .wwTipModifyGroup .wwSelectPart{ background-position:9px -527px; }
+.im_filter .wwTipBox .wwTipModifyGroupAdd{ background-position:9px -115px; }
+.im_filter .wwTipBox .wwTipModifyGroupBtn{ background-image:none; }
+.im_filter .wwTipBox .wwSendBtn{ margin:0; *width:60px; }
+.im_filter .wwTipAddInput{ border:1px solid #ccc; width:80px; margin:0 8px 7px 9px; }
+.im_filter .wwTipModifyGroupScrollWrap{ overflow:auto; position:relative; width:120px; max-height:190px; min-height:120px }
+.im_filter .wwTipModifyGroupScroll{ position:absolute; top:0; left:0; right:0; height:auto; }
+
+.im_filter .wwTipSendKey{ padding:3px 2px; top:-42px; right:69px; }
+.im_filter .wwTipSendKey li{ height:20px; line-height:20px; padding:0 5px 0 20px; border-radius:4px; cursor:pointer; }
+.im_filter .wwTipSendKey li:hover{ background-color:#c2d0e3; }
+.im_filter .wwTipSendKey .wwSelected{ background-position:6px -426px; }
+
+.im_filter .wwTipBox{ background-color:#fff; background-color:#eee; border:1px solid #d2d2d2; border-radius:2px; position:absolute; color:#333; display:none; box-shadow:1px 1px 1px #9ea2a5; }
+.im_filter .wwTipBox .wwJibTop,.im_filter  .wwTipBox .wwJibBottom{ font-size:14px; }
+.im_filter .wwTipBox .wwJibb{ color:#fff; color:rgba(255, 255, 255, .9); }
+.im_filter .wwHisTop{ height:29px; overflow:hidden; border-bottom:1px solid #d0d0d0; position:relative; border-radius:15px 15px 0 0; -webkit-box-shadow:0 -1px 0 #fff inset; box-shadow:0 -1px 0 #e9ecf1 inset; background-color:#DEE2EB; z-index:1; }
+
+.im_filter .wwHisTitleTxt{ padding:4px 0 3px 24px; background-position:0 -446px; }
+.im_filter .wwHisGroupList{ background-color:#d9dfe7; border-right:1px solid #99a5ab; border-radius:0 0 0 8px; box-shadow:-1px 0 0 #edf0f4 inset; position:absolute; top:30px; right:auto; bottom:0; left:0; width:167px; }
+.im_filter .wwHisGroupList .osCtnUserTabWrap{ padding:6px 9px 0; background-image:none; border:none; box-shadow:none; }
+.im_filter .wwHisGroupList .osCtnUserIco{ right:25px; }
+.im_filter .wwHisGroupList .osTalkGroupIco{ left:37px; }
+.im_filter .wwHisGroupList .osTalkGroupIco,.im_filter  .wwHisGroupList .osCtnUserIco{ text-indent:-14px; white-space:nowrap; color:#90bad6; background-image:none; overflow:visible; cursor:default; }
+.im_filter .wwHisGroupList .osCtnHandle{ width:82px; }
+.im_filter .wwHisGroupList .Selected{ color:#4E4E4E; }
+.im_filter .wwHisGroupListUl{ position:absolute; top:0; left:0; right:0; }
+.im_filter .wwHisGroupListUl li{ margin:3px 0 0; }
+.im_filter .wwHisGroupListUl a{ height:26px; display:block; line-height:26px; padding-left:28px; color:#4d4d4d; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+/*.im_filter .wwHisGroupListUl a:hover{background-color:#c2d0e3;}*/
+.im_filter .wwHisContent{ overflow:hidden; position:absolute; top:30px; left:168px; right:0; bottom:0; }
+.im_filter .wwHisSch{ height:38px; background-color:#dee2eb; box-shadow:0 0 1px #e9ecf1 inset; border-bottom:1px solid #bdc2cc; }
+.im_filter .wwHisSch .wwHisSchTxt{ float:left; display:inline; margin:12px 2px 0 17px; color:#667b8d; }
+.im_filter .wwHisSch /*,.im_filter .wwHisPager*/ { background-color:#dee2eb; box-shadow:0 0 1px #eaedf2 inset; }
+.im_filter .wwHisSelectBox{ cursor:pointer; padding-right:6px; height:20px; border:1px solid transparent; border-radius:12px; float:left; display:inline; text-indent:7px; position:relative; z-index:12; margin:8px 3px 0 0; }
+.im_filter .wwHisSelectBox:hover{ background-color:#e0e6eb; background-image:-moz-linear-gradient(0% 0% 270deg, #f5f7f9, #e0e6eb); background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#f5f7f9), to(#e0e6eb)); border-color:#9d9d9d; box-shadow:0 1px 1px rgba(0, 0, 0, .13); }
+.im_filter .wwHisSelectCurrent{ line-height:20px; display:block; background-position:right -766px; color:#626262; white-space:nowrap; padding-right:14px; }
+.im_filter .wwHisSelectDrop{ position:absolute; left:-1px; top:20px; width:90px; display:none; }
+.im_filter .wwHisSelectDrop li{ height:24px; border-radius:5px; line-height:24px; white-space:nowrap; overflow:hidden; margin:1px; cursor:pointer; }
+.im_filter .wwHisSelectDrop li:hover{ background-color:#c2d0e3; }
+.im_filter .wwHisIpt{ border:1px solid #d5d5d5; height:20px; width:140px; margin:8px 4px 0 0; float:left; border-radius:11px; padding:0 0 0 10px; }
+.im_filter .wwHisBtn:hover{ background-color:#f1f1f1; }
+.im_filter .wwHisBtn,.im_filter  .wwHisBtnDisabled,.im_filter  .wwHisBtnDisabled:hover{ color:#6e90bd; border:1px solid #a9a8a8; height:22px; padding:0 11px; border-radius:12px; float:left; margin:7px 0 0 6px; -webkit-box-shadow:0 1px 1px rgba(0, 0, 0, .13); box-shadow:0 1px 1px rgba(0, 0, 0, .13); background-position:0 -398px; background-color:transparent; cursor:pointer; width:66px; line-height:20px  \9; }
+.im_filter .wwHisBtnDisabled,.im_filter  .wwHisBtnDisabled:hover{ opacity:.5; filter:alpha(opacity = 50); cursor:default; }
+.im_filter .wwHisBtn .osCtnSchBtn{ position:static; float:left; margin:2px 5px 0 0; display:none; }
+.im_filter .wwHisTalkLiskBox{ border-right:1px solid #d0d0d0; width:289px; position:absolute; top:39px; left:0; bottom:0; }
+.im_filter .wwHisTalkBtnBox{ height:28px; position:relative; z-index:9; background-color:#e0e4ec; background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#d7d9de), to(#e0e4ec), step-color(#e0e4ec, 90%)); background-image:-moz-linear-gradient(0% 0% 270deg, #d7d9de, #e0e4ec, #e0e4ec 90%); padding:7px 0 0 19px; }
+.im_filter .wwHisTalkBtnBox .wwHisModifyGroup{ top:29px; left:20px; bottom:auto; }
+.im_filter .wwHisTalkBtnBox .wwHisSelectBox{ margin:-1px 5px 0 0; color:#667b8d; }
+.im_filter .wwHisTalkBtnBox .wwHisDelPart{ line-height:20px; text-indent:12px; margin:-1px 15px 0 -6px; color:#76889d; text-shadow:0 1px 0 #fff; border:1px solid #a7b9c9; background:#dfe4eb -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f2f6f9), to(#dfe4eb)); background:#dfe4eb -moz-linear-gradient(0% 0% 270deg, #f2f6f9, #dfe4eb); }
+.im_filter .wwHisTalkBtnBox .wwHisDelPart:hover{ box-shadow:none; }
+.im_filter .wwHisTalkBtnBox .wwHisSelectCurrent{ color:#76889D; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAFCAMAAACgjTZZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURXaMn/X19f46WSIAAAACdFJOU/8A5bcwSgAAAAlwSFlzAAAOwwAADsMBx2+oZAAAABxJREFUGFdjYIADRiiLkYERwgRSjGAmiARiCAEAAV4AFRCNcLMAAAAASUVORK5CYIIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==) no-repeat right 8px; }
+.im_filter .wwHisTalkBtnBox .wwHisSchTxt{ margin:3px 0 0 5px; }
+.im_filter .wwHisModifyGroup{ padding:3px 0; bottom:34px; left:59px; line-height:18px; }
+.im_filter .wwHisModifyGroup li{ padding:0 20px 0 28px; margin:6px 0; background-position:10px -507px; cursor:pointer; }
+.im_filter .wwHisModifyGroup .wwSelectAll{ background-position:9px -688px; }
+.im_filter .wwHisModifyGroup .wwSelectPart{ background-position:9px -527px; }
+.im_filter .wwHisTalkListScrollWrap{ overflow-y:auto; overflow-x:hidden; position:absolute; top:35px; left:0; right:0; bottom:34px; }
+
+.im_filter .wwHisTalkList{ position:absolute; top:0; right:0; left:0; }
+/*.im_filter .wwHisTalkList .selected{background-color:#f3ecdd;}*/
+.im_filter .wwHisTalkList .osTalkItemTitleTxt{ width:130px; text-overflow:ellipsis; }
+.im_filter .wwHisTalkContentWrap{ position:absolute; top:39px; right:0; bottom:0; left:290px; overflow:hidden; }
+.im_filter .wwHisTalkContentScrollWrap{ position:absolute; overflow:auto; top:35px; left:0; right:0; bottom:34px; }
+.im_filter .wwHisTalkContent{ position:absolute; top:0; left:0; right:0; height:auto; bottom:0; overflow:auto; }
+.im_filter .wwHisPager{ height:34px; background-color:#dee2eb; margin:0 1px; text-align:center; position:absolute; right:0; bottom:0; left:0; border-top:1px solid #bdc2cc; box-shadow:0 1px 0 #f7f8fa inset; border-radius:0 0 5px; }
+.im_filter .wwHisPager .oPager{ margin:7px 0 0; }
+.im_filter .wwPagerBtn{ width:20px; height:20px; border-radius:3px; border-style:solid; border-width:1px; border-color:transparent; }
+.im_filter .wwPagerBtn:hover,.im_filter  .wwHisDatePaker:focus,.im_filter  .wwHisDatePaker:hover{ border-color:#c8c8c8; background-image:-moz-linear-gradient(0% 0% 270deg, #fff, #e4e4e4); background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#e4e4e4)); -webkit-box-shadow:0 0 1px #fff inset; box-shadow:0 0 1px #fff inset; }
+.im_filter .wwHisHome,.im_filter  .wwHisPrev,.im_filter  .wwHisNext,.im_filter  .wwHisEnd{ display:block; height:20px; }
+.im_filter .wwHisHome{ background-position:4px -804px; }
+.im_filter .wwHisPrev{ background-position:4px -820px; }
+.im_filter .wwHisNext{ background-position:4px -839px; }
+.im_filter .wwHisEnd{ background-position:4px -856px; }
+.im_filter .wwPagerTxt,.im_filter  .wwPagerIpt,.im_filter  .wwPagerBtn{ vertical-align:middle; margin-top:6px; display:inline-block; }
+.im_filter .wwPagerTxt,.im_filter  .wwPagerIpt{ margin-top:4px; }
+.im_filter .wwPagerIpt{ border:1px solid #d5d5d5; width:24px; height:20px; text-align:center; }
+.im_filter .wwHisPagerOther{ }
+.im_filter .wwHisPagerLeft{ padding:6px 0 0 7px; position:relative; }
+.im_filter .wwHisPagerRight{ padding:0 20px 0 0; }
+.im_filter .wwHisDatePaker{ width:72px; height:22px; text-align:right; border-radius:3px; background-color:transparent; padding:1px 5px 1px 24px; border:1px solid transparent; cursor:pointer; }
+.im_filter .wwHisDateIco{ position:absolute; top:10px; left:12px; height:16px; width:16px; background-position:0 -882px; }
+.im_filter .wwHisLeftScrollWrap{ position:absolute; top:39px; left:0; right:0; bottom:0; overflow-y:auto; overflow-x:hidden; }
+
+.im_filter .wwHisSchRtn,.im_filter  .wwHisSchRlt{ margin:5px 9px 0 0; float:left; }
+.im_filter .wwHisSchRlt{ position:absolute; left:65px; right:5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.im_filter .wwYellow{ color:#698dba; background-color:#fcff00; }
+.im_filter .wwHisFwb{ font-weight:bold; padding:3px 0 3px 12px; }
+
+.im_filter .wwTabNote{ }
+.im_filter .wwNoteTxtBox{ position:absolute; top:0; right:4px; bottom:48px; left:4px; line-height:18px; }
+.im_filter .wwNoteTxtDiv{ padding:1px; position:absolute; top:0; bottom:0; left:0; right:0; cursor:text; word-break:break-all; word-wrap:break-word; overflow:auto; }
+.im_filter .wwNoteTextarea{ font-size:12px; border:1px solid transparent; line-height:18px; border-radius:2px; background-color:transparent; cursor:default; display:table-cell; position:absolute; top:0; right:0; left:0; bottom:0; resize:none; width:100%; height:100%; padding:0; }
+.im_filter .wwNoteTextarea:hover{ border-color:#bbb; box-shadow:0 0 1px #fff; cursor:text; }
+.im_filter .wwNoteTextarea:focus{ border-color:#bbb; background-color:#fff; box-shadow:0 0 1px #fff; cursor:text; }
+.im_filter .wwNoteBtm{ border-top:2px solid #dee0e3; position:absolute; left:0; right:0; bottom:10px; padding:5px 10px 0 5px; }
+.im_filter .wwWhisperHeadBox{ padding:8px 0 0; }
+.im_filter .wwWhisperHeadBox .wwTopBtnBox{ clear:none; }
+.im_filter .wwWhisperHeader{ float:left; margin:0 0 0 6px; position:relative; width:45px; height:45px; border-radius:7px; background:url(images/defaultHead_45_45.png); }
+.im_filter .wwWhisperHeader >b,.im_filter  .wwWhisperHeader .wwIcoWriting{ position:absolute; right:0; bottom:0; }
+.im_filter .wwWhisperHeader .wwIcoWriting{ width:16px; height:13px; background-image:url(images/wwIcoWriting.gif); }
+.im_filter .wwWhisperHeaderImg{ width:45px; height:45px; border-radius:5px; }
+.im_filter .wwWhisperNameBox{ margin:0 120px 0 62px; position:relative; }
+.im_filter .wwWhisperName{ padding:0 8px 10px 0; }
+.im_filter .wwWhisperName,.im_filter  .wwWhisperSign{ text-shadow:0 1px 0 #fff; white-space:nowrap; }
+.im_filter .wwWhisperSign{ position:absolute; top:0; right:0; }
+.im_filter .wwIptHolder{ float:left; padding:0 2px; position:relative; max-width:100%; }
+.im_filter .wwWhsSi_s{ border:none; background-color:transparent; width:100%; position:absolute; left:0; top:0; cursor:text; }
+.im_filter .wwIptCopy{ visibility:hidden; display:inline-block; }
+.im_filter .wwWhisperHeadBox .wwTopBtnBox{ padding:9px 0 0; margin-left:54px; }
+.im_filter .wwWhisperUserInfo{ width:137px; padding:12px 0 0; margin:0 auto; text-align:center; }
+.im_filter .wwWhisperUserImgBox{ width:128px; height:128px; border:1px solid #d7dbe1; padding:3px; box-shadow:0 0 1px #fff inset; margin-bottom:9px; background:#e0e4ec url(images/defaultHead_128_128.png) center center no-repeat; }
+.im_filter .wwWhisperUserImg{ width:128px; height:128px; }
+.im_filter .wwWhisperUserInfo .wwMediaIngBox{ margin:9px; }
+.im_filter .wwWhisperUserInfo .wwIco37{ margin:0 0 0 14px; }
+
+.im_filter .wwLongBtn{ border-radius:11px; height:22px; padding:0 11px; cursor:pointer; }
+.im_filter .pAccept:hover,.im_filter  .pRefuse:hover,.im_filter  .pLBtn:hover{ border-color:#477498; color:#477498; }
+.im_filter .wwLongBtn:hover{ border-color:#477498; color:#477498; }
+.im_filter .wwLongBtn:active{ border-color:#99acbe; color:#527290; }
+
+.im_filter .wwWhisperUserInfo_P{ padding:0 0 7px; color:#527290; }
+.im_filter .wwWhisperUserInfo_P .pLBtn{ margin-right:12px; }
+.im_filter .wwWhisperUserInfo_P>.oVam:first-child{ max-width:113px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-size:12px; }
+.im_filter .wwWhisperCardBtn{ cursor:pointer; float:left; margin:5px 0 0; }
+.im_filter .wwChatTransCount{ position:absolute; bottom:4px; right:2px; }
+
+.im_filter .wwTipBody{ position:absolute; top:0; right:0; bottom:0; left:0; background-color:#efefee; }
+.im_filter .wwTipBtm{ position:absolute; right:0; bottom:0; left:0; height:28px; text-align:center; line-height:28px; background-color:#cdd7e4; padding:5px 8px 5px 12px; border-top:1px solid #bec8d4; }
+.im_filter .wwTipBtm>.fl{ margin-right:18px; }
+
+.im_filter .wwTipTranScrollWrap{ position:absolute; top:0; right:0; bottom:0; left:0; overflow-y:auto; overflow-x:hidden; }
+.im_filter .wwTipNoteListScroll{ white-space:nowrap; margin:10px; }
+.im_filter .wwTipNoteListScroll .wwChatMsgDiv{ text-overflow:ellipsis; overflow:hidden; cursor:pointer; white-space:nowrap; word-break:keep-all; word-wrap:normal; }
+.im_filter .wwTipNoteListScroll .wwChatMsgBox:hover{ background-color:transparent; }
+.im_filter .wwTipNoteListScroll >.wwChatMsgBox{ padding-bottom:13px; }
+.im_filter .wwTipNoteListScroll .wwChatMsgBody{ padding-left:8px; }
+.im_filter .wwTipNoteListScroll .wwChatMsgReplyBox{ margin-left:8px; cursor:pointer; }
+/*.im_filter .wwTipNoteListScroll .wwChatMsgReplyBox:hover{background-color:#c1dbee;}*/
+/*.im_filter .wwTipNoteListScroll .wwChatMsgReplyBox:hover .wwJibb{color:#c1dbee;}*/
+
+.im_filter .wwTipNoteDetail,.im_filter  .wwTipNoteListScrollWrap{ position:absolute; top:10px; right:10px; bottom:50px; left:10px; /*overflow:hidden;*/ }
+.im_filter .wwTipNoteListScrollWrap{ left:0; top:0; right:0; overflow-x:hidden; overflow-y:auto; }
+.im_filter .wwTipNoteNull{ position:absolute; top:50%; left:50%; margin:-20px 0 0 -65px; height:40px; line-height:40px; padding-left:49px; background:url(../ctrl/images/graySmile.png) no-repeat; }
+.im_filter .wwTipTranScroll .wwChatMsgBox{ border-bottom:1px solid #d6d8da; margin:0; }
+
+.im_filter .wwTabUserPartition{ line-height:24px; text-indent:12px; color:#595959; border-bottom:1px solid #dddee1; background-color:#dcdedf; background-image:-moz-linear-gradient(center top, #d9dadb, #e6eaee); background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#d9dadb), to(#e6eaee)); }
+
+/* ��� */
+.im_filter .wwJibTop,.im_filter  .wwJibBottom{ font-size:11px; position:absolute; left:22px; -moz-user-select:-moz-none; -webkit-user-select:none; }
+.im_filter .wwJibBottom{ bottom:9px; }
+.im_filter .wwJibTop{ top:-11px; }
+.im_filter .wwJiba,.im_filter  .wwJibb{ height:19px; width:17px; overflow:hidden; position:absolute; font-family:Simsun; line-height:21px; font-style:normal; text-shadow:none; }
+.im_filter .wwJiba{ color:#d2d2d2; }
+.im_filter .wwJibb{ color:#DBDBDB; }
+.im_filter .wwJibTop .wwJibb{ top:1px; }
+.im_filter .wwJibBottom .wwJibb{ top:-1px; }
+
+.im_filter .wwOffLineMask{ background-color:#fff; opacity:0.65; filter:alpha(opacity = 65); position:absolute; top:0; right:0; left:0; bottom:0; border-radius:5px; }
+.im_filter .osTalkHeadBox .wwOffLineMask{ border-radius:5px; z-index:0; }
+.im_filter .osHeadBox{ float:left; margin-right:6px; position:relative; width:20px; height:20px; background:url(images/defaultHead.png) center center no-repeat; }
+.im_filter .osHeadBox .wwOffLineMask{ border-radius:4px; }
+.im_filter .im_user_setting{ }
+.im_filter .wwSetting{ position:absolute; top:0; left:0; right:0; bottom:0; background-color:#f1f1f0; overflow-x:hidden; overflow-y:auto; }
+.im_filter .wwSetting .mdBtnbox{ position:absolute; left:0; right:0; bottom:0; }
+.im_filter .wwFormBox{ padding:22px 0 0 24px; color:#585757; }
+.im_filter .wwSettingTitle{ font-weight:normal; margin:4px 20px 13px 0; border-bottom:1px dashed #cad5e2; }
+.im_filter .wwSettingTitleTxt{ display:inline-block; margin-bottom:-7px; background-color:#F1F1F0; }
+.im_filter .wwSetting .dropBtn{ vertical-align:middle; text-indent:0; display:inline-block; line-height:24px; float:left; margin:-4px 0 0 3px; }
+.im_filter .wwSetting .dropmenu{ left:115px; top:22px; z-index:9; }
+.im_filter .wwSetting .dropmenu li{ text-indent:0; line-height:1; height:15px; padding:3px 12px 3px 9px; margin:0; }
+
+.im_filter .wwForm >li{ cursor:default; height:16px; margin-bottom:11px; padding-left:27px; position:relative; }
+.im_filter .wwFormCheck_checked{ background-position:0 -1157px; }
+.im_filter .wwFormCheck_default{ background-position:0 -1132px; }
+.im_filter .wwFormRadio_checked{ background-position:0 -1647px; }
+.im_filter .wwFormRadio_default{ background-position:0 -1677px; }
+.im_filter .wwFormCheck_checked,.im_filter  .wwFormCheck_default,.im_filter  .wwFormRadio_checked,.im_filter  .wwFormRadio_default{ line-height:16px; }
+.im_filter .wwFormNumIpt{ width:42px; border:1px solid #ccc; height:18px; }
+.im_filter .wwFormHasMenu{ z-index:8; }
+.im_filter .wwFormIptTxt{ border:1px solid #ccc; padding:5px 5px 5px 27px; width:270px; margin:-4px 5px 0 0;}
+.im_filter .wwFormIptTxt.wwIcoFolder{background-position:5px -1981px;}
+
+.im_filter .wwActive{ position:absolute; top:0; left:20px; right:20px; bottom:0px; padding:20px 0 0; }
+.im_filter .wwActiveSch{ position:relative; margin-bottom:10px; border:1px solid #677d95; -webkit-box-shadow:0 1px 0 #fff; box-shadow:0 1px 0 #fff; border-radius:12px; padding:5px 0 5px 0; color:#c9c9c9; background-color:#fff; background-position:3px -186px; }
+.im_filter .wwActiveSch_iptbox{ margin:0 27px 0 5px; }
+.im_filter .wwActiveSch_ipt{ width:100%; border:none; background-color:transparent; }
+.im_filter .wwActiveSch_ipt:focus{ color:#444; }
+.im_filter .wwActiveSch_btn{ position:absolute; right:4px; top:2px; background-position:0px -190px; width:20px; height:20px; cursor:pointer; }
+.im_filter .wwActiveCardList{ margin:0 0 0 -14px; overflow:hidden; }
+.im_filter .wwActiveCardList .pCard{ margin:9px 0 9px 13px; width:200px; display:inline-block; }
+.im_filter .wwActiveCardList .pCardBtn{ padding:4px 9px 0 0; }
+.im_filter .wwActiveCardList .msgtip{ margin:0; top:-40px; left:64px; padding:4px 9px; width:127px; }
+.im_filter .wwActiveCardList .msgtip .fl{ padding:5px 5px 0 0; }
+.im_filter .wwActiveCardList .pBindBtn{ margin:0; float:left; }
+.im_filter .wwActiveCardList .msgtipjibbottom:before,.im_filter  .wwActiveCardList .msgtipjibbottom:after{ left:107px; }
+.im_filter .wwTipSearchListScrollWrap{ position:absolute; top:6px; left:0; right:0; bottom:2px; overflow-y:auto; overflow-x:hidden; }
+.im_filter .wwTipSearchListScrollWrap .osTalkItem,.im_filter  .wwTipSearchListScrollWrap .template_my_link_halt{ cursor:pointer; }
+.im_filter .wwTipSearchListScrollWrap input{ visibility:hidden; }
+
+.im_filter .wwTipSearchListScroll{ position:absolute; top:0; right:0; left:0; height:auto; }
+.im_filter .chatWin{ }
+.im_filter .chatWin .osConnectionResizeBtn{ display:none; }
+.im_filter .wwBtnDisabled,.im_filter  .wwDisabled{ opacity:0.6; cursor:default; filter:alpha(opacity = 60); }
+.im_filter .wwBtnDisabled:hover{ background-image:none; border-color:transparent; box-shadow:none; }
+.im_filter .wwDragSizeBar,.im_filter  .wwDragSizeBarClone{ position:absolute; z-index:12; left:0; top:-4px; right:0; height:7px; cursor:s-resize; }
+.im_filter .wwDragSizeBarClone{ border-top:1px dashed #000; }
+
+/*������Ƶ*/
+.im_filter .wwBigVideo .wwMediaLogoWrap{ width:390px; height:350px; }
+.im_filter .wwBigVideo .wwMediaTxt{ color:#fff; margin:228px 0 0 15px; }
+.im_filter .wwBigVideo .wwMediaIngBox{ margin:5px 12px 0; }
+.im_filter .wwBigVideo .wwIco37{ margin:0 5px 0 0; }
+.im_filter .wwBigVideo .wwButton{ margin:5px 9px 0; }
+.im_filter .wwMediaLogoWrap{ margin:0 auto; position:relative; width:140px; height:140px; border:1px solid #d4d7df; background-color:#eaf1f5; background-image:-moz-linear-gradient(0% 0% 270deg, #eaf1f5, #dde7ed, #eaf1f5 30%); background-image:-webkit-linear-gradient(#eaf1f5, #dde7ed 30%, #eaf1f5); }
+.im_filter .wwMediaLogoBox{ position:absolute; top:3px; left:3px; bottom:3px; right:3px; background-color:#61b9fd; background-image:-moz-linear-gradient(0% 0% 270deg, #61b9fd, #acdcfb); background-image:-webkit-linear-gradient(#61b9fd, #acdcfb); }
+.im_filter .wwMediaLogo{ width:82px; height:107px; position:absolute; top:50%; left:50%; margin:-53px 0 0 -41px; }
+
+.im_filter .wwAudio .wwMediaLogo{ background-image:url(images/wwIco_03.png); }
+.im_filter .wwVideo .wwMediaLogo{ background-image:url(images/wwIco_02.png); }
+
+.im_filter .wwMediaTxt{ color:#5a5a5a; text-align:center; padding:15px 0 0; }
+.im_filter .wwButton{ border-radius:4px; padding:5px 10px; }
+.im_filter .wwButton .wwIco{ margin:2px 2px 0 0; }
+.im_filter .wwButton:hover{ background-color:#dfe7ed; background-image:-moz-linear-gradient(0% 0% 270deg, #fff, #dfe7ed); background-image:-webkit-linear-gradient(#fff, #dfe7ed); }
+
+.im_filter .wwLongBtn,.im_filter  .wwButton{ background-color:#f3f3f4; background-image:-moz-linear-gradient(0% 0% 270deg, #f3f3f4, #d6dbdf); background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#f3f3f4), to(#d6dbdf)); border:1px solid #99acbe; color:#527290; box-shadow:0 1px 0 rgba(255, 255, 255, .9) inset; }
+.im_filter .wwLongBtn:active,.im_filter  .wwButton:active{ background-color:#d5dade; background-image:-moz-linear-gradient(0% 0% 270deg, #d5dade, #f2f2f3); background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#d5dade), to(#f2f2f3)); box-shadow:0 1px 0 #c4d0db inset; }
+
+.im_filter .wwAudio .wwMediaIngBox{ margin:9px auto 0; width:88px; }
+.im_filter .wwVideo .wwMediaIngBox{ float:left; }
+.im_filter .wwMediaIngBox{ text-align:center; padding:6px 9px; background-color:#e5e9f1; border:1px solid #c5cdd7; box-shadow:0 0 3px #fff inset; border-radius:4px }
+.im_filter .wwMediaIng{ }
+.im_filter .wwMediaIng .wwIco{ width:18px; height:12px; }
+
+.im_filter .wwIco33{ background-position:0 -1748px; }
+.im_filter .wwIco34{ background-position:0 -1769px; }
+.im_filter .wwIco35{ background-position:0 -1790px; }
+.im_filter .wwIco36{ background-position:0 -1811px; }
+.im_filter .wwIco37{ background-position:0 -1832px; }
+.im_filter .wwIco33,.im_filter  .wwIco34,.im_filter  .wwIco35,.im_filter  .wwIco36{ width:18px; height:13px; }
+
+.im_filter .wwImgLoading{ border:1px solid #d9d7d7; padding:3px; background:#fff url(images/imgLoading.png) center center no-repeat; width:86px; height:62px; box-shadow:0 1px 2px rgba(0, 0, 0, .2); cursor:pointer }
+
+.im_filter .wwImgTip{ text-shadow:1px 0 0 #fff; color:#c0cdd8; border-radius:4px; position:absolute; top:0; left:0; z-index:999; border:1px solid #8f9dab; width:64px; padding:0 0 0 2px; text-align:center; height:23px; line-height:23px; box-shadow:0 1px 0 #fff inset, 0 1px 2px rgba(0, 0, 0, .2); background-position:0 -447px; }
+.im_filter .wwImgTip:after{ content:""; position:absolute; left:50%; margin-left:-5px; bottom:-7px; width:10px; height:7px; background-position:0 -1857px; }
+.im_filter .wwImgAddFace{ background-position:1px -1919px; }
+.im_filter .wwImgSave{ background-position:2px -1939px; }
+.im_filter .wwImgAddFace,.im_filter  .wwImgSave{ width:21px; height:19px; margin:2px 4px 0; cursor:pointer; position:relative; }
+.im_filter .wwImgAddFace:hover:after,.im_filter  .wwImgSave:hover:after{ content:""; z-index:-1; position:absolute; top:0; left:0; width:100%; height:100%; background-color:#b1d9ff; box-shadow:0 1px 0 rgba(0, 0, 0, .2) inset; }
+
+.im_filter .wwTipBtn{ background-image:url(images/imIco_tipBtn.png); margin:4px 0 0 7px; font-weight:bold; width:62px; height:34px; text-align:center; line-height:24px; color:#fff; text-shadow:0 -1px 0 #678baa; }
+.im_filter .wwTipBtn:hover{ background-position:0 -35px; color:#fff; }
+.im_filter .wwTipBtn:active{ background-position:0 -70px; }
+
+.im_filter .wwLaTipJib.msgtipjibbottom:after,.im_filter  .wwLaTipJib.msgtipjibbottom:before{ margin-left:36px; }
+.im_filter .wwBlackTipJib.msgtipjibbottom:after,.im_filter  .wwBlackTipJib.msgtipjibbottom:before{ margin-left:-2px; left:auto; }
+
+/*for safari*/
+.im_filter .wwFlashUploadBox,.im_filter .wwFlashUploadBox:hover{color:#667B8D;}
+.im_filter .wwFlashUploadBox li{position:relative;}
+
+/* for ie */
+.im_filter .startMenu,.im_filter  .taskMsgListBG{ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr = #99000000, endColorstr = #99000000); }
+.im_filter .startMenuChildBG,.im_filter  .topNavbg,.im_filter  .osAppItemBg{ filter:alpha(opacity:50); }
+.im_filter .osStartMenubg{ display:none; }
+.im_filter * + html .osStartMenubg{ display:block; position:absolute; top:0; left:0; height:100%; width:100%; background-color:#000; border:1px solid #ccc; filter:alpha(opacity:50); }
+.im_filter .osLock:hover,.im_filter  .osMsg:hover,.im_filter  .osContectBook:hover{ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr = #99000000, endColorstr = #99000000); }
+.im_filter .osOffline{ filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale = 1) }

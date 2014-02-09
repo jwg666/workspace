@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+	<constant name="struts.custom.i18n.resources" value="struts/i18n/resources/message"/>
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.serve.static" value="true" />
+	<constant name="struts.action.excludePattern"
+		value="/remoting/.*,/ws/.*,/dwr/*,/dwr/.*" />
+	<constant name="struts.xwork.chaining.copyErrors" value="true" />
+	<constant name="struts.xwork.chaining.copyFieldErrors" value="true" />
+	<constant name="struts.xwork.chaining.copyMessages" value="true" />
+	<constant name="struts.action.extension" value="action,do,act,," />
+	<constant name="struts.multipart.maxSize" value="8192000" />
+	
+	<package name="cms" extends="json-default" namespace="/">
+		<result-types>
+			<result-type name="json" 	class="org.apache.struts2.json.JSONResult" />
+		</result-types>
+
+		<interceptors>
+		    <interceptor name="loginContextInterceptor" class="com.neusoft.base.interceptor.LoginContextInterceptor" />
+			<interceptor name="i18n" class="com.neusoft.base.interceptor.I18nResolverInterceptor" />
+			<interceptor-stack name="defaultStack">
+				<interceptor-ref name="exception">
+					<param name="logEnabled">true</param>
+					<param name="logLevel">DEBUG</param>
+				</interceptor-ref>
+				<interceptor-ref name="i18n" />
+				<interceptor-ref name="modelDriven" />
+				<interceptor-ref name="fileUpload" />
+				<interceptor-ref name="checkbox" />
+				<interceptor-ref name="multiselect" />
+				<interceptor-ref name="actionMappingParams" />
+				<interceptor-ref name="params">
+					<param name="excludeParams">dojo\..*,^struts\..*,_</param>
+				</interceptor-ref>
+				<interceptor-ref name="conversionError" />
+				<interceptor-ref name="validation">
+					<param name="excludeMethods">back,cancel,browse</param>
+				</interceptor-ref>
+				<interceptor-ref name="workflow">
+					<param name="excludeMethods">back,cancel,browse</param>
+				</interceptor-ref>
+			</interceptor-stack>
+			<interceptor-stack name="crudStack">
+				<interceptor-ref name="loginContextInterceptor" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+			<interceptor-stack name="jsonCRUDStack">
+				<interceptor-ref name="loginContextInterceptor" />
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="validation" />
+				<interceptor-ref name="jsonValidation" />
+				<interceptor-ref name="workflow" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="defaultStack" />
+		<global-results>
+			<result name="login" type="redirect">/login.jsp</result>
+	<!-- 		<result name="noAuth">/noAuth.jsp</result>
+			<result name="updatePassword" type="redirect">/security/updatePasswordInit.action
+			</result> -->
+		</global-results>
+		
+		<action name="index">
+			<result>/index.jsp</result>
+		</action>	
+	</package>	
+	
+	<include file="struts/struts_layout.xml" />
+	<include file="struts/struts_manage.xml" />
+</struts>
