@@ -30,10 +30,10 @@ public class UserDAO extends HBaseDAO<User>{
 		return null;
 	}
 	
-	public List<User> searchUser(SearchModel model){
+	public List<User> searchUser(SearchModel<User> model){
 		return null;
 	}
-	public Long searchUserCount(SearchModel model){
+	public Long searchUserCount(SearchModel<User> model){
 		return null;
 	}
 	
@@ -46,10 +46,10 @@ public class UserDAO extends HBaseDAO<User>{
 		return null;
 	}
 	
-	public List<User> getUsersByGroupId(SearchModel userSearchModel){
+	public List<User> getUsersByGroupId(SearchModel<User> userSearchModel){
 		return null;
 	}
-	public Long getUsersByGroupIdCount(SearchModel userSearchModel){
+	public Long getUsersByGroupIdCount(SearchModel<User> userSearchModel){
 		return null;
 	}
 	public User getUserByCode(String empCode){

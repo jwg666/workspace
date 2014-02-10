@@ -129,8 +129,7 @@ public class App  implements java.io.Serializable{
 	public void setName(java.lang.String value) {
 		this.name = value;
 	}
-	@Id  
-    @GeneratedValue
+
 	@Column(name="name")
 	public java.lang.String getName() {
 		return this.name;
@@ -138,8 +137,7 @@ public class App  implements java.io.Serializable{
 	public void setIcon(java.lang.String value) {
 		this.icon = value;
 	}
-	@Id  
-    @GeneratedValue
+
 	@Column(name="icon")
 	public java.lang.String getIcon() {
 		return this.icon;
@@ -147,8 +145,7 @@ public class App  implements java.io.Serializable{
 	public void setUrl(java.lang.String value) {
 		this.url = value;
 	}
-	@Id  
-    @GeneratedValue
+
 	@Column(name="url")
 	public java.lang.String getUrl() {
 		return this.url;
@@ -156,8 +153,7 @@ public class App  implements java.io.Serializable{
 	public void setType(java.lang.String value) {
 		this.type = value;
 	}
-	@Id  
-    @GeneratedValue
+
 	@Column(name="type")
 	public java.lang.String getType() {
 		return this.type;
@@ -165,8 +161,7 @@ public class App  implements java.io.Serializable{
 	public void setKindid(java.lang.Integer value) {
 		this.kindid = value;
 	}
-	@Id  
-    @GeneratedValue
+
 	@Column(name="kindid")
 	public java.lang.Integer getKindid() {
 		return this.kindid;
@@ -174,8 +169,7 @@ public class App  implements java.io.Serializable{
 	public void setWidth(java.lang.Integer value) {
 		this.width = value;
 	}
-	@Id  
-    @GeneratedValue
+
 	@Column(name="width")
 	public java.lang.Integer getWidth() {
 		return this.width;
@@ -183,8 +177,7 @@ public class App  implements java.io.Serializable{
 	public void setHeight(java.lang.Integer value) {
 		this.height = value;
 	}
-	@Id  
-    @GeneratedValue
+
 	@Column(name="height")
 	public java.lang.Integer getHeight() {
 		return this.height;

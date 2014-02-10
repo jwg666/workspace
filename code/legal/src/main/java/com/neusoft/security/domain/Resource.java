@@ -1,6 +1,5 @@
 package com.neusoft.security.domain;
 
-import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -32,8 +31,6 @@ public class Resource  extends BaseDomain<Long>{
 	private String moduleName;
 	private String configuration;
 	private Integer orderIndex;
-	private Set<Role> roles = new HashSet<Role>();
-	private Set<Resource> childResources = new HashSet<Resource>();
 	private Integer width;
 	private Integer height;
 	private String iconUrl;
@@ -42,6 +39,15 @@ public class Resource  extends BaseDomain<Long>{
 	private Long memberId;
 	//辅助字段 国家化
 	private String localName;
+	
+	private Set<Resource> childResources;
+	
+	public Set<Resource> gotChildResources() {
+		return childResources;
+	}
+	public void setChildResources(Set<Resource> childResources) {
+		this.childResources = childResources;
+	}
 	public String getIconUrl() {
 		return iconUrl;
 	}
@@ -119,18 +125,6 @@ public class Resource  extends BaseDomain<Long>{
 	}
 	public void setOrderIndex(Integer orderIndex) {
 		this.orderIndex = orderIndex;
-	}
-	public Set<Role> getRoles() {
-		return roles;
-	}
-	public void setRoles(Set<Role> roles) {
-		this.roles = roles;
-	}
-	public Set<Resource> getChildResources() {
-		return childResources;
-	}
-	public void setChildResources(Set<Resource> childResources) {
-		this.childResources = childResources;
 	}
 	
 	public Long getParentId() {

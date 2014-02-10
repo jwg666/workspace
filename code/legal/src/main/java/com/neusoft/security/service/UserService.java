@@ -33,7 +33,7 @@ public interface UserService {
 	 * @param userSearchModel
 	 * @return
 	 */
-	public Pager<User> searchUser(SearchModel userSearchModel);
+	public Pager<User> searchUser(SearchModel<User> userSearchModel);
 	
 	/**
 	 * 删除用户信息
@@ -124,13 +124,13 @@ public interface UserService {
 	 * @param
 	 * @return
 	 */
-	public Pager<User> getUsersByGroupId(SearchModel model);
+	public Pager<User> getUsersByGroupId(SearchModel<User> model);
 	/**
 	 * 获取用户数量
 	 * @param
 	 * @return
 	 */
-	public Long searchUserCount(SearchModel userSearchModel);
+	public Long searchUserCount(SearchModel<User> userSearchModel);
 	/*
 	 * 查询用户列表
 	 * */

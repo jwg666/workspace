@@ -46,7 +46,7 @@ public class RoleServiceImpl implements RoleService {
 			executeResult.addErrorMessage("角色["+role.getName()+"]已经存在.");
 			return executeResult;
 		}
-		resetResource(role);
+//		resetResource(role);
 		role.setName(StringUtils.trim(role.getName()));
 //		role.setGmtCreate(new Date());
 //		role.setGmtModified(new Date());
@@ -57,18 +57,18 @@ public class RoleServiceImpl implements RoleService {
 		return executeResult;
 	}
 
-	private void resetResource(Role role) {
-		if(role.getResources() == null || role.getResources().isEmpty()){
-			role.setResources(null);
-		}else{
-			final Set<Resource> permissions = role.getResources();
-			role.setResources(new HashSet<Resource>());
-			for(Resource res : permissions){
-				Resource p = resourceDAO.get(res.getId());
-				role.getResources().add(p);
-			}
-		}
-	}
+//	private void resetResource(Role role) {
+//		if(role.getResources() == null || role.getResources().isEmpty()){
+//			role.setResources(null);
+//		}else{
+//			final Set<Resource> permissions = role.getResources();
+//			role.setResources(new HashSet<Resource>());
+//			for(Resource res : permissions){
+//				Resource p = resourceDAO.get(res.getId());
+//				role.getResources().add(p);
+//			}
+//		}
+//	}
 
 	@Override
 	public ExecuteResult<Role> updateRole(Role role) {
@@ -84,17 +84,17 @@ public class RoleServiceImpl implements RoleService {
 				return executeResult;
 			}
 		}
-		resetResource(role);
+//		resetResource(role);
 		dbRole.setLastModifiedBy(LoginContextHolder.get().getUserName());
 		dbRole.setGmtModified(new Date());
 		dbRole.setDescription(role.getDescription());
 		dbRole.setName(role.getName());
-		dbRole.setResources(role.getResources());
+//		dbRole.setResources(role.getResources());
 		roleDAO.update(dbRole);
 		roleDAO.deleteRole_ResourByRoleId(role.getId());
-		if(dbRole.getResources() != null && !dbRole.getResources().isEmpty()){
-			roleDAO.saveRole_Resour(dbRole);
-		}
+//		if(dbRole.getResources() != null && !dbRole.getResources().isEmpty()){
+//			roleDAO.saveRole_Resour(dbRole);
+//		}
 		return executeResult;
 	}
 
@@ -106,10 +106,10 @@ public class RoleServiceImpl implements RoleService {
 			executeResult.addWarningMessage("该角色信息已经删除.");
 			return executeResult;
 		}
-		if(role.getResources() != null && !role.getResources().isEmpty()){
-			executeResult.addErrorMessage("角色["+role.getName()+"]下有"+role.getResources().size()+"个资源，不能删除.");
-			return executeResult;
-		}
+//		if(role.getResources() != null && !role.getResources().isEmpty()){
+//			executeResult.addErrorMessage("角色["+role.getName()+"]下有"+role.getResources().size()+"个资源，不能删除.");
+//			return executeResult;
+//		}
 		roleDAO.delete(roleId);
 		return executeResult;
 	}
