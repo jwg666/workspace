@@ -1,6 +1,5 @@
 package com.neusoft.portal.dwr;
 
-import java.security.acl.Group;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
@@ -21,7 +20,8 @@ import com.neusoft.base.common.SessionSecurityConstants;
 import com.neusoft.base.common.SpringApplicationContextHolder;
 import com.neusoft.base.common.ValidateUtil;
 import com.neusoft.security.domain.User;
-import com.neusoft.security.service.UserService;
+import com.neusoft.security.domain.UserInfo;
+import com.neusoft.security.service.UserInfoService;
 
 public class BaseScriptSessionListener implements ScriptSessionListener {
 
@@ -29,7 +29,7 @@ public class BaseScriptSessionListener implements ScriptSessionListener {
 	private Logger logger = LoggerFactory.getLogger(getClass());
 
 	@Resource
-	private UserService userService;
+	private UserInfoService userInfoService;
 //	@Resource
 //	private GroupService groupService;
 
@@ -68,7 +68,7 @@ public class BaseScriptSessionListener implements ScriptSessionListener {
 //			}
 			if (userId != null && !onLineUserIdList.contains(userId)) {
 				onLineUserIdList.add(userId);
-				User user = userService.getUserById(userId);
+				UserInfo user = userInfoService.getUserInfoById(userId);
 			
 //				for (UserGroup userGroup : groupList) {
 //					Group group = userGroup.getGroup();
@@ -103,7 +103,7 @@ public class BaseScriptSessionListener implements ScriptSessionListener {
 				Long userId = (Long) session.getAttribute(keyUserId);
 				if (ValidateUtil.isValid(userId)) {
 					onLineUserIdList.remove(userId);
-					User user = userService.getUserById(userId);
+					UserInfo user = userInfoService.getUserInfoById(userId);
 //					List<UserGroup> groupList = groupService
 //							.getGroupByUserId(userId);
 //					for (UserGroup userGroup : groupList) {

@@ -14,7 +14,7 @@ import com.neusoft.base.common.LoginContext;
 import com.neusoft.base.common.LoginContextHolder;
 import com.neusoft.portal.dwr.BaseChartRunable;
 import com.neusoft.portal.dwr.BaseScriptSessionListener;
-import com.neusoft.security.service.UserService;
+import com.neusoft.security.service.UserInfoService;
 
 @Controller
 @Scope("prototype")
@@ -30,7 +30,7 @@ public class ImAction extends BaseAction{
 	private String message;
 	
 	@Resource
-	private UserService userService;
+	private UserInfoService userInfoService;
 	
 	public String refreshOnlinUser(){
 		return "onlineUser";

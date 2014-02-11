@@ -3,10 +3,8 @@ package com.neusoft.security.domain;
 import java.util.Date;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 import com.neusoft.base.domain.BaseDomain;
 
@@ -15,8 +13,6 @@ import com.neusoft.base.domain.BaseDomain;
  * @author WangXuzheng
  *
  */
-@Entity
-@Table(name = "tb_user")
 public class User extends BaseDomain<Long>{
 	private static final long serialVersionUID = -112280423769600328L;
 	private Long tbid;
@@ -37,10 +33,6 @@ public class User extends BaseDomain<Long>{
 	private Date expiredTime;
 	private String empCode;
 	private Integer memberId;
-	
-	@Id  
-    @GeneratedValue
-	@Column(name="tbid")
 	public Long getTbid() {
 		return tbid;
 	}

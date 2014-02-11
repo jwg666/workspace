@@ -1,4 +1,3 @@
-
 package com.neusoft.portal.action;
 import java.io.File;
 import java.util.ArrayList;
@@ -142,7 +141,8 @@ public class PortalAction extends BaseAction {
 	
 	private Json json = new Json();	
 	
-	public String portal(){		
+	public String portal(){
+		logger.debug("-------------------------------------------------------------------");
 		Long userId= LoginContextHolder.get().getUserId();
 		resourceInfoList = resourceInfoService.getParentResourceInfoTask(userId);
 		for(ResourceInfo r : resourceInfoList){

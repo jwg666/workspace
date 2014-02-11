@@ -16,15 +16,16 @@ import com.neusoft.portal.dao.MemberDao;
 import com.neusoft.portal.model.Member;
 import com.neusoft.portal.query.MemberQuery;
 import com.neusoft.portal.service.MemberService;
-import com.neusoft.security.dao.UserDAO;
+import com.neusoft.security.dao.UserInfoDAO;
 import com.neusoft.security.domain.User;
+import com.neusoft.security.domain.UserInfo;
 @Service("memberService")
 @Transactional
 public class MemberServiceImpl implements MemberService{
 	@Resource
 	private MemberDao memberDao;
 	@Resource
-	private UserDAO userDAO;
+	private UserInfoDAO userInfoDAO;
 	
 	public void setMemberDao(MemberDao dao) {
 		this.memberDao = dao;
@@ -111,7 +112,7 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public Member getCurMember() {
-		User user = userDAO.get(LoginContextHolder.get().getUserId());
+		UserInfo user = userInfoDAO.get(LoginContextHolder.get().getUserId());
 		if(user.getMemberId() == null){return null;}
 		return get(user.getMemberId().toString());
 	}
@@ -127,7 +128,7 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public MemberQuery createDefault(MemberQuery memberQuery) {
-		User user = userDAO.get(LoginContextHolder.get().getUserId());
+		UserInfo user = userInfoDAO.get(LoginContextHolder.get().getUserId());
 		MemberQuery tmpMemberQuery = memberQuery;
 		if(tmpMemberQuery == null){
 		    tmpMemberQuery = new MemberQuery();
@@ -144,8 +145,8 @@ public class MemberServiceImpl implements MemberService{
 		tmpMemberQuery.setDeskname2("桌面2");
 		tmpMemberQuery.setDeskname3("桌面3");
 		add(tmpMemberQuery);
-		user.setMemberId(tmpMemberQuery.getTbid().intValue());
-		userDAO.update(user);
+		user.setMemberId(tmpMemberQuery.getTbid());
+		userInfoDAO.update(user);
 		return tmpMemberQuery;
 	}
 	

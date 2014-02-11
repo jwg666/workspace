@@ -7,6 +7,8 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.struts2.ServletActionContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.neusoft.base.common.LoginContext;
 import com.neusoft.base.common.LoginContextHolder;
@@ -17,6 +19,7 @@ import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
 
 public class LoginContextInterceptor extends AbstractInterceptor{
 	private static final long serialVersionUID = -2622192412895411710L;
+	private Logger logger = LoggerFactory.getLogger(getClass());
 	/**
 	 * 用户session中的用户表示
 	 */
@@ -33,6 +36,8 @@ public class LoginContextInterceptor extends AbstractInterceptor{
 
 	@Override
 	public String intercept(ActionInvocation invocation) throws Exception {
+		logger.debug("------------------------------------------------------------------------");
+		System.out.println("---------------------------+++++++++++++++");
 		HttpServletRequest httpServletRequest = ServletActionContext.getRequest();
 		HttpSession httpSession = httpServletRequest.getSession();
 		Long userId = (Long)httpSession.getAttribute(keyUserId);
@@ -58,7 +63,6 @@ public class LoginContextInterceptor extends AbstractInterceptor{
 		return result;
 	}
 	
-	@SuppressWarnings("unchecked")
 	private String toParameterString(HttpServletRequest httpServletRequest){
 		Enumeration<String> paramEnumeration = httpServletRequest.getParameterNames();
 		if(!paramEnumeration.hasMoreElements()){

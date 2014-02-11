@@ -31,7 +31,7 @@ import com.neusoft.base.common.SpringApplicationContextHolder;
 import com.neusoft.base.common.ValidateUtil;
 import com.neusoft.portal.dwr.BaseMessageRunable;
 import com.neusoft.portal.dwr.BaseRemoveMessageRunable;
-import com.neusoft.security.service.UserService;
+import com.neusoft.security.service.UserInfoService;
 
 public abstract class UserTaskRefactorListener extends ActivityCommonBehavior implements TaskListener {
 
@@ -40,7 +40,7 @@ public abstract class UserTaskRefactorListener extends ActivityCommonBehavior im
 	@Resource
 	private TaskService taskService;
 	@Resource
-	private UserService userService;
+	private UserInfoService userInfoService;
 //	@Resource
 //	private ActSetService actSetService;
 
@@ -179,7 +179,7 @@ public abstract class UserTaskRefactorListener extends ActivityCommonBehavior im
 			message.put("nodeUrl", docuMap.get("url"));
 			message.put("nodeTitle", docuMap.get("title"));
 			message.put("id", taskEntity.getId());
-			List<Long> userIdList = userService.getUserIdsByEmpCodes(new ArrayList<String>(empCodeSet));
+			List<Long> userIdList = userInfoService.getUserInfoIdsByEmpCodes(new ArrayList<String>(empCodeSet));
 			new BaseMessageRunable(userIdList, message).execute();
 		}
 	}
@@ -281,7 +281,7 @@ public abstract class UserTaskRefactorListener extends ActivityCommonBehavior im
 		getEmpCodeInfo(taskEntity, empCodeSet, documentation, docuMap, taskId);
 		if (ValidateUtil.isValid(empCodeSet)) {
 			empCodeSet.add("admin");
-			List<Long> userIdList = userService.getUserIdsByEmpCodes(new ArrayList<String>(empCodeSet));
+			List<Long> userIdList = userInfoService.getUserInfoIdsByEmpCodes(new ArrayList<String>(empCodeSet));
 			new BaseRemoveMessageRunable(userIdList, taskIdList).execute();
 		}
 		
