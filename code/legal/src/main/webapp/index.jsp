@@ -5,9 +5,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>hrois系统!</title>
+<title>XXX系统!</title>
 </head>
 <script type="text/javascript">
-	window.location.href='${dynamicURL}/basic/portalAction/portal.do';
+	window.location.href='${dynamicURL}/portal/portal.do';
 </script>
 </html>
