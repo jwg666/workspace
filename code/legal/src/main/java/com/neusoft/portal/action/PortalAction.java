@@ -24,23 +24,20 @@ import com.neusoft.base.common.Pager;
 import com.neusoft.base.common.PropertyUtils;
 import com.neusoft.base.model.DataGrid;
 import com.neusoft.base.model.Json;
-import com.neusoft.portal.model.App;
 import com.neusoft.portal.model.Member;
 import com.neusoft.portal.model.MemberApp;
 import com.neusoft.portal.model.Pwallpaper;
 import com.neusoft.portal.model.Wallpaper;
-import com.neusoft.portal.query.AppQuery;
 import com.neusoft.portal.query.MemberAppQuery;
 import com.neusoft.portal.query.MemberQuery;
 import com.neusoft.portal.query.PwallpaperQuery;
 import com.neusoft.portal.query.WallpaperQuery;
-import com.neusoft.portal.service.AppService;
 import com.neusoft.portal.service.MemberAppService;
 import com.neusoft.portal.service.MemberService;
 import com.neusoft.portal.service.PwallpaperService;
 import com.neusoft.portal.service.WallpaperService;
-import com.neusoft.security.domain.Resource;
-import com.neusoft.security.service.ResourceService;
+import com.neusoft.security.domain.ResourceInfo;
+import com.neusoft.security.service.ResourceInfoService;
 @Controller
 @Scope("prototype")
 public class PortalAction extends BaseAction {
@@ -49,8 +46,8 @@ public class PortalAction extends BaseAction {
 
 	public static final Map<String,String> serviceMap = new HashMap<String, String>();
 	
-	@javax.annotation.Resource
-	private	AppService 	appService;
+//	@javax.annotation.ResourceInfo
+//	private	AppService 	appService;
 	@javax.annotation.Resource
 	private	MemberAppService 	memberAppService;
 	@javax.annotation.Resource
@@ -60,16 +57,16 @@ public class PortalAction extends BaseAction {
 	@javax.annotation.Resource
 	private	WallpaperService 	wallpaperService;
 	@javax.annotation.Resource
-	private	ResourceService 	resourceService;
+	private	ResourceInfoService 	resourceInfoService;
 	@javax.annotation.Resource
 	private TaskCountService taskCountService;
 	
-//	@javax.annotation.Resource
+//	@javax.annotation.ResourceInfo
 //	private FileUploadService fileUploadServiceImpl;
 	private MemberQuery memberQuery = new MemberQuery();
 	
 	private List list = new ArrayList();
-	private List<Resource> resourceList = new ArrayList<Resource>();
+	private List<ResourceInfo> resourceInfoList = new ArrayList<ResourceInfo>();
 	
 	//文件接收
 	private File upload;
@@ -140,23 +137,23 @@ public class PortalAction extends BaseAction {
 //	private List<Grantor> grantorList;
 	
 	//资源ids
-	private String resourceIds;
+	private String ResourceInfoIds;
 	
 	
 	private Json json = new Json();	
 	
 	public String portal(){		
 		Long userId= LoginContextHolder.get().getUserId();
-		resourceList = resourceService.getParentResourceTask(userId);
-		for(Resource r : resourceList){
-			List<Resource> childList = resourceService.getDescendantsTask(userId, r.getId());
+		resourceInfoList = resourceInfoService.getParentResourceInfoTask(userId);
+		for(ResourceInfo r : resourceInfoList){
+			List<ResourceInfo> childList = resourceInfoService.getDescendantsTask(userId, r.getId());
 			if(childList==null || childList.size()==0){
-				resourceList.remove(r);
+				resourceInfoList.remove(r);
 			}else if(childList.size()>1){
-				Set<Resource> set =new LinkedHashSet<Resource>(childList);
-				Resource f = childList.get(0);
+				Set<ResourceInfo> set =new LinkedHashSet<ResourceInfo>(childList);
+				ResourceInfo f = childList.get(0);
 				String resName = r.getName();
-				String resLocalName = r.getLocalName();
+				String resLocalName = r.gotLocalName();
 				String iconUrl = r.getIconUrl();
 				PropertyUtils.copyProperties(r,f);
 				r.setName(resName);
@@ -164,7 +161,7 @@ public class PortalAction extends BaseAction {
 				r.setIconUrl(iconUrl);
 				r.setChildResources(set);
 			}else{
-				resourceList.set(resourceList.indexOf(r), childList.get(0));
+				resourceInfoList.set(resourceInfoList.indexOf(r), childList.get(0));
 			}
 		}
 //		String originalEmpCode = ((LoginContext)LoginContextHolder.get()).getOriginalEmpCode();
@@ -181,8 +178,8 @@ public class PortalAction extends BaseAction {
 	public String taskCount(){
 		String empCode= ((LoginContext)LoginContextHolder.get()).getEmpCode();
 		Map<String, Integer> taskCountMap = new HashMap<String, Integer>();
-		if(StringUtils.isNotBlank(resourceIds)){
-			String resIds[] = resourceIds.split(",");
+		if(StringUtils.isNotBlank(ResourceInfoIds)){
+			String resIds[] = ResourceInfoIds.split(",");
 			String countService;
 			for(String resId : resIds){
 				countService = serviceMap.get(resId);
@@ -227,7 +224,7 @@ public class PortalAction extends BaseAction {
 		}else if("setAppXY".equals(ac)){
 			updateAppXY();
 		}else if("getAppStar".equals(ac)){
-			findAppStar();
+//			findAppStar();
 		}else if("updateDockPos".equals(ac)){
 			updateDockPos();
 		}else if("updateAppXY".equals(ac)){
@@ -370,7 +367,7 @@ public class PortalAction extends BaseAction {
 	public String appmarket(){
 		
 		if("getList".equals(ac)){
-			Pager<Resource> pager = null;
+			Pager<ResourceInfo> pager = null;
 			Member member = memberService.getCurMember();
 			MemberAppQuery memberAppQuery = new MemberAppQuery();
 			memberAppQuery.setMemberId(member.getTbid());
@@ -380,30 +377,30 @@ public class PortalAction extends BaseAction {
 				memberAppQuery.setName(keyword);
 				data = memberAppService.datagrid(memberAppQuery);
 			}else{//通过tab加载子应用
-				pager = new Pager<Resource>();
+				pager = new Pager<ResourceInfo>();
 				pager.setCurrentPage(page);
 				pager.setPageSize(rows);
-				Resource res = new Resource();
+				ResourceInfo res = new ResourceInfo();
 				res.setName(keyword);
 				if(apptype!=null){
 					res.setId(Long.valueOf(apptype));
 				}				
 				res.setMemberId(member.getTbid());
-				data = resourceService.datagrid(pager, res);
+				data = resourceInfoService.datagrid(pager, res);
 			}
 			return "json";
 		}else{
-			List<Resource> rs = resourceService.getUserDisplayResource();
-			for(Resource r:rs){
+			List<ResourceInfo> rs = resourceInfoService.getUserDisplayResourceInfo();
+			for(ResourceInfo r:rs){
 				if(r.getId().compareTo(r.getParentId())==0){
 					r.setParentId(Long.valueOf(0));
 				}
 			}
-			Resource allRes = new Resource();
+			ResourceInfo allRes = new ResourceInfo();
 			allRes.setId(Long.valueOf(0));
 			allRes.setName("应用超市");
 			rs.add(allRes);
-			Resource myRes = new Resource();
+			ResourceInfo myRes = new ResourceInfo();
 			myRes.setId(Long.valueOf(-1));
 			myRes.setParentId(Long.valueOf(-1));
 			myRes.setName("我的应用");
@@ -562,12 +559,12 @@ public class PortalAction extends BaseAction {
 		memberAppService.update(memberAppQuery);
 	}
 	//获得应用评分
-	public void findAppStar(){
-		AppQuery appQuery = new AppQuery();
-		appQuery.setTbid(id);
-		App app = appService.get(appQuery);
-		json.setObj(app.getStarnum());
-	}
+//	public void findAppStar(){
+//		AppQuery appQuery = new AppQuery();
+//		appQuery.setTbid(id);
+//		App app = appService.get(appQuery);
+//		json.setObj(app.getStarnum());
+//	}
 	//上传文件
 	public String uploadImg(){
 		/**
@@ -824,8 +821,8 @@ public class PortalAction extends BaseAction {
 		return list;
 	}
 	
-	public List<Resource> getResourceList() {
-		return resourceList;
+	public List<ResourceInfo> getResourceInfoList() {
+		return resourceInfoList;
 	}
 	public void setUpload(File upload) {
 		this.upload = upload;
@@ -849,11 +846,11 @@ public class PortalAction extends BaseAction {
 		this.appmarketLeftTree = appmarketLeftTree;
 	}
 	
-	public String getResourceIds() {
-		return resourceIds;
+	public String getResourceInfoIds() {
+		return ResourceInfoIds;
 	}
-	public void setResourceIds(String resourceIds) {
-		this.resourceIds = resourceIds;
+	public void setResourceInfoIds(String ResourceInfoIds) {
+		this.ResourceInfoIds = ResourceInfoIds;
 	}
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;

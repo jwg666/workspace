@@ -24,8 +24,9 @@ import com.neusoft.portal.query.MemberAppQuery;
 import com.neusoft.portal.query.MemberQuery;
 import com.neusoft.portal.service.MemberAppService;
 import com.neusoft.portal.service.MemberService;
+import com.neusoft.security.domain.ResourceInfo;
 import com.neusoft.security.domain.ResourceTypeEnum;
-import com.neusoft.security.service.ResourceService;
+import com.neusoft.security.service.ResourceInfoService;
 @Service("memberAppService")
 @Transactional
 public class MemberAppServiceImpl implements MemberAppService{
@@ -34,7 +35,7 @@ public class MemberAppServiceImpl implements MemberAppService{
 	@Resource
 	private	MemberService 	memberService;
 	@Resource
-	private	ResourceService resourceService;
+	private	ResourceInfoService resourceInfoService;
 	
 	private Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -129,14 +130,14 @@ public class MemberAppServiceImpl implements MemberAppService{
 		memberAppQuery.setLastdt(now);
 		MemberQuery memberQuery = memberService.getCurMemberQuery();
 		memberAppQuery.setMemberId(memberQuery.getTbid());
-		com.neusoft.security.domain.Resource resource = null;
+		ResourceInfo resource = null;
 		if("folder".equals(memberAppQuery.getType())){
 			memberAppQuery.setWidth(650);
 			memberAppQuery.setHeight(400);
 		}else if(!"pwidget".equals(memberAppQuery.getType()) &&  !"papp".equals(memberAppQuery.getType()) ){
 			MemberAppQuery tempQuery = new MemberAppQuery();
 			tempQuery.setMemberId(memberAppQuery.getMemberId());
-			resource = resourceService.getResourceById(memberAppQuery.getTbid());
+			resource = resourceInfoService.getResourceInfoById(memberAppQuery.getTbid());
 			//App app =appService.get(memberAppQuery.getTbid().toString());
 			if(resource==null){
 				return;
@@ -444,7 +445,7 @@ public class MemberAppServiceImpl implements MemberAppService{
 		}
 	}
 	private void initLocalMsg(MemberApp memberApp){
-		if(memberApp!=null && memberApp.getCode()!=null){
+		if(memberApp!=null && memberApp.gotCode()!=null){
 			//FIXME 国际化
 //			memberApp.setLocalName(HroisMessage.getMessage("res."+memberApp.getCode(),memberApp.getName()));
 		}

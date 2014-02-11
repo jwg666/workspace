@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.annotation.Resource;
+
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,9 +15,8 @@ import com.neusoft.base.common.ExecuteResult;
 import com.neusoft.base.common.LoginContextHolder;
 import com.neusoft.base.common.Pager;
 import com.neusoft.base.model.SearchModel;
-import com.neusoft.security.dao.ResourceDAO;
+import com.neusoft.security.dao.ResourceInfoDAO;
 import com.neusoft.security.dao.RoleDAO;
-import com.neusoft.security.domain.Resource;
 import com.neusoft.security.domain.Role;
 import com.neusoft.security.service.RoleService;
 
@@ -27,16 +28,10 @@ import com.neusoft.security.service.RoleService;
 @Service("roleService")
 @Transactional
 public class RoleServiceImpl implements RoleService {
+	@Resource
 	private RoleDAO roleDAO;
-	private ResourceDAO resourceDAO;
-
-	public void setRoleDAO(RoleDAO roleDAO) {
-		this.roleDAO = roleDAO;
-	}
-
-	public void setResourceDAO(ResourceDAO resourceDAO) {
-		this.resourceDAO = resourceDAO;
-	}
+	@Resource
+	private ResourceInfoDAO resourceInfoDAO;
 
 	@Override
 	public ExecuteResult<Role> createRole(Role role) {

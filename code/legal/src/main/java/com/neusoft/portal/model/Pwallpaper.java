@@ -1,3 +1,8 @@
+/*
+ * Powered By neusoft 
+ * Since 2008 - 2014
+ */
+
 package com.neusoft.portal.model;
 
 import javax.persistence.Column;
@@ -10,91 +15,127 @@ import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-/**
- * database table: tb_pwallpaper
- * database table comments: Pwallpaper
- */
 @Entity
-@Table(name = "tb_pwallpaper")
+@Table(name = "TB_PWALLPAPER")
 public class Pwallpaper  implements java.io.Serializable{
 	private static final long serialVersionUID = 5454155825314635342L;
 	
 	//alias
-	public static final String TABLE_ALIAS = "Pwallpaper";
+	public static final String TABLE_ALIAS = "TB_PWALLPAPER";
 	public static final String ALIAS_TBID = "tbid";
-	public static final String ALIAS_URL = "url";
 	public static final String ALIAS_WIDTH = "width";
 	public static final String ALIAS_HEIGHT = "height";
 	public static final String ALIAS_MEMBER_ID = "memberId";
+	public static final String ALIAS_URL = "url";
 	
     /**
-     * tbid       db_column: tbid 
+     * tbid       db_column: TBID 
      */	
-	private java.lang.Long tbid;
+	private Long tbid;
     /**
-     * url       db_column: url 
-     */	
-	private java.lang.String url;
-    /**
-     * width       db_column: width 
+     * width       db_column: WIDTH 
      */	
 	private java.lang.Integer width;
     /**
-     * height       db_column: height 
+     * height       db_column: HEIGHT 
      */	
 	private java.lang.Integer height;
     /**
-     * memberId       db_column: member_id 
+     * memberId       db_column: MEMBER_ID 
      */	
-	private java.lang.Long memberId;
+	private Long memberId;
+    /**
+     * url       db_column: URL 
+     */	
+	private java.lang.String url;
 	//columns END
 
 	public Pwallpaper(){
 	}
 
 	public Pwallpaper(
-		java.lang.Long tbid
+			Long tbid
 	){
 		this.tbid = tbid;
 	}
 
-	public void setTbid(java.lang.Long value) {
-		this.tbid = value;
-	}
-	@Id  
-    @GeneratedValue
-	@Column(name="tbid")
-	public java.lang.Long getTbid() {
-		return this.tbid;
-	}
-	public void setUrl(java.lang.String value) {
-		this.url = value;
-	}
-	
-	public java.lang.String getUrl() {
-		return this.url;
-	}
-	public void setWidth(java.lang.Integer value) {
-		this.width = value;
-	}
-	
-	public java.lang.Integer getWidth() {
-		return this.width;
-	}
-	public void setHeight(java.lang.Integer value) {
-		this.height = value;
-	}
-	
-	public java.lang.Integer getHeight() {
-		return this.height;
-	}
-	public void setMemberId(java.lang.Long value) {
-		this.memberId = value;
-	}
-	
-	public java.lang.Long getMemberId() {
-		return this.memberId;
-	}
+		 /**
+	     * tbid
+	     * @return tbid
+	     */
+		@Id  
+	    @GeneratedValue
+		@Column(name="TBID")
+		public Long getTbid() {
+			return this.tbid;
+		}
+		/**
+	     * tbid
+	     * @param tbid tbid
+	     */
+		public void setTbid(Long tbid) {
+			this.tbid = tbid;
+		}
+		 /**
+	     * width
+	     * @return width
+	     */
+		@Column(name="WIDTH")
+		public java.lang.Integer getWidth() {
+			return this.width;
+		}
+		/**
+	     * width
+	     * @param width width
+	     */
+		public void setWidth(java.lang.Integer width) {
+			this.width = width;
+		}
+		 /**
+	     * height
+	     * @return height
+	     */
+		@Column(name="HEIGHT")
+		public java.lang.Integer getHeight() {
+			return this.height;
+		}
+		/**
+	     * height
+	     * @param height height
+	     */
+		public void setHeight(java.lang.Integer height) {
+			this.height = height;
+		}
+		 /**
+	     * memberId
+	     * @return memberId
+	     */
+		@Column(name="MEMBER_ID")
+		public Long getMemberId() {
+			return this.memberId;
+		}
+		/**
+	     * memberId
+	     * @param memberId memberId
+	     */
+		public void setMemberId(Long memberId) {
+			this.memberId = memberId;
+		}
+		 /**
+	     * url
+	     * @return url
+	     */
+		@Column(name="URL")
+		public java.lang.String getUrl() {
+			return this.url;
+		}
+		/**
+	     * url
+	     * @param url url
+	     */
+		public void setUrl(java.lang.String url) {
+			this.url = url;
+		}
 
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this);
@@ -107,8 +148,8 @@ public class Pwallpaper  implements java.io.Serializable{
 	}
 	
 	public boolean equals(Object obj) {
-		if(!(obj instanceof Pwallpaper)){ return false;}
-		if(this == obj){return true;}
+		if(obj instanceof Pwallpaper == false) return false;
+		if(this == obj) return true;
 		Pwallpaper other = (Pwallpaper)obj;
 		return new EqualsBuilder()
 			.append(getTbid(),other.getTbid())
