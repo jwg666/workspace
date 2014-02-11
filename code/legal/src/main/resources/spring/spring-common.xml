@@ -18,7 +18,7 @@
      http://www.springframework.org/schema/lang/spring-lang-3.1.xsd
      http://www.springframework.org/schema/util
      http://www.springframework.org/schema/util/spring-util-3.1.xsd">
-    <context:component-scan base-package="com.neusoft.*" />
+    <context:component-scan base-package="com.neusoft.**" />
 	
 	<bean class="com.neusoft.portal.listener.SystemBootstrap"/>
 </beans>

@@ -7,6 +7,7 @@
 	<constant name="struts.ui.theme" value="simple" />
 	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
 	<constant name="struts.custom.i18n.resources" value="struts/i18n/resources/message"/>
+	<constant name="struts.objectFactory" value="spring" />
 	<constant name="struts.i18n.encoding" value="UTF-8" />
 	<constant name="struts.serve.static" value="true" />
 	<constant name="struts.action.excludePattern"
@@ -14,10 +15,10 @@
 	<constant name="struts.xwork.chaining.copyErrors" value="true" />
 	<constant name="struts.xwork.chaining.copyFieldErrors" value="true" />
 	<constant name="struts.xwork.chaining.copyMessages" value="true" />
-	<constant name="struts.action.extension" value="action,do,act,," />
+	<constant name="struts.action.extension" value="do" />
 	<constant name="struts.multipart.maxSize" value="8192000" />
 	
-	<package name="cms" extends="json-default" namespace="/">
+	<package name="legal" extends="json-default" namespace="/">
 		<result-types>
 			<result-type name="json" 	class="org.apache.struts2.json.JSONResult" />
 		</result-types>
@@ -59,9 +60,9 @@
 				<interceptor-ref name="workflow" />
 			</interceptor-stack>
 		</interceptors>
-		<default-interceptor-ref name="defaultStack" />
+		<default-interceptor-ref name="crudStack" />
 		<global-results>
-			<result name="login" type="redirect">/login.jsp</result>
+			<result name="login" type="redirect">/security/loginInit.action</result>
 	<!-- 		<result name="noAuth">/noAuth.jsp</result>
 			<result name="updatePassword" type="redirect">/security/updatePasswordInit.action
 			</result> -->
@@ -72,6 +73,7 @@
 		</action>	
 	</package>	
 	
-	<include file="struts/struts_layout.xml" />
-	<include file="struts/struts_manage.xml" />
+	<include file="struts/struts_im.xml" />
+	<include file="struts/struts_portal.xml" />
+	<include file="struts/struts_security.xml" />
 </struts>

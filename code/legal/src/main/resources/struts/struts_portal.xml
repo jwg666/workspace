@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE struts PUBLIC
-    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-	<package name="portal" extends="cms" namespace="/portal">	
+	<package name="portal" extends="legal" namespace="/portal">	    
 		<!--portal -->
-		<action name="portal" class="portalAction" method="portal">
+		<action name="portal" class="com.neusoft.portal.action.PortalAction" method="portal">
+			<interceptor-ref name="crudStack"></interceptor-ref>
 			<result>/WEB-INF/portal/portal.jsp</result>
 		</action>
-		<action name="taskCount" class="portalAction" method="taskCount">
+		<action name="taskCount" class="com.neusoft.portal.action.PortalAction" method="taskCount">
 			<result type="json">
 				<param name="root">json</param>
 				<param name="excludeProperties"></param>
 			</result>
 		</action>
-		<action name="ajax" class="portalAction" method="ajax">
+		<action name="ajax" class="com.neusoft.portal.action.PortalAction" method="ajax">
 			<result type="json">
 				<param name="root">json.obj</param>
 				<param name="excludeProperties"></param>
@@ -25,23 +25,23 @@
 			</result>
 		</action>
 		<!-- 设置壁纸 -->
-		<action name="wallpaper" class="portalAction" method="wallpaper">
+		<action name="wallpaper" class="com.neusoft.portal.action.PortalAction" method="wallpaper">
 			<result>/WEB-INF/portal/wallpaper.jsp</result>
 		</action>
 		<!-- 自定义壁纸 -->
-		<action name="wallpaperCustom" class="portalAction" method="wallpaperCustom">
+		<action name="wallpaperCustom" class="com.neusoft.portal.action.PortalAction" method="wallpaperCustom">
 			<result>/WEB-INF/portal/wallpaper_custom.jsp</result>
 		</action>
 		<!-- 皮肤 -->
-		<action name="skin" class="portalAction" method="skin">
+		<action name="skin" class="com.neusoft.portal.action.PortalAction" method="skin">
 			<result>/WEB-INF/portal/skin.jsp</result>
 		</action>
 		<!-- 桌面设置 -->
-		<action name="desksetting" class="portalAction" method="desksetting">
+		<action name="desksetting" class="com.neusoft.portal.action.PortalAction" method="desksetting">
 			<result>/WEB-INF/portal/desksetting.jsp</result>
 		</action>
 		<!-- 新建私人应用 -->
-		<action name="papp" class="portalAction" method="papp">
+		<action name="papp" class="com.neusoft.portal.action.PortalAction" method="papp">
 			<result type="json">
 				<param name="root">json.obj</param>
 				<param name="excludeProperties"></param>
@@ -50,7 +50,7 @@
 			<result name="realapp">/WEB-INF/portal/app.jsp</result>
 		</action>
 		<!-- 应用市场 -->
-		<action name="appmarket" class="portalAction" method="appmarket">
+		<action name="appmarket" class="com.neusoft.portal.action.PortalAction" method="appmarket">
 			<result>/WEB-INF/portal/appmarket.jsp</result>
 			<result type="json" name="json">
 				<param name="root">data</param>
@@ -58,7 +58,7 @@
 			</result>
 		</action>
 		<!-- 上传 -->
-		<action name="uploadImg" class="portalAction" method="uploadImg">
+		<action name="uploadImg" class="com.neusoft.portal.action.PortalAction" method="uploadImg">
 			<result type="json">
 				<param name="root">json</param>
 				<param name="excludeProperties"></param>
