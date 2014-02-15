@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="workflow" extends="hrois" namespace="/workflow">
+
+		<action name="processAction!*" class="processAction" method="{1}">
+			<result name="processList">/WEB-INF/pages/workflow/processList.jsp</result>
+			<result name="i18n">/WEB-INF/pages/workflow/i18n.jsp</result>
+			<result name="goTrace">/WEB-INF/pages/workflow/processImg.jsp</result>
+			<result type="json" name="trace">
+				<param name="root">activityInfos</param>
+			</result>
+			<result type="json" name="msg">
+				<param name="root">json.msg</param>
+			</result>
+			<result type="json" name="datagrid">
+				<param name="root">datagrid</param>
+				<param name="excludeProperties">footer</param>
+			</result>
+			<result type="json">
+				<param name="root">json</param>
+				<param name="excludeProperties"></param>
+			</result>
+			<result name="xml" type="stream">
+				<param name="contentType">text/xml</param>
+				<param name="inputName">resourceAsStream</param>
+				<param name="bufferSize">4096</param>
+			</result>
+			<result name="img" type="stream">
+				<param name="contentType">image/png</param>
+				<param name="inputName">resourceAsStream</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+
+
+		<action name="taskListAction!*" class="taskListAction" method="{1}">
+			<result name="taskList">/activiti/index.jsp</result>
+			<result name="executionList">/activiti/execution.jsp</result>
+			<result type="json" name="datagrid">
+				<param name="root">datagrid</param>
+				<param name="excludeProperties">footer</param>
+			</result>
+			<result type="json">
+				<param name="root">json</param>
+				<param name="excludeProperties"></param>
+			</result>
+		</action>
+		<action name="processListAction!*" class="processListAction" method="{1}">
+			<result name="processList">/activiti/process.jsp</result>
+			<result type="json" name="datagrid">
+				<param name="root">datagrid</param>
+				<param name="excludeProperties">footer</param>
+			</result>
+			<result type="json">
+				<param name="root">json</param>
+				<param name="excludeProperties"></param>
+			</result>
+		</action>
+		<!-- 马国平、门光耀 start -->
+		<action name="scheduleUrlAndTitleAction" class="scheduleUrlAndTitleAction">
+			<result name="urlAndTitle" type="json">
+				<param name="root">docUrlAndTitleMap</param>
+			</result>
+			<result name="urlsAndTitles" type="json">
+				<param name="root">urlsAndTitles</param>
+			</result>
+			<result name="urlsAndTitlesPage" type="json">
+				<param name="root">dataGrid</param>
+			</result>
+		</action>
+		<!-- 马国平、门光耀 end -->
+		
+		<action name="transitionRecordAction!*" class="transitionRecordAction" method="{1}">
+			<result name="toPage">/WEB-INF/pages/workflow/transitionRecord.jsp</result>
+			<result name="json" type="json">
+				<param name="root">json</param>
+				<param name="excludeProperties"></param>
+			</result>
+			<result type="json" name="list">
+				<param name="root">list</param>
+			</result>
+		</action>
+	</package>
+</struts>
