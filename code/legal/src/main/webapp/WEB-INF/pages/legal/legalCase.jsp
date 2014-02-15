@@ -1,16 +1,16 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <jsp:include page="/common/common_js.jsp"></jsp:include>
 <script type="text/javascript" charset="utf-8">
     var searchForm;
 	var datagrid;
-	var sysObdAddDialog;
-	var sysObdAddForm;
+	var legalCaseAddDialog;
+	var legalCaseAddForm;
 	var cdescAdd;
-	var sysObdEditDialog;
-	var sysObdEditForm;
+	var legalCaseEditDialog;
+	var legalCaseEditForm;
 	var cdescEdit;
 	var showCdescDialog;
 	var iframeDialog;
@@ -18,8 +18,8 @@
 	    //查询列表	
 	    searchForm = $('#searchForm').form();
 		datagrid = $('#datagrid').datagrid({
-			url : 'sysObdAction!datagrid.do',
-			title : 'OBD定价结构列表',
+			url : 'legalCaseAction!datagrid.do',
+			title : 'LegalCase列表',
 			iconCls : 'icon-save',
 			pagination : true,
 			pagePosition : 'bottom',
@@ -28,74 +28,75 @@
 			pageList : [ 10, 20, 30, 40 ],
 			fit : true,
 			fitColumns : true,
-			nowrap : true,
+			nowrap : false,
 			border : false,
-			idField : 'rowId',
-			
+			idField : 'id',
+			sortName : 'createDt',
+			sortOrder : 'desc',
 			columns : [ [ 
 			{field:'ck',checkbox:true,
 						formatter:function(value,row,index){
-							return row.rowId;
+							return row.id;
 						}
 					},
-			   {field:'rowId',title:'惟一标识',align:'center',sortable:true,
+			   {field:'id',title:'id',align:'center',sortable:true,
 					formatter:function(value,row,index){
-						return row.rowId;
+						return row.id;
 					}
 				},				
-			   {field:'obdCode',title:'条件类型',align:'center',sortable:true,
+			   {field:'applicantId',title:'applicantId',align:'center',sortable:true,
 					formatter:function(value,row,index){
-						return row.obdCode;
+						return row.applicantId;
 					}
 				},				
-			   {field:'obdNameCn',title:'中文名称',align:'center',sortable:true,
+			   {field:'agentId',title:'agentId',align:'center',sortable:true,
 					formatter:function(value,row,index){
-						return row.obdNameCn;
+						return row.agentId;
 					}
 				},				
-			   {field:'obdNameEn',title:'英文名称',align:'center',sortable:true,
+			   {field:'description',title:'description',align:'center',sortable:true,
 					formatter:function(value,row,index){
-						return row.obdNameEn;
+						return row.description;
 					}
 				},				
-			   {field:'obdFlag',title:'收支项标识,-1=支出，1=收入',align:'center',sortable:true,
+			   {field:'reasonId',title:'reasonId',align:'center',sortable:true,
 					formatter:function(value,row,index){
-						return row.obdFlag;
+						return row.reasonId;
 					}
 				},				
-			   {field:'activeFlag',title:'1=有效，0=无效',align:'center',sortable:true,
+			   {field:'signiturePath',title:'signiturePath',align:'center',sortable:true,
 					formatter:function(value,row,index){
-						return row.activeFlag;
+						return row.signiturePath;
 					}
 				},				
-			   {field:'createdBy',title:'创建人Id',align:'center',sortable:true,
+			   {field:'createTime',title:'createTime',align:'center',sortable:true,
 					formatter:function(value,row,index){
-						return row.createdBy;
+						return dateFormatYMD(row.createTime);
 					}
 				},				
-			   {field:'created',title:'创建日期',align:'center',sortable:true,
+			   {field:'createBy',title:'createBy',align:'center',sortable:true,
 					formatter:function(value,row,index){
-						return dateFormatYMD(row.created);
+						return row.createBy;
 					}
 				},				
-			   {field:'lastUpdBy',title:'修改人Id',align:'center',sortable:true,
+			   {field:'caseFrom',title:'caseFrom',align:'center',sortable:true,
 					formatter:function(value,row,index){
-						return row.lastUpdBy;
+						return row.caseFrom;
 					}
 				},				
-			   {field:'lastUpd',title:'修改日期',align:'center',sortable:true,
+			   {field:'applyDate',title:'applyDate',align:'center',sortable:true,
 					formatter:function(value,row,index){
-						return dateFormatYMD(row.lastUpd);
+						return dateFormatYMD(row.applyDate);
 					}
 				},				
-			   {field:'modificationNum',title:'修改次数',align:'center',sortable:true,
+			   {field:'applyTypeId',title:'applyTypeId',align:'center',sortable:true,
 					formatter:function(value,row,index){
-						return row.modificationNum;
+						return row.applyTypeId;
 					}
 				},				
-			   {field:'ifDamager',title:'IF_DAMAGER',align:'center',sortable:true,
+			   {field:'applyTypeProcess',title:'applyTypeProcess',align:'center',sortable:true,
 					formatter:function(value,row,index){
-						return row.ifDamager;
+						return row.applyTypeProcess;
 					}
 				}				
 			 ] ],
@@ -135,8 +136,8 @@
 			}
 		});
 
-		sysObdAddForm = $('#sysObdAddForm').form({
-			url : 'sysObdAction!add.do',
+		legalCaseAddForm = $('#legalCaseAddForm').form({
+			url : 'legalCaseAction!add.do',
 			success : function(data) {
 				var json = $.parseJSON(data);
 				if (json && json.success) {
@@ -145,7 +146,7 @@
 						msg : json.msg
 					});
 					datagrid.datagrid('reload');
-					sysObdAddDialog.dialog('close');
+					legalCaseAddDialog.dialog('close');
 				} else {
 					$.messager.show({
 						title : '失败',
@@ -155,15 +156,15 @@
 			}
 		});
 
-		sysObdAddDialog = $('#sysObdAddDialog').show().dialog({
-			title : '添加OBD定价结构',
+		legalCaseAddDialog = $('#legalCaseAddDialog').show().dialog({
+			title : '添加LegalCase',
 			modal : true,
 			closed : true,
 			maximizable : true,
 			buttons : [ {
 				text : '添加',
 				handler : function() {
-					sysObdAddForm.submit();
+					legalCaseAddForm.submit();
 				}
 			} ]
 		});
@@ -171,8 +172,8 @@
 		
 		
 
-		sysObdEditForm = $('#sysObdEditForm').form({
-			url : 'sysObdAction!edit.do',
+		legalCaseEditForm = $('#legalCaseEditForm').form({
+			url : 'legalCaseAction!edit.do',
 			success : function(data) {
 				var json = $.parseJSON(data);
 				if (json && json.success) {
@@ -181,7 +182,7 @@
 						msg : json.msg
 					});
 					datagrid.datagrid('reload');
-					sysObdEditDialog.dialog('close');
+					legalCaseEditDialog.dialog('close');
 				} else {
 					$.messager.show({
 						title : '失败',
@@ -191,22 +192,22 @@
 			}
 		});
 
-		sysObdEditDialog = $('#sysObdEditDialog').show().dialog({
-			title : '编辑OBD定价结构',
+		legalCaseEditDialog = $('#legalCaseEditDialog').show().dialog({
+			title : '编辑LegalCase',
 			modal : true,
 			closed : true,
 			maximizable : true,
 			buttons : [ {
 				text : '编辑',
 				handler : function() {
-					sysObdEditForm.submit();
+					legalCaseEditForm.submit();
 				}
 			} ]
 		});
 
 
 		showCdescDialog = $('#showCdescDialog').show().dialog({
-			title : 'OBD定价结构描述',
+			title : 'LegalCase描述',
 			modal : true,
 			closed : true,
 			maximizable : true
@@ -228,24 +229,24 @@
 		searchForm.find('input').val('');
 	}
 	function add() {
-		sysObdAddForm.form("clear");
+		legalCaseAddForm.form("clear");
 		$('div.validatebox-tip').remove();
-		sysObdAddDialog.dialog('open');
+		legalCaseAddDialog.dialog('open');
 	}
 	function del() {
 		var rows = datagrid.datagrid('getSelections');
-		var thisIds = "";
+		var ids = "";
 		if (rows.length > 0) {
 			$.messager.confirm('请确认', '您要删除当前所选项目？', function(r) {
 				if (r) {
 					for ( var i = 0; i < rows.length; i++) {
 						if(i!=rows.length-1)
-							thisIds=thisIds+"thisIds="+rows[i].rowId+"&";
-						else thisIds=thisIds+"thisIds="+rows[i].rowId;
+							ids=ids+"ids="+rows[i].id+"&";
+						else ids=ids+"ids="+rows[i].id;
 					}
 					$.ajax({
-						url : 'sysObdAction!delete.do',
-						data : thisIds,
+						url : 'legalCaseAction!delete.do',
+						data : ids,
 						dataType : 'json',
 						success : function(response) {
 							datagrid.datagrid('load');
@@ -270,17 +271,17 @@
 				interval : 100
 			});
 			$.ajax({
-				url : 'sysObdAction!showDesc.do',
+				url : 'legalCaseAction!showDesc.do',
 				data : {
-					rowId : rows[0].rowId
+					id : rows[0].id
 				},
 				dataType : 'json',
 				cache : false,
 				success : function(response) {
-					sysObdEditForm.form("clear");
-					sysObdEditForm.form('load', response);
+					legalCaseEditForm.form("clear");
+					legalCaseEditForm.form('load', response);
 					$('div.validatebox-tip').remove();
-					sysObdEditDialog.dialog('open');
+					legalCaseEditDialog.dialog('open');
 					$.messager.progress('close');
 				}
 			});
@@ -296,9 +297,9 @@
 			interval : 100
 		});
 		$.ajax({
-			url : 'sysObdAction!showDesc.do',
+			url : 'legalCaseAction!showDesc.do',
 			data : {
-				rowId : row.rowId
+				id : row.id
 			},
 			dataType : 'json',
 			cache : false,
@@ -307,7 +308,7 @@
 					showCdescDialog.find('div[name=cdesc]').html(response.cdesc);
 					showCdescDialog.dialog('open');
 				} else {
-					$.messager.alert('提示', '没有OBD定价结构描述！', 'error');
+					$.messager.alert('提示', '没有LegalCase描述！', 'error');
 				}
 				$.messager.progress('close');
 			}
@@ -346,79 +347,79 @@
 		<div onclick="edit();" iconCls="icon-edit">编辑</div>
 	</div>
 
-	<div id="sysObdAddDialog" style="display: none;width: 500px;height: 300px;" align="center">
-		<form id="sysObdAddForm" method="post">
+	<div id="legalCaseAddDialog" style="display: none;width: 500px;height: 300px;" align="center">
+		<form id="legalCaseAddForm" method="post">
 			<table class="tableForm">
 						<tr>
-							<th>惟一标识</th>
+							<th>id</th>
 							<td>
-								<input name="rowId" type="text" class="easyui-validatebox" data-options="required:true" missingMessage="请填写惟一标识"  style="width: 155px;"/>
+								<input name="id" type="text" class="easyui-validatebox" data-options="required:true" missingMessage="请填写id"  style="width: 155px;"/>
 							</td>
 						</tr>
 						<tr>
-							<th>条件类型</th>
+							<th>applicantId</th>
 							<td>
-								<input name="obdCode" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写条件类型"  style="width: 155px;"/>						
+								<input name="applicantId" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写applicantId"  style="width: 155px;"/>						
 							</td>
 						</tr>
 						<tr>
-							<th>中文名称</th>
+							<th>agentId</th>
 							<td>
-								<input name="obdNameCn" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写中文名称"  style="width: 155px;"/>						
+								<input name="agentId" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写agentId"  style="width: 155px;"/>						
 							</td>
 						</tr>
 						<tr>
-							<th>英文名称</th>
+							<th>description</th>
 							<td>
-								<input name="obdNameEn" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写英文名称"  style="width: 155px;"/>						
+								<input name="description" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写description"  style="width: 155px;"/>						
 							</td>
 						</tr>
 						<tr>
-							<th>收支项标识,-1=支出，1=收入</th>
+							<th>reasonId</th>
 							<td>
-								<input name="obdFlag" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写收支项标识,-1=支出，1=收入"  style="width: 155px;"/>						
+								<input name="reasonId" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写reasonId"  style="width: 155px;"/>						
 							</td>
 						</tr>
 						<tr>
-							<th>1=有效，0=无效</th>
+							<th>signiturePath</th>
 							<td>
-								<input name="activeFlag" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写1=有效，0=无效"  style="width: 155px;"/>						
+								<input name="signiturePath" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写signiturePath"  style="width: 155px;"/>						
 							</td>
 						</tr>
 						<tr>
-							<th>创建人Id</th>
+							<th>createTime</th>
 							<td>
-								<input name="createdBy" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写创建人Id"  style="width: 155px;"/>						
+								<input name="createTime" type="text" class="easyui-datetimebox" data-options="" missingMessage="请填写createTime"  style="width: 155px;"/>						
 							</td>
 						</tr>
 						<tr>
-							<th>创建日期</th>
+							<th>createBy</th>
 							<td>
-								<input name="created" type="text" class="easyui-datebox" data-options="" missingMessage="请填写创建日期"  style="width: 155px;"/>						
+								<input name="createBy" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写createBy"  style="width: 155px;"/>						
 							</td>
 						</tr>
 						<tr>
-							<th>修改人Id</th>
+							<th>caseFrom</th>
 							<td>
-								<input name="lastUpdBy" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写修改人Id"  style="width: 155px;"/>						
+								<input name="caseFrom" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写caseFrom"  style="width: 155px;"/>						
 							</td>
 						</tr>
 						<tr>
-							<th>修改日期</th>
+							<th>applyDate</th>
 							<td>
-								<input name="lastUpd" type="text" class="easyui-datebox" data-options="" missingMessage="请填写修改日期"  style="width: 155px;"/>						
+								<input name="applyDate" type="text" class="easyui-datetimebox" data-options="" missingMessage="请填写applyDate"  style="width: 155px;"/>						
 							</td>
 						</tr>
 						<tr>
-							<th>修改次数</th>
+							<th>applyTypeId</th>
 							<td>
-								<input name="modificationNum" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写修改次数"  style="width: 155px;"/>						
+								<input name="applyTypeId" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写applyTypeId"  style="width: 155px;"/>						
 							</td>
 						</tr>
 						<tr>
-							<th>IF_DAMAGER</th>
+							<th>applyTypeProcess</th>
 							<td>
-								<input name="ifDamager" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写IF_DAMAGER"  style="width: 155px;"/>						
+								<input name="applyTypeProcess" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写applyTypeProcess"  style="width: 155px;"/>						
 							</td>
 						</tr>
 					
@@ -428,79 +429,79 @@
 		</form>
 	</div>
 
-	<div id="sysObdEditDialog" style="display: none;width: 500px;height: 300px;" align="center">
-		<form id="sysObdEditForm" method="post">
+	<div id="legalCaseEditDialog" style="display: none;width: 500px;height: 300px;" align="center">
+		<form id="legalCaseEditForm" method="post">
 			<table class="tableForm">
 						<tr>
-						<th>惟一标识</th>
+						<th>id</th>
 							<td>
-								<input name="rowId" type="text" class="easyui-validatebox" data-options="required:true" missingMessage="请填写惟一标识"  style="width: 155px;"/>
+								<input name="id" type="text" class="easyui-validatebox" data-options="required:true" missingMessage="请填写id"  style="width: 155px;"/>
 							</td>
 						</tr>
 						<tr>
-						<th>条件类型</th>
+						<th>applicantId</th>
 							<td>
-								<input name="obdCode" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写条件类型"  style="width: 155px;"/>
+								<input name="applicantId" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写applicantId"  style="width: 155px;"/>
 							</td>
 						</tr>
 						<tr>
-						<th>中文名称</th>
+						<th>agentId</th>
 							<td>
-								<input name="obdNameCn" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写中文名称"  style="width: 155px;"/>
+								<input name="agentId" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写agentId"  style="width: 155px;"/>
 							</td>
 						</tr>
 						<tr>
-						<th>英文名称</th>
+						<th>description</th>
 							<td>
-								<input name="obdNameEn" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写英文名称"  style="width: 155px;"/>
+								<input name="description" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写description"  style="width: 155px;"/>
 							</td>
 						</tr>
 						<tr>
-						<th>收支项标识,-1=支出，1=收入</th>
+						<th>reasonId</th>
 							<td>
-								<input name="obdFlag" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写收支项标识,-1=支出，1=收入"  style="width: 155px;"/>
+								<input name="reasonId" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写reasonId"  style="width: 155px;"/>
 							</td>
 						</tr>
 						<tr>
-						<th>1=有效，0=无效</th>
+						<th>signiturePath</th>
 							<td>
-								<input name="activeFlag" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写1=有效，0=无效"  style="width: 155px;"/>
+								<input name="signiturePath" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写signiturePath"  style="width: 155px;"/>
 							</td>
 						</tr>
 						<tr>
-						<th>创建人Id</th>
+						<th>createTime</th>
 							<td>
-								<input name="createdBy" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写创建人Id"  style="width: 155px;"/>
+								<input name="createTime" type="text" class="easyui-datetimebox" data-options="" missingMessage="请填写createTime"  style="width: 155px;"/>
 							</td>
 						</tr>
 						<tr>
-						<th>创建日期</th>
+						<th>createBy</th>
 							<td>
-								<input name="created" type="text" class="easyui-datebox" data-options="" missingMessage="请填写创建日期"  style="width: 155px;"/>
+								<input name="createBy" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写createBy"  style="width: 155px;"/>
 							</td>
 						</tr>
 						<tr>
-						<th>修改人Id</th>
+						<th>caseFrom</th>
 							<td>
-								<input name="lastUpdBy" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写修改人Id"  style="width: 155px;"/>
+								<input name="caseFrom" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写caseFrom"  style="width: 155px;"/>
 							</td>
 						</tr>
 						<tr>
-						<th>修改日期</th>
+						<th>applyDate</th>
 							<td>
-								<input name="lastUpd" type="text" class="easyui-datebox" data-options="" missingMessage="请填写修改日期"  style="width: 155px;"/>
+								<input name="applyDate" type="text" class="easyui-datetimebox" data-options="" missingMessage="请填写applyDate"  style="width: 155px;"/>
 							</td>
 						</tr>
 						<tr>
-						<th>修改次数</th>
+						<th>applyTypeId</th>
 							<td>
-								<input name="modificationNum" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写修改次数"  style="width: 155px;"/>
+								<input name="applyTypeId" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写applyTypeId"  style="width: 155px;"/>
 							</td>
 						</tr>
 						<tr>
-						<th>IF_DAMAGER</th>
+						<th>applyTypeProcess</th>
 							<td>
-								<input name="ifDamager" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写IF_DAMAGER"  style="width: 155px;"/>
+								<input name="applyTypeProcess" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写applyTypeProcess"  style="width: 155px;"/>
 							</td>
 						</tr>
 			</table>

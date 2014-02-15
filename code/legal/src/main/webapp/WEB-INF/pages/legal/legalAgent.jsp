@@ -1,43 +1,25 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <jsp:include page="/common/common_js.jsp"></jsp:include>
 <script type="text/javascript" charset="utf-8">
     var searchForm;
 	var datagrid;
-	var cdBudgetAddDialog;
-	var cdBudgetAddForm;
+	var legalAgentAddDialog;
+	var legalAgentAddForm;
 	var cdescAdd;
-	var cdBudgetEditDialog;
-	var cdBudgetEditForm;
+	var legalAgentEditDialog;
+	var legalAgentEditForm;
 	var cdescEdit;
 	var showCdescDialog;
 	var iframeDialog;
 	$(function() {
-		
-		 $('#employeeid').combobox({   
-			url:'budgetAction!combox0.do',   
-			valueField:'EMPCODE',   
-			textField:'NAME'  
-			}); 
-		 $('#employeeid2').combobox({   
-			url:'budgetAction!combox0.do',   
-			valueField:'EMPCODE',   
-			textField:'NAME'  
-			}); 
-		 $('#employeeid1').combobox({   
-			url:'budgetAction!combox0.do',   
-			valueField:'EMPCODE',   
-			textField:'NAME'  
-			}); 
-
 	    //查询列表	
 	    searchForm = $('#searchForm').form();
 		datagrid = $('#datagrid').datagrid({
-			url : 'budgetAction!datagrid0.do',
-			
-			title : '样机预算体基本信息列表',
+			url : 'legalAgentAction!datagrid.do',
+			title : 'LegalAgent列表',
 			iconCls : 'icon-save',
 			pagination : true,
 			pagePosition : 'bottom',
@@ -46,38 +28,44 @@
 			pageList : [ 10, 20, 30, 40 ],
 			fit : true,
 			fitColumns : true,
-			nowrap : true,
+			nowrap : false,
 			border : false,
-			//idField : 'id',
-			
+			idField : 'id',
+			sortName : 'createDt',
+			sortOrder : 'desc',
 			columns : [ [ 
 			{field:'ck',checkbox:true,
 						formatter:function(value,row,index){
-							return row.sapCode;
+							return row.id;
 						}
 					},
-			   {field:'sapCode',title:'产品经理sap编码',align:'center',sortable:true,width:100,
+			   {field:'id',title:'id',align:'center',sortable:true,
 					formatter:function(value,row,index){
-						return row.sapCode;
+						return row.id;
 					}
 				},				
-			   {field:'budgetName',title:'预算体名称',align:'center',sortable:true,width:100,
+			   {field:'name',title:'name',align:'center',sortable:true,
 					formatter:function(value,row,index){
-						return row.budgetName;
+						return row.name;
 					}
 				},				
-			   {field:'budgetCode',title:'预算体编码',align:'center',sortable:true,width:100,
+			   {field:'identifyid',title:'identifyid',align:'center',sortable:true,
 					formatter:function(value,row,index){
-						return row.budgetCode;
+						return row.identifyid;
 					}
 				},				
-			   {field:'employeeName',title:'产品经理',align:'center',sortable:true,width:100,
+			   {field:'agentType',title:'agentType',align:'center',sortable:true,
 					formatter:function(value,row,index){
-						return row.employeeName;
+						return row.agentType;
+					}
+				},				
+			   {field:'createTime',title:'createTime',align:'center',sortable:true,
+					formatter:function(value,row,index){
+						return dateFormatYMD(row.createTime);
 					}
 				}				
 			 ] ],
-			  toolbar : [ {
+			toolbar : [ {
 				text : '增加',
 				iconCls : 'icon-add',
 				handler : function() {
@@ -101,7 +89,7 @@
 				handler : function() {
 					datagrid.datagrid('unselectAll');
 				}
-			}, '-' ],  
+			}, '-' ],
 			onRowContextMenu : function(e, rowIndex, rowData) {
 				e.preventDefault();
 				$(this).datagrid('unselectAll');
@@ -113,52 +101,44 @@
 			}
 		});
 
-		cdBudgetAddForm = $('#cdBudgetAddForm').form({
-			url : 'budgetAction!add.do',
+		legalAgentAddForm = $('#legalAgentAddForm').form({
+			url : 'legalAgentAction!add.do',
 			success : function(data) {
 				var json = $.parseJSON(data);
-				/* var json1 = $.parseJSON({"msg":"门哥你终于成功了！！"});
-				console.info(json1); */
 				if (json && json.success) {
 					$.messager.show({
 						title : '成功',
 						msg : json.msg
 					});
 					datagrid.datagrid('reload');
-					cdBudgetAddDialog.dialog('close');
+					legalAgentAddDialog.dialog('close');
 				} else {
 					$.messager.show({
 						title : '失败',
-						msg : json.msg
+						msg : '操作失败！'
 					});
 				}
 			}
 		});
 
-		cdBudgetAddDialog = $('#cdBudgetAddDialog').show().dialog({
-			title : '添加CD_BUDGET',
+		legalAgentAddDialog = $('#legalAgentAddDialog').show().dialog({
+			title : '添加LegalAgent',
 			modal : true,
 			closed : true,
 			maximizable : true,
 			buttons : [ {
 				text : '添加',
 				handler : function() {
-					cdBudgetAddForm.submit();
+					legalAgentAddForm.submit();
 				}
-			},
-			             {
-				text: '取消',
-				handler:function(){
-					cdBudgetAddDialog.dialog('close');
-				}
-			             }]
+			} ]
 		});
 		
 		
 		
 
-		cdBudgetEditForm = $('#cdBudgetEditForm').form({
-			url : 'budgetAction!edit.do',
+		legalAgentEditForm = $('#legalAgentEditForm').form({
+			url : 'legalAgentAction!edit.do',
 			success : function(data) {
 				var json = $.parseJSON(data);
 				if (json && json.success) {
@@ -167,32 +147,32 @@
 						msg : json.msg
 					});
 					datagrid.datagrid('reload');
-					cdBudgetEditDialog.dialog('close');
+					legalAgentEditDialog.dialog('close');
 				} else {
 					$.messager.show({
 						title : '失败',
-						msg : json.msg
+						msg : '操作失败！'
 					});
 				}
 			}
 		});
 
-		cdBudgetEditDialog = $('#cdBudgetEditDialog').show().dialog({
-			title : '编辑CD_BUDGET',
+		legalAgentEditDialog = $('#legalAgentEditDialog').show().dialog({
+			title : '编辑LegalAgent',
 			modal : true,
 			closed : true,
 			maximizable : true,
 			buttons : [ {
 				text : '编辑',
 				handler : function() {
-					cdBudgetEditForm.submit();
+					legalAgentEditForm.submit();
 				}
 			} ]
 		});
 
 
 		showCdescDialog = $('#showCdescDialog').show().dialog({
-			title : 'CD_BUDGET描述',
+			title : 'LegalAgent描述',
 			modal : true,
 			closed : true,
 			maximizable : true
@@ -207,34 +187,31 @@
 	});
 
 	function _search() {
-		//从新加载datagrid并将form序列化作为参数替换queryParams传给后台
 		datagrid.datagrid('load', sy.serializeObject(searchForm));
 	}
 	function cleanSearch() {
 		datagrid.datagrid('load', {});
-		searchForm.form('clear');
+		searchForm.find('input').val('');
 	}
 	function add() {
-		//将新增窗口的form中的input和textarea标签中的数据清空。
-		cdBudgetAddForm.find('input,textarea').val('');
+		legalAgentAddForm.form("clear");
 		$('div.validatebox-tip').remove();
-		//打开新增模态窗口
-		cdBudgetAddDialog.dialog('open');
+		legalAgentAddDialog.dialog('open');
 	}
 	function del() {
 		var rows = datagrid.datagrid('getSelections');
-		var sapCodes = "";
+		var ids = "";
 		if (rows.length > 0) {
 			$.messager.confirm('请确认', '您要删除当前所选项目？', function(r) {
 				if (r) {
 					for ( var i = 0; i < rows.length; i++) {
 						if(i!=rows.length-1)
-							sapCodes=sapCodes+"sapCodes="+rows[i].sapCode+"&";
-						else sapCodes=sapCodes+"sapCodes="+rows[i].sapCode;
+							ids=ids+"ids="+rows[i].id+"&";
+						else ids=ids+"ids="+rows[i].id;
 					}
 					$.ajax({
-						url : 'budgetAction!delete.do',
-						data : sapCodes,
+						url : 'legalAgentAction!delete.do',
+						data : ids,
 						dataType : 'json',
 						success : function(response) {
 							datagrid.datagrid('load');
@@ -259,17 +236,17 @@
 				interval : 100
 			});
 			$.ajax({
-				url : 'budgetAction!showDesc.do',
+				url : 'legalAgentAction!showDesc.do',
 				data : {
-					sapCode : rows[0].sapCode
+					id : rows[0].id
 				},
 				dataType : 'json',
 				cache : false,
 				success : function(response) {
-					cdBudgetEditForm.find('input,textarea').val('');
-					cdBudgetEditForm.form('load', response);
+					legalAgentEditForm.form("clear");
+					legalAgentEditForm.form('load', response);
 					$('div.validatebox-tip').remove();
-					cdBudgetEditDialog.dialog('open');
+					legalAgentEditDialog.dialog('open');
 					$.messager.progress('close');
 				}
 			});
@@ -285,7 +262,7 @@
 			interval : 100
 		});
 		$.ajax({
-			url : 'budgetAction!showDesc.do',
+			url : 'legalAgentAction!showDesc.do',
 			data : {
 				id : row.id
 			},
@@ -296,7 +273,7 @@
 					showCdescDialog.find('div[name=cdesc]').html(response.cdesc);
 					showCdescDialog.dialog('open');
 				} else {
-					$.messager.alert('提示', '没有CD_BUDGET描述！', 'error');
+					$.messager.alert('提示', '没有LegalAgent描述！', 'error');
 				}
 				$.messager.progress('close');
 			}
@@ -306,41 +283,22 @@
 </script>
 </head>
 <body class="easyui-layout">
-	<div class="zoc" region="north" border="false" collapsible="true"
-					title="样机预算体信息" collapsed="false" style="height: 90px; overflow: hidden;">
+	<div region="north" border="false" title="过滤条件" collapsed="true"  style="height: 110px;overflow: hidden;" align="left">
 		<form id="searchForm">
-		<div class="oneline">
-		    <div class="item25">
-					<div class="itemleft80">sap编码:</div>
-					<div class="righttext_easyui">
-						<input name="cdBudgetQuery.sapCode" type="text" class="short50"/>
-					</div>
-				</div>
-		    <div class="item25">
-					<div class="itemleft80">预算体编码:</div>
-					<div class="righttext_easyui">
-						<input name="cdBudgetQuery.budgetCode" type="text" class="short50"/>
-					</div>
-				</div>
-		    <div class="item25">
-					<div class="itemleft80">预算体名称:</div>
-					<div class="righttext_easyui">
-						<input name="cdBudgetQuery.budgetName" type="text" class="short50"/>
-					</div>
-			</div>
-		    <div class="item25">
-					<div class="itemleft80">产品经理名称:</div>
-					<div class="righttext_easyui">
-						<input name="cdBudgetQuery.employeeName" id="employeeid" type="text" class="short50"/>
-					</div>
-			</div>
-			<div class="item25">
-					<div class="oprationbutt">
-						<input type="button" onclick="_search();" value="查询" /> 
-						<input	type="button" onclick="cleanSearch();" value="重置" />
-					</div>
-			</div>
-		</div>		
+			<table class="tableForm datagrid-toolbar" style="width: 100%;height: 100%;">
+				<tr>
+					<th>查询字段需要手工修改</th>
+					<td><input name="hotelid" style="width:155px;" /></td>
+				</tr>
+				<tr>
+					<th>创建时间</th>
+					<td><input name="ccreatedatetimeStart" class="easyui-datebox" editable="false" style="width: 155px;" />至<input name="ccreatedatetimeEnd" class="easyui-datebox" editable="false" style="width: 155px;" /></td>
+				</tr>
+				<tr>
+					<th>最后修改时间</th>
+					<td><input name="cmodifydatetimeStart" class="easyui-datebox" editable="false" style="width: 155px;" />至<input name="cmodifydatetimeEnd" class="easyui-datebox" editable="false" style="width: 155px;" /><a href="javascript:void(0);" class="easyui-linkbutton" onclick="_search();">过滤</a><a href="javascript:void(0);" class="easyui-linkbutton" onclick="cleanSearch();">取消</a></td>
+				</tr>
+			</table>
 		</form>
 	</div>
 	
@@ -354,31 +312,37 @@
 		<div onclick="edit();" iconCls="icon-edit">编辑</div>
 	</div>
 
-	<div id="cdBudgetAddDialog" style="display: none;width: 500px;height: 300px;" align="center">
-		<form id="cdBudgetAddForm" method="post">
+	<div id="legalAgentAddDialog" style="display: none;width: 500px;height: 300px;" align="center">
+		<form id="legalAgentAddForm" method="post">
 			<table class="tableForm">
 						<tr>
-							<th>产品经理sap编码</th>
+							<th>id</th>
 							<td>
-							<input name="sapCode" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写产品经理sap编码"  style="width: 155px;"/>
+								<input name="id" type="text" class="easyui-validatebox" data-options="required:true" missingMessage="请填写id"  style="width: 155px;"/>
 							</td>
 						</tr>
 						<tr>
-							<th>预算体名称</th>
+							<th>name</th>
 							<td>
-							<input name="budgetName" type="text" class="easyui-validatebox" data-options="required:true" missingMessage="请填写预算体名称"  style="width: 155px;"/>
+								<input name="name" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写name"  style="width: 155px;"/>						
 							</td>
 						</tr>
 						<tr>
-							<th>预算体编码</th>
+							<th>identifyid</th>
 							<td>
-							<input name="budgetCode" type="text" class="easyui-validatebox" data-options="required:true" missingMessage="请填写预算体编码"  style="width: 155px;"/>
+								<input name="identifyid" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写identifyid"  style="width: 155px;"/>						
 							</td>
 						</tr>
 						<tr>
-							<th>产品经理</th>
+							<th>agentType</th>
 							<td>
-							<input name="employeeName" type="text" id="employeeid1"  style="width: 155px;"/>
+								<input name="agentType" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写agentType"  style="width: 155px;"/>						
+							</td>
+						</tr>
+						<tr>
+							<th>createTime</th>
+							<td>
+								<input name="createTime" type="text" class="easyui-datetimebox" data-options="" missingMessage="请填写createTime"  style="width: 155px;"/>						
 							</td>
 						</tr>
 					
@@ -388,31 +352,37 @@
 		</form>
 	</div>
 
-	<div id="cdBudgetEditDialog" style="display: none;width: 500px;height: 300px;" align="center">
-		<form id="cdBudgetEditForm" method="post">
+	<div id="legalAgentEditDialog" style="display: none;width: 500px;height: 300px;" align="center">
+		<form id="legalAgentEditForm" method="post">
 			<table class="tableForm">
 						<tr>
-						<th>产品经理sap编码</th>
+						<th>id</th>
 							<td>
-							<input name="sapCode" readonly="readonly" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写产品经理sap编码"  style="width: 155px;"/>
+								<input name="id" type="text" class="easyui-validatebox" data-options="required:true" missingMessage="请填写id"  style="width: 155px;"/>
 							</td>
 						</tr>
 						<tr>
-						<th>预算体名称</th>
+						<th>name</th>
 							<td>
-<input name="budgetName" type="text" class="easyui-validatebox" data-options="required:true" missingMessage="请填写预算体名称"  style="width: 155px;"/>
+								<input name="name" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写name"  style="width: 155px;"/>
 							</td>
 						</tr>
 						<tr>
-						<th>预算体编码</th>
+						<th>identifyid</th>
 							<td>
-<input name="budgetCode" type="text" class="easyui-validatebox" data-options="required:true" missingMessage="请填写预算体编码"  style="width: 155px;"/>
+								<input name="identifyid" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写identifyid"  style="width: 155px;"/>
 							</td>
 						</tr>
 						<tr>
-						<th>产品经理</th>
+						<th>agentType</th>
 							<td>
-<input name="employeeName" type="text" id="employeeid2" style="width: 155px;"/>
+								<input name="agentType" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写agentType"  style="width: 155px;"/>
+							</td>
+						</tr>
+						<tr>
+						<th>createTime</th>
+							<td>
+								<input name="createTime" type="text" class="easyui-datetimebox" data-options="" missingMessage="请填写createTime"  style="width: 155px;"/>
 							</td>
 						</tr>
 			</table>

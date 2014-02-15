@@ -106,6 +106,16 @@
 							<div class="handdle-right-hc" ><a href="javascript:void(0)">&nbsp;</a></div>
 							
 							<ul id="todotasks">
+							<!-- 待办列表demo start-->
+								<li  src="" resName="申请援助" resIcon="" resH="20"  resW="20" resid="2"  id="resource_2">
+								 <div class="main-content-navi-icon"><img width="35px" height="35px" src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=<s:property value='iconUrl'/>" />
+										<div class="live-tip no-background-image"></div>
+									</div>
+									<div class="main-content-navi-icontext">申请援助</div>
+									<div class="navi-selected-icon"></div>
+								</li>
+							<!-- 待办列表demo end-->
+								<!-- 待办列表start -->
 								<s:iterator value="%{resourceList}" id='res' status='status'> 
 								    <s:if test="#status.Last"> 
 								    <li class="last-li"  src="${dynamicURL}<s:property value='url'/>"  resName="<s:property value='localName'/>" resIcon="<s:property value='icon'/>" resH="<s:property value='height'/>"  resW="<s:property value='width'/>" resid="<s:property value='id'/>"  id="resource_<s:property value='id'/>" >
@@ -120,6 +130,7 @@
 									<div class="navi-selected-icon"></div>
 									</li>
 								</s:iterator> 
+								<!--待办列表end  -->
 							</ul>
 						</div>
 					</div>

@@ -11,125 +11,169 @@
 
 		searchForm = $('#searchForm').form();
 		datagrid = $('#datagrid').datagrid({
-			url : 'vendorAction!datagrid.action',
-			title : '供应商信息',
+			url : 'legalApplicantAction!datagrid.action',
+			title : 'LegalApplicant列表',
 			iconCls : 'icon-save',
 			pagination : true,
 			pagePosition : 'bottom',
-			pageSize : 15,
-			pageList : [ 15, 30, 40, 50, 100 ],
+			pageSize : 50,
+			pageList : [ 10, 20, 30, 40, 50, 100 ],
 			fit : true,
-			fitColumns : true,
+			fitColumns : false,
 			rownumbers : true,
 			nowrap : false,
 			border : false,
 			idField : 'obid',
-			
+			sortName : '',
+			sortOrder : 'desc',
 			columns : [ [ 
 				{field:'ck',checkbox:true,
 						formatter:function(value,row,index){
 							return row.obid;
 						}
 				},
-			   {field:'vendorCode',title:'供应商编码',align:'center',sortable:false,
+			   {field:'id',title:'id',align:'center',sortable:false,width : 85,
+			  	    editor : {
+							type : 'validatebox',
+							options : {required:true}
+					},
+					formatter:function(value,row,index){
+						return row.id;
+					}
+				},				
+			   {field:'name',title:'name',align:'center',sortable:false,width : 85,
 			  	    editor : {
 							type : 'validatebox',
 							options : {}
 					},
 					formatter:function(value,row,index){
-						return row.vendorCode;
+						return row.name;
 					}
 				},				
-			   {field:'vendorType',title:'供应商类型',align:'center',sortable:false,
-			  	    editor : {
-			  	    	type:'combobox',
-						editable: false,
-						options:{
-							valueField:'value',  
-                            textField:'label',
-                            panelHeight: 50,
-							data: [{
-								label: '船公司',
-								value: '0'
-							},{
-								label: '报关行',
-								value: '1'
-							},{
-								label: '商检代理商',
-								value: '2'
-							},{
-								label: '货代',
-								value: '3'
-							},{
-								label: '空运',
-								value: '4'
-							}]
-						}
-					},
-					formatter:function(value,row,index){
-						if(row.vendorType=="0"){
-							return "船公司";
-						}else if(row.vendorType=="1"){
-							return "报关行";
-						}else if(row.vendorType=="2"){
-							return "商检代理商";
-						}else if(row.vendorType=="3"){
-							return "货代";
-						}else if(row.vendorType=="4"){
-							return "空运";
-						}
-					}
-				},				
-			   {field:'vendorNameCn',title:'中文名',align:'center',sortable:false,
+			   {field:'gender',title:'gender',align:'center',sortable:false,width : 85,
 			  	    editor : {
 							type : 'validatebox',
 							options : {}
 					},
 					formatter:function(value,row,index){
-						return row.vendorNameCn;
+						return row.gender;
 					}
 				},				
-			   {field:'vendorNameEn',title:'英文名',align:'center',sortable:false,
+			   {field:'birthday',title:'birthday',align:'center',sortable:false,width : 85,
+			  	    editor : {
+							type : 'datetimebox',
+							options : {}
+					},
+					formatter:function(value,row,index){
+						return dateFormatYMD(row.birthday);
+					}
+				},				
+			   {field:'nationId',title:'nationId',align:'center',sortable:false,width : 85,
+			  	    editor : {
+							type : 'validatebox',
+							options : {required:true}
+					},
+					formatter:function(value,row,index){
+						return row.nationId;
+					}
+				},				
+			   {field:'identifyid',title:'identifyid',align:'center',sortable:false,width : 85,
 			  	    editor : {
 							type : 'validatebox',
 							options : {}
 					},
 					formatter:function(value,row,index){
-						return row.vendorNameEn;
+						return row.identifyid;
 					}
 				},				
-			   {field:'activeFlag',title:'是否有效',align:'center',sortable:false,
-			  	    editor : {
-			  	    	type:'combobox',
-						editable: false,
-						options:{
-							valueField:'value',  
-                            textField:'label',
-                            panelHeight: 50,
-							data: [{
-								label: '有效',
-								value: '1'
-							},{
-								label: '无效',
-								value: '0'
-							}]
-						}
-					},
-					formatter:function(value,row,index){
-						if(row.activeFlag=="1"){
-							return "有效";
-						}else{
-							return "无效";
-						}
-					}
-				},				
-			   {field:'orderBy',title:'排序值',align:'center',sortable:false,
+			   {field:'birthPlace',title:'birthPlace',align:'center',sortable:false,width : 85,
 			  	    editor : {
 							type : 'validatebox',
 							options : {}
 					},
 					formatter:function(value,row,index){
-						return row.orderBy;
+						return row.birthPlace;
+					}
+				},				
+			   {field:'livePlace',title:'livePlace',align:'center',sortable:false,width : 85,
+			  	    editor : {
+							type : 'validatebox',
+							options : {}
+					},
+					formatter:function(value,row,index){
+						return row.livePlace;
+					}
+				},				
+			   {field:'postCode',title:'postCode',align:'center',sortable:false,width : 85,
+			  	    editor : {
+							type : 'validatebox',
+							options : {}
+					},
+					formatter:function(value,row,index){
+						return row.postCode;
+					}
+				},				
+			   {field:'phone',title:'phone',align:'center',sortable:false,width : 85,
+			  	    editor : {
+							type : 'validatebox',
+							options : {}
+					},
+					formatter:function(value,row,index){
+						return row.phone;
+					}
+				},				
+			   {field:'company',title:'company',align:'center',sortable:false,width : 85,
+			  	    editor : {
+							type : 'validatebox',
+							options : {}
+					},
+					formatter:function(value,row,index){
+						return row.company;
+					}
+				},				
+			   {field:'eduLevelId',title:'eduLevelId',align:'center',sortable:false,width : 85,
+			  	    editor : {
+							type : 'validatebox',
+							options : {required:true}
+					},
+					formatter:function(value,row,index){
+						return row.eduLevelId;
+					}
+				},				
+			   {field:'agentId',title:'agentId',align:'center',sortable:false,width : 85,
+			  	    editor : {
+							type : 'validatebox',
+							options : {required:true}
+					},
+					formatter:function(value,row,index){
+						return row.agentId;
+					}
+				},				
+			   {field:'createTime',title:'createTime',align:'center',sortable:false,width : 85,
+			  	    editor : {
+							type : 'datetimebox',
+							options : {}
+					},
+					formatter:function(value,row,index){
+						return dateFormatYMD(row.createTime);
+					}
+				},				
+			   {field:'categoryId',title:'categoryId',align:'center',sortable:false,width : 85,
+			  	    editor : {
+							type : 'validatebox',
+							options : {required:true}
+					},
+					formatter:function(value,row,index){
+						return row.categoryId;
+					}
+				},				
+			   {field:'ifFinancialDifficulty',title:'ifFinancialDifficulty',align:'center',sortable:false,width : 85,
+			  	    editor : {
+							type : 'validatebox',
+							options : {}
+					},
+					formatter:function(value,row,index){
+						return row.ifFinancialDifficulty;
 					}
 				}				
 			   ] ],
@@ -197,10 +241,10 @@
 
 				var url = '';
 				if (inserted.length > 0) {
-					url = 'vendorAction!add.action';
+					url = 'legalApplicantAction!add.action';
 				}
 				if (updated.length > 0) {
-					url = 'vendorAction!edit.action';
+					url = 'legalApplicantAction!edit.action';
 				}
 
 				$.ajax({
@@ -244,7 +288,7 @@
 	}
 	function cleanSearch() {
 		datagrid.datagrid('load', {});
-		searchForm.form("clear");
+		searchForm.find('input').val('');
 	}
 	
 	function add() {
@@ -281,10 +325,10 @@
 			$.messager.confirm('请确认', '您要删除当前所选项目？', function(r) {
 				if (r) {
 					for ( var i = 0; i < rows.length; i++) {
-						ids.push(rows[i].rowId);
+						ids.push(rows[i].obid);
 					}
 					$.ajax({
-						url : 'vendorAction!delete.action',
+						url : 'legalApplicantAction!delete.action',
 						data : {
 							ids : ids.join(',')
 						},
@@ -326,57 +370,26 @@
 </script>
 </head>
 <body class="easyui-layout">
-	<div class="zoc" region="north" border="false" collapsible="true"
-		style="height: 110px; overflow: hidden;">
+	<div region="north" border="false" title="搜索条件" style="height: 60px;overflow: hidden;" align="left">
 		<form id="searchForm">
-			<div class="navhead_zoc">
-				<span>供应商信息</span>
-			</div>
-			<div class="part_zoc">
-				<div class="partnavi_zoc">
-					<span>查询与操作：</span>
-				</div>
-				<div class="oneline">
-				<div class="item25">
-					<div class="itemleft60">供应商名称：</div>
-						<div class="righttext">
-							<input id="vendorNameCn" name="vendorNameCn" type="text"
-								style="width: 125px" />
-						</div>
-					</div>
-					<div class="item25">
-						<div class="itemleft60">供应商编码：</div>
-						<div class="righttext">
-							<input id="vendorCode" name="vendorCode" type="text"
-								style="width: 125px" />
-						</div>
-					</div>
-					<div class="item25">
-						<div class="itemleft60">供应商类型：</div>
-						<div class="righttext">
-							<select id="vendorType" name="vendorType">
-								<option value="">全部</option>
-								<option value="0">船公司</option>
-								<option value="1">报关行</option>
-								<option value="2">商检代理商</option>
-								<option value="3">货代</option>
-								<option value="4">空运</option>
-							</select>
-						</div>
-					</div>
-				</div>
-				<div class="item100">
-					<div class="oprationbutt">
-						<input type="button" value="查  询" onclick="_search();" />
-						<input type="button" value="重  置" onclick="cleanSearch();" />
-					</div>
-				</div>
-			</div>
+			<table>
+				<tr>
+					<td>查询字段<input name="cname" style="width:100px;" />&nbsp;</td>
+					<td>创建时间<input name="ccreatedatetimeStart" class="easyui-datetimebox" editable="false" style="width: 100px;" />至<input name="ccreatedatetimeEnd" class="easyui-datetimebox" editable="false" style="width: 100px;" /></td>
+					<td>最后修改时间</td>
+					<td><input name="cmodifydatetimeStart" class="easyui-datetimebox" editable="false" style="width: 100px;" />至<input name="cmodifydatetimeEnd" class="easyui-datetimebox" editable="false" style="width: 100px;" /><a href="javascript:void(0);" class="easyui-linkbutton" onclick="_search();">搜索</a><a href="javascript:void(0);" class="easyui-linkbutton" onclick="cleanSearch();">取消</a></td>
+				</tr>
+			</table>
 		</form>
 	</div>
 	<div region="center" border="false">
 		<table id="datagrid"></table>
 	</div>
 
+	<div id="menu" class="easyui-menu" style="width:120px;display: none;">
+		<div onclick="add();" iconCls="icon-add">增加</div>
+		<div onclick="del();" iconCls="icon-remove">删除</div>
+		<div onclick="edit();" iconCls="icon-edit">编辑</div>
+	</div>
 </body>
 </html>

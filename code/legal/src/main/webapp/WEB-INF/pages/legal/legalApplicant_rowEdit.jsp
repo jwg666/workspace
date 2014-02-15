@@ -1,7 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib prefix="s" uri="/struts-tags"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
+<!DOCTYPE html>
 <html>
 <head>
 <jsp:include page="/common/common_js.jsp"></jsp:include>
@@ -9,20 +7,12 @@
 	var searchForm;
 	var editRow = undefined;
 	var datagrid;
-	var countryData;
 	$(function() {
-		$.ajax({
-			url:'${dynamicURL}/basic/customerAwareAction!getCountryData.action',
-			dataType : 'json',
-			async:false,
-			success : function(response) {
-				countryData=response;
-			}
-		});
+
 		searchForm = $('#searchForm').form();
 		datagrid = $('#datagrid').datagrid({
-			url : 'customerAwareAction!datagrid.action',
-			title : '客户列表',
+			url : 'legalApplicantAction!datagrid.action',
+			title : 'LegalApplicant列表',
 			iconCls : 'icon-save',
 			pagination : true,
 			pagePosition : 'bottom',
@@ -39,61 +29,153 @@
 			columns : [ [ 
 				{field:'ck',checkbox:true,
 						formatter:function(value,row,index){
-							return row.id;
+							return row.obid;
 						}
 				},
-						
-			   {field:'customerCode',title:'客户编码',align:'center',sortable:false,width : 185,
+			   {field:'id',title:'id',align:'center',sortable:false,width : 85,
 			  	    editor : {
-							type : 'singlecombogrid',
-							options : {
-								data :countryData,
-								required : true,
-								panelWidth : 500,
-								panelHeight : 220,
-								pagination : true,
-								fit : true,
-								fitColumns : true,
-								pagePosition : 'bottom',
-								pageSize : 5,
-								pageList : [ 5, 10 ],
-								valueField : 'customerCode',
-								idField	:'customerCode',
-								textField:'customerCode',
-								loadFilter:pagerFilter,
-								columns : [ [ {
-									field : 'customerCode',
-									title : '客户编号',
-									width : 20
-								}, {
-									field : 'customerName',
-									title : '客户名称',
-									width : 20
-								} ] ]
-
-							}
+							type : 'validatebox',
+							options : {required:true}
 					},
 					formatter:function(value,row,index){
-						return row.customerCode;
+						return row.id;
 					}
 				},				
-			   {field:'customerName',title:'客户名称',align:'center',sortable:false,width : 185,			  	   
+			   {field:'name',title:'name',align:'center',sortable:false,width : 85,
+			  	    editor : {
+							type : 'validatebox',
+							options : {}
+					},
 					formatter:function(value,row,index){
-						return row.customerName;
+						return row.name;
 					}
-				},	
-				
-				{field:'createBy',title:'创建人',align:'center',sortable:false,width : 85,			  	   
+				},				
+			   {field:'gender',title:'gender',align:'center',sortable:false,width : 85,
+			  	    editor : {
+							type : 'validatebox',
+							options : {}
+					},
 					formatter:function(value,row,index){
-						return row.createBy;
+						return row.gender;
 					}
-				},
-			   {field:'createTime',title:'创建时间',align:'center',sortable:false,width : 85,			  	   
+				},				
+			   {field:'birthday',title:'birthday',align:'center',sortable:false,width : 85,
+			  	    editor : {
+							type : 'datetimebox',
+							options : {}
+					},
+					formatter:function(value,row,index){
+						return dateFormatYMD(row.birthday);
+					}
+				},				
+			   {field:'nationId',title:'nationId',align:'center',sortable:false,width : 85,
+			  	    editor : {
+							type : 'validatebox',
+							options : {required:true}
+					},
+					formatter:function(value,row,index){
+						return row.nationId;
+					}
+				},				
+			   {field:'identifyid',title:'identifyid',align:'center',sortable:false,width : 85,
+			  	    editor : {
+							type : 'validatebox',
+							options : {}
+					},
+					formatter:function(value,row,index){
+						return row.identifyid;
+					}
+				},				
+			   {field:'birthPlace',title:'birthPlace',align:'center',sortable:false,width : 85,
+			  	    editor : {
+							type : 'validatebox',
+							options : {}
+					},
+					formatter:function(value,row,index){
+						return row.birthPlace;
+					}
+				},				
+			   {field:'livePlace',title:'livePlace',align:'center',sortable:false,width : 85,
+			  	    editor : {
+							type : 'validatebox',
+							options : {}
+					},
+					formatter:function(value,row,index){
+						return row.livePlace;
+					}
+				},				
+			   {field:'postCode',title:'postCode',align:'center',sortable:false,width : 85,
+			  	    editor : {
+							type : 'validatebox',
+							options : {}
+					},
+					formatter:function(value,row,index){
+						return row.postCode;
+					}
+				},				
+			   {field:'phone',title:'phone',align:'center',sortable:false,width : 85,
+			  	    editor : {
+							type : 'validatebox',
+							options : {}
+					},
+					formatter:function(value,row,index){
+						return row.phone;
+					}
+				},				
+			   {field:'company',title:'company',align:'center',sortable:false,width : 85,
+			  	    editor : {
+							type : 'validatebox',
+							options : {}
+					},
+					formatter:function(value,row,index){
+						return row.company;
+					}
+				},				
+			   {field:'eduLevelId',title:'eduLevelId',align:'center',sortable:false,width : 85,
+			  	    editor : {
+							type : 'validatebox',
+							options : {required:true}
+					},
+					formatter:function(value,row,index){
+						return row.eduLevelId;
+					}
+				},				
+			   {field:'agentId',title:'agentId',align:'center',sortable:false,width : 85,
+			  	    editor : {
+							type : 'validatebox',
+							options : {required:true}
+					},
+					formatter:function(value,row,index){
+						return row.agentId;
+					}
+				},				
+			   {field:'createTime',title:'createTime',align:'center',sortable:false,width : 85,
+			  	    editor : {
+							type : 'datetimebox',
+							options : {}
+					},
 					formatter:function(value,row,index){
 						return dateFormatYMD(row.createTime);
 					}
-				}			
-			 				
+				},				
+			   {field:'categoryId',title:'categoryId',align:'center',sortable:false,width : 85,
+			  	    editor : {
+							type : 'validatebox',
+							options : {required:true}
+					},
+					formatter:function(value,row,index){
+						return row.categoryId;
+					}
+				},				
+			   {field:'ifFinancialDifficulty',title:'ifFinancialDifficulty',align:'center',sortable:false,width : 85,
+			  	    editor : {
+							type : 'validatebox',
+							options : {}
+					},
+					formatter:function(value,row,index){
+						return row.ifFinancialDifficulty;
+					}
+				}				
 			   ] ],
 			toolbar : [ {
 				text : '增加',
@@ -159,10 +241,10 @@
 
 				var url = '';
 				if (inserted.length > 0) {
-					url = 'customerAwareAction!add.action';
+					url = 'legalApplicantAction!add.action';
 				}
 				if (updated.length > 0) {
-					url = 'customerAwareAction!edit.action';
+					url = 'legalApplicantAction!edit.action';
 				}
 
 				$.ajax({
@@ -219,7 +301,13 @@
 			var row = {
 				cid : sy.UUID()
 			};
-		
+			/*datagrid.datagrid('insertRow', {
+				index : 0,
+				row : row
+			});
+			editRow = 0;
+			datagrid.datagrid('selectRow', editRow);
+			datagrid.datagrid('beginEdit', editRow);*/
 			datagrid.datagrid('appendRow', row);
 			editRow = datagrid.datagrid('getRows').length - 1;
 			datagrid.datagrid('selectRow', editRow);
@@ -237,10 +325,10 @@
 			$.messager.confirm('请确认', '您要删除当前所选项目？', function(r) {
 				if (r) {
 					for ( var i = 0; i < rows.length; i++) {
-						ids.push(rows[i].id);
+						ids.push(rows[i].obid);
 					}
 					$.ajax({
-						url : 'customerAwareAction!delete.action',
+						url : 'legalApplicantAction!delete.action',
 						data : {
 							ids : ids.join(',')
 						},
@@ -279,71 +367,26 @@
 			});
 		}
 	}
-	function pagerFilter(data){
-        if (typeof data.length == 'number' && typeof data.splice == 'function'){    // is array
-            data = {
-                total: data.length,
-                rows: data
-            }
-        }
-        var dg = $(this);
-        var opts = dg.datagrid('options');
-        var pager = dg.datagrid('getPager');
-        pager.pagination({
-            onSelectPage:function(pageNum, pageSize){
-                opts.pageNumber = pageNum;
-                opts.pageSize = pageSize;
-                pager.pagination('refresh',{
-                    pageNumber:pageNum,
-                    pageSize:pageSize
-                });
-                dg.datagrid('loadData',data);
-            }
-        });
-        if (!data.originalRows){
-            data.originalRows = (data.rows);
-        }
-        var start = (opts.pageNumber-1)*parseInt(opts.pageSize);
-        var end = start + parseInt(opts.pageSize);
-        data.rows = (data.originalRows.slice(start, end));
-        return data;
-    }
 </script>
-
 </head>
 <body class="easyui-layout">
-	
-	<div class="zoc" region="north" border="false" collapsible="true"
-					title="查询" collapsed="false" style="height: 90px; overflow: hidden;">
-					        <form id="searchForm">			
-		    <div class="oneline">
-				<div class="item25">
-					<div class="itemleft80">客户编码:</div>
-					<div class="righttext_easyui">
-						<input name="customerCode"  id="customerCode"  type="text" style="width: 130px;"/>						
-					</div>
-				</div>	
-				<div class="item25">
-					<div class="itemleft80">客户名称:</div>
-					<div class="righttext_easyui">
-						<input name="customerName"  id="customerName"  type="text" style="width: 130px;"/ >						
-					</div>
-				</div>			
-			   <div class="item25">
-					<div class="oprationbutt">
-						<input type="button" onclick="_search();" value="查  询" /> 
-						<input type="button" onclick="cleanSearch();" value="重置" />
-					</div>
-				</div>
-			</div>
+	<div region="north" border="false" title="搜索条件" style="height: 60px;overflow: hidden;" align="left">
+		<form id="searchForm">
+			<table>
+				<tr>
+					<td>查询字段<input name="cname" style="width:100px;" />&nbsp;</td>
+					<td>创建时间<input name="ccreatedatetimeStart" class="easyui-datetimebox" editable="false" style="width: 100px;" />至<input name="ccreatedatetimeEnd" class="easyui-datetimebox" editable="false" style="width: 100px;" /></td>
+					<td>最后修改时间</td>
+					<td><input name="cmodifydatetimeStart" class="easyui-datetimebox" editable="false" style="width: 100px;" />至<input name="cmodifydatetimeEnd" class="easyui-datetimebox" editable="false" style="width: 100px;" /><a href="javascript:void(0);" class="easyui-linkbutton" onclick="_search();">搜索</a><a href="javascript:void(0);" class="easyui-linkbutton" onclick="cleanSearch();">取消</a></td>
+				</tr>
+			</table>
 		</form>
 	</div>
-		
-	
 	<div region="center" border="false">
 		<table id="datagrid"></table>
 	</div>
-    <div id="menu" class="easyui-menu" style="width:120px;display: none;">
+
+	<div id="menu" class="easyui-menu" style="width:120px;display: none;">
 		<div onclick="add();" iconCls="icon-add">增加</div>
 		<div onclick="del();" iconCls="icon-remove">删除</div>
 		<div onclick="edit();" iconCls="icon-edit">编辑</div>
