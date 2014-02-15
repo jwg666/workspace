@@ -3,7 +3,7 @@
     "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-	<package name="workflow" extends="hrois" namespace="/workflow">
+	<package name="workflow" extends="legal" namespace="/workflow">
 
 		<action name="processAction!*" class="processAction" method="{1}">
 			<result name="processList">/WEB-INF/pages/workflow/processList.jsp</result>

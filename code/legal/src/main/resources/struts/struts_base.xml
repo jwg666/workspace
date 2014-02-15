@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="base" extends="legal" namespace="/base">
+		<action name="dictionaryAction!*" class="dictionaryAction" method="{1}">
+			<result name="dictionary">/WEB-INF/pages/base/dictionary.jsp</result>
+			<result type="json">
+				<param name="root">json</param>
+				<param name="excludeProperties"></param> 
+			</result>
+			<result type="json" name="datagrid">
+				<param name="root">datagrid</param>
+				<param name="excludeProperties"></param> 
+			</result>
+			<result type="json" name="dictionaryList">
+				<param name="root">dictionaryList</param>
+				<param name="excludeProperties"></param> 
+			</result>
+			<result type="json" name="showDesc">
+				<param name="root">dictionaryQuery</param>
+				<param name="excludeProperties"></param> 
+			</result>
+		</action>
+		
+		<!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
+		<!--  generator-insert-location -->
+		<action name="departmentAction!*" class="departmentAction" method="{1}">
+			<result name="department">/WEB-INF/pages/base/department.jsp</result>
+			<result type="json">
+				<param name="root">json</param>
+				<param name="excludeProperties"></param> 
+			</result>
+			<result type="json" name="datagrid">
+				<param name="root">datagrid</param>
+				<param name="excludeProperties"></param> 
+			</result>
+			<result type="json" name="departmentList">
+				<param name="root">departmentList</param>
+				<param name="excludeProperties"></param> 
+			</result>
+			<result type="json" name="showDesc">
+				<param name="root">departmentQuery</param>
+				<param name="excludeProperties"></param> 
+			</result>
+		</action>
+</package>

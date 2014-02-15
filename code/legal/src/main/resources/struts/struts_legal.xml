@@ -3,7 +3,93 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
 	<package name="law" extends="legal" namespace="/law">	    
-		<action name="law_*"  method="{1}" class="lawAction"></action>
+		<action name="legalAgentAction!*" class="legalAgentAction" method="{1}">
+		<result name="legalAgent">/WEB-INF/pages/legal/legalAgent.jsp</result>
+		<result type="json">
+			<param name="root">json</param>
+			<param name="excludeProperties"></param> 
+		</result>
+		<result type="json" name="datagrid">
+			<param name="root">datagrid</param>
+			<param name="excludeProperties"></param> 
+		</result>
+		<result type="json" name="legalAgentList">
+			<param name="root">legalAgentList</param>
+			<param name="excludeProperties"></param> 
+		</result>
+		<result type="json" name="showDesc">
+			<param name="root">legalAgentQuery</param>
+			<param name="excludeProperties"></param> 
+		</result>
+	</action>
+	
+	<!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
+	<!--  generator-insert-location -->
+	<action name="legalCaseAction!*" class="legalCaseAction" method="{1}">
+		<result name="legalCase">/WEB-INF/pages/legal/legalCase.jsp</result>
+		<result type="json">
+			<param name="root">json</param>
+			<param name="excludeProperties"></param> 
+		</result>
+		<result type="json" name="datagrid">
+			<param name="root">datagrid</param>
+			<param name="excludeProperties"></param> 
+		</result>
+		<result type="json" name="legalCaseList">
+			<param name="root">legalCaseList</param>
+			<param name="excludeProperties"></param> 
+		</result>
+		<result type="json" name="showDesc">
+			<param name="root">legalCaseQuery</param>
+			<param name="excludeProperties"></param> 
+		</result>
+	</action>
+	
+	<!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
+	<!--  generator-insert-location -->
+	
+	<action name="legalApproveAction!*" class="legalApproveAction" method="{1}">
+		<result name="legalApprove">/WEB-INF/pages/legal/legalApprove.jsp</result>
+		<result type="json">
+			<param name="root">json</param>
+			<param name="excludeProperties"></param> 
+		</result>
+		<result type="json" name="datagrid">
+			<param name="root">datagrid</param>
+			<param name="excludeProperties"></param> 
+		</result>
+		<result type="json" name="legalApproveList">
+			<param name="root">legalApproveList</param>
+			<param name="excludeProperties"></param> 
+		</result>
+		<result type="json" name="showDesc">
+			<param name="root">legalApproveQuery</param>
+			<param name="excludeProperties"></param> 
+		</result>
+	</action>
+	
+	<!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
+	<!--  generator-insert-location -->
+	
+	<action name="legalApplicantAction!*" class="legalApplicantAction" method="{1}">
+		<result name="legalApplicant">/WEB-INF/pages/legal/legalApplicant.jsp</result>
+		<result type="json">
+			<param name="root">json</param>
+			<param name="excludeProperties"></param> 
+		</result>
+		<result type="json" name="datagrid">
+			<param name="root">datagrid</param>
+			<param name="excludeProperties"></param> 
+		</result>
+		<result type="json" name="legalApplicantList">
+			<param name="root">legalApplicantList</param>
+			<param name="excludeProperties"></param> 
+		</result>
+		<result type="json" name="showDesc">
+			<param name="root">legalApplicantQuery</param>
+			<param name="excludeProperties"></param> 
+		</result>
+	</action>
 		
 	</package>
 </struts>
