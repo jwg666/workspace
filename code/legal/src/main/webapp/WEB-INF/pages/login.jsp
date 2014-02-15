@@ -68,18 +68,23 @@
 <div class="login_main_container">
   <div class="login_pad">
     <div class="logo">
-    	<a href="#"><img src="${staticURL}/style/images/logo_login.png"/></a>
-    	<p>海外订单跟踪管理系统</p>
+    	<a href="#">
+    	<!-- LOGO -->
+    	<!--
+    	<img src="${staticURL}/style/images/logo_login.png"/>
+    	  -->
+    	</a>
+    	<p>XXX系统</p>
     </div>
     <s:form action="login" namespace="/security" method="post" id="loginForm">
 	    <div class="login_content">
 	    	<div class="elem">
 	        	<div class="name">用户名</div>
-	        	<div class="text clearfix"><input type="text" name="user.empCode" /> </div>
+	        	<div class="text clearfix"><input type="text" name="userInfo.empCode" /> </div>
 	      	</div>
 	      	<div class="elem">
 	        	<div class="name">密码</div>
-	        	<div class="text clearfix"><input type="password" name="user.password"  /></div>
+	        	<div class="text clearfix"><input type="password" name="userInfo.password"  /></div>
 	      	</div>
 	      	<div class="elem">
 	        	<div class="name">语言</div>
@@ -92,8 +97,10 @@
 	        	<div class="text clearfix" style="display: none">
 		        	<input type="text" name="checkCode" class="verif" />
 		        	<span class="img"> 
+		        	<!--
 		        	<img id="checkCodeImg" src="${dynamicURL}/checkCode.action"
 							onclick="changeValidateCode()" style="cursor: pointer;" />
+							  -->
 					</span>
 	        	</div>
 	        	<div class="tip">
@@ -131,24 +138,23 @@
 		
 	    <input type="hidden" name="singleLogin" value="${singleLogin }" />
     </s:form>
-    <div style="margin-top: 10px"><img src="${staticURL}/images/liantu.png" style="width: 170px"></div>
+    <div style="margin-top: 10px">
+    <!-- 
+    <img src="${staticURL}/images/liantu.png" style="width: 170px">
+     -->
+    </div>
   </div>
   <div class="loginbotBG"></div>
-  <p style="color: red;display: none" >
-	  <span >系统相关软件下载：</span>
-	  <a style="color: red" href="${dynamicURL}/FirefoxSetup21.0.exe">如果您的浏览器不支持本系统 请点击下载火狐浏览器</a>
-	  <a style="color: red" href="${dynamicURL}/网页版装箱软件测试环境安装包.msi">网页版装箱软件测试环境安装包.msi</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	  <a style="color: red" href="${dynamicURL}/网页版装箱软件正式环境安装包.msi">网页版装箱软件正式环境安装包.msi</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	  <a style="color: red" href="${dynamicURL}/oracle9i310.msi">oracle9i310.msi（数据库客户端）</a>
-	  <a style="color: red" href="${dynamicURL}/flashplayer_Plugin_11.8.800.94_XiaZaiBa.zip">火狐浏览器flash插件</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	  <a style="color: red" href="${dynamicURL}/flashplayer_for_ie.zip">IE浏览器flash插件</a>
-  </p>
+
   <div class="login_box">
     <div class="right">
       <div class="content">
       <h1>公告</h1>
       <div id="content" style="height: 300px;width: 520px; overflow: auto;">
       		${messageQuery.content}
+      		  <p style="color: red;" >
+				 公告上线
+			  </p>
       	</div>
       </div>
     </div>

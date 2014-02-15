@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<title>Hrois-海外订单跟踪管理系统</title>
+<title>XXX系统</title>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <link rel="stylesheet" href="${staticURL}/portal/js/HoorayLibs/hooraylibs.css"/>
@@ -61,7 +61,7 @@
     	<div class="head-body">
             <div class="head-body-l"></div>
             <div class="head-body-b">
-               <div class="l-logo"><div class="l-head"><s:text name="golbal.hrois.title">海外订单跟踪管理系统</s:text></div></div>
+               <div class="l-logo"><div class="l-head"><s:text name="golbal.legal.title">XX系统</s:text></div></div>
                <div class="head-body-b-float">
 	               <div class="b-button b-button-01">
 	                   <div class="button-left">&nbsp;</div>
@@ -71,13 +71,7 @@
 	                         <span class="bg-01"><s:property value="#session['_user_name']"/></span>
 	                   </div>
 	                   </a>
-	                   <s:if test="%{grantorList && grantorList.size>0}">
-	                       <ul>
-	                       		<s:iterator value="%{grantorList}" id='g' status='status'> 
-		                       	<li><a href="${dynamicURL}/security/grantorLogin.action?user.empCode=<s:property value='grantorCode'/>"><s:property value='grantorName'/></a></li>
-		                       	</s:iterator>
-	                       </ul>
-                       </s:if>
+	                   
 	               </div>
 	               <div class="b-button b-button-02">
 	                   <div class="button-left">&nbsp;</div>
@@ -119,7 +113,7 @@
 								    <s:else>
 								    <li  src="${dynamicURL}<s:property value='url'/>" resName="<s:property value='localName'/>" resIcon="<s:property value='icon'/>" resH="<s:property value='height'/>"  resW="<s:property value='width'/>" resid="<s:property value='id'/>"  id="resource_<s:property value='id'/>">
 								    </s:else>
-								    <div class="main-content-navi-icon"><img width="35px" height="35px" src="${dynamicURL}/basic/fileUploadAction/downloadImage.do?fileId=<s:property value='iconUrl'/>" />
+								    <div class="main-content-navi-icon"><img width="35px" height="35px" src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=<s:property value='iconUrl'/>" />
 										<div class="live-tip no-background-image"></div>
 									</div>
 									<div class="main-content-navi-icontext"><s:property value='localName'/></div>
@@ -284,14 +278,14 @@
 
 
 <script>
-var ajaxUrl   = '${dynamicURL}/basic/portalAction/ajax.do';     //所有ajax操作指向页面
+var ajaxUrl   = '${dynamicURL}/portal/portalAction/ajax.do';     //所有ajax操作指向页面
 /*设置basicUrl 以及 当前语言 */
 HROS.CONFIG.locale = '${locale}';
 HROS.CONFIG.deskLength = ${desknum};
 HROS.CONFIG.basicDynamicUrl = '${dynamicURL}';
 HROS.CONFIG.basicStaticUrl = '${staticURL}';
-HROS.CONFIG.basicActionUrl = '${dynamicURL}/basic/portalAction';
-HROS.CONFIG.downloadImage = '${dynamicURL}/basic/fileUploadAction/downloadImage.do?fileId=';
+HROS.CONFIG.basicActionUrl = '${dynamicURL}/portal/portalAction';
+HROS.CONFIG.downloadImage = '${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=';
 var _id_ = 1;
 $(function(){
 	/*jquery mobile page不自动初始化 */
@@ -344,11 +338,11 @@ $(function(){
 		$("#desk-6 .main-content .main-subnav").hide().find("ul").hide();
 	});
 	//2秒后 请求taskCount
-	setTimeout(showTaskCount,1000);
+	//setTimeout(showTaskCount,1000);
 	//10分钟刷新taskCount
-	setInterval(showTaskCount,600000);
+	//setInterval(showTaskCount,600000);
 	//10钟刷新在线用户
-	setInterval(refreshOnLineUser,1000*10);
+	//setInterval(refreshOnLineUser,1000*10);
 	
 	$("#newNotice .oDel").click(function(){
 		$("#newNotice").slideUp("slow");
@@ -488,7 +482,7 @@ function showTaskWindow(obj){
 		})
 		if(resIds.length > 1){
 			$.ajax({
-				 url:"${dynamicURL}/basic/portalAction/taskCount.do",
+				 url:"${dynamicURL}/portal/taskCount.do",
 			     data:{
 			    	 resourceIds:resIds
 			     },

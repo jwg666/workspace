@@ -1,9 +1,9 @@
 /*
-**  HroisOS桌面应用框架
+**  legalOS桌面应用框架
 */
 
 var version   = '2.1.1';        //版本号
-var ajaxUrl   = '/hrois/basic/portalAction/ajax.do';     //所有ajax操作指向页面
+var ajaxUrl   = '/legal/portalAction/ajax.do';     //所有ajax操作指向页面
 var zoomlevel = 1;
 var TEMP      = {};
 var HROS      = {};
@@ -36,10 +36,10 @@ HROS.CONFIG = {
 	deskLength		:5,
 	deskHome		:6,
 	//-----------------------------url---------------
-	basicStaticUrl	:'/hrois/assets',
-	basicDynamicUrl	:'/hrois',
-	basicActionUrl	:'/hrois',
-	downloadImage	:'/hrois/fileUploadAction/downloadImage.do?fileId=',
+	basicStaticUrl	:'/legal/assets',
+	basicDynamicUrl	:'/legal',
+	basicActionUrl	:'/legal',
+	downloadImage	:'/legal/fileUploadAction/downloadImage.do?fileId=',
 	//-------------------------------locale------------------
 	locale : 'zh_CN'
 };
