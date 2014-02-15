@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="tb_role_resource")
+@Table(name="TB_ROLE_RESOURCE")
 public class RoleResource {
 	private Long id;
 	private Long roleId;

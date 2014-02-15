@@ -2,7 +2,6 @@ package com.neusoft.base.model;
 
 import java.io.Serializable;
 
-
 import com.neusoft.base.common.Pager;
 import com.neusoft.base.common.ValidateUtil;
 
