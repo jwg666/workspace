@@ -57,8 +57,8 @@ public class PortalAction extends BaseAction {
 	private	WallpaperService 	wallpaperService;
 	@javax.annotation.Resource
 	private	ResourceInfoService 	resourceInfoService;
-	@javax.annotation.Resource
-	private TaskCountService taskCountService;
+//	@javax.annotation.Resource
+//	private TaskCountService taskCountService;
 	
 //	@javax.annotation.ResourceInfo
 //	private FileUploadService fileUploadServiceImpl;
@@ -136,7 +136,7 @@ public class PortalAction extends BaseAction {
 //	private List<Grantor> grantorList;
 	
 	//资源ids
-	private String ResourceInfoIds;
+	private String resourceInfoIds;
 	
 	
 	private Json json = new Json();	
@@ -145,25 +145,25 @@ public class PortalAction extends BaseAction {
 		logger.debug("-------------------------------------------------------------------");
 		Long userId= LoginContextHolder.get().getUserId();
 		resourceInfoList = resourceInfoService.getParentResourceInfoTask(userId);
-		for(ResourceInfo r : resourceInfoList){
-			List<ResourceInfo> childList = resourceInfoService.getDescendantsTask(userId, r.getId());
-			if(childList==null || childList.size()==0){
-				resourceInfoList.remove(r);
-			}else if(childList.size()>1){
-				Set<ResourceInfo> set =new LinkedHashSet<ResourceInfo>(childList);
-				ResourceInfo f = childList.get(0);
-				String resName = r.getName();
-				String resLocalName = r.gotLocalName();
-				String iconUrl = r.getIconUrl();
-				PropertyUtils.copyProperties(r,f);
-				r.setName(resName);
-				r.setLocalName(resLocalName);
-				r.setIconUrl(iconUrl);
-				r.setChildResources(set);
-			}else{
-				resourceInfoList.set(resourceInfoList.indexOf(r), childList.get(0));
-			}
-		}
+//		for(ResourceInfo r : resourceInfoList){
+//			List<ResourceInfo> childList = resourceInfoService.getDescendantsTask(userId, r.getId());
+//			if(childList==null || childList.size()==0){
+//				resourceInfoList.remove(r);
+//			}else if(childList.size()>1){
+//				Set<ResourceInfo> set =new LinkedHashSet<ResourceInfo>(childList);
+//				ResourceInfo f = childList.get(0);
+//				String resName = r.getName();
+//				String resLocalName = r.gotLocalName();
+//				String iconUrl = r.getIconUrl();
+//				PropertyUtils.copyProperties(r,f);
+//				r.setName(resName);
+//				r.setLocalName(resLocalName);
+//				r.setIconUrl(iconUrl);
+//				r.setChildResources(set);
+//			}else{
+//				resourceInfoList.set(resourceInfoList.indexOf(r), childList.get(0));
+//			}
+//		}
 //		String originalEmpCode = ((LoginContext)LoginContextHolder.get()).getOriginalEmpCode();
 //		String empCode = ((LoginContext)LoginContextHolder.get()).getEmpCode();
 		
@@ -178,14 +178,14 @@ public class PortalAction extends BaseAction {
 	public String taskCount(){
 		String empCode= ((LoginContext)LoginContextHolder.get()).getEmpCode();
 		Map<String, Integer> taskCountMap = new HashMap<String, Integer>();
-		if(StringUtils.isNotBlank(ResourceInfoIds)){
-			String resIds[] = ResourceInfoIds.split(",");
+		if(StringUtils.isNotBlank(resourceInfoIds)){
+			String resIds[] = resourceInfoIds.split(",");
 			String countService;
 			for(String resId : resIds){
 				countService = serviceMap.get(resId);
 				if(countService!=null && taskCountMap.get(resId)==null){
 					try {
-						taskCountMap.put(resId, taskCountService.getTaskCount(empCode));
+//						taskCountMap.put(resId, taskCountService.getTaskCount(empCode));
 					} catch (NoSuchBeanDefinitionException e) {
 						logger.error("got exception--",e);
 						taskCountMap.put(resId, 0);
@@ -847,10 +847,10 @@ public class PortalAction extends BaseAction {
 	}
 	
 	public String getResourceInfoIds() {
-		return ResourceInfoIds;
+		return resourceInfoIds;
 	}
-	public void setResourceInfoIds(String ResourceInfoIds) {
-		this.ResourceInfoIds = ResourceInfoIds;
+	public void setResourceInfoIds(String resourceInfoIds) {
+		this.resourceInfoIds = resourceInfoIds;
 	}
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;

@@ -22,12 +22,14 @@ public class RoleResource {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	@Column(name="role_id")
 	public Long getRoleId() {
 		return roleId;
 	}
 	public void setRoleId(Long roleId) {
 		this.roleId = roleId;
 	}
+	@Column(name="resource_id")
 	public Long getResourceId() {
 		return resourceId;
 	}

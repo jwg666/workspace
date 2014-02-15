@@ -28,7 +28,7 @@ import com.neusoft.security.service.ResourceInfoService;
 @Transactional
 public class ResourceInfoServiceImpl implements ResourceInfoService {
 	@Resource
-	private ResourceInfoDAO ResourceInfoDAO;   
+	private ResourceInfoDAO resourceInfoDAO;   
 	@Override
 	public ExecuteResult<ResourceInfo> createResourceInfo(ResourceInfo ResourceInfo) {
 		// 去空格
@@ -36,14 +36,14 @@ public class ResourceInfoServiceImpl implements ResourceInfoService {
 		ResourceInfo.setCode(StringUtils.trim(ResourceInfo.getCode()));
 		
 		ExecuteResult<ResourceInfo> executeResult = new ExecuteResult<ResourceInfo>();
-		ResourceInfo dbResourceInfo = ResourceInfoDAO.getResourceInfoByName(StringUtils.trim(ResourceInfo.getName()));
+		ResourceInfo dbResourceInfo = resourceInfoDAO.getResourceInfoByName(StringUtils.trim(ResourceInfo.getName()));
 		if(dbResourceInfo != null){
 			executeResult.addErrorMessage("资源["+ResourceInfo.getName()+"]已经存在!");
 			return executeResult;
 		}
 		// 资源编码唯一性检查
 		if(StringUtils.isNotEmpty(StringUtils.trim(ResourceInfo.getCode()))){
-			if(ResourceInfoDAO.getResourceInfoByCode(ResourceInfo.getCode()) != null){
+			if(resourceInfoDAO.getResourceInfoByCode(ResourceInfo.getCode()) != null){
 				executeResult.addErrorMessage("资源编码["+ResourceInfo.getCode()+"]已经存在。");
 				return executeResult;
 			}
@@ -56,7 +56,7 @@ public class ResourceInfoServiceImpl implements ResourceInfoService {
 		ResourceInfo.setCreateBy(LoginContextHolder.get().getUserName());
 		ResourceInfo.setLastModifiedBy(LoginContextHolder.get().getUserName());
 		
-		ResourceInfoDAO.save(ResourceInfo);
+		resourceInfoDAO.save(ResourceInfo);
 		initLocalMsg(ResourceInfo);
 		executeResult.setResult(ResourceInfo);
 		return executeResult;
@@ -69,7 +69,7 @@ public class ResourceInfoServiceImpl implements ResourceInfoService {
 		ResourceInfo.setCode(StringUtils.trim(ResourceInfo.getCode()));
 		
 		ExecuteResult<ResourceInfo> executeResult = new ExecuteResult<ResourceInfo>();
-		ResourceInfo dbResourceInfo = ResourceInfoDAO.get(ResourceInfo.getId());
+		ResourceInfo dbResourceInfo = resourceInfoDAO.get(ResourceInfo.getId());
 		if(dbResourceInfo == null){
 			executeResult.addErrorMessage("资源["+ResourceInfo.getName()+"]不存在或已经被删除.");
 			return executeResult;
@@ -77,7 +77,7 @@ public class ResourceInfoServiceImpl implements ResourceInfoService {
 		
 		// 重名检查
 		if(!ResourceInfo.getName().equals(dbResourceInfo.getName())){
-			ResourceInfo m = ResourceInfoDAO.getResourceInfoByName(ResourceInfo.getName());
+			ResourceInfo m = resourceInfoDAO.getResourceInfoByName(ResourceInfo.getName());
 			if(m != null){
 				executeResult.addErrorMessage("资源["+ResourceInfo.getName()+"]已经存在.");
 				return executeResult;
@@ -88,7 +88,7 @@ public class ResourceInfoServiceImpl implements ResourceInfoService {
 		if(ResourceTypeEnum.toEnum(ResourceInfo.getType()) == ResourceTypeEnum.COMPONENT_RESOURCE 
 				|| StringUtils.isNotEmpty(ResourceInfo.getCode())){
 			if(!dbResourceInfo.getCode().equals(ResourceInfo.getCode())){
-				if(ResourceInfoDAO.getResourceInfoByCode(ResourceInfo.getCode()) == null){
+				if(resourceInfoDAO.getResourceInfoByCode(ResourceInfo.getCode()) == null){
 					dbResourceInfo.setCode(ResourceInfo.getCode());
 				}else{
 					executeResult.addErrorMessage("资源编码["+ResourceInfo+"]已经存在。");
@@ -112,7 +112,7 @@ public class ResourceInfoServiceImpl implements ResourceInfoService {
 		dbResourceInfo.setWidth(ResourceInfo.getWidth());
 		dbResourceInfo.setHeight(ResourceInfo.getHeight());
 		dbResourceInfo.setIconUrl(ResourceInfo.getIconUrl());
-		ResourceInfoDAO.update(dbResourceInfo);
+		resourceInfoDAO.update(dbResourceInfo);
 		initLocalMsg(dbResourceInfo);
 		executeResult.setResult(dbResourceInfo);
 		return executeResult;
@@ -121,31 +121,31 @@ public class ResourceInfoServiceImpl implements ResourceInfoService {
 	@Override
 	public ExecuteResult<ResourceInfo> deleteResourceInfo(Long ResourceInfoId) {
 		ExecuteResult<ResourceInfo> executeResult = new ExecuteResult<ResourceInfo>();
-		ResourceInfo ResourceInfo = ResourceInfoDAO.get(ResourceInfoId);
+		ResourceInfo ResourceInfo = resourceInfoDAO.get(ResourceInfoId);
 		if(ResourceInfo == null){
 			executeResult.addWarningMessage("该资源不存在.");
 			return executeResult;
 		}
 		//无子资源
-		List<ResourceInfo> children = ResourceInfoDAO.getChildren(ResourceInfoId);
+		List<ResourceInfo> children = resourceInfoDAO.getChildren(ResourceInfoId);
 		if(!children.isEmpty()){
 			executeResult.addErrorMessage("该资源下有"+children.size()+"个子资源，不能删除。");
 			return executeResult;
 		}
-		ResourceInfoDAO.delete(ResourceInfoId);
+		resourceInfoDAO.delete(ResourceInfoId);
 		return executeResult;
 	}
 
 	@Override
 	public ResourceInfo getResourceInfoById(Long ResourceInfoId) {
-		ResourceInfo ResourceInfo = ResourceInfoDAO.get(ResourceInfoId);
+		ResourceInfo ResourceInfo = resourceInfoDAO.get(ResourceInfoId);
 		initLocalMsg(ResourceInfo);
 		return ResourceInfo;
 	}
 
 	@Override
 	public List<ResourceInfo> getChilden(Long ResourceInfoId) {
-		List<ResourceInfo> ResourceInfos = ResourceInfoDAO.getChildren(ResourceInfoId);
+		List<ResourceInfo> ResourceInfos = resourceInfoDAO.getChildren(ResourceInfoId);
 		initLocalMsg(ResourceInfos);
 		return ResourceInfos;
 	}
@@ -153,7 +153,7 @@ public class ResourceInfoServiceImpl implements ResourceInfoService {
 	@Override
 	public LinkedList<ResourceInfo> getParentsChain(Long ResourceInfoId) {
 		LinkedList<ResourceInfo> ResourceInfos = new LinkedList<ResourceInfo>();
-		ResourceInfo ResourceInfo = ResourceInfoDAO.get(ResourceInfoId);
+		ResourceInfo ResourceInfo = resourceInfoDAO.get(ResourceInfoId);
 		if(ResourceInfo == null){
 			return ResourceInfos;
 		}
@@ -169,7 +169,7 @@ public class ResourceInfoServiceImpl implements ResourceInfoService {
 
 	@Override
 	public List<ResourceInfo> getRoot() {
-		List<ResourceInfo> ResourceInfos = ResourceInfoDAO.getRoots();
+		List<ResourceInfo> ResourceInfos = resourceInfoDAO.getRoots();
 		initLocalMsg(ResourceInfos);
 		return ResourceInfos;
 	}
@@ -179,30 +179,30 @@ public class ResourceInfoServiceImpl implements ResourceInfoService {
 		if(roleIds == null || roleIds.length == 0){
 			return new ArrayList<ResourceInfo>(0);
 		}
-		List<ResourceInfo> ResourceInfos = ResourceInfoDAO.getResourceInfoByRoleIds(roleIds);
+		List<ResourceInfo> ResourceInfos = resourceInfoDAO.getResourceInfoByRoleIds(roleIds);
 		initLocalMsg(ResourceInfos);
 		return ResourceInfos;
 	} 
 
 	@Override
 	public List<ResourceInfo> getAll() {
-		List<ResourceInfo> ResourceInfos = ResourceInfoDAO.findList(ResourceInfo.class);
+		List<ResourceInfo> ResourceInfos = resourceInfoDAO.findList(ResourceInfo.class);
 		initLocalMsg(ResourceInfos);
 		return ResourceInfos;
 	}
 
 	@Override
 	public List<ResourceInfo> getUserDisplayedURLResourceInfos(Long userId,String moduleName) {  
-		List<ResourceInfo> ResourceInfos = ResourceInfoDAO.getUserDisplayedURLResourceInfosByModuleAndRoles(userId,moduleName);
+		List<ResourceInfo> ResourceInfos = resourceInfoDAO.getUserDisplayedURLResourceInfosByModuleAndRoles(userId,moduleName);
 		initLocalMsg(ResourceInfos);
 		return ResourceInfos;
 	}
 
 	@Override
 	public Pager<ResourceInfo> searchResourceInfos(Pager<ResourceInfo> pager,ResourceInfo ResourceInfo) {
-		List<ResourceInfo> list = ResourceInfoDAO.searchResourceInfos(pager, ResourceInfo);
+		List<ResourceInfo> list = resourceInfoDAO.searchResourceInfos(pager, ResourceInfo);
 		initLocalMsg(list);
-		long size = ResourceInfoDAO.searchResourceInfosCount(pager, ResourceInfo);
+		long size = resourceInfoDAO.searchResourceInfosCount(pager, ResourceInfo);
 		return Pager.cloneFromPager(pager, size, list);
 	}
 	
@@ -217,8 +217,8 @@ public class ResourceInfoServiceImpl implements ResourceInfoService {
 	public DataGrid datagrid(Pager<ResourceInfo> pager,ResourceInfo ResourceInfo) {
 		Long uid = LoginContextHolder.get().getUserId();
 		DataGrid j = new DataGrid();
-		List<ResourceInfo> ResourceInfos = ResourceInfoDAO.getDescendantsPage( uid, ResourceInfo, pager);
-		Long count = ResourceInfoDAO.getDescendantsCount(uid, ResourceInfo, pager);
+		List<ResourceInfo> ResourceInfos = resourceInfoDAO.getDescendantsPage( uid, ResourceInfo, pager);
+		Long count = resourceInfoDAO.getDescendantsCount(uid, ResourceInfo, pager);
 		initLocalMsg(ResourceInfos);
 		j.setRows(ResourceInfos);
 		j.setTotal(count);
@@ -227,14 +227,14 @@ public class ResourceInfoServiceImpl implements ResourceInfoService {
 	
 	@Override
 	public java.util.List<ResourceInfo> getUserDisplayResourceInfo() {
-		List<ResourceInfo> ResourceInfos = ResourceInfoDAO.getUserDisplayResourceInfo(LoginContextHolder.get().getUserId());
+		List<ResourceInfo> ResourceInfos = resourceInfoDAO.getUserDisplayResourceInfo(LoginContextHolder.get().getUserId());
 		initLocalMsg(ResourceInfos);
 		return ResourceInfos;
 	};
 	
 	@Override
 	public List<ResourceInfo> searchResourceInfos(ResourceInfo ResourceInfo) {
-		List<ResourceInfo> list = ResourceInfoDAO.searchAllResourceInfos(ResourceInfo);
+		List<ResourceInfo> list = resourceInfoDAO.searchAllResourceInfos(ResourceInfo);
 		initLocalMsg(list);
 		return list;
 	}
@@ -244,7 +244,7 @@ public class ResourceInfoServiceImpl implements ResourceInfoService {
 	public Map<ResourceInfo, List<ResourceInfo>> getUserResourceInfoDescendants(Long userId, List<String> codeList) {
 		Map<ResourceInfo, List<ResourceInfo>> result = new LinkedHashMap<ResourceInfo, List<ResourceInfo>>();
 		for(String code : codeList){
-			List<ResourceInfo> ResourceInfos = ResourceInfoDAO.getDescendants(userId, code);
+			List<ResourceInfo> ResourceInfos = resourceInfoDAO.getDescendants(userId, code);
 			ResourceInfo parent = rebuildParent(code,ResourceInfos);
 			initLocalMsg(ResourceInfos);
 			initLocalMsg(parent);
@@ -262,7 +262,7 @@ public class ResourceInfoServiceImpl implements ResourceInfoService {
 			}
 		}
 		if(parent == null){
-			parent = ResourceInfoDAO.getResourceInfoByCode(code);
+			parent = resourceInfoDAO.getResourceInfoByCode(code);
 		}else{
 			ResourceInfos.remove(parent);
 		}
@@ -270,20 +270,20 @@ public class ResourceInfoServiceImpl implements ResourceInfoService {
 	}
 	@Override
 	public List<ResourceInfo> getGroupResourceInfoByUserId(Long userId,Integer type) {
-		List<ResourceInfo> ResourceInfos = ResourceInfoDAO.getGroupResourceInfoByUserId(userId,type);
+		List<ResourceInfo> ResourceInfos = resourceInfoDAO.getGroupResourceInfoByUserId(userId,type);
 		initLocalMsg(ResourceInfos);
 		return ResourceInfos;
 	}
 	@Override
 	public List<ResourceInfo> getParentResourceInfoTask(Long userId) {
-		List<ResourceInfo> ResourceInfos = ResourceInfoDAO.getParentResourceInfoTask(userId);
+		List<ResourceInfo> ResourceInfos = resourceInfoDAO.getParentResourceInfoTask(userId);
 		initLocalMsg(ResourceInfos);
 		return ResourceInfos;
 	}
 
 	@Override
 	public List<ResourceInfo> getDescendantsTask(Long userId, Long parentId) {
-		List<ResourceInfo> ResourceInfos = ResourceInfoDAO.getDescendantsTask(userId,parentId);
+		List<ResourceInfo> ResourceInfos = resourceInfoDAO.getDescendantsTask(userId,parentId);
 		initLocalMsg(ResourceInfos);
 		return ResourceInfos;
 	}

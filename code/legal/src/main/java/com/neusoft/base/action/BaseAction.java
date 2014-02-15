@@ -1,9 +1,15 @@
 package com.neusoft.base.action;
 
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.neusoft.base.common.ExecuteResult;
 import com.neusoft.base.common.PageList;
 import com.neusoft.base.model.DataGrid;
 import com.neusoft.base.model.Json;
@@ -46,5 +52,37 @@ public class BaseAction extends ActionSupport{
 	public Json getJson() {
 		return json;
 	}
-	
+	/**
+	 * 将业务层返回的errorMessage和field写入到value stack中
+	 * 
+	 * @param result
+	 */
+	public void addActionErrorsFromResult(ExecuteResult<?> result) {
+		for (String error : result.getErrorMessages()) {
+			this.addActionError(error);
+		}
+	}
+
+	public void addFieldErrorsFromResult(ExecuteResult<?> result) {
+		for (String field : result.getFieldErrors().keySet()) {
+			this.addFieldError(field, result.getFieldErrors().get(field));
+		}
+	}
+
+	public void addErrorsFromResult(ExecuteResult<?> result) {
+		addActionErrorsFromResult(result);
+		addFieldErrorsFromResult(result);
+	}
+
+	protected HttpServletRequest getRequest() {
+		return ServletActionContext.getRequest();
+	}
+
+	protected HttpSession getSession() {
+		return getRequest().getSession();
+	}
+
+	protected HttpServletResponse getResponse() {
+		return ServletActionContext.getResponse();
+	}
 }

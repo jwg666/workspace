@@ -2,7 +2,6 @@ package com.neusoft.security.dao;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.neusoft.base.dao.HBaseDAO;
@@ -22,10 +21,10 @@ public class RoleDAO  extends HBaseDAO<Role>{
 	 * @param searchModel
 	 * @return
 	 */
-	public List<Role> searchRoles(SearchModel searchModel){
+	public List<Role> searchRoles(SearchModel<Role> searchModel){
 		return null;
 	}
-	public Long searchRolesCount(SearchModel searchModel){
+	public Long searchRolesCount(SearchModel<Role> searchModel){
 		return null;
 	}
 	
@@ -42,24 +41,24 @@ public class RoleDAO  extends HBaseDAO<Role>{
 	 * @param userid
 	 * @return
 	 */
-	public List<Role> getRolesByGroupId(SearchModel model){
+	public List<Role> getRolesByGroupId(SearchModel<Role> model){
 		return null;
 	}
-	public Long getRolesByGroupIdCount(SearchModel model){
+	public Long getRolesByGroupIdCount(SearchModel<Role> model){
 		return null;
 	}
 	/**
 	 * 根据roleId 删除所有管理的resource
 	 * @param id
 	 */
-	public void deleteRole_ResourByRoleId(@Param("roleId")Long id){
+	public void deleteRole_ResourByRoleId(Long id){
 		
 	}
 	/**
 	 * 插入role_resourece
 	 * @param dbRole
 	 */
-	public void saveRole_Resour(@Param("role")Role dbRole){
+	public void saveRole_Resour(Role dbRole){
 		
 	}
 	public Role get(Long id) {

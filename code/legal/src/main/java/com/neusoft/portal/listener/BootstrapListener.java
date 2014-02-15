@@ -21,6 +21,7 @@ public class BootstrapListener implements ServletContextListener {
 	@SuppressWarnings("unchecked")
 	@Override
 	public void contextInitialized(ServletContextEvent contextEvent) {
+//		System.out.println("0000000000000000000000000000000000000000");
 		String startupListeners = contextEvent.getServletContext().getInitParameter(CONFIG_KEY);
 		if(startupListeners == null || startupListeners.isEmpty()){
 			return;

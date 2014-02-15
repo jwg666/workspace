@@ -1,32 +1,20 @@
 package com.neusoft.base.action;
 
-import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
 
-import javax.annotation.Resource;
-
-import net.sf.json.JSONObject;
-
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-//import org.apache.tools.zip.ZipEntry;
-//import org.apache.tools.zip.ZipOutputStream;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.neusoft.base.model.Json;
+//import org.apache.tools.zip.ZipEntry;
+//import org.apache.tools.zip.ZipOutputStream;
 
 
 @Controller
 @Scope("prototype")
 public class FileUploadAction extends BaseAction {
 	
-	private static Log logger=LogFactory.getLog( FileUploadAction.class );
 
 //	@Resource
 //	private FileUploadService fileUploadServiceImpl;

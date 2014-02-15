@@ -65,7 +65,7 @@ public class Member  implements java.io.Serializable{
     /**
      * wallpaperId       db_column: WALLPAPER_ID 
      */	
-	private java.lang.Long wallpaperId;
+	private java.lang.Integer wallpaperId;
     /**
      * 1系统壁纸、2自定义壁纸、3网络地址       db_column: WALLPAPERSTATE 
      */	
@@ -216,14 +216,14 @@ public class Member  implements java.io.Serializable{
 	     * @return wallpaperId
 	     */
 		@Column(name="WALLPAPER_ID")
-		public java.lang.Long getWallpaperId() {
+		public java.lang.Integer getWallpaperId() {
 			return this.wallpaperId;
 		}
 		/**
 	     * wallpaperId
 	     * @param wallpaperId wallpaperId
 	     */
-		public void setWallpaperId(java.lang.Long wallpaperId) {
+		public void setWallpaperId(java.lang.Integer wallpaperId) {
 			this.wallpaperId = wallpaperId;
 		}
 		 /**

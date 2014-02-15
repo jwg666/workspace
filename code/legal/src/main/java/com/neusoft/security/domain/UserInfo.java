@@ -18,7 +18,7 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 import com.neusoft.base.common.DateUtils;
 
 @Entity
-@Table(name = "USER_INFO")
+@Table(name = "TB_USER_INFO")
 public class UserInfo  implements java.io.Serializable{
 	private static final long serialVersionUID = 5454155825314635342L;
 	

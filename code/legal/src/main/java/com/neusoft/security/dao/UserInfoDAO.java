@@ -3,7 +3,7 @@ package com.neusoft.security.dao;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.ibatis.annotations.Param;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.neusoft.base.dao.HBaseDAO;
@@ -25,9 +25,10 @@ public class UserInfoDAO extends HBaseDAO<UserInfo>{
 	public UserInfo getUserInfoByName(String name){
 		return null;
 	}
-	/*忽略大小写*/
+	
 	public UserInfo getByCodeIgnoreCase(String name){
-		return null;
+		//TODO 忽略大小写
+		return (UserInfo)getCriteria(UserInfo.class).add(Restrictions.eq("empCode", name)).uniqueResult();
 	}
 	
 	public List<UserInfo> searchUserInfo(SearchModel<UserInfo> model){
@@ -46,14 +47,15 @@ public class UserInfoDAO extends HBaseDAO<UserInfo>{
 		return null;
 	}
 	
-	public List<UserInfo> getUserInfosByGroupId(SearchModel<UserInfo> UserInfoSearchModel){
+	public List<UserInfo> getUserInfosByGroupId(SearchModel<UserInfo> searchModel){
 		return null;
 	}
-	public Long getUserInfosByGroupIdCount(SearchModel<UserInfo> UserInfoSearchModel){
+	public Long getUserInfosByGroupIdCount(SearchModel<UserInfo> searchModel){
 		return null;
 	}
 	public UserInfo getUserInfoByCode(String empCode){
-		return null;
+		
+		return (UserInfo)getCriteria(UserInfo.class).add(Restrictions.eq("empCode", empCode)).uniqueResult();
 	}
 	public Long getCountByEmpCode(String empCode){
 		return null;
@@ -63,11 +65,11 @@ public class UserInfoDAO extends HBaseDAO<UserInfo>{
 	 * @param qName
 	 * @return
 	 */
-	public List<UserInfo> queryUserInfoByName(@Param("qName")String qName){
+	public List<UserInfo> queryUserInfoByName(String qName){
 		return null;
 	}
 
-	public List<Long> getUserInfoIdsByEmpCodes(@Param("UserInfoEmpCodeList")List<String> UserInfoEmpCodeList){
+	public List<Long> getUserInfoIdsByEmpCodes(List<String> UserInfoEmpCodeList){
 		return null;
 	}
 	
@@ -75,7 +77,7 @@ public class UserInfoDAO extends HBaseDAO<UserInfo>{
 		return null;
 	}
 	
-	public List<UserInfo> getUserInfoByEmpCodes(@Param("UserInfoEmpCodeList")List<String> UserInfoEmpCodeList){
+	public List<UserInfo> getUserInfoByEmpCodes(List<String> UserInfoEmpCodeList){
 		return null;
 	}
 	
@@ -86,8 +88,8 @@ public class UserInfoDAO extends HBaseDAO<UserInfo>{
 	public long getUserInfosAndGroupByGroupIdCount(Map<String,Object> map){
 		return 0;
 	}
-	public UserInfo get(Long UserInfoId) {		
-		return (UserInfo)getById(UserInfo.class, UserInfoId);
+	public UserInfo get(Long userInfoId) {		
+		return (UserInfo)getById(UserInfo.class, userInfoId);
 	}
 	public List<UserInfo> getAll() {		
 		return findList(UserInfo.class);

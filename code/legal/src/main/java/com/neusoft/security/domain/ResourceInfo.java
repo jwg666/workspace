@@ -21,7 +21,7 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 import com.neusoft.base.common.DateUtils;
 
 @Entity
-@Table(name = "RESOURCE_INFO")
+@Table(name = "TB_RESOURCE_INFO")
 public class ResourceInfo  implements java.io.Serializable{
 	private static final long serialVersionUID = 5454155825314635342L;
 	

@@ -17,7 +17,6 @@ import com.neusoft.portal.model.Member;
 import com.neusoft.portal.query.MemberQuery;
 import com.neusoft.portal.service.MemberService;
 import com.neusoft.security.dao.UserInfoDAO;
-import com.neusoft.security.domain.User;
 import com.neusoft.security.domain.UserInfo;
 @Service("memberService")
 @Transactional

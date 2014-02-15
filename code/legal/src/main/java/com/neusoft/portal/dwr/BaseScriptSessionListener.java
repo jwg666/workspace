@@ -19,7 +19,6 @@ import org.slf4j.LoggerFactory;
 import com.neusoft.base.common.SessionSecurityConstants;
 import com.neusoft.base.common.SpringApplicationContextHolder;
 import com.neusoft.base.common.ValidateUtil;
-import com.neusoft.security.domain.User;
 import com.neusoft.security.domain.UserInfo;
 import com.neusoft.security.service.UserInfoService;
 

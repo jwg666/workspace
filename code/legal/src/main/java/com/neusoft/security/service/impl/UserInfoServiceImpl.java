@@ -290,7 +290,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 			String ipAddress) {
 		ExecuteResult<UserInfo> executeResult = new ExecuteResult<UserInfo>();
 		//UserInfo UserInfoInfo = UserInfoDAO.getUserInfoByName(UserInfoName);
-		UserInfo UserInfo = userInfoDAO.getByCodeIgnoreCase(userInfoCode);
+		UserInfo UserInfo = userInfoDAO.getUserInfoByCode(userInfoCode);
 		final String errorMsg = "用户名或密码错误，连续输错5次，账号会被禁用。";
 
 		// 用户名和密码以及用户状态是否匹配
