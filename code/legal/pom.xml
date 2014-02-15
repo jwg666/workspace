@@ -469,7 +469,7 @@
 	    <configuration>  
 	        <scanIntervalSeconds>10</scanIntervalSeconds>  
 	        <webAppConfig>  
-	            <contextPath>/cms</contextPath>  
+	            <contextPath>/legal</contextPath>  
 	        </webAppConfig>  
 	    </configuration>  	    
 	</plugin>  
