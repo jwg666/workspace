@@ -2,7 +2,7 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-	<package name="law" extends="legal" namespace="/law">	    
+	<package name="legal" extends="base" namespace="/legal">	    
 		<action name="legalAgentAction!*" class="legalAgentAction" method="{1}">
 		<result name="legalAgent">/WEB-INF/pages/legal/legalAgent.jsp</result>
 		<result type="json">

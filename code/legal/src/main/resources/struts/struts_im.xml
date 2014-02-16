@@ -3,7 +3,7 @@
     "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-	<package name="im" extends="legal" namespace="/im">
+	<package name="im" extends="base" namespace="/im">
 
 		<!-- 更新文件信息 -->
 		<action name="imAction!*" class="imAction" method="{1}">
