@@ -59,7 +59,7 @@ $(function() {
 						</div>
 				    </div>				    
 				    <div class="item25">
-						<div class="itemleft100">性别：</div>
+						<div class="rightselect_easyui">性别：</div>
 						<div class="righttext">
 							<input id="gender" name="gender"  class="short50"/>
 						</div>
