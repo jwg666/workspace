@@ -41,10 +41,6 @@ public class LegalApproveAction extends BaseAction implements ModelDriven<LegalA
 	private List<LegalApproveQuery>  legalApproveList = new ArrayList<LegalApproveQuery>();
 	private Json json = new Json();
 	
-	/** 通过spring自动注入 */
-	public void setLegalApproveService(LegalApproveService service) {
-		this.legalApproveService = service;
-	}	
 	
 	
 	/**

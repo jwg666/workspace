@@ -39,11 +39,7 @@ public class LegalCaseAction extends BaseAction implements ModelDriven<LegalCase
 	private DataGrid datagrid;
 	private List<LegalCaseQuery>  legalCaseList = new ArrayList<LegalCaseQuery>();
 	private Json json = new Json();
-	
-	/** 通过spring自动注入 */
-	public void setLegalCaseService(LegalCaseService service) {
-		this.legalCaseService = service;
-	}	
+
 	
 	
 	/**

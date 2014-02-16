@@ -39,12 +39,7 @@ public class LegalAgentAction extends BaseAction implements ModelDriven<LegalAge
 	private DataGrid datagrid;
 	private List<LegalAgentQuery>  legalAgentList = new ArrayList<LegalAgentQuery>();
 	private Json json = new Json();
-	
-	/** 通过spring自动注入 */
-	public void setLegalAgentService(LegalAgentService service) {
-		this.legalAgentService = service;
-	}	
-	
+		
 	
 	/**
 	 * 跳转到LegalAgent管理页面

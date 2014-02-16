@@ -41,11 +41,6 @@ public class LegalApplicantAction extends BaseAction implements ModelDriven<Lega
 	private List<LegalApplicantQuery>  legalApplicantList = new ArrayList<LegalApplicantQuery>();
 	private Json json = new Json();
 	
-	/** 通过spring自动注入 */
-	public void setLegalApplicantService(LegalApplicantService service) {
-		this.legalApplicantService = service;
-	}	
-	
 	
 	/**
 	 * 跳转到LegalApplicant管理页面
