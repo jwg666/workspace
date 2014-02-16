@@ -23,14 +23,14 @@ public class Dictionary  implements java.io.Serializable{
 	private static final long serialVersionUID = 5454155825314635342L;
 	
 	//alias
-	public static final String TABLE_ALIAS = "Dictionary";
+	public static final String TABLE_ALIAS = "数据字典";
 	public static final String ALIAS_ID = "id";
-	public static final String ALIAS_DIC_CODE = "dicCode";
-	public static final String ALIAS_DIC_VALUE = "dicValue";
-	public static final String ALIAS_PARENT_CODE = "parentCode";
-	public static final String ALIAS_CREATE_TIME = "createTime";
-	public static final String ALIAS_CREATE_BY = "createBy";
-	public static final String ALIAS_DESCRIPTION = "description";
+	public static final String ALIAS_DIC_CODE = "编码";
+	public static final String ALIAS_DIC_VALUE = "值";
+	public static final String ALIAS_PARENT_CODE = "上级编码";
+	public static final String ALIAS_CREATE_TIME = "创建时间";
+	public static final String ALIAS_CREATE_BY = "创建人";
+	public static final String ALIAS_DESCRIPTION = "描述";
 	public static final String ALIAS_DIC_TYPE = "1地区 2.民族 3.人群类别 4.申请事项 5.处理阶段 6.文化程度 7.案件理由";
 	
     /**
