@@ -10,8 +10,8 @@ import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.context.support.MessageSourceSupport;
 
@@ -23,7 +23,7 @@ import org.springframework.context.support.MessageSourceSupport;
 public class DefaultI18nResolver extends MessageSourceSupport implements I18nResolver {
 	private static final ConcurrentMap<String, ResourceBundle> BUNDLE_MAP = new ConcurrentHashMap<String, ResourceBundle>();
 	private static final List<String> DEFAULT_RESOURCE_BUNDLES = new CopyOnWriteArrayList<String>();
-	private static final Log LOG = LogFactory.getLog(DefaultI18nResolver.class);
+	private static final Logger LOG = LoggerFactory.getLogger(DefaultI18nResolver.class);
 	@SuppressWarnings("rawtypes")
 	protected Class clazz;
 	/**

@@ -44,7 +44,7 @@
 
 </head>
 
-<body onload="initPortalPush()">
+<body >
 <!-- <body> -->
 <s:if test="%{memberQuery.desknum && memberQuery.desknum > 0 }">
 	<s:set var="desknum" value="%{memberQuery.desknum}" />
@@ -61,7 +61,7 @@
     	<div class="head-body">
             <div class="head-body-l"></div>
             <div class="head-body-b">
-               <div class="l-logo"><div class="l-head"><s:text name="golbal.legal.title">XX系统</s:text></div></div>
+               <div class="l-logo"><div class="l-head">XX系统</div></div>
                <div class="head-body-b-float">
 	               <div class="b-button b-button-01">
 	                   <div class="button-left">&nbsp;</div>
@@ -107,11 +107,39 @@
 							
 							<ul id="todotasks">
 							<!-- 待办列表demo start-->
-								<li  src="" resName="申请援助" resIcon="" resH="20"  resW="20" resid="2"  id="resource_2">
+							    <li  src="" resName="案件审核" resIcon="" resH="20"  resW="20" resid="2"  id="resource_2">
 								 <div class="main-content-navi-icon"><img width="35px" height="35px" src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=<s:property value='iconUrl'/>" />
 										<div class="live-tip no-background-image"></div>
 									</div>
-									<div class="main-content-navi-icontext">申请援助</div>
+									<div class="main-content-navi-icontext">案件审核</div>
+									<div class="navi-selected-icon"></div>
+								</li>
+								<li  src="" resName="指派律师事务所" resIcon="" resH="20"  resW="20" resid="2"  id="resource_2">
+								 <div class="main-content-navi-icon"><img width="35px" height="35px" src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=<s:property value='iconUrl'/>" />
+										<div class="live-tip no-background-image"></div>
+									</div>
+									<div class="main-content-navi-icontext">指派律师事务所</div>
+									<div class="navi-selected-icon"></div>
+								</li>
+								<li  src="" resName="事务所受理案件" resIcon="" resH="20"  resW="20" resid="2"  id="resource_2">
+								 <div class="main-content-navi-icon"><img width="35px" height="35px" src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=<s:property value='iconUrl'/>" />
+										<div class="live-tip no-background-image"></div>
+									</div>
+									<div class="main-content-navi-icontext">事务所受理案件</div>
+									<div class="navi-selected-icon"></div>
+								</li>
+								<li  src="" resName="受理结果公示" resIcon="" resH="20"  resW="20" resid="2"  id="resource_2">
+								 <div class="main-content-navi-icon"><img width="35px" height="35px" src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=<s:property value='iconUrl'/>" />
+										<div class="live-tip no-background-image"></div>
+									</div>
+									<div class="main-content-navi-icontext">受理结果公示</div>
+									<div class="navi-selected-icon"></div>
+								</li>
+								<li class="last-li"  src="" resName="结案" resIcon="" resH="20"  resW="20" resid="2"  id="resource_2">
+								 <div class="main-content-navi-icon"><img width="35px" height="35px" src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=<s:property value='iconUrl'/>" />
+										<div class="live-tip no-background-image"></div>
+									</div>
+									<div class="main-content-navi-icontext">结案</div>
 									<div class="navi-selected-icon"></div>
 								</li>
 							<!-- 待办列表demo end-->
@@ -153,6 +181,8 @@
 					<!-- iframe -->
 					<div id="homeIframeContent" style="height:400px;width:100%;background-color: white;">
 						<iframe id="homeIframe"  style="height:400px;width:100%; border:0 none;"  ></iframe>
+						
+						
 					</div>
 				</div>
 
@@ -368,7 +398,7 @@ $(function(){
 	//设置右分隔符为 <!  
 	baidu.template.RIGHT_DELIMITER='%}';
 	//取消dwr错误弹窗
-	dwr.engine._errorHandler = function(message, ex) {dwr.engine._debug("Error: " + ex.name + ", " + ex.message, true);};
+	//dwr.engine._errorHandler = function(message, ex) {dwr.engine._debug("Error: " + ex.name + ", " + ex.message, true);};
 	
 });
 

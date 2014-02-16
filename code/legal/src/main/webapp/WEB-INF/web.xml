@@ -99,7 +99,7 @@
 
 	<error-page>
 		<exception-type>java.lang.Exception</exception-type>
-		<location>/error/error.html</location>
+		<location>/error.jsp</location>
 	</error-page>
 	<error-page>
 		<error-code>500</error-code>
@@ -107,6 +107,6 @@
 	</error-page>
 	<error-page>
 		<error-code>404</error-code>
-		<location>/error/error404.html</location>
+		<location>/404.jsp</location>
 	</error-page>
 </web-app>

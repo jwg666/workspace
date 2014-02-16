@@ -88,7 +88,7 @@ public class BaseScriptSessionListener implements ScriptSessionListener {
 			logger.debug(userId + "a ScriptSession is created!");
 			scriptSession.setAttribute(keyUserId, userId);
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("出现异常"+e);
 		}
 	}
 
@@ -126,7 +126,7 @@ public class BaseScriptSessionListener implements ScriptSessionListener {
 				}
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("出现异常",e);
 		}
 		logger.debug("a ScriptSession is distroyed");
 	}
