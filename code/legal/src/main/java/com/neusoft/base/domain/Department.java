@@ -23,19 +23,19 @@ public class Department  implements java.io.Serializable{
 	private static final long serialVersionUID = 5454155825314635342L;
 	
 	//alias
-	public static final String TABLE_ALIAS = "Department";
+	public static final String TABLE_ALIAS = "部门表";
 	public static final String ALIAS_ID = "id";
-	public static final String ALIAS_NAME = "name";
-	public static final String ALIAS_PARENT_ID = "parentId";
-	public static final String ALIAS_CREATE_TIME = "createTime";
-	public static final String ALIAS_CREATE_BY = "createBy";
-	public static final String ALIAS_DESCRIPTION = "description";
-	public static final String ALIAS_OFFICE_PLACE = "officePlace";
-	public static final String ALIAS_OFFICE_PHONE = "officePhone";
-	public static final String ALIAS_OFFICER = "officer";
-	public static final String ALIAS_OFFICE_PAGE = "officePage";
-	public static final String ALIAS_FAX = "fax";
-	public static final String ALIAS_EMAIL = "email";
+	public static final String ALIAS_NAME = "名称";
+	public static final String ALIAS_PARENT_ID = "上级ID";
+	public static final String ALIAS_CREATE_TIME = "创建时间";
+	public static final String ALIAS_CREATE_BY = "创建人";
+	public static final String ALIAS_DESCRIPTION = "描述";
+	public static final String ALIAS_OFFICE_PLACE = "地点";
+	public static final String ALIAS_OFFICE_PHONE = "电话";
+	public static final String ALIAS_OFFICER = "负责人";
+	public static final String ALIAS_OFFICE_PAGE = "主页";
+	public static final String ALIAS_FAX = "传真";
+	public static final String ALIAS_EMAIL = "公共邮箱";
 	
     /**
      * id       db_column: ID 
