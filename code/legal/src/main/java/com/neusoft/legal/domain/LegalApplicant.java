@@ -24,23 +24,23 @@ public class LegalApplicant  implements java.io.Serializable{
 	private static final long serialVersionUID = 5454155825314635342L;
 	
 	//alias
-	public static final String TABLE_ALIAS = "LegalApplicant";
+	public static final String TABLE_ALIAS = "法律援助申请人";
 	public static final String ALIAS_ID = "id";
-	public static final String ALIAS_NAME = "name";
-	public static final String ALIAS_GENDER = "gender";
-	public static final String ALIAS_BIRTHDAY = "birthday";
-	public static final String ALIAS_NATION_ID = "nationId";
-	public static final String ALIAS_IDENTIFYID = "identifyid";
-	public static final String ALIAS_BIRTH_PLACE = "birthPlace";
-	public static final String ALIAS_LIVE_PLACE = "livePlace";
-	public static final String ALIAS_POST_CODE = "postCode";
-	public static final String ALIAS_PHONE = "phone";
-	public static final String ALIAS_COMPANY = "company";
-	public static final String ALIAS_EDU_LEVEL_ID = "eduLevelId";
-	public static final String ALIAS_AGENT_ID = "agentId";
-	public static final String ALIAS_CREATE_TIME = "createTime";
-	public static final String ALIAS_CATEGORY_ID = "categoryId";
-	public static final String ALIAS_IF_FINANCIAL_DIFFICULTY = "ifFinancialDifficulty";
+	public static final String ALIAS_NAME = "姓名";
+	public static final String ALIAS_GENDER = "性别";
+	public static final String ALIAS_BIRTHDAY = "生日";
+	public static final String ALIAS_NATION_ID = "民族";
+	public static final String ALIAS_IDENTIFYID = "证件号码";
+	public static final String ALIAS_BIRTH_PLACE = "户口所在地";
+	public static final String ALIAS_LIVE_PLACE = "目前居住地";
+	public static final String ALIAS_POST_CODE = "邮政编码";
+	public static final String ALIAS_PHONE = "电话号码";
+	public static final String ALIAS_COMPANY = "工作单位";
+	public static final String ALIAS_EDU_LEVEL_ID = "教育水平";
+	public static final String ALIAS_AGENT_ID = "代理人";
+	public static final String ALIAS_CREATE_TIME = "创建时间";
+	public static final String ALIAS_CATEGORY_ID = "申请人人群类别";
+	public static final String ALIAS_IF_FINANCIAL_DIFFICULTY = "是否经济困难";
 	
     /**
      * id       db_column: id 

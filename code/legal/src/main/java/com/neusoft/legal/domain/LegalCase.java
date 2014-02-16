@@ -24,19 +24,19 @@ public class LegalCase  implements java.io.Serializable{
 	private static final long serialVersionUID = 5454155825314635342L;
 	
 	//alias
-	public static final String TABLE_ALIAS = "LegalCase";
+	public static final String TABLE_ALIAS = "案件";
 	public static final String ALIAS_ID = "id";
-	public static final String ALIAS_APPLICANT_ID = "applicantId";
-	public static final String ALIAS_AGENT_ID = "agentId";
-	public static final String ALIAS_DESCRIPTION = "description";
-	public static final String ALIAS_REASON_ID = "reasonId";
-	public static final String ALIAS_SIGNITURE_PATH = "signiturePath";
-	public static final String ALIAS_CREATE_TIME = "createTime";
-	public static final String ALIAS_CREATE_BY = "createBy";
-	public static final String ALIAS_CASE_FROM = "caseFrom";
-	public static final String ALIAS_APPLY_DATE = "applyDate";
-	public static final String ALIAS_APPLY_TYPE_ID = "applyTypeId";
-	public static final String ALIAS_APPLY_TYPE_PROCESS = "applyTypeProcess";
+	public static final String ALIAS_APPLICANT_ID = "申请人ID";
+	public static final String ALIAS_AGENT_ID = "代理人ID";
+	public static final String ALIAS_DESCRIPTION = "描述描述";
+	public static final String ALIAS_REASON_ID = "申请原因";
+	public static final String ALIAS_SIGNITURE_PATH = "签名路径";
+	public static final String ALIAS_CREATE_TIME = "创建时间";
+	public static final String ALIAS_CREATE_BY = "创建人";
+	public static final String ALIAS_CASE_FROM = "案件来源";
+	public static final String ALIAS_APPLY_DATE = "申请时间";
+	public static final String ALIAS_APPLY_TYPE_ID = "申请事项";
+	public static final String ALIAS_APPLY_TYPE_PROCESS = "申请事项所得阶段";
 	
     /**
      * id       db_column: ID 

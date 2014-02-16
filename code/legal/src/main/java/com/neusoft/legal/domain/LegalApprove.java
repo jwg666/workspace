@@ -24,15 +24,15 @@ public class LegalApprove  implements java.io.Serializable{
 	private static final long serialVersionUID = 5454155825314635342L;
 	
 	//alias
-	public static final String TABLE_ALIAS = "LegalApprove";
+	public static final String TABLE_ALIAS = "审批";
 	public static final String ALIAS_ID = "id";
-	public static final String ALIAS_CASE_ID = "caseId";
-	public static final String ALIAS_APPROVE_ID = "approveId";
-	public static final String ALIAS_APPROVE_CONTENT = "approveContent";
-	public static final String ALIAS_SIGNITURE_PATH = "signiturePath";
-	public static final String ALIAS_APPROVE_TIME = "approveTime";
-	public static final String ALIAS_WORK_TIME = "workTime";
-	public static final String ALIAS_CREATE_TIME = "createTime";
+	public static final String ALIAS_CASE_ID = "案件ID";
+	public static final String ALIAS_APPROVE_ID = "审批人ID";
+	public static final String ALIAS_APPROVE_CONTENT = "审批内容";
+	public static final String ALIAS_SIGNITURE_PATH = "签字路径";
+	public static final String ALIAS_APPROVE_TIME = "审批时间";
+	public static final String ALIAS_WORK_TIME = "生效时间";
+	public static final String ALIAS_CREATE_TIME = "创建时间";
 	
     /**
      * id       db_column: ID 

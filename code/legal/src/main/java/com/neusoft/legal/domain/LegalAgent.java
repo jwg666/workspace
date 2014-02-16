@@ -24,7 +24,7 @@ public class LegalAgent  implements java.io.Serializable{
 	private static final long serialVersionUID = 5454155825314635342L;
 	
 	//alias
-	public static final String TABLE_ALIAS = "LegalAgent";
+	public static final String TABLE_ALIAS = "代理人";
 	public static final String ALIAS_ID = "id";
 	public static final String ALIAS_NAME = "name";
 	public static final String ALIAS_IDENTIFYID = "identifyid";
