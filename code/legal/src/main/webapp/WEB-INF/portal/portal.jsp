@@ -108,35 +108,36 @@
 							<ul id="todotasks">
 							<!-- 待办列表demo start-->
 							    <li  src="" resName="案件审核" resIcon="" resH="20"  resW="20" resid="2"  id="resource_2">
-								 <div class="main-content-navi-icon"><img width="35px" height="35px" src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=<s:property value='iconUrl'/>" />
+								 <div class="main-content-navi-icon">
+								 <img width="35px" height="35px" src="${staticURL}/portal/img/images/content-icon1.png" />
 										<div class="live-tip no-background-image"></div>
 									</div>
 									<div class="main-content-navi-icontext">案件审核</div>
 									<div class="navi-selected-icon"></div>
 								</li>
 								<li  src="" resName="指派律师事务所" resIcon="" resH="20"  resW="20" resid="2"  id="resource_2">
-								 <div class="main-content-navi-icon"><img width="35px" height="35px" src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=<s:property value='iconUrl'/>" />
+								 <div class="main-content-navi-icon"><img width="35px" height="35px" src="${staticURL}/portal/img/images/content-icon8.png" />
 										<div class="live-tip no-background-image"></div>
 									</div>
 									<div class="main-content-navi-icontext">指派律师事务所</div>
 									<div class="navi-selected-icon"></div>
 								</li>
 								<li  src="" resName="事务所受理案件" resIcon="" resH="20"  resW="20" resid="2"  id="resource_2">
-								 <div class="main-content-navi-icon"><img width="35px" height="35px" src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=<s:property value='iconUrl'/>" />
+								 <div class="main-content-navi-icon"><img width="35px" height="35px" src="${staticURL}/portal/img/images/content-icon7.png" />
 										<div class="live-tip no-background-image"></div>
 									</div>
 									<div class="main-content-navi-icontext">事务所受理案件</div>
 									<div class="navi-selected-icon"></div>
 								</li>
 								<li  src="" resName="受理结果公示" resIcon="" resH="20"  resW="20" resid="2"  id="resource_2">
-								 <div class="main-content-navi-icon"><img width="35px" height="35px" src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=<s:property value='iconUrl'/>" />
+								 <div class="main-content-navi-icon"><img width="35px" height="35px" src="${staticURL}/portal/img/images/content-icon4.png" />
 										<div class="live-tip no-background-image"></div>
 									</div>
 									<div class="main-content-navi-icontext">受理结果公示</div>
 									<div class="navi-selected-icon"></div>
 								</li>
 								<li class="last-li"  src="" resName="结案" resIcon="" resH="20"  resW="20" resid="2"  id="resource_2">
-								 <div class="main-content-navi-icon"><img width="35px" height="35px" src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=<s:property value='iconUrl'/>" />
+								 <div class="main-content-navi-icon"><img width="35px" height="35px" src="${staticURL}/portal/img/images/content-icon5.png" />
 										<div class="live-tip no-background-image"></div>
 									</div>
 									<div class="main-content-navi-icontext">结案</div>
@@ -180,7 +181,7 @@
 					</div>
 					<!-- iframe -->
 					<div id="homeIframeContent" style="height:400px;width:100%;background-color: white;">
-						<iframe id="homeIframe"  style="height:400px;width:100%; border:0 none;"  ></iframe>
+						<iframe id="homeIframe"  style="height:400px;width:100%; border:0 none;" src="../legal/legalAction!stepOne.do" ></iframe>
 						
 						
 					</div>
