@@ -46,9 +46,9 @@
 		</profile>
 	</profiles>
 	<scm>
-		<connection>scm:svn:http://115.28.33.228/svn/cms/code/cms</connection>
-		<developerConnection>scm:svn:http://115.28.33.228/svn/cms/code/cms</developerConnection>
-		<url>http://115.28.33.228/svn/cms/code/cms</url>
+		<connection>scm:svn:http://115.28.33.228/svn/legal/code/legal</connection>
+		<developerConnection>scm:svn:http://115.28.33.228/svn/legal/code/legal</developerConnection>
+		<url>http://115.28.33.228/svn/legal/code/legal</url>
 	</scm>
 	<dependencies>
 		<!-- Spring -->
