@@ -26,7 +26,7 @@ var jsonData = {
 			{"field0":"minisite平台用户浏览数    ","field1":"/","field2":"/","field3":"217749","field4":"429082","field5":"823647 ","field6":"191.96%"},
 			{"field0":"虚网互动活动用户报名      ","field1":"/","field2":"/","field3":"/     ","field4":"782   ","field5":"1622   ","field6":"207.42%"},
 			{"field0":"虚网互动活动用户点击      ","field1":"/","field2":"/","field3":"/     ","field4":"550890","field5":"1060696","field6":"192.54%"},
-			{"field0":"<a href='./HroisDemo/welcome_iframe3_tab4_open.html'  target='_blank'>互动中获取用户创意抱怨数量</a> ","field1":"/","field2":"/","field3":"/     ","field4":"70    ","field5":"131    ","field6":"187.14%"}
+			{"field0":"<a href='./Demo/welcome_iframe3_tab4_open.html'  target='_blank'>互动中获取用户创意抱怨数量</a> ","field1":"/","field2":"/","field3":"/     ","field4":"70    ","field5":"131    ","field6":"187.14%"}
 		]                                                          
 	}
 $(function(){

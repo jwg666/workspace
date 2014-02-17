@@ -82,7 +82,7 @@ $(document).ready(function() {
 								<s:property value="#dep.name" />&nbsp;
 						</s:iterator></td>
 						<td><s:property
-								value="@com.haier.hrois.security.domain.enu.UserStatusEnum@toEnum(status).description" /></td>
+								value="@com.neusoft.security.domain.enu.UserStatusEnum@toEnum(status).description" /></td>
 						<td><s:property
 								value="currentLoginIp" /></td>
 						<td><s:date

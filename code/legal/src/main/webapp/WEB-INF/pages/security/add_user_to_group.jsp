@@ -136,9 +136,9 @@ function addUserToGroup(){
 						<td style="font-size: 12px;" nowrap="nowrap"><s:property
 								value="email" /></td>
 						<td style="font-size: 12px;" nowrap="nowrap"><s:property
-								value="@com.haier.hrois.security.domain.enu.UserTypeEnum@toEnum(type).description" /></td>
+								value="@com.neusoft.security.domain.enu.UserTypeEnum@toEnum(type).description" /></td>
 						<td style="font-size: 12px;" nowrap="nowrap"><s:property
-								value="@com.haier.hrois.security.domain.enu.UserStatusEnum@toEnum(status).description" /></td>
+								value="@com.neusoft.security.domain.enu.UserStatusEnum@toEnum(status).description" /></td>
 						<td style="font-size: 12px;" nowrap="nowrap"><s:property
 								value="currentLoginIp" /></td>
 						<td style="font-size: 12px;" nowrap="nowrap"><s:date

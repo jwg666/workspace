@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib uri="/struts-tags" prefix="s" %>
-<title>XX系统</title>
+<title>法律援助综合信息平台</title>
 <script type="text/javascript" src="${staticURL}/easyui3.2/jquery-1.8.0.min.js"></script>
 <script type="text/javascript" src="${staticURL}/easyui3.4/jquery.easyui.min.js?v=${jsCssVersion}"></script>
 <script type="text/javascript" src="${staticURL}/easyui3.2/jquery.edatagrid.js?v=${jsCssVersion}"></script>

@@ -16,7 +16,7 @@
 <html>
     <head>
     <%@ include file="/common/meta.jsp" %>
-    <title><decorator:title default="海尔开放平台-hrois系统"/></title>
+    <title><decorator:title default="XXX系统"/></title>
     <jsp:include page="/common/css_and_js.jsp" />
    	<decorator:head/>
     </head>

@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>系统登录</title>
+<title>法律援助综合信息平台登录</title>
 <link href="${staticURL}/style/newlogin.css?v=${jsCssVersion}" rel="stylesheet" />
 <%/**
    *测试用include 

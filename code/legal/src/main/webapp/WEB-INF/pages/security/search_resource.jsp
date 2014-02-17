@@ -81,10 +81,10 @@
 						<td><s:property value="code" />
 						</td>
 						<td><s:property
-								value="@com.haier.hrois.security.domain.enu.ResourceTypeEnum@toEnum(type).description" />
+								value="@com.neusoft.security.domain.enu.ResourceTypeEnum@toEnum(type).description" />
 						</td>
 						<td><s:property
-								value="@com.haier.hrois.security.domain.enu.ResourceStatusEnum@toEnum(status).description" />
+								value="@com.neusoft.security.domain.enu.ResourceStatusEnum@toEnum(status).description" />
 						</td>
 						<td><s:date name="gmtCreate" format="yyyy-MM-dd HH:mm:ss"/>
 						</td>

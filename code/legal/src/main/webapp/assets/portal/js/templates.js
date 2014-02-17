@@ -244,7 +244,7 @@ var helpTemp = template(
 		'<a href="javascript:;" class="close" title="关闭新手帮助">×</a>'+
 		'<div id="step1" class="step" step="1" style="position:relative;left:50%;top:50%;margin-left:-160px;margin-top:-60px;width:280px;height:100px">'+
 			'<p style="text-align:center">'+
-				'<span class="h2">欢迎使用HroisOS</span>'+
+				'<span class="h2">欢迎使用法律援助综合信息平台</span>'+
 				'<br>下面我会简单介绍下如何使用，以便你快速上手<br>'+
 				'<a href="javascript:;" class="next">下一步</a>'+
 			'</p>'+

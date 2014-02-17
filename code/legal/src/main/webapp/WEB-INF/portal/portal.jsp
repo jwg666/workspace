@@ -61,7 +61,7 @@
     	<div class="head-body">
             <div class="head-body-l"></div>
             <div class="head-body-b">
-               <div class="l-logo"><div class="l-head">XX系统</div></div>
+               <div class="l-logo"><div class="l-head">法律援助综合信息平台</div></div>
                <div class="head-body-b-float">
 	               <div class="b-button b-button-01">
 	                   <div class="button-left">&nbsp;</div>

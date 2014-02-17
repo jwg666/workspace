@@ -60,7 +60,7 @@
 			</div>
 			<div class="osConnectionTop">
 				<div class="osCtnTopBg"></div>
-				<span class="osCtnTopTxt">HROIS说</span>
+				<span class="osCtnTopTxt">在线说说</span>
 				<div class="osCtnTopBtn">
 					<!-- <i class="osCtnSeparate"></i>
                 <a title="最小化" class="osCtnBtn" href="###"><i class="osCtnHideIco"></i></a>

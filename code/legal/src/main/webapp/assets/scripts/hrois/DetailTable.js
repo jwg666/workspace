@@ -127,8 +127,6 @@
             type:"post",
             async:false,
             dataType:"json",
-           // url:"getSelectValues.action",
-          // url:"/hrois/basic/searchDepartementAction.action",
             url:dynamicURL+"/system/searchDataDictAction.action",
             data:param,
             error: function(){                         

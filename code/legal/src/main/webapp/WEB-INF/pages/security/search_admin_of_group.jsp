@@ -149,9 +149,9 @@
 								<td style="font-size: 12px;" nowrap="nowrap"><s:property
 										value="user.email" /></td>
 								<td style="font-size: 12px;" nowrap="nowrap"><s:property
-										value="@com.haier.hrois.security.domain.enu.UserTypeEnum@toEnum(user.type).description" /></td>
+										value="@com.neusoft.security.domain.enu.UserTypeEnum@toEnum(user.type).description" /></td>
 								<td style="font-size: 12px;" nowrap="nowrap"><s:property
-										value="@com.haier.hrois.security.domain.enu.UserStatusEnum@toEnum(user.status).description" /></td>
+										value="@com.neusoft.security.domain.enu.UserStatusEnum@toEnum(user.status).description" /></td>
 							</tr>
 						</s:iterator>
 					</tbody>

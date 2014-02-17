@@ -29,9 +29,9 @@
 	</tr>
 	<tr>
 		<th>状态：</th>
-		<td><s:property value="@com.haier.hrois.security.domain.enu.UserStatusEnum@toEnum(user.status).description"/></td>
+		<td><s:property value="@com.neusoft.security.domain.enu.UserStatusEnum@toEnum(user.status).description"/></td>
 		<th>账号类型：</th>
-		<td><s:property value="@com.haier.hrois.security.domain.enu.UserTypeEnum@toEnum(user.type).description"/></td>
+		<td><s:property value="@com.neusoft.security.domain.enu.UserTypeEnum@toEnum(user.type).description"/></td>
 	</tr>
 	<tr>
 		<th>创建者：</th>
