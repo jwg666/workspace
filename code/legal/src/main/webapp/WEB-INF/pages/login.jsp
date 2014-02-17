@@ -74,7 +74,7 @@
     	<img src="${staticURL}/style/images/logo_login.png"/>
     	  -->
     	</a>
-    	<p>XXX系统</p>
+    	<p>法律援助系统</p>
     </div>
     <s:form action="login" namespace="/security" method="post" id="loginForm">
 	    <div class="login_content">

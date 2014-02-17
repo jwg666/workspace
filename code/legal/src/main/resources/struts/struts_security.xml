@@ -12,7 +12,7 @@
 		</action>
 		<action name="logout" class="logoutAction">
 			<interceptor-ref name="defaultStack" />
-			<result type="redirect">/security/loginInit.action</result>
+			<result type="redirect">/security/login.action</result>
 		</action>
 	</package>
 </struts>

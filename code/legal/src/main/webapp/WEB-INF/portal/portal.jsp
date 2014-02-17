@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<title>XXX系统</title>
+<title>法律援助系统</title>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <link rel="stylesheet" href="${staticURL}/portal/js/HoorayLibs/hooraylibs.css"/>
