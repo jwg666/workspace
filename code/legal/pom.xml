@@ -378,6 +378,7 @@
 	</dependencies>
 	
 	<build>
+		<defaultGoal>install</defaultGoal>
 		<filters>
 			<filter>src/main/filters/${env}/filter.properties</filter>			
 		</filters>
