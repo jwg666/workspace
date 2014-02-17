@@ -46,7 +46,7 @@ $(function() {
 </script>
 </head>
 <body class="easyui-layout">
-	<div region="north" split="true" style="height:100px;"  collapsed="false" border="false">
+	<div region="north" split="true" style="height:10px;"  collapsed="false" border="false">
 		 <div class="part_zoc" style="margin:0px 0px 0px 0px;" >
 			 <div class="partnavi_zoc">
 						<span>法律援助申请</span>
