@@ -212,7 +212,12 @@ $(function() {
 							</tr>
 						</table>
 				    </div>
-				   	
+				   	<div class="item100">
+			        <div class="oprationbutt">
+				        <input type="button" value="提交" onclick=""/>
+				        <input type="button" value="重置"  onclick=""/>
+			       </div>
+		        </div>
 				</div>
 			</form>
 			<!-- 案件信息结束 -->
