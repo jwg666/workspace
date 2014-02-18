@@ -5,44 +5,9 @@
 <jsp:include page="/common/common_js.jsp"></jsp:include>
 <script type="text/javascript" charset="utf-8">
 $("document").ready(function(){
+	
 });
-var legalApplicantAddForm = $("#legalApplicantAddForm");
-$(function() {
-		legalApplicantAddForm = $('#legalApplicantAddForm').form({
-			url : 'legalApplicantAction!add.do',
-			success : function(data) {
-				var json = $.parseJSON(data);
-				if (json && json.success) {
-					$.messager.show({
-						title : '成功',
-						msg : json.msg
-					});
-				} else {
-					$.messager.show({
-						title : '失败',
-						msg : '操作失败！'
-					});
-				}
-			}
-		});
-		legalCaseAddForm = $('#legalCaseAddForm').form({
-			url : 'legalCaseAction!add.do',
-			success : function(data) {
-				var json = $.parseJSON(data);
-				if (json && json.success) {
-					$.messager.show({
-						title : '成功',
-						msg : json.msg
-					});
-				} else {
-					$.messager.show({
-						title : '失败',
-						msg : '操作失败！'
-					});
-				}
-			}
-		});		
-});
+
 </script>
 </head>
 <body class="easyui-layout">
@@ -201,7 +166,7 @@ $(function() {
 								</td>
 							</tr>
 						</table>  
-				    </div>				    
+				    </div>
 				    <div class="half_zoc">					    
 						<table>
 							<tr>
@@ -214,18 +179,144 @@ $(function() {
 				    </div>
 				   	<div class="item100">
 			        <div class="oprationbutt">
-				        <input type="button" value="提交" onclick=""/>
-				        <input type="button" value="重置"  onclick=""/>
+				        <input type="button" value="提交" onclick="submitInfo()"/>
+				        <input type="button" value="重置"  onclick="resetInfo()"/>
 			       </div>
 		        </div>
 				</div>
 			</form>
 			<!-- 案件信息结束 -->
-			
 		</div>
 	</div>
-
-	
+</div>
+<div style="display: none;">
+	<script type="text/javascript">
+		function submitInfo(){
+			var legalApplicantAddForm = $("#legalApplicantAddForm");
+			var legalCaseAddForm = $("#legalCaseAddForm");
+			var legalAgentAddForm = $("#legalAgentAddForm");
+			legalApplicantAddForm = $('#legalApplicantAddForm').form('submit',{
+				url : 'legalApplicantAction!add.do',
+				onSubmit: function(){
+					var str = null;
+					var strValue = false;
+					str = $("#name").val();
+					strValue = checkInfo(str);
+					if(strValue){
+						alert("姓名不能为空！");
+						$("#name").focus();
+						return false;
+					}
+					str = $("#identifyid").val();
+					strValue = checkInfo(str);
+					if(strValue){
+						alert("证件号不能为空！");
+						$("#identifyid").focus();
+						return false;
+					}
+					str = $("#birthPlace").val();
+					strValue = checkInfo(str);
+					if(strValue){
+						alert("户籍所在地不能为空！");
+						$("#birthPlace").focus();
+						return false;
+					}
+					str = $("#livePlace").val();
+					strValue = checkInfo(str);
+					if(strValue){
+						alert("住所不能为空！");
+						$("#livePlace").focus();
+						return false;
+					}
+					str = $("#phone").val();
+					strValue = checkInfo(str);
+					if(strValue){
+						alert("电话不能为空！");
+						$("#phone").focus();
+						return false;
+					}
+					str = $("#description").text();
+					strValue = checkInfo(str);
+					if(strValue){
+						alert("案件描述不能为空！");
+						$("#description").focus();
+						return false;
+					}
+				},
+				success : function(data) {
+					var json = $.parseJSON(data);
+					if (json && json.success) {
+						$.messager.show({
+							title : '成功',
+							msg : json.msg
+						});
+					} else {
+						$.messager.show({
+							title : '失败',
+							msg : '操作失败！'
+						});
+					}
+				}
+			});
+			/* legalAgentAddForm = $('#legalAgentAddForm').form('submit',{
+				url : 'legalAgentAction!add.do',
+				success : function(data) {
+					var json = $.parseJSON(data);
+					if (json && json.success) {
+						$.messager.show({
+							title : '成功',
+							msg : json.msg
+						});
+					} else {
+						$.messager.show({
+							title : '失败',
+							msg : '操作失败！'
+						});
+					}
+				}
+			});
+			legalCaseAddForm = $('#legalCaseAddForm').form('submit',{
+				url : 'legalCaseAction!add.do',
+				success : function(data) {
+					var json = $.parseJSON(data);
+					if (json && json.success) {
+						$.messager.show({
+							title : '成功',
+							msg : json.msg
+						});
+					} else {
+						$.messager.show({
+							title : '失败',
+							msg : '操作失败！'
+						});
+					}
+				}
+			});	 */
+		}
+		function resetInfo(){
+			$("#name").val("");
+			$("#birthday").val("");
+			$("#nationId").val("");
+			$("#eduLevelId").val("");
+			$("#category").val("");
+			$("#identifyid").val("");
+			$("#birthPlace").val("");
+			$("#livePlace").val("");
+			$("#postCode").val("");
+			$("#phone").val("");
+			$("#company").val("");
+			$("#agentName").val("");
+			$("#agentType").val("");
+			$("#dl_identifyid").val("");
+			$("#righttext").html("");
+			$("#description").html("");
+			$("#qm_description").html("");
+		}
+		function checkInfo(str){
+			if(str==null||str=="")return true;
+			else return false;
+		}
+	</script>
 </div>
 </body>
 </html>

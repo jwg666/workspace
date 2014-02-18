@@ -80,7 +80,7 @@
 	    <div class="login_content">
 	    	<div class="elem">
 	        	<div class="name">用户名</div>
-	        	<div class="text clearfix"><input type="text" name="userInfo.empCode" /> </div>
+	        	<div class="text clearfix"><input type="text" id="loginName" name="userInfo.empCode" /> </div>
 	      	</div>
 	      	<div class="elem">
 	        	<div class="name">密码</div>
@@ -161,17 +161,18 @@
   </div>
 </div>
 <script type="text/javascript">
-		function loginSubmit() {
-			document.getElementById("loginForm").submit();
-		}
-		function reset() {
-			document.getElementById("loginForm").reset();
-		}
-		function changeValidateCode() {
-			var timenow = new Date().getTime();
-			var obj = document.getElementById("checkCodeImg");
-			obj.src = "${dynamicURL}/checkCode.action?d=" + timenow;
-		}
+	document.getElementById("loginName").focus();
+	function loginSubmit() {
+		document.getElementById("loginForm").submit();
+	}
+	function reset() {
+		document.getElementById("loginForm").reset();
+	}
+	function changeValidateCode() {
+		var timenow = new Date().getTime();
+		var obj = document.getElementById("checkCodeImg");
+		obj.src = "${dynamicURL}/checkCode.action?d=" + timenow;
+	}
 </script>
 <!--标示是登陆页面  请不要删除！  -->
 <!-- this-is-login-page-flag  -->
