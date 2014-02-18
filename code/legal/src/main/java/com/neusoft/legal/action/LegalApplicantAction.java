@@ -82,11 +82,17 @@ public class LegalApplicantAction extends BaseAction implements ModelDriven<Lega
 	 * 添加一个LegalApplicant
 	 */
 	public String add() {
-		legalApplicantService.add(legalApplicantQuery);
-		json.setSuccess(true);
-		json.setObj(legalApplicantQuery);
-		json.setMsg("添加成功！");
-		return SUCCESS;
+		try {
+			logger.debug(">>>");
+			legalApplicantService.add(legalApplicantQuery);
+			json.setSuccess(true);
+			json.setObj(legalApplicantQuery);
+			json.setMsg("添加成功！");
+			return SUCCESS;
+		} catch (Exception e) {
+			logger.debug(">>>"+e);
+		}
+		return null;
 	}
 
 	/**

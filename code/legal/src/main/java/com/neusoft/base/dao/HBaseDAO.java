@@ -89,7 +89,8 @@ public class HBaseDAO<T> {
 				Entry<String,Object> e = it.next();
 				c.add(Restrictions.eq(e.getKey(), e.getValue()));
 			}
-		}		
+		}
+		
 		return c.list();
 	}
 	
