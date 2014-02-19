@@ -363,10 +363,18 @@
 			
 		<!-- DWR -->
 		<dependency>
-				<groupId>org.directwebremoting</groupId>
-				<artifactId>dwr</artifactId>
-				<version>3.0.0-rc3</version>
-		</dependency>   
+		    <groupId>org.directwebremoting</groupId>
+		    <artifactId>dwr</artifactId>
+		    <version>3.0.0-rc3-SNAPSHOT</version>
+		  </dependency>
+		
+		  <dependency>
+		    <!-- Optional non-CLA components see DWR documentation for details -->
+		    <groupId>org.directwebremoting</groupId>
+		    <artifactId>dwr</artifactId>
+		    <classifier>noncla</classifier>
+		    <version>3.0.0-rc3-SNAPSHOT</version>
+		  </dependency>  
 		<!-- Test -->		
 		<dependency>
 			<groupId>junit</groupId>
