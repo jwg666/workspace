@@ -110,35 +110,35 @@
 							    <li  src="" resName="案件审核" resIcon="" resH="20"  resW="20" resid="2"  id="resource_2">
 								 <div class="main-content-navi-icon">
 								 <img width="35px" height="35px" src="${staticURL}/portal/img/images/content-icon1.png" />
-										<div class="live-tip no-background-image"></div>
+										<div class="live-tip">6</div>
 									</div>
 									<div class="main-content-navi-icontext">案件审核</div>
 									<div class="navi-selected-icon"></div>
 								</li>
 								<li  src="" resName="指派律师事务所" resIcon="" resH="20"  resW="20" resid="2"  id="resource_2">
 								 <div class="main-content-navi-icon"><img width="35px" height="35px" src="${staticURL}/portal/img/images/content-icon8.png" />
-										<div class="live-tip no-background-image"></div>
+										<div class="live-tip ">5</div>
 									</div>
 									<div class="main-content-navi-icontext">指派律师事务所</div>
 									<div class="navi-selected-icon"></div>
 								</li>
 								<li  src="" resName="事务所受理案件" resIcon="" resH="20"  resW="20" resid="2"  id="resource_2">
 								 <div class="main-content-navi-icon"><img width="35px" height="35px" src="${staticURL}/portal/img/images/content-icon7.png" />
-										<div class="live-tip no-background-image"></div>
+										<div class="live-tip ">6</div>
 									</div>
 									<div class="main-content-navi-icontext">事务所受理案件</div>
 									<div class="navi-selected-icon"></div>
 								</li>
 								<li  src="" resName="受理结果公示" resIcon="" resH="20"  resW="20" resid="2"  id="resource_2">
 								 <div class="main-content-navi-icon"><img width="35px" height="35px" src="${staticURL}/portal/img/images/content-icon4.png" />
-										<div class="live-tip no-background-image"></div>
+										<div class="live-tip ">8</div>
 									</div>
 									<div class="main-content-navi-icontext">受理结果公示</div>
 									<div class="navi-selected-icon"></div>
 								</li>
 								<li class="last-li"  src="" resName="结案" resIcon="" resH="20"  resW="20" resid="2"  id="resource_2">
 								 <div class="main-content-navi-icon"><img width="35px" height="35px" src="${staticURL}/portal/img/images/content-icon5.png" />
-										<div class="live-tip no-background-image"></div>
+										<div class="live-tip">12</div>
 									</div>
 									<div class="main-content-navi-icontext">结案</div>
 									<div class="navi-selected-icon"></div>
@@ -193,7 +193,17 @@
    			<s:param name="first" value="1" />
    			<s:param name="last" value="%{desknum}" /> 
    			<s:iterator>
-				<div id="desk-<s:property/>" class="desktop-container"><div class="scrollbar scrollbar-x"></div><div class="scrollbar scrollbar-y"></div></div>
+				<div id="desk-<s:property/>" class="desktop-container">
+				<div class="scrollbar scrollbar-x"></div>
+				<div class="scrollbar scrollbar-y"></div>
+						<li class="appbtn" type="app" id="d_3263" appid="3263" style="top:27px;left:36px">
+							<div>
+								<img src="${staticURL}/portal/img/images/content-icon3.png" src_val="1387" title="案件上报" alt="案件上报">
+							</div>
+							<span>案件上报</span>
+						</li>						
+						<li class="appbtn add" style="top:27px;left:120px"><i class="addicon"></i><span>添加应用</span></li>
+				</div>
    			</s:iterator>
 		</s:bean>
 		<!-- 
@@ -201,9 +211,42 @@
 			desk-底部
 		</div> 
 		-->
-        <div id="dock-bar">
-			<div id="dock-container">
-				<div class="widget-hub">
+        <div id="dock-bar" class="right-bar" style="display: block;">
+			<div id="dock-container" class="dock-right">
+				<div class="widget-hub" style="height: 523px;">				
+						<div class="one-widget" id="44122_dock_widget" title="订单直通车" type="app" appid="44122" imgsrc_val="921" imgsrc="">
+							<div class="one-widget-navi">
+								<span>案件直通车</span>
+								<div class="one-widget-option">
+									<div class="option-icon">
+										<a href="javascript:void(0)" class="option-icon-btn">&nbsp;</a>
+										<div class="opiton-container">
+											<ul appid="44122">
+												<li><a href="#">	<span>移除控件</span></a></li>
+												<li style="display:none"><a href="#"><span>放大控件</span></a></li>
+												<li><a href="#"><span>缩小控件</span></a></li>
+												<li><a href="#"><span>刷新</span></a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<iframe id="44122_dock_iframe" frameborder="0" src="" style="width: 100%; border: 0px none; height: 54px; max-height: 65px;"></iframe>
+						</div>
+						<div class="one-widget" id="44982_dock_widget" title="任务催办" type="app" appid="44982" imgsrc_val="921" imgsrc="">
+							<div class="one-widget-navi">
+								<span>案件催办</span>
+								<div class="one-widget-option">
+									<div class="option-icon">
+										<a href="javascript:void(0)" class="option-icon-btn">&nbsp;</a>
+										<div class="opiton-container">
+											<ul appid="44982"><li><a href="#"><span>移除控件</span></a></li><li style="display:none"><a href="#"><span>放大控件</span></a></li><li><a href="#"><span>缩小控件</span></a></li><li><a href="#"><span>刷新</span></a></li></ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<iframe id="44982_dock_iframe" frameborder="0" src="" style="width: 100%; border: 0px none; height: 167px; max-height: 200px;"></iframe>
+						</div>
 				</div>
 			</div>
 		</div>
@@ -213,7 +256,7 @@
               	<div class="b-content" id="navContainer">
                            <div id="b-content-06">
                                 <a href="#" index="6"><img src="${staticURL}/portal/img/images/home-b.png" /></a>
-                                <a href="#" index="6" class="title-icon"><span>Home</span></a>
+                                <a href="#" index="6" class="title-icon"><span>工作台</span></a>
                            </div>
                            <s:bean name="org.apache.struts2.util.Counter" id="counter">
    								<s:param name="first" value="1" />
@@ -231,7 +274,7 @@
                           </div>
                           <div id="b-content-im">
                                 <a href="#" class="web-im"><img src="${staticURL}/portal/img/images/ico_im.png" /></a>
-                                <a href="#" class="web-im title-icon"><span>IM</span></a>
+                                <a href="#" class="web-im title-icon"><span>即时交流</span></a>
                           </div>
                           <div id="b-content-msg">
                           		<span class="num">0</span>

@@ -162,7 +162,7 @@ $("document").ready(function(){
 							<tr>
 								<td>案件描述</td>
 								<td>
-									<textarea id="description" name="description"  style="width:500px;height:250px"></textarea>
+									<textarea id="description" name="description"  style="width:300px;height:150px"></textarea>
 								</td>
 							</tr>
 						</table>  
@@ -172,7 +172,7 @@ $("document").ready(function(){
 							<tr>
 								<td>签名</td>
 								<td>
-									<textarea id="description" name="description"  style="width:500px;height:250px"></textarea>
+									<textarea id="description" name="description"  style="width:300px;height:150px"></textarea>
 								</td>
 							</tr>
 						</table>

@@ -3,7 +3,7 @@
 */
 
 var version   = '2.1.1';        //版本号
-var ajaxUrl   = '/legal/portalAction/ajax.do';     //所有ajax操作指向页面
+var ajaxUrl   = '/legal/portal/portalAction/ajax.do';     //所有ajax操作指向页面
 var zoomlevel = 1;
 var TEMP      = {};
 var HROS      = {};
@@ -38,8 +38,8 @@ HROS.CONFIG = {
 	//-----------------------------url---------------
 	basicStaticUrl	:'/legal/assets',
 	basicDynamicUrl	:'/legal',
-	basicActionUrl	:'/legal',
-	downloadImage	:'/legal/fileUploadAction/downloadImage.do?fileId=',
+	basicActionUrl	:'/legal/portal',
+	downloadImage	:'/legal/portal/fileUploadAction/downloadImage.do?fileId=',
 	//-------------------------------locale------------------
 	locale : 'zh_CN'
 };
