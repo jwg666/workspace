@@ -365,7 +365,7 @@
 		<dependency>
 				<groupId>org.directwebremoting</groupId>
 				<artifactId>dwr</artifactId>
-				<version>3.0.0-rc3-20130424.090803-1</version>
+				<version>3.0.0-rc3</version>
 		</dependency>   
 		<!-- Test -->		
 		<dependency>
@@ -524,7 +524,7 @@
 			<id>Codehaus</id>
 			<url>http://repository.codehaus.org</url>
 		</repository>
-		<!--
+		
 		<repository>
 	      <id>oss-sonatype-snapshots</id>
 	      <name>OSS Sonatype Snapshots Repository</name>
@@ -532,6 +532,6 @@
 	      <releases><enabled>false</enabled></releases>
 	      <snapshots><enabled>true</enabled></snapshots>
 	    </repository>
-	    -->
+	
 	</repositories>
 </project>
