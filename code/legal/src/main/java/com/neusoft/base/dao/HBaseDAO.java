@@ -48,6 +48,20 @@ public class HBaseDAO<T> {
 		return query.list();
 	}
 	@SuppressWarnings("unchecked")
+	public List<T> findList(String hql){
+		Query query = getSession().createQuery(hql);
+		return query.list();
+	}
+	@SuppressWarnings("unchecked")
+	public List<T> findList(String hql,Object[] params){
+		Query q = getSession().createQuery(hql);
+		if(params.length>0){
+			for(int i=0;i<params.length;i++)
+			q.setParameter(i, params[i]);
+		}
+		return q.list();
+	}
+	@SuppressWarnings("unchecked")
 	public List<T> findList(int begin, int pageSize,String hql,Object[] params){
 		Query q = getSession().createQuery(hql);
 		if(params.length>0){

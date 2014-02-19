@@ -1,12 +1,31 @@
 package com.neusoft.base.action;
 
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
+import javax.annotation.Resource;
+
+import net.sf.json.JSONObject;
+
+import org.apache.commons.lang3.StringUtils;
+import org.apache.struts2.ServletActionContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import com.neusoft.base.common.ExecuteResult;
+import com.neusoft.base.common.FileConstants;
+import com.neusoft.base.common.Pager;
+import com.neusoft.base.common.ValidateUtil;
 import com.neusoft.base.model.Json;
+import com.neusoft.base.model.SearchModel;
+import com.neusoft.security.domain.UploadFile;
+import com.neusoft.security.service.FileUploadService;
 //import org.apache.tools.zip.ZipEntry;
 //import org.apache.tools.zip.ZipOutputStream;
 
@@ -16,8 +35,8 @@ import com.neusoft.base.model.Json;
 public class FileUploadAction extends BaseAction {
 	
 
-//	@Resource
-//	private FileUploadService fileUploadServiceImpl;
+	@Resource
+	private FileUploadService fileUploadService;
 	
 	private static final long serialVersionUID = -134254657232545L;
 	
@@ -53,22 +72,30 @@ public class FileUploadAction extends BaseAction {
 	public String goUploadFile(){
 		return "uploadFile";
 	}
+	//请求图片
+		public String downloadImage(){
+			fileAsStream = fileUploadService.getFileInputStream(ServletActionContext.getServletContext().getRealPath("/"),fileId);
+			if(fileAsStream==null){
+				return "nofile";
+			}
+			return IMGSTREAM;
+		}
 	/**
 	 * 文件搜索
 	 * @author wangzq
 	 * @date 
 	 * @return
 	 */
-	/**
+	
 	public void searchUploadFile() throws Exception{
 		Pager<UploadFile> pager=initPage();
-		FileSearchModel model = new FileSearchModel();
+		SearchModel<UploadFile> model = new SearchModel<UploadFile>();
 		UploadFile file = new UploadFile();
 		file.setStatus(status);
 		file.setType(type);
 		file.setFileName(filename);
 		file.setRemarks(remarks);
-		model.setFile(file);
+//		model.setFile(file);
 		model.setPager(pager);
 		JSONObject datas = new JSONObject();
 		pager=this.fileUploadService.findPage(model);
@@ -78,19 +105,19 @@ public class FileUploadAction extends BaseAction {
 		this.getResponse().getWriter().print(datas.toString());
 	}
 	public String deleteFile(){
-		fileUploadServiceImpl.deleteFileByIds(fileids);
+		fileUploadService.deleteFileByIds(fileids);
 		return SUCCESS;
 	}
-	**/
+	
 	/*下载文件*/
-	/**
+
 	public String downloadFile(){
 		if(fileIds==null || fileIds.length<1){
-			fileAsStream = fileUploadServiceImpl.getFileInputStream(fileId);
+			fileAsStream = fileUploadService.getFileInputStream(fileId);
 			if(fileAsStream==null){
 				return "nofile";
 			}
-			UploadFile uploadFile = fileUploadServiceImpl.getFileById(fileId);
+			UploadFile uploadFile = fileUploadService.getFileById(fileId);
 			downloadFileName = uploadFile.getFileName();
 			try {
 				downloadFileName = new String(downloadFileName.getBytes(), "ISO8859-1");
@@ -102,17 +129,17 @@ public class FileUploadAction extends BaseAction {
 		}else{
 			try {
 				getResponse().setContentType("application/zip");
-				Servlets.setFileDownloadHeader(getRequest(),getResponse(), (org.apache.commons.lang3.StringUtils.isNotBlank(downloadFileName)?downloadFileName:"hrois下载")+".zip");
+//				Servlets.setFileDownloadHeader(getRequest(),getResponse(), (org.apache.commons.lang3.StringUtils.isNotBlank(downloadFileName)?downloadFileName:"下载")+".zip");
 				OutputStream o = getResponse().getOutputStream();
 				ZipOutputStream zos = new ZipOutputStream(o);
-				zos.setEncoding("gbk");
-			    zos.setComment("HROIS压缩包");   
-		        zos.putNextEntry(new org.apache.tools.zip.ZipEntry("/"));
+//				zos.setEncoding("gbk");
+			    zos.setComment("压缩包");   
+//		        zos.putNextEntry(new org.apache.tools.zip.ZipEntry("/"));
 				for(Long id : fileIds){
-					fileAsStream = fileUploadServiceImpl.getFileInputStream(id);
+					fileAsStream = fileUploadService.getFileInputStream(id);
 					if(fileAsStream!=null){
 						BufferedInputStream bis = new BufferedInputStream(fileAsStream); 
-						UploadFile uploadFile = fileUploadServiceImpl.getFileById(id);
+						UploadFile uploadFile = fileUploadService.getFileById(id);
 						zos.putNextEntry(new ZipEntry(uploadFile.getFileName()));
 						int bytesRead = 0;  
 				        for (byte[] buffer = new byte[1024]; ((bytesRead = bis.read(buffer, 0, 1024)) != -1);) {  
@@ -129,38 +156,8 @@ public class FileUploadAction extends BaseAction {
 			return "filezip";
 		}
 	}
-	**/
-	/**
-	 * 下载文件-通过数据字典中的itemCode下载
-	 * @author huangxq
-	 * @date 2013-7-25
-	 * @return
-	 */
-	/**
-	public String downloadFileByItemCode(){
-		SysLov sysLov= lovService.getByItemCode("DOCUMENT_ID", itemCode);
-		fileAsStream = fileUploadServiceImpl.getFileInputStream(Long.parseLong(sysLov.getItemNameCn()));
-		if(fileAsStream==null){
-			return "nofile";
-		}
-		UploadFile uploadFile = fileUploadServiceImpl.getFileById(Long.parseLong(sysLov.getItemNameCn()));
-		downloadFileName = uploadFile.getFileName();
-		try {
-			downloadFileName = new String(downloadFileName.getBytes(), "ISO8859-1");
-		} catch (UnsupportedEncodingException e) {
-			logger.info(e.getMessage(), e);
-		} 
-		downloadContentType = uploadFile.getContentType();
-		return FILESTREAM;
-	}
-	//请求图片
-	public String downloadImage(){
-		fileAsStream = fileUploadServiceImpl.getFileInputStream(fileId);
-		if(fileAsStream==null){
-			return "nofile";
-		}
-		return IMGSTREAM;
-	}
+	
+	
 	//上传文件 返回文件信息json格式; ajax上传文件可以请求该方法
 	public String uplaodFile(){
 		if(upload!=null){
@@ -168,9 +165,9 @@ public class FileUploadAction extends BaseAction {
 			try {
 				ExecuteResult<UploadFile> result = null;
 				if(StringUtils.isBlank(remarks)){
-					result = fileUploadServiceImpl.fileUpload(upload, uploadFileName,uploadContentType);
+					result = fileUploadService.fileUpload(upload, uploadFileName,uploadContentType);
 				}else{
-					result = fileUploadServiceImpl.fileUpload(upload, uploadFileName,uploadContentType,remarks);
+					result = fileUploadService.fileUpload(upload, uploadFileName,uploadContentType,remarks);
 				}
 				if(result.isSuccess()){
 					uploadFile = result.getResult();
@@ -193,9 +190,9 @@ public class FileUploadAction extends BaseAction {
 				String path = "download/template";
 				ExecuteResult<UploadFile> result = null;
 				if(StringUtils.isBlank(remarks)){
-					 result = fileUploadServiceImpl.fileUploadToLocal(upload, path, uploadFileName, uploadContentType);
+					 result = fileUploadService.fileUploadToLocal(upload, path, uploadFileName, uploadContentType);
 				}else{
-					 result = fileUploadServiceImpl.fileUploadToLocal(upload, path, uploadFileName, uploadContentType, remarks);
+					 result = fileUploadService.fileUploadToLocal(upload, path, uploadFileName, uploadContentType, remarks);
 				}
 				if(result.isSuccess()){
 					uploadFile = result.getResult();
@@ -214,7 +211,7 @@ public class FileUploadAction extends BaseAction {
 	public String updateFile(){
 		if(fileId!=null){
 			String path = "download/template";
-			ExecuteResult<UploadFile> result = fileUploadServiceImpl.updateUplaodFile(fileId,upload, path, uploadFileName, uploadContentType, remarks);
+			ExecuteResult<UploadFile> result = fileUploadService.updateUplaodFile(fileId,upload, path, uploadFileName, uploadContentType, remarks);
 			json.setSuccess(result.isSuccess());
 			json.setObj(result.getErrorMessages());
 		}else{
@@ -235,7 +232,7 @@ public class FileUploadAction extends BaseAction {
 		pager.setPageSize(rows);
 		return pager;
 	}
-	**/
+
 	public Long getFileId() {
 		return fileId;
 	}

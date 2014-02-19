@@ -145,7 +145,9 @@ public class ResourceInfoDAO extends HBaseDAO<ResourceInfo>{
 	 * @return
 	 */
 	public List<ResourceInfo> getUserDisplayResourceInfo(Long userId){
-		return null;
+		String hql = " from ResourceInfo r1 where exists( from  RoleResource r2 where r1.id=r2.resourceId and  exists( from UserRole u where r2.roleId=u.roleId and u.userId=?)) ";
+		
+		return findList(hql, new Object[]{userId});
 	}
 	
 	public List<ResourceInfo> getParentResourceInfoTask(Long userId){
