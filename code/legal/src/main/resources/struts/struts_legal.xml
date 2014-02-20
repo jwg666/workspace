@@ -2,7 +2,7 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-	<package name="legal" extends="base,json-default" namespace="/legal">	
+	<package name="legal" extends="base" namespace="/legal">	
 	    <action name="legalAction!*" class="legalAction" method="{1}">
 	    	<result name="legal">/WEB-INF/pages/legal/legal.jsp</result>
 	    </action>
