@@ -169,20 +169,21 @@ body.zoc {
 
 /*------左右两栏的布局------*/
 .half_zoc {
-	width: 50%;
-	line-height: 40px;
+	width: 47.6%;
 	border-left: 1px solid #b5b6b7;
 	margin-left: -1px;
 	overflow: hidden;
 	text-align: center;
 	float: left;
-	padding-bottom: 10px;
 }
 .half_zoc span {
 	padding: 15px;
 	display: block;
 	font-size: 12px;
 	font-weight: normal;
+}
+.half_zoc table {
+	width: 90%;
 }
 .halfstring_zoc {
 	text-align: left;
