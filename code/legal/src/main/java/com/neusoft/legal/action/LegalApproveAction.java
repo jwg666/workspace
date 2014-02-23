@@ -6,6 +6,7 @@
 package com.neusoft.legal.action;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -83,6 +84,7 @@ public class LegalApproveAction extends BaseAction implements ModelDriven<LegalA
 	 * 添加一个LegalApprove
 	 */
 	public String add() {
+		legalApproveQuery.setCreateTime(new Date());
 		legalApproveService.add(legalApproveQuery);
 		json.setSuccess(true);
 		json.setObj(legalApproveQuery);

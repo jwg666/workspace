@@ -203,7 +203,7 @@ public class PortalAction extends BaseAction {
 	
 	//ajax 请求转发请求
 	public String ajax(){
-		logger.debug("ajax:"+ac);
+		logger.debug(">>>ajax:"+ac);
 		if("getWallpaper".equals(ac)){
 			findWallpaper();
 		}else if("getSkin".equals(ac)){

@@ -6,6 +6,7 @@
 package com.neusoft.legal.action;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -82,6 +83,8 @@ public class LegalCaseAction extends BaseAction implements ModelDriven<LegalCase
 	 * 添加一个LegalCase
 	 */
 	public String add() {
+		legalCase.setCreateTime(new Date());
+		logger.debug("》》》"+legalCaseQuery);
 		legalCaseService.add(legalCaseQuery);
 		json.setSuccess(true);
 		json.setObj(legalCaseQuery);

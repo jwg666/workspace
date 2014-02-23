@@ -6,6 +6,7 @@
 package com.neusoft.legal.action;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -81,6 +82,8 @@ public class LegalAgentAction extends BaseAction implements ModelDriven<LegalAge
 	 * 添加一个LegalAgent
 	 */
 	public String add() {
+		legalAgent.setCreateTime(new Date());
+		System.out.println("<<<"+legalAgentQuery);
 		legalAgentService.add(legalAgentQuery);
 		json.setSuccess(true);
 		json.setObj(legalAgentQuery);

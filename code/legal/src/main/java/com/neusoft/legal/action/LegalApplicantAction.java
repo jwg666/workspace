@@ -6,6 +6,7 @@
 package com.neusoft.legal.action;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -40,7 +41,6 @@ public class LegalApplicantAction extends BaseAction implements ModelDriven<Lega
 	private DataGrid datagrid;
 	private List<LegalApplicantQuery>  legalApplicantList = new ArrayList<LegalApplicantQuery>();
 	private Json json = new Json();
-	
 	
 	/**
 	 * 跳转到LegalApplicant管理页面
@@ -83,16 +83,17 @@ public class LegalApplicantAction extends BaseAction implements ModelDriven<Lega
 	 */
 	public String add() {
 		try {
-			logger.debug(">>>");
+			legalApplicantQuery.setCreateTime(new Date());
+			logger.debug(">>>"+legalApplicantQuery);
 			legalApplicantService.add(legalApplicantQuery);
 			json.setSuccess(true);
-			json.setObj(legalApplicantQuery);
+//			json.setObj(legalApplicantQuery);
 			json.setMsg("添加成功！");
+			json.toString();
 			return SUCCESS;
 		} catch (Exception e) {
 			logger.debug(">>>"+e);
-		}
-		return null;
+		}return null;
 	}
 
 	/**
