@@ -76,4 +76,5 @@
 	<include file="struts/struts_im.xml" />
 	<include file="struts/struts_portal.xml" />
 	<include file="struts/struts_security.xml" />
+	<include file="struts/struts_base.xml" />
 </struts>
