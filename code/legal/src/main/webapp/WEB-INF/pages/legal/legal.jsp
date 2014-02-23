@@ -32,7 +32,7 @@ $("document").ready(function(){
 				    <div class="item25">
 						<div class="itemleft100">姓名：</div>
 						<div class="righttext">
-							<input id="name" name="name"  style="width:100px"/>
+							<input id="name" name="name" class="easyui-validatebox" data-options="required:true" style="width:100px"/>
 						</div>
 				    </div>				    
 				    <div class="item25">
@@ -62,7 +62,7 @@ $("document").ready(function(){
 				    <div class="item25">
 						<div class="itemleft100">文化程度：</div>
 						<div class="righttext">
-							<input id="eduLevelId" name="eduLevelId"  style="width:100px"/>
+							<input id="eduLevelId" name="eduLevelId" style="width:100px"/>
 						</div>
 				    </div>				    
 				    <div class="item25">
@@ -178,11 +178,11 @@ $("document").ready(function(){
 						</table>
 				    </div>
 				   	<div class="item100">
-			        <div class="oprationbutt">
-				        <input type="button" value="提交" onclick="submitInfo()"/>
-				        <input type="button" value="重置"  onclick="resetInfo()"/>
-			       </div>
-		        </div>
+				        <div class="oprationbutt">
+					        <input type="button" value="提交" onclick="submitInfo()"/>
+					        <input type="button" value="重置"  onclick="resetInfo()"/>
+				       </div>
+			        </div>
 				</div>
 			</form>
 			<!-- 案件信息结束 -->
@@ -197,6 +197,8 @@ $("document").ready(function(){
 			var legalAgentAddForm = $("#legalAgentAddForm");
 			legalApplicantAddForm = $('#legalApplicantAddForm').form('submit',{
 				url : 'legalApplicantAction!add.do',
+				//dataType:"json",
+				type:"post",
 				onSubmit: function(){
 					var str = null;
 					var strValue = false;
@@ -258,7 +260,7 @@ $("document").ready(function(){
 					}
 				}
 			});
-			/* legalAgentAddForm = $('#legalAgentAddForm').form('submit',{
+			legalAgentAddForm = $('#legalAgentAddForm').form('submit',{
 				url : 'legalAgentAction!add.do',
 				success : function(data) {
 					var json = $.parseJSON(data);
@@ -291,7 +293,7 @@ $("document").ready(function(){
 						});
 					}
 				}
-			});	 */
+			});
 		}
 		function resetInfo(){
 			$("#name").val("");
@@ -315,6 +317,13 @@ $("document").ready(function(){
 		function checkInfo(str){
 			if(str==null||str=="")return true;
 			else return false;
+		}
+		function getEducation(){
+			/* $('#eduLevelId').combobox({
+		    url:'../basic/dictionaryAction!combox.do',
+		    valueField:'id',
+		    textField:'dicValue'
+		}); */
 		}
 	</script>
 </div>
