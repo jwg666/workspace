@@ -182,11 +182,10 @@
 					<!-- iframe -->
 					<div id="homeIframeContent" style="height:400px;width:100%;background-color: white;">
 						<!-- <iframe id="homeIframe"  style="height:400px;width:100%; border:0 none;" src="../legal/legalAction!stepOne.do" ></iframe> -->
-						<iframe id="homeIframe"  style="height:400px;width:100%; border:0 none;" src="../legal/legalAction!getLegalApprove.do" ></iframe>
-						
+						<!-- <iframe id="homeIframe"  style="height:400px;width:100%; border:0 none;" src="../legal/legalAction!getLegalApprove.do" ></iframe> -->
+						<iframe id="homeIframe"  style="height:400px;width:100%; border:0 none;" src="../legal/legalApplicantAction!goLegalApplicant.do" ></iframe>
 					</div>
 				</div>
-
 			</div>
 		</div>
 		<s:bean name="org.apache.struts2.util.Counter" id="counter">
