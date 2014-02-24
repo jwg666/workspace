@@ -31,7 +31,7 @@
 			nowrap : false,
 			border : false,
 			idField : 'id',
-			sortName : 'createTime',
+			sortName : 'id',
 			sortOrder : 'desc',
 			columns : [ [ 
 			{field:'ck',checkbox:true,
