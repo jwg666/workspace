@@ -10,6 +10,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
+import com.neusoft.base.common.ConverterUtil;
 import com.neusoft.base.common.Pager;
 import com.neusoft.base.common.PropertyUtils;
 import com.neusoft.base.dao.HBaseDAO;
@@ -50,7 +51,7 @@ public class LegalCaseDao extends HBaseDAO<LegalCase>{
 	
 	public Pager<LegalCase> findPage(LegalCaseQuery query) {
 		Pager<LegalCase> pager = new Pager<LegalCase>();
-		Map map = PropertyUtils.toParameterMap(query);
+		Map map = ConverterUtil.toHashMap(query);
 		List<LegalCase> appList = findList(LegalCase.class, map, query.getPage().intValue(), query.getRows().intValue());
 		pager.setTotalRecords(getTotalCount(LegalCase.class, map));
 		pager.setCurrentPage(query.getPage());
