@@ -115,7 +115,6 @@ public class HBaseDAO<T> {
 			Iterator<Entry<String,Object>> it = map.entrySet().iterator();
 			while (it.hasNext()) {
 				Entry<String,Object> e = it.next();
-				System.out.println(getClass()+">>>:"+e.getKey()+"="+e.getValue());
 				c.add(Restrictions.eq(e.getKey(), e.getValue()));
 			}
 		}
