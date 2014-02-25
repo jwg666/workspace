@@ -77,15 +77,15 @@
 
 		<!-- 文件上传相关配置 -->
 
-		<action name="goUploadFile" class="fileUploadAction">
+		<action name="goUploadFile" class="com.neusoft.base.action.FileUploadAction">
 			<result name="success">/WEB-INF/pages/basic/uploadFile.jsp</result>
 		</action>
 		<!-- 搜索文件信息 -->
-		<action name="searchUploadFile" class="fileUploadAction"
+		<action name="searchUploadFile" class="com.neusoft.base.action.FileUploadAction"
 			method="searchUploadFile"></action>
 
 		<!-- 上传文件 -->
-		<action name="uplaodFile" class="fileUploadAction" method="uplaodFile">
+		<action name="uplaodFile" class="com.neusoft.base.action.FileUploadAction" method="uplaodFile">
 			<result type="json">
 				<param name="root">json</param>
 				<param name="excludeProperties"></param>
@@ -100,7 +100,7 @@
 			<interceptor-ref name="crudStack"></interceptor-ref>
 		</action>
 		<!-- 上传文件 -->
-		<action name="uplaodFileToLocal" class="fileUploadAction"
+		<action name="uplaodFileToLocal" class="com.neusoft.base.action.FileUploadAction"
 			method="uplaodFileToLocal">
 			<result type="json">
 				<param name="root">json</param>
@@ -116,7 +116,7 @@
 			<interceptor-ref name="crudStack"></interceptor-ref>
 		</action>
 		<!-- 下载图片 -->
-		<action name="downloadImage" class="fileUploadAction" method="downloadImage">
+		<action name="downloadImage" class="com.neusoft.base.action.FileUploadAction" method="downloadImage">
 			<result name="imgstream" type="stream">
 				<param name="contentType">image/png</param>
 				<param name="inputName">fileAsStream</param>
@@ -125,7 +125,7 @@
 			<result name="nofile">/error_nofile.jsp</result>
 		</action>
 		<!-- 下载文件 -->
-		<action name="downloadFile" class="fileUploadAction" method="downloadFile">
+		<action name="downloadFile" class="com.neusoft.base.action.FileUploadAction" method="downloadFile">
 			<result name="filestream" type="stream">
 				<param name="inputName">fileAsStream</param>
 				<param name="contentType">${downloadContentType}</param>
@@ -138,7 +138,7 @@
             </result>
 		</action>
 		<!-- 下载文件 -->
-		<action name="downloadFileByItemCode" class="fileUploadAction"
+		<action name="downloadFileByItemCode" class="com.neusoft.base.action.FileUploadAction"
 			method="downloadFileByItemCode">
 			<result name="filestream" type="stream">
 				<param name="inputName">fileAsStream</param>
@@ -149,7 +149,7 @@
 			<result name="nofile">/error_nofile.jsp</result>
 		</action>
 		<!-- 删除文件 -->
-		<action name="deleteFile" class="fileUploadAction" method="deleteFile">
+		<action name="deleteFile" class="com.neusoft.base.action.FileUploadAction" method="deleteFile">
 			<result type="json">
 				<param name="root">json</param>
 				<param name="excludeProperties"></param>
@@ -157,7 +157,7 @@
 		</action>
 
 		<!-- 更新文件信息 -->
-		<action name="updateFile" class="fileUploadAction" method="updateFile">
+		<action name="updateFile" class="com.neusoft.base.action.FileUploadAction" method="updateFile">
 			<result type="json">
 				<param name="root">json</param>
 				<param name="excludeProperties"></param>
