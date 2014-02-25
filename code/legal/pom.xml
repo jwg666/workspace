@@ -104,7 +104,9 @@
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-orm</artifactId>
                 <version>${org.springframework-version}</version>
-            </dependency>
+         </dependency>
+
+            
          <dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-core-asl</artifactId>
@@ -365,16 +367,42 @@
 		<dependency>
 		    <groupId>org.directwebremoting</groupId>
 		    <artifactId>dwr</artifactId>
-		    <version>3.0.0-rc3-SNAPSHOT</version>
+		    <version>3.0.0-rc3-20130424.090803-1</version>
 		  </dependency>
-		
-		  <dependency>
-		    <!-- Optional non-CLA components see DWR documentation for details -->
-		    <groupId>org.directwebremoting</groupId>
-		    <artifactId>dwr</artifactId>
-		    <classifier>noncla</classifier>
-		    <version>3.0.0-rc3-SNAPSHOT</version>
+		  		
+		  <!-- aliyun -->
+		    <dependency>
+		    <groupId>com.aliyun.openservices</groupId>
+		    <artifactId>aliyun-openservices</artifactId>
+		    <version>1.0.10</version>
 		  </dependency>  
+		  
+            <dependency>
+			    <groupId>org.springframework.flex</groupId>
+			    <artifactId>spring-flex-core</artifactId>
+			    <version>1.5.0.BUILD-SNAPSHOT</version>
+			</dependency>
+		    <dependency>
+				<groupId>com.adobe.blazeds</groupId>
+				<artifactId>blazeds-core</artifactId>
+				<version>3.2.0.3978</version>
+			</dependency>
+            <dependency>
+				<groupId>com.adobe.blazeds</groupId>
+				<artifactId>blazeds-common</artifactId>
+				<version>3.2.0.3978</version>
+			</dependency>
+            <dependency>
+				<groupId>com.adobe.blazeds</groupId>
+				<artifactId>blazeds-remoting</artifactId>
+				<version>3.2.0.3978</version>
+			</dependency>
+            <dependency>
+				<groupId>com.adobe.blazeds</groupId>
+				<artifactId>blazeds-proxy</artifactId>
+				<version>3.2.0.3978</version>
+			</dependency>
+            
 		<!-- Test -->		
 		<dependency>
 			<groupId>junit</groupId>
@@ -519,6 +547,10 @@
  </pluginRepositories>
  
  <repositories>
+ 		<repository>
+			<id>Codehaus</id>
+			<url>http://repository.codehaus.org</url>
+		</repository>
 		<repository>
 			<id>kafeitu</id>
 			<url>http://maven.kafeitu.me/nexus/content/groups/public</url>
@@ -529,17 +561,15 @@
 			<url>https://maven.alfresco.com/nexus/content/groups/public</url>
 		</repository>
 		<repository>
-			<id>Codehaus</id>
-			<url>http://repository.codehaus.org</url>
-		</repository>
-		
-		<repository>
-	      <id>oss-sonatype-snapshots</id>
-	      <name>OSS Sonatype Snapshots Repository</name>
-		  <url>http://oss.sonatype.org/content/repositories/snapshots</url>
-	      <releases><enabled>false</enabled></releases>
-	      <snapshots><enabled>true</enabled></snapshots>
-	    </repository>
-	
+		    <id>spring-snapshot</id>
+		    <name>Spring Portfolio Snapshot Repository</name>
+		    <url>http://maven.springframework.org/snapshot</url>
+		    <releases>
+		        <enabled>false</enabled>
+		    </releases>
+		    <snapshots>
+		        <enabled>true</enabled>
+		    </snapshots>
+		</repository>		
 	</repositories>
 </project>
