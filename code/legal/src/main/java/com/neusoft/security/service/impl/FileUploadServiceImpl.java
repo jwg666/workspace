@@ -195,7 +195,7 @@ public class FileUploadServiceImpl implements FileUploadService {
 				File file = new File(realPath+ File.separator + uploadFile.getFilePath1());
 				is = new FileInputStream(file);
 			} catch (FileNotFoundException e) {
-				LOG.debug(e.getMessage(),e);
+				LOG.error("fileId:"+id+"||"+e.getMessage(),e);
 			}
 		}else{
 //			FileResult result = fileServiceClientAdapter.findFile(uploadFile.getSaveFileName());
