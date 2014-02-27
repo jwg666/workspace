@@ -5,10 +5,9 @@ import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
+import com.neusoft.base.common.ConverterUtil;
 import com.neusoft.base.common.Pager;
-import com.neusoft.base.common.PropertyUtils;
 import com.neusoft.base.dao.HBaseDAO;
-import com.neusoft.portal.model.Wallpaper;
 import com.neusoft.portal.model.Wallpaper;
 import com.neusoft.portal.query.WallpaperQuery;
 
@@ -34,13 +33,13 @@ public class WallpaperDao extends HBaseDAO<Wallpaper>{
 
 	@SuppressWarnings("unchecked")
 	public List<Wallpaper> findList(WallpaperQuery appQuery) {		
-		return findList(Wallpaper.class, PropertyUtils.toParameterMap(appQuery));
+		return findList(Wallpaper.class, ConverterUtil.toHashMap(appQuery));
 	}
 
 
 	public Pager<Wallpaper> findPage(WallpaperQuery appQuery) {
 		Pager<Wallpaper> pager = new Pager<Wallpaper>();
-		Map map = PropertyUtils.toParameterMap(appQuery);
+		Map map = ConverterUtil.toHashMap(appQuery);
 		List<Wallpaper> appList = findList(Wallpaper.class, map, appQuery.getPage().intValue(), appQuery.getRows().intValue());
 		pager.setTotalRecords(getTotalCount(Wallpaper.class, map));
 		pager.setCurrentPage(appQuery.getPage());

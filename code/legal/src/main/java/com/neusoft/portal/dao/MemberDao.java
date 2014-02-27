@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
+import com.neusoft.base.common.ConverterUtil;
 import com.neusoft.base.common.Pager;
 import com.neusoft.base.common.PropertyUtils;
 import com.neusoft.base.dao.HBaseDAO;
@@ -32,13 +33,13 @@ public Member getById(Long id) {
 
 	@SuppressWarnings("unchecked")
 	public List<Member> findList(MemberQuery appQuery) {		
-		return findList(Member.class, PropertyUtils.toParameterMap(appQuery));
+		return findList(Member.class, ConverterUtil.toHashMap(appQuery));
 	}
 
 
 	public Pager<Member> findPage(MemberQuery appQuery) {
 		Pager<Member> pager = new Pager<Member>();
-		Map map = PropertyUtils.toParameterMap(appQuery);
+		Map map = ConverterUtil.toHashMap(appQuery);
 		List<Member> appList = findList(Member.class, map, appQuery.getPage().intValue(), appQuery.getRows().intValue());
 		pager.setTotalRecords(getTotalCount(Member.class, map));
 		pager.setCurrentPage(appQuery.getPage());

@@ -5,8 +5,8 @@ import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
+import com.neusoft.base.common.ConverterUtil;
 import com.neusoft.base.common.Pager;
-import com.neusoft.base.common.PropertyUtils;
 import com.neusoft.base.dao.HBaseDAO;
 import com.neusoft.portal.model.Calendar;
 import com.neusoft.portal.query.CalendarQuery;
@@ -34,13 +34,13 @@ public class CalendarDao extends HBaseDAO<Calendar>{
 
 	@SuppressWarnings("unchecked")
 	public List<Calendar> findList(CalendarQuery appQuery) {		
-		return findList(Calendar.class, PropertyUtils.toParameterMap(appQuery));
+		return findList(Calendar.class, ConverterUtil.toHashMap(appQuery));
 	}
 
 
 	public Pager<Calendar> findPage(CalendarQuery appQuery) {
 		Pager<Calendar> pager = new Pager<Calendar>();
-		Map map = PropertyUtils.toParameterMap(appQuery);
+		Map map = ConverterUtil.toHashMap(appQuery);
 		List<Calendar> appList = findList(Calendar.class, map, appQuery.getPage().intValue(), appQuery.getRows().intValue());
 		pager.setTotalRecords(getTotalCount(Calendar.class, map));
 		pager.setCurrentPage(appQuery.getPage());
