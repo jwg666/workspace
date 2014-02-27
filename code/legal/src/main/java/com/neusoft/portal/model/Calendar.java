@@ -138,21 +138,7 @@ public class Calendar  implements java.io.Serializable{
 		public void setUrl(java.lang.String url) {
 			this.url = url;
 		}
-	    /**
-	     * 开始时间
-	     * @return 开始时间
-	     */
-	public String getStartdtString() {
-		//return DateConvertUtils.format(getStartdt(), FORMAT_STARTDT);
-		return  DateUtils.format(DateUtils.FORMAT3,getStartdt());
-	}
-	 /**
-     * 开始时间
-     * @param startdt 开始时间
-     */
-	public void setStartdtString(String startdt) {
-		setStartdt(DateUtils.parse(startdt,DateUtils.FORMAT3,java.util.Date.class));
-	}
+
 	
 		 /**
 	     * 开始时间
@@ -169,21 +155,7 @@ public class Calendar  implements java.io.Serializable{
 		public void setStartdt(java.util.Date startdt) {
 			this.startdt = startdt;
 		}
-	    /**
-	     * 结束时间
-	     * @return 结束时间
-	     */
-	public String getEnddtString() {
-		//return DateConvertUtils.format(getEnddt(), FORMAT_ENDDT);
-		return  DateUtils.format(DateUtils.FORMAT3,getEnddt());
-	}
-	 /**
-     * 结束时间
-     * @param enddt 结束时间
-     */
-	public void setEnddtString(String enddt) {
-		setEnddt(DateUtils.parse(enddt,DateUtils.FORMAT3,java.util.Date.class));
-	}
+
 	
 		 /**
 	     * 结束时间

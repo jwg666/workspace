@@ -64,7 +64,7 @@ public class MemberApp  implements java.io.Serializable{
     /**
      * 窗口高度       db_column: HEIGHT 
      */	
-	private java.lang.Long height;
+	private java.lang.Integer height;
     /**
      * 是否能对窗口进行拉伸       db_column: ISRESIZE 
      */	
@@ -203,14 +203,14 @@ public class MemberApp  implements java.io.Serializable{
 	     * @return 窗口高度
 	     */
 		@Column(name="HEIGHT")
-		public java.lang.Long getHeight() {
+		public java.lang.Integer getHeight() {
 			return this.height;
 		}
 		/**
 	     * 窗口高度
 	     * @param height 窗口高度
 	     */
-		public void setHeight(java.lang.Long height) {
+		public void setHeight(java.lang.Integer height) {
 			this.height = height;
 		}
 		 /**
@@ -273,21 +273,6 @@ public class MemberApp  implements java.io.Serializable{
 		public void setIsflash(Integer isflash) {
 			this.isflash = isflash;
 		}
-	    /**
-	     * 创建时间
-	     * @return 创建时间
-	     */
-	public String getDtString() {
-		//return DateConvertUtils.format(getDt(), FORMAT_DT);
-		return  DateUtils.format(DateUtils.FORMAT3,getDt());
-	}
-	 /**
-     * 创建时间
-     * @param dt 创建时间
-     */
-	public void setDtString(String dt) {
-		setDt(DateUtils.parse(dt,DateUtils.FORMAT3,java.util.Date.class));
-	}
 	
 		 /**
 	     * 创建时间
@@ -304,22 +289,7 @@ public class MemberApp  implements java.io.Serializable{
 		public void setDt(java.util.Date dt) {
 			this.dt = dt;
 		}
-	    /**
-	     * 最后修改时间
-	     * @return 最后修改时间
-	     */
-	public String getLastdtString() {
-		//return DateConvertUtils.format(getLastdt(), FORMAT_LASTDT);
-		return  DateUtils.format(DateUtils.FORMAT3,getLastdt());
-	}
-	 /**
-     * 最后修改时间
-     * @param lastdt 最后修改时间
-     */
-	public void setLastdtString(String lastdt) {
-		setLastdt(DateUtils.parse(lastdt,DateUtils.FORMAT3,java.util.Date.class));
-	}
-	
+
 		 /**
 	     * 最后修改时间
 	     * @return 最后修改时间
@@ -397,7 +367,7 @@ public class MemberApp  implements java.io.Serializable{
 		}
 		
 		
-	public java.lang.String gotResourceUrl() {
+	    public java.lang.String gotResourceUrl() {
 			return resourceUrl;
 		}
 
