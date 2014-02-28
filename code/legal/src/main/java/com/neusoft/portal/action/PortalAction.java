@@ -349,7 +349,7 @@ public class PortalAction extends BaseAction {
 					json.setObj(memberAppList.get(0));
 				}
 			}else{
-				memberAppQuery.setIcon("913");
+				memberAppQuery.setIcon("2023");
 				memberAppQuery.setType("papp");
 				memberAppQuery.setIsflash(0);
 				memberAppQuery.setIsresize(1);

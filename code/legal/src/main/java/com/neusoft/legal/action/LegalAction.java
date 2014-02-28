@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.neusoft.base.action.BaseAction;
-import com.neusoft.base.domain.Dictionary;
 import com.neusoft.base.query.DictionaryQuery;
 import com.neusoft.base.service.DictionaryService;
 import com.neusoft.legal.domain.LegalAgent;

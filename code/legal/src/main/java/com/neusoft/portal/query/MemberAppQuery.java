@@ -98,10 +98,10 @@ public class MemberAppQuery extends  SearchModel<MemberApp> implements Serializa
 	//辅助字段 查询resource_info 表的url
 	private java.lang.String resourceUrl;
 	//辅助字段 查询code 国际化
-        private java.lang.String code;
-        private java.lang.String localName;
+    private java.lang.String code;
+    private java.lang.String localName;
         
-	public java.lang.Long getAppid() {
+    public java.lang.Long getAppid() {
 		return this.tbid;
 	}
 	
@@ -142,11 +142,7 @@ public class MemberAppQuery extends  SearchModel<MemberApp> implements Serializa
 	}
 	//判断是否是系统应用 是：返回resource_info  url 否：返回 url
 	public java.lang.String getUrl() {
-		if(this.realid==null){
-			return this.url;
-		}else{
-			return this.resourceUrl;
-		}
+		return this.url;
 	}
 	
 	public void setUrl(java.lang.String value) {

@@ -39,11 +39,11 @@ public class Wallpaper  implements java.io.Serializable{
     /**
      * width       db_column: WIDTH 
      */	
-	private java.lang.Long width;
+	private java.lang.Integer width;
     /**
      * height       db_column: HEIGHT 
      */	
-	private java.lang.Long height;
+	private java.lang.Integer height;
     /**
      * url       db_column: URL 
      */	
@@ -96,14 +96,14 @@ public class Wallpaper  implements java.io.Serializable{
 	     * @return width
 	     */
 		@Column(name="WIDTH")
-		public java.lang.Long getWidth() {
+		public java.lang.Integer getWidth() {
 			return this.width;
 		}
 		/**
 	     * width
 	     * @param width width
 	     */
-		public void setWidth(java.lang.Long width) {
+		public void setWidth(java.lang.Integer width) {
 			this.width = width;
 		}
 		 /**
@@ -111,14 +111,14 @@ public class Wallpaper  implements java.io.Serializable{
 	     * @return height
 	     */
 		@Column(name="HEIGHT")
-		public java.lang.Long getHeight() {
+		public java.lang.Integer getHeight() {
 			return this.height;
 		}
 		/**
 	     * height
 	     * @param height height
 	     */
-		public void setHeight(java.lang.Long height) {
+		public void setHeight(java.lang.Integer height) {
 			this.height = height;
 		}
 		 /**
