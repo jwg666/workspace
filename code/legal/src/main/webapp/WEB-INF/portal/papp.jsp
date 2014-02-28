@@ -28,22 +28,22 @@
 			<div class="label-box form-inline control-group">
 				<div class="shortcutbox">
 				<s:if test="json.obj.icon != null">
-					<div class="shortcut-addicon bgnone"><input type="file" id="uploadfilebtn" style="position:absolute;right:0;bottom:0;opacity:0;filter:alpha(opacity=0);display:block;width:200px;height:100px"><img src="${dynamicURL}/basic/fileUploadAction/downloadImage.do?fileId=${json.obj.icon}"></div>
+					<div class="shortcut-addicon bgnone"><input type="file" id="uploadfilebtn" style="position:absolute;right:0;bottom:0;opacity:0;filter:alpha(opacity=0);display:block;width:200px;height:100px"><img src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=${json.obj.icon}"></div>
 				</s:if>
 				<s:else>
 					<div class="shortcut-addicon"><input type="file" id="uploadfilebtn" style="position:absolute;right:0;bottom:0;opacity:0;filter:alpha(opacity=0);display:block;width:200px;height:100px"><img src=""></div>
 				</s:else>
 					<div class="shortcut-selicon">
-						<a href="javascript:;"><img src="${dynamicURL}/basic/fileUploadAction/downloadImage.do?fileId=917" valsrc="917"></a>
-						<a href="javascript:;"><img src="${dynamicURL}/basic/fileUploadAction/downloadImage.do?fileId=923" valsrc="923"></a>
-						<a href="javascript:;"><img src="${dynamicURL}/basic/fileUploadAction/downloadImage.do?fileId=924" valsrc="924"></a>
-						<a href="javascript:;"><img src="${dynamicURL}/basic/fileUploadAction/downloadImage.do?fileId=921" valsrc="921"></a>
-						<a href="javascript:;"><img src="${dynamicURL}/basic/fileUploadAction/downloadImage.do?fileId=920" valsrc="920"></a>
-						<a href="javascript:;"><img src="${dynamicURL}/basic/fileUploadAction/downloadImage.do?fileId=914" valsrc="914"></a>
-						<a href="javascript:;"><img src="${dynamicURL}/basic/fileUploadAction/downloadImage.do?fileId=915" valsrc="915"></a>
-						<a href="javascript:;"><img src="${dynamicURL}/basic/fileUploadAction/downloadImage.do?fileId=916" valsrc="916"></a>
-						<a href="javascript:;"><img src="${dynamicURL}/basic/fileUploadAction/downloadImage.do?fileId=918" valsrc="918"></a>
-						<a href="javascript:;"><img src="${dynamicURL}/basic/fileUploadAction/downloadImage.do?fileId=919" valsrc="919"></a>
+						<a href="javascript:;"><img src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=917" valsrc="917"></a>
+						<a href="javascript:;"><img src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=923" valsrc="923"></a>
+						<a href="javascript:;"><img src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=924" valsrc="924"></a>
+						<a href="javascript:;"><img src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=921" valsrc="921"></a>
+						<a href="javascript:;"><img src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=920" valsrc="920"></a>
+						<a href="javascript:;"><img src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=914" valsrc="914"></a>
+						<a href="javascript:;"><img src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=915" valsrc="915"></a>
+						<a href="javascript:;"><img src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=916" valsrc="916"></a>
+						<a href="javascript:;"><img src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=918" valsrc="918"></a>
+						<a href="javascript:;"><img src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=919" valsrc="919"></a>
 					</div>
 				</div>
 				<input type="hidden" name="valIcon" id="valIcon" value="${json.obj.icon }" datatype="*" nullmsg="请选择或上传应用图标">
@@ -228,7 +228,7 @@ $(function(){
 					}
 				}
 			}, false);
-			xhr.open('post', '${dynamicURL}/basic/fileUploadAction/uplaodFile.do', true);
+			xhr.open('post', '${dynamicURL}/portal/fileUploadAction/uplaodFile.do', true);
 			xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 			xhr.send(fd);
 		}

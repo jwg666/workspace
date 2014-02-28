@@ -34,7 +34,7 @@
 			<s:else>
 				<li wpid='<s:property value="#l.tbid" />'>
 			</s:else>
-			<img style="width:150px;height:84px" src='${dynamicURL}/basic/fileUploadAction/downloadImage.do?fileId=<s:property value="#l.url" />'>
+			<img style="width:150px;height:84px" src='${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=<s:property value="#l.url" />'>
 			<div><s:property value="#l.title" /></div>
 			</li>
 		</s:iterator>

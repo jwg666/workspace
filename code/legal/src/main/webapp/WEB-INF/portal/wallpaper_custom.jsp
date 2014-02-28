@@ -40,7 +40,7 @@
 					<s:else>
 						<li id='<s:property value="#l.tbid" />' >
 					</s:else>
-						<img style="width:100;height:100%" src='${dynamicURL}/basic/fileUploadAction/downloadImage.do?fileId=<s:property value="#l.url" />'><a href="javascript:;">删 除</a></li>
+						<img style="width:100;height:100%" src='${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=<s:property value="#l.url" />'><a href="javascript:;">删 除</a></li>
 				</s:iterator>
 			</ul>
 		</div>
@@ -64,7 +64,7 @@ $(function(){
 		var id = $(this).parent().attr('id');
 		$.ajax({
 			type : 'POST',
-			url : '${dynamicURL}/basic/portalAction/ajax.do',
+			url : '${dynamicURL}/portal/portalAction/ajax.do',
 			data : 'ac=deleteWallpaper&id=' + id,
 			dataType : "json",
 			success : function(data){
@@ -132,7 +132,7 @@ $(function(){
 					}
 				}
 			}, false);
-			xhr.open('post', '${dynamicURL}/basic/portalAction/uploadImg.do?ac=custom', true);
+			xhr.open('post', '${dynamicURL}/portal/portalAction/uploadImg.do?ac=custom', true);
 			xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 			xhr.send(fd);
 		}
