@@ -5,6 +5,8 @@ import java.io.IOException;
 
 import javax.annotation.Resource;
 
+import org.junit.Test;
+
 import base.BaseTestCase;
 
 import com.neusoft.security.service.FileUploadService;
@@ -12,7 +14,7 @@ import com.neusoft.security.service.FileUploadService;
 public class TestFileUpload extends BaseTestCase {
 	@Resource
 	private FileUploadService fileUploadService;
-	
+	@Test
 	public void testUploadFile(){
 		File dir = new File("E:\\mobilefile\\baidu\\png");
 		File[] files = dir.listFiles();
