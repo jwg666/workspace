@@ -99,7 +99,7 @@ HROS.app = (function(){
 								'left' : grid[i]['startX'] + 16,
 								'title' : this.name,
 								'type' : this.type,
-								'id' : 'd_' + this.appid,
+								'id' : 'd_' + this.realappid,
 								'appid' : this.appid,
 								'imgsrc_val' :this.icon,
 								'imgsrc' : HROS.CONFIG.downloadImage+this.icon

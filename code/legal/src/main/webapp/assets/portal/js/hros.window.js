@@ -14,7 +14,8 @@ HROS.window = (function(){
 			obj = HROS.window.filterAppid(obj);
 			$('.popup-menu').hide();
 			$('.quick_view_container').remove();
-			var type = 'app', appid = obj.appid == null ? Date.parse(new Date()) : obj.appid;
+			var type = 'app';
+			var appid = obj.realappid == null ? Date.parse(new Date()) : obj.realappid;
 			var customWindow = obj.customWindow;
 			//判断窗口是否已打开
 			var iswindowopen = false;
@@ -32,7 +33,7 @@ HROS.window = (function(){
 					$('#task-content-inner').prepend(taskTemp({
 						'type' : options.type,
 						'id' : 't_' + options.appid,
-						'appid' : options.appid,
+						'appid' : options.realappid,
 						'title' : options.title,
 						'imgsrc' : options.imgsrc
 					}));
@@ -49,8 +50,8 @@ HROS.window = (function(){
 						'zIndex' : HROS.CONFIG.createIndexid,
 						'type' : options.type,
 						'id' : 'w_' + options.appid,
-						'appid' : options.appid,
-						'realappid' : 0,
+						'appid' : options.realappid,
+						'realappid' : options.realappid,
 						'title' : options.title,
 						'url' : options.url,
 						'imgsrc' : options.imgsrc,
@@ -93,13 +94,13 @@ HROS.window = (function(){
 					$('.window-mask').off('click').on('click', function(){
 						HROS.window.show2top($(this).parents('.window-container').attr('appid'));
 					});
-					HROS.window.show2top(options.appid);
+					HROS.window.show2top(options.realappid);
 				}
 				nextDo({
 					type : type,
 					appid : appid,
-					imgsrc_val : '927',
-					imgsrc : HROS.CONFIG.downloadImage+'927',
+					imgsrc_val : '2020',
+					imgsrc : HROS.CONFIG.downloadImage+'2020',
 					title : obj.title,
 					url : obj.url,
 					width : obj.width,
