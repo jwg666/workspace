@@ -413,7 +413,7 @@ public class MemberAppServiceImpl implements MemberAppService{
 		String[] desks = memberQuery.gotDesks();
 		for(Long l : stringsToList(docks)){
 			 for(MemberAppQuery query:list){
-				 if(l.longValue() == query.getTbid().longValue()){
+				 if(l.longValue() == query.getRealid().longValue()){
 					 initLocalMsg(query);
 					 dockList.add(query);
 					 break;
@@ -427,7 +427,7 @@ public class MemberAppServiceImpl implements MemberAppService{
 			List<Long> listApp = stringsToList(apps);
 			for(Long l : listApp){
 				for(MemberAppQuery query:list){
-					if(l.longValue() == query.getTbid().longValue()){
+					if(l.longValue() == query.getRealid().longValue()){
 						 initLocalMsg(query);
 						deskList.add(query);
 						break;
