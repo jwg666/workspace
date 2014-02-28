@@ -284,7 +284,7 @@ public class PortalAction extends BaseAction {
 			curMemberQuery.setSkin(skin);
 			memberService.update(curMemberQuery);
 		}else{
-			String contextPath = ServletActionContext.getServletContext().getRealPath("/cms");
+			String contextPath = ServletActionContext.getServletContext().getRealPath("/legal");
 			String uri = contextPath + File.separator + "assets" + File.separator + "portal" + File.separator + "img" + File.separator + "skins";
 			File file = new File(uri); 
 			if(file.exists()){
