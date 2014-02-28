@@ -63,10 +63,16 @@ public class LegalAgentAction extends BaseAction implements ModelDriven<LegalAge
 
 	/**
 	 * 获得pageHotel数据表格
+	 * 
 	 */
 	public String datagrid() {
-		datagrid = legalAgentService.datagrid(legalAgentQuery);
-		return "datagrid";
+		try {
+			datagrid = legalAgentService.datagrid(legalAgentQuery);
+			return "datagrid";
+		} catch (Exception e) {
+			logger.debug(">>>"+e);
+		}
+		return null;
 	}
 	
 	

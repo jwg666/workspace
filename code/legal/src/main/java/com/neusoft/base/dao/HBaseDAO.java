@@ -111,13 +111,14 @@ public class HBaseDAO<T> {
 	@SuppressWarnings("unchecked")
 	public List<T> findList(Class<T> claz,Map<String,Object> map,int begin,int pageSize){
 		Criteria c = getSession().createCriteria(claz);
-		if(map!=null&&map.size()>0){
-			Iterator<Entry<String,Object>> it = map.entrySet().iterator();
-			while (it.hasNext()) {
-				Entry<String,Object> e = it.next();
-				c.add(Restrictions.eq(e.getKey(), e.getValue()));
-			}
-		}
+//		if(map!=null&&map.size()>0){
+//			Iterator<Entry<String,Object>> it = map.entrySet().iterator();
+//			while (it.hasNext()) {
+//				Entry<String,Object> e = it.next();
+//				c.add(Restrictions.eq(e.getKey(), e.getValue()));
+//			}
+//		}
+		System.out.println(getClass()+"<<<"+begin+">>>"+pageSize);
 		c.setFirstResult(begin);
 		c.setMaxResults(pageSize);
 		return c.list();

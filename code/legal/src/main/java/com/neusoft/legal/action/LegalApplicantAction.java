@@ -65,9 +65,14 @@ public class LegalApplicantAction extends BaseAction implements ModelDriven<Lega
 	 * 获得pageHotel数据表格
 	 */
 	public String datagrid() {
-		datagrid = legalApplicantService.datagrid(legalApplicantQuery);
-		logger.debug(">>>datagrid:"+datagrid.getRows().size());
-		return "datagrid";
+		try {
+			datagrid = legalApplicantService.datagrid(legalApplicantQuery);
+			logger.debug(">>>datagrid:"+datagrid.getRows().size());
+			logger.debug(">>>datagrid:"+datagrid.getTotal());
+			return "datagrid";
+		} catch (Exception e) {
+			logger.debug(">>>"+e);
+		}return null;
 	}
 	
 	

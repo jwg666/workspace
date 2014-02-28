@@ -66,8 +66,13 @@ public class LegalCaseAction extends BaseAction implements ModelDriven<LegalCase
 	 * 获得pageHotel数据表格
 	 */
 	public String datagrid() {
-		datagrid = legalCaseService.datagrid(legalCaseQuery);
-		return "datagrid";
+		try {
+			datagrid = legalCaseService.datagrid(legalCaseQuery);
+			logger.debug(">>>datagrid:"+datagrid.getRows().size());
+			return "datagrid";
+		} catch (Exception e) {
+			logger.debug(">>>"+e);
+		}return null;
 	}
 	
 	
