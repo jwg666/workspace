@@ -7,8 +7,9 @@ import java.util.List;
 
 import com.neusoft.base.common.ExecuteResult;
 import com.neusoft.base.common.Pager;
-import com.neusoft.base.model.SearchModel;
+import com.neusoft.base.model.DataGrid;
 import com.neusoft.security.domain.UploadFile;
+import com.neusoft.security.query.UploadFileQuery;
 
 
 public interface FileUploadService {
@@ -30,12 +31,14 @@ public interface FileUploadService {
 
 	ExecuteResult<String> deleteFileByIds(String ids);
 	
-	List<UploadFile> getFileByStatusAndType(SearchModel<UploadFile> model);
+	List<UploadFile> getFileByStatusAndType(UploadFileQuery model);
 	
-	Pager<UploadFile> findPage(SearchModel<UploadFile> model);
+	Pager<UploadFile> findPage(UploadFileQuery model);
 
 	ExecuteResult<UploadFile> updateUplaodFile(Long id, File upload, String path, String uploadFileName,String uploadContentType, String remarks);
 	
 	public  InputStream getFileInputStream(String realPath,Long id) ;
+
+	DataGrid datagrid(UploadFileQuery query);
 	
 }

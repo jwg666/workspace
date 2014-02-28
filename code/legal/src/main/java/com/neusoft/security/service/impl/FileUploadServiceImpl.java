@@ -2,6 +2,7 @@ package com.neusoft.security.service.impl;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -9,14 +10,18 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 import javax.annotation.Resource;
 
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
+import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.stereotype.Service;
 
 import com.neusoft.I18n.I18nResolver;
@@ -27,11 +32,13 @@ import com.neusoft.base.common.ExecuteResult;
 import com.neusoft.base.common.FileConstants;
 import com.neusoft.base.common.LoginContextHolder;
 import com.neusoft.base.common.Pager;
-import com.neusoft.base.model.SearchModel;
+import com.neusoft.base.model.DataGrid;
+import com.neusoft.mongo.model.MongoDBFile;
 import com.neusoft.security.dao.FileUploadDAO;
 import com.neusoft.security.domain.UploadFile;
 import com.neusoft.security.domain.enu.FileStatusEnum;
 import com.neusoft.security.domain.enu.FileTypeEnum;
+import com.neusoft.security.query.UploadFileQuery;
 import com.neusoft.security.service.FileUploadService;
 
 /**
@@ -41,7 +48,7 @@ import com.neusoft.security.service.FileUploadService;
 @Service("fileUploadService")
 public class FileUploadServiceImpl implements FileUploadService {
 	
-	private static final Logger LOG = LoggerFactory.getLogger(FileUploadServiceImpl.class);
+	private static final Logger logger = LoggerFactory.getLogger(FileUploadServiceImpl.class);
 	private static final I18nResolver I18N_RESOLVER = I18nResolverFactory.getDefaultI18nResolver(FileUploadServiceImpl.class);
 	
 	private static final int BUFFERED_SIZE = 4 * 1024;
@@ -49,9 +56,10 @@ public class FileUploadServiceImpl implements FileUploadService {
 	private FileUploadDAO fileUploadDAO;
 	private FileConstants fileConstants;
 //	private FileServiceClientAdapter fileServiceClientAdapter;
-	
+	@Resource
+	private MongoOperations mongoOperations;
 	@Override
-	public List<UploadFile> getFileByStatusAndType(SearchModel<UploadFile> model){
+	public List<UploadFile> getFileByStatusAndType(UploadFileQuery model){
 		return fileUploadDAO.getFileByStatusAndType(model);
 	}
 	
@@ -69,17 +77,10 @@ public class FileUploadServiceImpl implements FileUploadService {
 	{
 		ExecuteResult<UploadFile> result = new ExecuteResult<UploadFile>();
 		String saveFileName = null;
-		if(isSaveFileSystem()){
-			//文件系统存储
-			saveFileName = DateUtils.FORMAT7.format(new Date()) + fileInputFileName.substring(fileInputFileName.lastIndexOf('.'));
-			saveToFileSystem(fileInput,saveFileName,result);
-		}else{
-			//mongodb存储
-			String uuid = saveToMongodb(fileInput,fileInputFileName,result);
-			if(StringUtils.isNotBlank(uuid)){
-				saveFileName = uuid;
-			}
-			
+		//mongodb存储
+		String uuid = saveToMongodb(fileInput,fileInputFileName,result);
+		if(StringUtils.isNotBlank(uuid)){
+			saveFileName = uuid;
 		}
 		if(!result.isSuccess()){
 			return result;
@@ -88,7 +89,8 @@ public class FileUploadServiceImpl implements FileUploadService {
 		UploadFile uploadFile=new UploadFile();
 		uploadFile.setFileName(fileInputFileName);
 		uploadFile.setSaveFileName(saveFileName);
-		uploadFile.setFilePath1(fileConstants.getFileSavePath());
+//		uploadFile.setFilePath1(fileConstants.getFileSavePath());
+		uploadFile.setFilePath1("/");
 		uploadFile.setStatus(FileStatusEnum.VALID.getStatus());
 		uploadFile.setLastModifiedBy(LoginContextHolder.get().getUserName());
 		uploadFile.setLastModifiedDt(curDate);
@@ -100,11 +102,7 @@ public class FileUploadServiceImpl implements FileUploadService {
 		if(StringUtils.isNotBlank(remarks)){
 			uploadFile.setRemarks(remarks);
 		}
-		if(isSaveFileSystem()){
-			uploadFile.setType(FileTypeEnum.FILE_SYSTEM.getType());
-		}else{
-			uploadFile.setType(FileTypeEnum.MONGODB.getType());
-		}
+		uploadFile.setType(FileTypeEnum.MONGODB.getType());
 		fileUploadDAO.save(uploadFile);
 		result.setResult(uploadFile);
 		return result;
@@ -171,15 +169,18 @@ public class FileUploadServiceImpl implements FileUploadService {
 				//uploadFile.getFilePath1() 不为空 表示 存在web容器的目录下  否则 取 固定目录fileConstants.getFileSavePath()
 //				File file = new File((uploadFile.getFilePath1()==null?fileConstants.getFileSavePath():FileConstants.WEB_REAL_PATH.toString() + File.separator + uploadFile.getFilePath1()) + File.separator + uploadFile.getSaveFileName());
 				File file = new File((uploadFile.getFilePath1()==null?fileConstants.getFileSavePath():FileConstants.WEB_REAL_PATH.toString() + File.separator + uploadFile.getFilePath1()));
-				is = new FileInputStream(file);
+				return new FileInputStream(file);
 			} catch (FileNotFoundException e) {
-				LOG.debug(e.getMessage(),e);
+				logger.error(e.getMessage(),e);
 			}
 		}else{
 //			FileResult result = fileServiceClientAdapter.findFile(uploadFile.getSaveFileName());
 //			is = result.getInputStream();
+			MongoDBFile dbFile = mongoOperations.findById(uploadFile.getSaveFileName(), MongoDBFile.class);
+			return  new ByteArrayInputStream(dbFile.getContent());			
 		}
 		return is;
+		
 	}
 	@Override
 	public InputStream getFileInputStream(String realPath,Long id) {
@@ -195,7 +196,7 @@ public class FileUploadServiceImpl implements FileUploadService {
 				File file = new File(realPath+ File.separator + uploadFile.getFilePath1());
 				is = new FileInputStream(file);
 			} catch (FileNotFoundException e) {
-				LOG.error("fileId:"+id+"||"+e.getMessage(),e);
+				logger.error("fileId:"+id+"||"+e.getMessage(),e);
 			}
 		}else{
 //			FileResult result = fileServiceClientAdapter.findFile(uploadFile.getSaveFileName());
@@ -218,12 +219,16 @@ public class FileUploadServiceImpl implements FileUploadService {
 		return result;
 	}
 	@Override
-	public Pager<UploadFile> findPage(SearchModel<UploadFile> model) {
+	public Pager<UploadFile> findPage(UploadFileQuery model) {
 		List<UploadFile> records =  fileUploadDAO.findPage(model);
 		long total = fileUploadDAO.findPageCount(model);
-		model.getPager().setTotalRecords(total);
-		model.getPager().setRecords(records);
-		return model.getPager();
+		Pager<UploadFile> pager = new Pager<UploadFile>();
+		pager.setCountTotal(true);
+		pager.setCurrentPage(model.getPage());
+		pager.setPageSize(model.getRows());
+		pager.setTotalRecords(total);
+		pager.setRecords(records);
+		return pager;
 	}
 	
 	//保存到服务器固定目录
@@ -250,7 +255,7 @@ public class FileUploadServiceImpl implements FileUploadService {
 			}
 		}catch(Exception e){
 			result.addErrorMessage(I18N_RESOLVER.getMessage("file.save.error"));
-			LOG.error("saveToFileSystem error.",e);
+			logger.error("saveToFileSystem error.",e);
 		}
 	}
 	//保存web容器下的指定目录
@@ -277,7 +282,7 @@ public class FileUploadServiceImpl implements FileUploadService {
 			}
 		}catch(Exception e){
 			result.addErrorMessage(I18N_RESOLVER.getMessage("file.save.error"));
-			LOG.error("saveToFileSystem error.",e);
+			logger.error("saveToFileSystem error.",e);
 		}
 	}
 	//保存到文件服务器
@@ -285,14 +290,36 @@ public class FileUploadServiceImpl implements FileUploadService {
 		if(result == null){
 			result = new ExecuteResult<UploadFile>();
 		}
-//		FileResult fileResult = fileServiceClientAdapter.saveFile(fileInput, fileName);
-//		FileResult fileResult = null;
-//		if(fileResult.isSuccess()){
-//			return fileResult.getFileUUID();
-//		}else{
-//			result.addErrorMessage(fileResult.getMsg());
-//			return null;
-//		}
+		MongoDBFile file = new MongoDBFile();
+		file.setId(UUID.randomUUID().toString());
+		file.setCreateTime(DateUtils.format(DateUtils.FORMAT5, new Date()));
+		file.setFileName(fileName);
+		file.setDescription(fileInput.getName());
+		FileInputStream fios = null;
+		try {
+		    fios = new FileInputStream(fileInput);
+			byte[] b = new byte[new Long(fileInput.length()).intValue()];
+			fios.read(b);
+			file.setContent(b);
+			mongoOperations.save(file);
+			result.setSuccessMessage("上传成功");
+			return file.getId();
+		} catch (FileNotFoundException e) {
+			result.addErrorMessage(e.getMessage());
+			logger.error(e.getMessage(),e);
+		} catch (IOException e) {
+			result.addErrorMessage(e.getMessage());
+			logger.error(e.getMessage(),e);
+		}finally{
+			if(fios!=null){
+				try {
+					fios.close();
+				} catch (IOException e) {
+					result.addErrorMessage(e.getMessage());
+					logger.error(e.getMessage(),e);
+				}
+			}
+		}
 		return null;
 	}
 
@@ -309,9 +336,9 @@ public class FileUploadServiceImpl implements FileUploadService {
                      out.write(bs, 0, i);
              }
          } catch (FileNotFoundException e) {
-             LOG.error("file not found.",e);
+        	 logger.error("file not found.",e);
          } catch (IOException e) {
-        	 LOG.error("io exception.",e);
+        	 logger.error("io exception.",e);
          } finally {
              try {
                  if (in != null){
@@ -321,7 +348,7 @@ public class FileUploadServiceImpl implements FileUploadService {
                 	 out.close();
                  }
              } catch (IOException e) {
-            	 LOG.error("close file error.",e);
+            	 logger.error("close file error.",e);
              }
          }
          flag = true;
@@ -341,26 +368,29 @@ public class FileUploadServiceImpl implements FileUploadService {
 			if(FileTypeEnum.FILE_SYSTEM.getType().equals(uf.getType())){
 				//删除文件系统文件
 				//uf.getFilePath1() 不为空 表示 存在web容器的目录下  否则 取 固定目录fileConstants.getFileSavePath()
-				File file = new File(uf.getFilePath1()==null?fileConstants.getFileSavePath():FileConstants.WEB_REAL_PATH.toString() + File.separator + uf.getFilePath1() + File.separator + uf.getSaveFileName());
-				if(!file.exists()){
-					return "文件不存在";
-				}
-				if(!file.delete()){
-					return I18N_RESOLVER.getMessage("file.delete.error");
-				}
+//				File file = new File(uf.getFilePath1()==null?fileConstants.getFileSavePath():FileConstants.WEB_REAL_PATH.toString() + File.separator + uf.getFilePath1() + File.separator + uf.getSaveFileName());
+//				if(!file.exists()){
+//					return "文件不存在";
+//				}
+//				if(!file.delete()){
+//					return I18N_RESOLVER.getMessage("file.delete.error");
+//				}
 			}else{
 				//删除mongodb文件
 //				FileResult delResult = fileServiceClientAdapter.deleteFile(uf.getSaveFileName());
 //				if(!delResult.isSuccess()){
 //					return delResult.getMsg();
 //				}
+				MongoDBFile dbFile = new MongoDBFile();
+				dbFile.setId(uf.getSaveFileName());
+				mongoOperations.remove(uf);
 			}
-			uf.setStatus(FileStatusEnum.INVALID.getStatus());
-			uf.setLastModifiedBy(LoginContextHolder.get().getUserName());
-			uf.setLastModifiedDt(new Date());
-			fileUploadDAO.update(uf);
+//			uf.setStatus(FileStatusEnum.INVALID.getStatus());
+//			uf.setLastModifiedBy(LoginContextHolder.get().getUserName());
+//			uf.setLastModifiedDt(new Date());
+			fileUploadDAO.delete(uf);
 		}catch(Exception e){
-			LOG.error("deleteFileById error,id=" + id,e);
+			logger.error("deleteFileById error,id=" + id,e);
 			return I18N_RESOLVER.getMessage("file.delete.error");
 		}
 		return null;
@@ -431,6 +461,27 @@ public class FileUploadServiceImpl implements FileUploadService {
 		result.setResult(null);
 		result.addErrorMessage("文件不存在");
 		return result;
+	}
+
+	@Override
+	public DataGrid datagrid(UploadFileQuery query) {
+		DataGrid j = new DataGrid();
+		Pager<UploadFile> pager  = fileUploadDAO.findPager(query);
+		j.setRows(getQuerysFromEntitys(pager.getRecords()));
+		j.setTotal(pager.getTotalRecords());
+		return j;
+	}
+
+	private List<UploadFileQuery> getQuerysFromEntitys(List<UploadFile> records) {
+			List<UploadFileQuery> UploadFileQuerys = new ArrayList<UploadFileQuery>();
+			if (records != null && records.size() > 0) {
+				for (UploadFile tb : records) {
+					UploadFileQuery b = new UploadFileQuery();
+					BeanUtils.copyProperties(tb, b);
+					UploadFileQuerys.add(b);
+				}
+			}
+			return UploadFileQuerys;
 	}
 
 }

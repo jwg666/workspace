@@ -308,21 +308,7 @@ public class UserInfo  implements java.io.Serializable{
 		public void setCurrentLoginIp(java.lang.String currentLoginIp) {
 			this.currentLoginIp = currentLoginIp;
 		}
-	    /**
-	     * 上次登录时间
-	     * @return 上次登录时间
-	     */
-	public String getLastLoginTimeString() {
-		//return DateConvertUtils.format(getLastLoginTime(), FORMAT_LAST_LOGIN_TIME);
-		return  DateUtils.format(DateUtils.FORMAT3,getLastLoginTime());
-	}
-	 /**
-     * 上次登录时间
-     * @param lastLoginTime 上次登录时间
-     */
-	public void setLastLoginTimeString(String lastLoginTime) {
-		setLastLoginTime(DateUtils.parse(lastLoginTime,DateUtils.FORMAT3,java.util.Date.class));
-	}
+	
 	
 		 /**
 	     * 上次登录时间
@@ -354,21 +340,7 @@ public class UserInfo  implements java.io.Serializable{
 		public void setLoginAttemptTimes(java.lang.Long loginAttemptTimes) {
 			this.loginAttemptTimes = loginAttemptTimes;
 		}
-	    /**
-	     * 第一次登陆失败时间
-	     * @return 第一次登陆失败时间
-	     */
-	public String getLoginFaildTimeString() {
-		//return DateConvertUtils.format(getLoginFaildTime(), FORMAT_LOGIN_FAILD_TIME);
-		return  DateUtils.format(DateUtils.FORMAT3,getLoginFaildTime());
-	}
-	 /**
-     * 第一次登陆失败时间
-     * @param loginFaildTime 第一次登陆失败时间
-     */
-	public void setLoginFaildTimeString(String loginFaildTime) {
-		setLoginFaildTime(DateUtils.parse(loginFaildTime,DateUtils.FORMAT3,java.util.Date.class));
-	}
+
 	
 		 /**
 	     * 第一次登陆失败时间
@@ -400,21 +372,7 @@ public class UserInfo  implements java.io.Serializable{
 		public void setPasswordFirstModifiedFlag(java.lang.Long passwordFirstModifiedFlag) {
 			this.passwordFirstModifiedFlag = passwordFirstModifiedFlag;
 		}
-	    /**
-	     * 密码到期时间
-	     * @return 密码到期时间
-	     */
-	public String getPasswordExpireTimeString() {
-		//return DateConvertUtils.format(getPasswordExpireTime(), FORMAT_PASSWORD_EXPIRE_TIME);
-		return  DateUtils.format(DateUtils.FORMAT3,getPasswordExpireTime());
-	}
-	 /**
-     * 密码到期时间
-     * @param passwordExpireTime 密码到期时间
-     */
-	public void setPasswordExpireTimeString(String passwordExpireTime) {
-		setPasswordExpireTime(DateUtils.parse(passwordExpireTime,DateUtils.FORMAT3,java.util.Date.class));
-	}
+	  
 	
 		 /**
 	     * 密码到期时间
@@ -431,21 +389,7 @@ public class UserInfo  implements java.io.Serializable{
 		public void setPasswordExpireTime(java.util.Date passwordExpireTime) {
 			this.passwordExpireTime = passwordExpireTime;
 		}
-	    /**
-	     * 创建时间
-	     * @return 创建时间
-	     */
-	public String getGmtCreateString() {
-		//return DateConvertUtils.format(getGmtCreate(), FORMAT_GMT_CREATE);
-		return  DateUtils.format(DateUtils.FORMAT3,getGmtCreate());
-	}
-	 /**
-     * 创建时间
-     * @param gmtCreate 创建时间
-     */
-	public void setGmtCreateString(String gmtCreate) {
-		setGmtCreate(DateUtils.parse(gmtCreate,DateUtils.FORMAT3,java.util.Date.class));
-	}
+	
 	
 		 /**
 	     * 创建时间
@@ -462,21 +406,7 @@ public class UserInfo  implements java.io.Serializable{
 		public void setGmtCreate(java.util.Date gmtCreate) {
 			this.gmtCreate = gmtCreate;
 		}
-	    /**
-	     * 最后修改时间
-	     * @return 最后修改时间
-	     */
-	public String getGmtModifiedString() {
-		//return DateConvertUtils.format(getGmtModified(), FORMAT_GMT_MODIFIED);
-		return  DateUtils.format(DateUtils.FORMAT3,getGmtModified());
-	}
-	 /**
-     * 最后修改时间
-     * @param gmtModified 最后修改时间
-     */
-	public void setGmtModifiedString(String gmtModified) {
-		setGmtModified(DateUtils.parse(gmtModified,DateUtils.FORMAT3,java.util.Date.class));
-	}
+	 
 	
 		 /**
 	     * 最后修改时间
@@ -538,21 +468,7 @@ public class UserInfo  implements java.io.Serializable{
 		public void setEncode(java.lang.String encode) {
 			this.encode = encode;
 		}
-	    /**
-	     * 过期时间
-	     * @return 过期时间
-	     */
-	public String getExpiredTimeString() {
-		//return DateConvertUtils.format(getExpiredTime(), FORMAT_EXPIRED_TIME);
-		return  DateUtils.format(DateUtils.FORMAT3,getExpiredTime());
-	}
-	 /**
-     * 过期时间
-     * @param expiredTime 过期时间
-     */
-	public void setExpiredTimeString(String expiredTime) {
-		setExpiredTime(DateUtils.parse(expiredTime,DateUtils.FORMAT3,java.util.Date.class));
-	}
+	
 	
 		 /**
 	     * 过期时间

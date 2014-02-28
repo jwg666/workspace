@@ -14,7 +14,6 @@ import javax.annotation.Resource;
 import net.sf.json.JSONObject;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.struts2.ServletActionContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -23,16 +22,17 @@ import com.neusoft.base.common.FileConstants;
 import com.neusoft.base.common.Pager;
 import com.neusoft.base.common.ValidateUtil;
 import com.neusoft.base.model.Json;
-import com.neusoft.base.model.SearchModel;
 import com.neusoft.security.domain.UploadFile;
+import com.neusoft.security.query.UploadFileQuery;
 import com.neusoft.security.service.FileUploadService;
+import com.opensymphony.xwork2.ModelDriven;
 //import org.apache.tools.zip.ZipEntry;
 //import org.apache.tools.zip.ZipOutputStream;
 
 
 @Controller
 @Scope("prototype")
-public class FileUploadAction extends BaseAction {
+public class FileUploadAction extends BaseAction implements ModelDriven<UploadFileQuery>{
 	
 
 	@Resource
@@ -68,13 +68,15 @@ public class FileUploadAction extends BaseAction {
 	//分页参数
 	private long page;
 	private long rows;
-
+	
+	private UploadFileQuery uploadFileQuery = new UploadFileQuery();
 	public String goUploadFile(){
 		return "uploadFile";
 	}
 	//请求图片
 		public String downloadImage(){
-			fileAsStream = fileUploadService.getFileInputStream(ServletActionContext.getServletContext().getRealPath("/"),fileId);
+//			fileAsStream = fileUploadService.getFileInputStream(ServletActionContext.getServletContext().getRealPath("/"),fileId);
+			fileAsStream = fileUploadService.getFileInputStream(fileId);
 			if(fileAsStream==null){
 				return "nofile";
 			}
@@ -87,22 +89,9 @@ public class FileUploadAction extends BaseAction {
 	 * @return
 	 */
 	
-	public void searchUploadFile() throws Exception{
-		Pager<UploadFile> pager=initPage();
-		SearchModel<UploadFile> model = new SearchModel<UploadFile>();
-		UploadFile file = new UploadFile();
-		file.setStatus(status);
-		file.setType(type);
-		file.setFileName(filename);
-		file.setRemarks(remarks);
-//		model.setFile(file);
-		model.setPager(pager);
-		JSONObject datas = new JSONObject();
-		pager=this.fileUploadService.findPage(model);
-		datas.put(FileConstants.TOTAL, pager.getTotalRecords());
-		datas.put(FileConstants.PAGE_SIZE, pager.getRecords());
-		this.getResponse().setCharacterEncoding(FileConstants.ENCODING_UTF8);
-		this.getResponse().getWriter().print(datas.toString());
+	public String searchUploadFile() throws Exception{		
+		datagrid = fileUploadService.datagrid(uploadFileQuery);
+		return "datagrid";
 	}
 	public String deleteFile(){
 		fileUploadService.deleteFileByIds(fileids);
@@ -160,6 +149,7 @@ public class FileUploadAction extends BaseAction {
 	
 	//上传文件 返回文件信息json格式; ajax上传文件可以请求该方法
 	public String uplaodFile(){
+		logger.debug("------------------------------");
 		if(upload!=null){
 			UploadFile uploadFile = null;
 			try {
@@ -310,5 +300,9 @@ public class FileUploadAction extends BaseAction {
 	}
 	public void setFileIds(Long[] fileIds) {
 		this.fileIds = fileIds;
+	}
+	@Override
+	public UploadFileQuery getModel() {
+		return uploadFileQuery;
 	}	
 }
