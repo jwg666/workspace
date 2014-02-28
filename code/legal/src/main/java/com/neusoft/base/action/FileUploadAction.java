@@ -78,7 +78,7 @@ public class FileUploadAction extends BaseAction implements ModelDriven<UploadFi
 //			fileAsStream = fileUploadService.getFileInputStream(ServletActionContext.getServletContext().getRealPath("/"),fileId);
 			fileAsStream = fileUploadService.getFileInputStream(fileId);
 			if(fileAsStream==null){
-				return "nofile";
+				fileAsStream = fileUploadService.getFileInputStream(1L);
 			}
 			return IMGSTREAM;
 		}
