@@ -33,7 +33,7 @@
 			idField : 'id',
 			sortName : 'id',
 			sortOrder : 'desc',
-			columns : [ [ 
+			columns : [[ 
 			{field:'ck',checkbox:true,
 						formatter:function(value,row,index){
 							return row.id;
@@ -119,7 +119,7 @@
 						return row.ifFinancialDifficulty;
 					}
 				}				
-			 ] ],
+			 ]],
 			toolbar : [ {
 				text : '增加',
 				iconCls : 'icon-add',

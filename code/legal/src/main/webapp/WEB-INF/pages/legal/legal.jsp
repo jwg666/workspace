@@ -195,6 +195,29 @@ $("document").ready(function(){
 			var legalApplicantAddForm = $("#legalApplicantAddForm");
 			var legalCaseAddForm = $("#legalCaseAddForm");
 			var legalAgentAddForm = $("#legalAgentAddForm");
+			var bl = false;
+			legalAgentAddForm = $('#legalAgentAddForm').form('submit',{
+				url : 'legalAgentAction!add.do',
+				type:"post",
+				onSubmit: function(){
+					//alert(">>>><<<<");
+				},
+				success : function(data) {
+					var json = $.parseJSON(data);
+					if (json && json.success) {
+						$.messager.show({
+							title : '成功',
+							msg : json.msg
+						});
+						bl = true;
+					} else {
+						$.messager.show({
+							title : '失败',
+							msg : '操作失败！'
+						});
+					}
+				}
+			});
 			legalApplicantAddForm = $('#legalApplicantAddForm').form('submit',{
 				url : 'legalApplicantAction!add.do',
 				//dataType:"json",
@@ -252,6 +275,7 @@ $("document").ready(function(){
 							title : '成功',
 							msg : json.msg
 						});
+						bl = true;
 					} else {
 						$.messager.show({
 							title : '失败',
@@ -260,25 +284,14 @@ $("document").ready(function(){
 					}
 				}
 			});
-			legalAgentAddForm = $('#legalAgentAddForm').form('submit',{
-				url : 'legalAgentAction!add.do',
-				success : function(data) {
-					var json = $.parseJSON(data);
-					if (json && json.success) {
-						$.messager.show({
-							title : '成功',
-							msg : json.msg
-						});
-					} else {
-						$.messager.show({
-							title : '失败',
-							msg : '操作失败！'
-						});
-					}
-				}
-			});
+			
+			
 			legalCaseAddForm = $('#legalCaseAddForm').form('submit',{
 				url : 'legalCaseAction!add.do',
+				type:"post",
+				onSubmit: function(){
+					//alert(">>>><<<<");
+				},
 				success : function(data) {
 					var json = $.parseJSON(data);
 					if (json && json.success) {
@@ -286,6 +299,7 @@ $("document").ready(function(){
 							title : '成功',
 							msg : json.msg
 						});
+						bl = true;
 					} else {
 						$.messager.show({
 							title : '失败',
