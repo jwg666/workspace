@@ -184,6 +184,7 @@
 						<!-- <iframe id="homeIframe"  style="height:400px;width:100%; border:0 none;" src="../legal/legalAction!stepOne.do" ></iframe> -->
 						<!-- <iframe id="homeIframe"  style="height:400px;width:100%; border:0 none;" src="../legal/legalAction!getLegalApprove.do" ></iframe> -->
 						<iframe id="homeIframe"  style="height:400px;width:100%; border:0 none;" src="../legal/legalApplicantAction!goLegalApplicant.do" ></iframe>
+						<!-- <iframe id="homeIframe"  style="height:400px;width:100%; border:0 none;" src="../legal/legalApproveAction!goLegalApprove.do" ></iframe> -->
 					</div>
 				</div>
 			</div>
@@ -208,7 +209,7 @@
 		<!-- 
 		<div id="desk-bottom" style="background-color:#CCC; height:40px;position: absolute;">
 			desk-底部
-		</div> 
+		</div>
 		-->
         <div id="dock-bar" class="right-bar" style="display: block;">
 			<div id="dock-container" class="dock-right">
