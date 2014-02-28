@@ -45,7 +45,6 @@
 </head>
 
 <body >
-<!-- <body> -->
 <s:if test="%{memberQuery.desknum && memberQuery.desknum > 0 }">
 	<s:set var="desknum" value="%{memberQuery.desknum}" />
 </s:if>
@@ -183,8 +182,6 @@
 					<div id="homeIframeContent" style="height:400px;width:100%;background-color: white;">
 						<!-- <iframe id="homeIframe"  style="height:400px;width:100%; border:0 none;" src="../legal/legalAction!stepOne.do" ></iframe> -->
 						<!-- <iframe id="homeIframe"  style="height:400px;width:100%; border:0 none;" src="../legal/legalAction!getLegalApprove.do" ></iframe> -->
-						<iframe id="homeIframe"  style="height:400px;width:100%; border:0 none;" src="../legal/legalApplicantAction!goLegalApplicant.do" ></iframe>
-						<!-- <iframe id="homeIframe"  style="height:400px;width:100%; border:0 none;" src="../legal/legalApproveAction!goLegalApprove.do" ></iframe> -->
 					</div>
 				</div>
 			</div>
@@ -194,59 +191,22 @@
    			<s:param name="last" value="%{desknum}" /> 
    			<s:iterator>
 				<div id="desk-<s:property/>" class="desktop-container">
-				<div class="scrollbar scrollbar-x"></div>
-				<div class="scrollbar scrollbar-y"></div>
-						<li class="appbtn" type="app" id="d_3263" appid="3263" style="top:27px;left:36px">
-							<div>
-								<img src="${staticURL}/portal/img/images/content-icon3.png" src_val="1387" title="案件上报" alt="案件上报">
-							</div>
-							<span>案件上报</span>
-						</li>						
-						<li class="appbtn add" style="top:27px;left:120px"><i class="addicon"></i><span>添加应用</span></li>
+					<div class="scrollbar scrollbar-x">
+					</div>
+					<div class="scrollbar scrollbar-y">
+					</div>
 				</div>
    			</s:iterator>
 		</s:bean>
 		<!-- 
 		<div id="desk-bottom" style="background-color:#CCC; height:40px;position: absolute;">
 			desk-底部
-		</div>
+		</div> 
 		-->
         <div id="dock-bar" class="right-bar" style="display: block;">
 			<div id="dock-container" class="dock-right">
-				<div class="widget-hub" style="height: 523px;">				
-						<div class="one-widget" id="44122_dock_widget" title="订单直通车" type="app" appid="44122" imgsrc_val="921" imgsrc="">
-							<div class="one-widget-navi">
-								<span>案件直通车</span>
-								<div class="one-widget-option">
-									<div class="option-icon">
-										<a href="javascript:void(0)" class="option-icon-btn">&nbsp;</a>
-										<div class="opiton-container">
-											<ul appid="44122">
-												<li><a href="#">	<span>移除控件</span></a></li>
-												<li style="display:none"><a href="#"><span>放大控件</span></a></li>
-												<li><a href="#"><span>缩小控件</span></a></li>
-												<li><a href="#"><span>刷新</span></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-							<iframe id="44122_dock_iframe" frameborder="0" src="" style="width: 100%; border: 0px none; height: 54px; max-height: 65px;"></iframe>
-						</div>
-						<div class="one-widget" id="44982_dock_widget" title="任务催办" type="app" appid="44982" imgsrc_val="921" imgsrc="">
-							<div class="one-widget-navi">
-								<span>案件催办</span>
-								<div class="one-widget-option">
-									<div class="option-icon">
-										<a href="javascript:void(0)" class="option-icon-btn">&nbsp;</a>
-										<div class="opiton-container">
-											<ul appid="44982"><li><a href="#"><span>移除控件</span></a></li><li style="display:none"><a href="#"><span>放大控件</span></a></li><li><a href="#"><span>缩小控件</span></a></li><li><a href="#"><span>刷新</span></a></li></ul>
-										</div>
-									</div>
-								</div>
-							</div>
-							<iframe id="44982_dock_iframe" frameborder="0" src="" style="width: 100%; border: 0px none; height: 167px; max-height: 200px;"></iframe>
-						</div>
+				<div class="widget-hub">							
+						
 				</div>
 			</div>
 		</div>
@@ -362,7 +322,7 @@
 	<!--结束######## easy样式引用专用图层################ 结束-->
 
 
-<script>
+<script type="text/javascript">
 var ajaxUrl   = '${dynamicURL}/portal/portalAction/ajax.do';     //所有ajax操作指向页面
 /*设置basicUrl 以及 当前语言 */
 HROS.CONFIG.locale = '${locale}';
@@ -375,7 +335,7 @@ var _id_ = 1;
 $(function(){
 	/*jquery mobile page不自动初始化 */
 	$(document).bind("mobileinit", function(){
-		　$.extend( $.mobile , {autoInitializePage: false});
+		$.extend( $.mobile , {autoInitializePage: false});
 	});
 	
 	//IE下禁止选中
@@ -464,7 +424,7 @@ function showTaskWindow(obj){
 		var width = $(obj).attr("resW");
 		var height = $(obj).attr("resH");
 		var icon = $(obj).attr("resIcon");
-		icon = (icon==null && app.icon)
+		icon = (icon==null && app.icon);
 		app = $.extend(app,{appid:"res_"+id,title:name,width:width,height:height,icon:icon,url:src});
 		app.imgsrc = HROS.CONFIG.downloadImage+app['icon'];
 		HROS.window.createTemp(app);
@@ -558,12 +518,11 @@ function showTaskWindow(obj){
 		width:800,height:400,isresize:false,isopenmax:true,isflash:false});
 	}
 	//计算任务数量
-	function showTaskCount(){
-		<s:if test="#session['_user_emp_code']!='admin'">
+	function showTaskCount(){		
 		var resIds = "";
 		$("#todotasks li,#todosubtasks ul li").each(function(){
 			var id = $(this).attr("resid");
-			resIds = resIds + id + ",";
+			resIds = resIds +   id + ",";
 		})
 		if(resIds.length > 1){
 			$.ajax({
@@ -603,215 +562,10 @@ function showTaskWindow(obj){
 			     }
 			});	
 		}
-		</s:if>	
+	
 	}
 </script>
 
-<script id='messageList_Template' type="text/template">
-  <dl  id="messageList_{%= id %}" class="oWMsg template_default">
-						<dt class="oWMsgdt">
-							<img class="oWMsghead"
-								src="${staticURL}/IM/stylesheets/im/images/noAvata.png"
-								alt=""/>
-						</dt>
-						<dd class="oWMsgdd" style='cursor:pointer' >
-   							 <input type="hidden" name="nodeUrl" value="{%= nodeUrl %}" />
-                    		 <input type="hidden" name="nodeTitle" value="{%= nodeTitle %}" />
-                    		 <input type="hidden" name="id" value="{%= id %}" />
-							<p class="oWMsgauthor">{%= type %}</p>
-							<p class="oWMsgbrief">{%= content %}</p>
-							<p class="wWMsgContent" style="display: none;"></p>
-							<a href="javascript:;" class="oDel"></a>
-						</dd>
-					</dl>
-</script>
-<script id='onLineUserList' type="text/template">
-{% for(var i=0;i<list.length;i++) { %}
-	<li draggable="true" id="{%=list[i].groupCode%}_{%=list[i].code%}" priority="7" status="online" userName="{%= list[i].name %}" uid="{%=list[i].code%}" userId="{%=list[i].id%}" class="item template_my_link_halt" style="display:{%=display%}">
-			    		<div class="osHeadBox">
-	    					<img class="osHead" src="${staticURL}/IM/stylesheets/im/images/defaultHead.png">
-	    					
-	    				</div>
-	    				<span name="userName"><i>{%= list[i].name %}</i><em class="osSign" name="sign"></em></span>
-	    				<i class="osItemSts " name="status"></i>
-	    				<i class="my_link_hover"></i>
-	  </li>
-{% }%}
-</script>
-<script id="reply_template" type="text/template">
-{% for(var i=0;i<list.length;i++) { %}
-	<li draggable="true" id="{%=list[i].groupCode%}_{%=list[i].code%}" priority="7" status="online" cardid="297867" uid="117060" class="item template_my_link_halt" style="display:{%=display%}">
-			    		<div class="osHeadBox">
-	    					<img class="osHead" src="${staticURL}/IM/stylesheets/im/images/defaultHead.png">
-	    					
-	    				</div>
-	    				<span name="userName"><i>{%= list[i].name %}</i><em class="osSign" name="sign"></em></span>
-	    				<i class="osItemSts " name="status"></i>
-	    				<i class="my_link_hover"></i>
-	  </li>
-{% }%}
-</script>
-<script id="replyTemplate" type="text/template">
-<dl style=""  templateid="msgTemplate" class="wwChatMsgBox wwChatSelf"  >
-			<dt class="wwChatHead">
-                <i class="wwChatMsgBoxJib wwIco"></i>
-                <img alt="" src="${staticURL}/IM/stylesheets/im/images/defaultHead_60_60.png" class="wwChatHeadImg">     
-            </dt>
-			<dt   class="wwChatMsgBody">
-				<div class="fl">
-					<a class="wwChatSelfname im_sjh_userName">{%=sendUserName %}</a>
-				</div>
-				<div class="wwChatMsgDiv" style="line-height: 1.2; font-family: 宋体; font-size: 12px; font-weight: normal; text-decoration: none; color: rgb(66, 67, 69); font-style: normal;">
-{%=content %}
-<br></div>
-				<a class="wwChatTransCount" href="javascript:;" style="display: none;">0</a>
-			</dt>
-		</dl>
-
-</script>
-<!-- 我发出去的信息模版-->
-<script id="msgTemplate" type="text/template">
-<dl style=""  templateid="msgTemplate" class="wwChatMsgBox">
-			<dt class="wwChatHead">
-                <i class="wwChatMsgBoxJib wwIco"></i>
-                <img alt="" src="${staticURL}/IM/stylesheets/im/images/defaultHead_60_60.png" class="wwChatHeadImg">     
-                <div class="fr wwChatReply">
-					<a href="#" key="replyBtn" username="<s:property value="#session['_user_name']"/>" uid="<s:property value="#session['_user_id']"/>"   class="wwChatReplyBtn" title="引用">引用</a>
-				</div>
-            </dt>
-			<dt   class="wwChatMsgBody">
-				<div class="fl">
-					<a class="im_sjh_userName"><s:property value="#session['_user_name']"/></a>
-				</div>
-				<div class="wwChatMsgDiv">{%= message%}</div>
-				<a class="wwChatTransCount" href="javascript:;"></a>
-			</dt>
-		</dl>
-</script>
-
-<script id="chartTemplate" type="text/template">
-<div class="im_filter">
-		<div class="chatWin"
-			style="top: 0px; left: 0px; width: 100%; height: 100%;">
-			<!-- 聊天窗口开始 -->
-			<div class="wwWrap">
-				<div style="margin: 0; left: 0px; top: 60px; display: none; z-index: 999;" class="msgtip" id="opMsgDiv">
-					 <a href="javascript:;" class="msgtipclose"></a>
-				</div>
-				<div style="margin: 0; left: 0px; top: 60px; display: none; z-index: 999;" class="msgtip" id="newFileShareTip">
-					<i class="msgtipico"></i> <span id="opMsg">有新共享文件</span> <a href="javascript:;" class="msgtipclose"></a>
-				</div>
-				<div style="display: none; top: 0; left: 0;" class="wwImgTip" id="pictureSaveAsBtn">
-					<i class="wwIco wwImgAddFace"></i>
-					<div class="fl">|</div>
-					<i class="wwIco wwImgSave"></i>
-				</div>
-				<div style="display: none; top: 0; left: 0;" class="wwImgTip" id="pictureSaveAsInForwardBtn">
-					<i class="wwIco wwImgAddFace"></i>
-					<div class="fl">|</div>
-					<i class="wwIco wwImgSave"></i>
-				</div>
-				<!-- 拖动改变窗口尺寸的按钮 -->
-				<i class="osConnectionResizeBtn"></i>
-
-
-				<!-- 聊天头部 -->
-				<div class="wwTop">
-
-					<div class="osCtnTopBg"></div>
-
-					<div class="osCtnTopBtn">
-						<div class="oWindowBtnBar">
-							<a href="#" class="oWinBtn oWinMin" title="最小化"></a> <a href="#" class="oWinBtn oWinMax" title="最大化"></a> <a href="#" class="oWinBtn oWinRestore" title="还原"></a> <a href="#" class="oWinBtn oWinClose" title="关闭"></a>
-						</div>
-					</div>
-					<div class="wwWhisperHeadBox">
-						<div class="wwWhisperHeader">
-							<img class="wwWhisperHeaderImg" src="${staticURL}/IM/stylesheets/im/images/defaultHead_60_60.png">
-							<i class="wwOffLineMask"></i> <b id="statusTip" class=""></b> <i style="display: none;" class="wwIco wwIcoWriting" id="writingTip"></i>
-						</div>
-						<div class="wwWhisperNameBox">
-							<b class="wwWhisperName">{%=sendUserName%}</b>
-							<!-- <span class="wwWhisperSign" style="left:0px;">
-            		<input readonly="readonly" class="wwWhsSi_s" title="" value="" />
-            	</span> -->
-							<div style="left: 75px;" class="wwWhisperSign ableselect">
-								<span class="wwIptHolder"> <input value="" title="" readonly="readonly" class="wwWhsSi_s"> <s title="" class="wwIptCopy"></s>
-								</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- 左列 -->
-				<div style="right: 170px" class="wwLeft">
-					<!-- 聊天信息列表 -->
-					<div style="bottom: 154px;" class="wwChatListBox jScrollPaneContainer allowContexMenu ableselect">
-						<div id="wwChatListBox{%= sendUsercode%}" class="wwChatListBoxScroll">
-							<div style="" templateid="partitionTemplate" class="wwPartition">
-								<span class="wwPartitionTxt"> </span>
-							</div>
-						
-						</div>
-					</div>
-					<div class="wwInBoxWrap">
-						<!-- 拖动 -->
-						<div class="wwDragSizeBar ui-draggable"></div>
-						<!-- 聊天工具条 -->
-						<div class="wwToolBar"></div>
-						<!-- 输入框 -->
-						<div class="wwInputBox jScrollPaneContainer">
-							<span contenteditable="false" class="wwReplyTo" >
-								<span ></span> <a href="javascript:;" class="msgtipclose"></a>
-							</span>
-							<div contenteditable="true" id="chatContent{%= sendUsercode%}" class="wwInputBoxScroll allowContexMenu ableselect" style="line-height: 1.2; font-family: 宋体; font-size: 12px; font-weight: normal; text-decoration: none; color: rgb(66, 67, 69); font-style: normal;"></div>
-						</div>
-						<div style="display: none" id="chatContentH{%= sendUsercode%}"></div>
-						<div style="display: none" id="chatContentDeal{%= sendUsercode%}"></div>
-						<div contenteditable="true" style="opacity: 0; width: 1px; height: 1px; overflow: hidden;" class="ableselect" id="chatContentBoxPaste"></div>
-					</div>
-					<!-- 发送 -->
-					<div class="osCtnBtm wwLeftBottom" id="sendDiv">
-						<a class="wwSendBtn fr"  onclick="sendMessage('{%= sendUsercode%}','{%= sendUserId%}')" href="javascript:void(0)">发 送</a> <a key="wwSendKeyBtn" class="wwTopBtn fr wwSendKeyBtn" href="#">
-							<span key="wwSendKeyBtn" class="wwSendTxt"></span> <i key="wwSendKeyBtn" class="wwSendIco"></i>
-						</a>
-					</div>
-
-				</div>
-				<!-- 右列 -->
-				<div style="width: 170px;" class="wwRight">
-					<div class="wwWhisperUserInfo">
-						<div class="wwWhisperUserImgBox">
-							<img class="wwWhisperUserImg" src="${staticURL}/IM/stylesheets/im/images/defaultHead_60_60.png">
-						</div>
-						<div id="personInfo">
-							<div id="nameP" class="wwWhisperUserInfo_P">
-								<a class="oVam" id="nameA">{%=sendUserName%}</a>
-								<div class="lvView rankingImg oVam">
-									<div class="pLv rankCls pLv0"></div>
-								</div>
-							</div>
-							<div class="wwWhisperUserInfo_P">
-								<span id="positionP" class="oVam"></span>
-							</div>
-							<div id="addButtonP" class="wwWhisperUserInfo_P">
-								<div class="loc_addToBoxButton oVam">
-									<div class="pLBtn loc_button"></div>
-								</div>
-							</div>
-						</div>
-
-					</div>
-
-
-				</div>
-
-			</div>
-		</div>
-	</div>
-
-
-
-</script>
 
 
 
@@ -828,9 +582,9 @@ function refreshOnLineUser(){
 	 			var ul=$("#"+group_code);
 	 			var display=ul.css("display");
 	 			if("none"==display){
-	 				data["display"]="none"
+	 				data["display"]="none";
 	 			}else{
-	 				data["display"]="list-item"
+	 				data["display"]="list-item";
 	 			}
 	 			var messageHtml=baidu.template('onLineUserList',data);
 	 			ul.html(messageHtml);
