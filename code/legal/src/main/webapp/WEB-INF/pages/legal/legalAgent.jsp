@@ -19,7 +19,7 @@
 	    searchForm = $('#searchForm').form();
 		datagrid = $('#datagrid').datagrid({
 			url : 'legalAgentAction!datagrid.do',
-			title : 'LegalAgent列表',
+			title : '代理人列表',
 			iconCls : 'icon-save',
 			pagination : true,
 			pagePosition : 'bottom',
@@ -44,22 +44,22 @@
 						return row.id;
 					}
 				},				
-			   {field:'name',title:'name',align:'center',sortable:true,
+			   {field:'姓名',title:'姓名',align:'center',sortable:true,
 					formatter:function(value,row,index){
 						return row.name;
 					}
 				},				
-			   {field:'identifyid',title:'identifyid',align:'center',sortable:true,
+			   {field:'证件号码',title:'证件号码',align:'center',sortable:true,
 					formatter:function(value,row,index){
 						return row.identifyid;
 					}
 				},				
-			   {field:'agentType',title:'agentType',align:'center',sortable:true,
+			   {field:'代理类别',title:'代理类别',align:'center',sortable:true,
 					formatter:function(value,row,index){
 						return row.agentType;
 					}
 				},				
-			   {field:'createTime',title:'createTime',align:'center',sortable:true,
+			   {field:'创建时间',title:'创建时间',align:'center',sortable:true,
 					formatter:function(value,row,index){
 						return dateFormatYMD(row.createTime);
 					}

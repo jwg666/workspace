@@ -19,7 +19,7 @@
 	    searchForm = $('#searchForm').form();
 		datagrid = $('#datagrid').datagrid({
 			url : 'legalApplicantAction!datagrid.do',
-			title : 'LegalApplicant列表',
+			title : '法律援助申请人列表',
 			iconCls : 'icon-save',
 			pagination : true,
 			pagePosition : 'bottom',
@@ -44,77 +44,77 @@
 						return row.id;
 					}
 				},				
-			   {field:'name',title:'name',align:'center',sortable:true,
+			   {field:'姓名',title:'姓名',align:'center',sortable:true,
 					formatter:function(value,row,index){
 						return row.name;
 					}
 				},				
-			   {field:'gender',title:'gender',align:'center',sortable:true,
+			   {field:'性别',title:'性别',align:'center',sortable:true,
 					formatter:function(value,row,index){
 						return row.gender;
 					}
 				},				
-			   {field:'birthday',title:'birthday',align:'center',sortable:true,
+			   {field:'生日',title:'生日',align:'center',sortable:true,
 					formatter:function(value,row,index){
 						return dateFormatYMD(row.birthday);
 					}
 				},				
-			   {field:'nationId',title:'nationId',align:'center',sortable:true,
+			   {field:'民族',title:'民族',align:'center',sortable:true,
 					formatter:function(value,row,index){
 						return row.nationId;
 					}
 				},				
-			   {field:'identifyid',title:'identifyid',align:'center',sortable:true,
+			   {field:'证件号码',title:'证件号码',align:'center',sortable:true,
 					formatter:function(value,row,index){
 						return row.identifyid;
 					}
 				},				
-			   {field:'birthPlace',title:'birthPlace',align:'center',sortable:true,
+			   {field:'户口所在地',title:'户口所在地',align:'center',sortable:true,
 					formatter:function(value,row,index){
 						return row.birthPlace;
 					}
 				},				
-			   {field:'livePlace',title:'livePlace',align:'center',sortable:true,
+			   {field:'目前居住地',title:'目前居住地',align:'center',sortable:true,
 					formatter:function(value,row,index){
 						return row.livePlace;
 					}
 				},				
-			   {field:'postCode',title:'postCode',align:'center',sortable:true,
+			   {field:'邮政编码',title:'邮政编码',align:'center',sortable:true,
 					formatter:function(value,row,index){
 						return row.postCode;
 					}
 				},				
-			   {field:'phone',title:'phone',align:'center',sortable:true,
+			   {field:'电话号码',title:'电话号码',align:'center',sortable:true,
 					formatter:function(value,row,index){
 						return row.phone;
 					}
 				},				
-			   {field:'company',title:'company',align:'center',sortable:true,
+			   {field:'工作单位',title:'工作单位',align:'center',sortable:true,
 					formatter:function(value,row,index){
 						return row.company;
 					}
 				},				
-			   {field:'eduLevelId',title:'eduLevelId',align:'center',sortable:true,
+			   {field:'教育水平',title:'教育水平',align:'center',sortable:true,
 					formatter:function(value,row,index){
 						return row.eduLevelId;
 					}
 				},				
-			   {field:'agentId',title:'agentId',align:'center',sortable:true,
+			   {field:'代理人',title:'代理人',align:'center',sortable:true,
 					formatter:function(value,row,index){
 						return row.agentId;
 					}
 				},				
-			   {field:'createTime',title:'createTime',align:'center',sortable:true,
+			   {field:'创建时间',title:'创建时间',align:'center',sortable:true,
 					formatter:function(value,row,index){
 						return dateFormatYMD(row.createTime);
 					}
 				},				
-			   {field:'categoryId',title:'categoryId',align:'center',sortable:true,
+			   {field:'申请人人群类别',title:'申请人人群类别',align:'center',sortable:true,
 					formatter:function(value,row,index){
 						return row.categoryId;
 					}
 				},				
-			   {field:'ifFinancialDifficulty',title:'ifFinancialDifficulty',align:'center',sortable:true,
+			   {field:'是否经济困难',title:'是否经济困难',align:'center',sortable:true,
 					formatter:function(value,row,index){
 						return row.ifFinancialDifficulty;
 					}
@@ -377,91 +377,91 @@
 							</td>
 						</tr>
 						<tr>
-							<th>name</th>
+							<th>姓名</th>
 							<td>
 								<input name="name" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写name"  style="width: 155px;"/>						
 							</td>
 						</tr>
 						<tr>
-							<th>gender</th>
+							<th>性别</th>
 							<td>
 								<input name="gender" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写gender"  style="width: 155px;"/>						
 							</td>
 						</tr>
 						<tr>
-							<th>birthday</th>
+							<th>生日</th>
 							<td>
 								<input name="birthday" type="text" class="easyui-datetimebox" data-options="" missingMessage="请填写birthday"  style="width: 155px;"/>						
 							</td>
 						</tr>
 						<tr>
-							<th>nationId</th>
+							<th>民族</th>
 							<td>
 								<input name="nationId" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写nationId"  style="width: 155px;"/>						
 							</td>
 						</tr>
 						<tr>
-							<th>identifyid</th>
+							<th>证件号码</th>
 							<td>
 								<input name="identifyid" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写identifyid"  style="width: 155px;"/>						
 							</td>
 						</tr>
 						<tr>
-							<th>birthPlace</th>
+							<th>户口所在地</th>
 							<td>
 								<input name="birthPlace" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写birthPlace"  style="width: 155px;"/>						
 							</td>
 						</tr>
 						<tr>
-							<th>livePlace</th>
+							<th>目前居住地</th>
 							<td>
 								<input name="livePlace" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写livePlace"  style="width: 155px;"/>						
 							</td>
 						</tr>
 						<tr>
-							<th>postCode</th>
+							<th>邮政编码</th>
 							<td>
 								<input name="postCode" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写postCode"  style="width: 155px;"/>						
 							</td>
 						</tr>
 						<tr>
-							<th>phone</th>
+							<th>电话号码</th>
 							<td>
 								<input name="phone" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写phone"  style="width: 155px;"/>						
 							</td>
 						</tr>
 						<tr>
-							<th>company</th>
+							<th>工作单位</th>
 							<td>
 								<input name="company" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写company"  style="width: 155px;"/>						
 							</td>
 						</tr>
 						<tr>
-							<th>eduLevelId</th>
+							<th>教育水平</th>
 							<td>
 								<input name="eduLevelId" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写eduLevelId"  style="width: 155px;"/>						
 							</td>
 						</tr>
 						<tr>
-							<th>agentId</th>
+							<th>代理人</th>
 							<td>
 								<input name="agentId" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写agentId"  style="width: 155px;"/>						
 							</td>
 						</tr>
 						<tr>
-							<th>createTime</th>
+							<th>创建时间</th>
 							<td>
 								<input name="createTime" type="text" class="easyui-datetimebox" data-options="" missingMessage="请填写createTime"  style="width: 155px;"/>						
 							</td>
 						</tr>
 						<tr>
-							<th>categoryId</th>
+							<th>申请人人群类别</th>
 							<td>
 								<input name="categoryId" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写categoryId"  style="width: 155px;"/>						
 							</td>
 						</tr>
 						<tr>
-							<th>ifFinancialDifficulty</th>
+							<th>是否经济困难</th>
 							<td>
 								<input name="ifFinancialDifficulty" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写ifFinancialDifficulty"  style="width: 155px;"/>						
 							</td>
@@ -483,91 +483,91 @@
 							</td>
 						</tr>
 						<tr>
-						<th>name</th>
+						<th>姓名</th>
 							<td>
 								<input name="name" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写name"  style="width: 155px;"/>
 							</td>
 						</tr>
 						<tr>
-						<th>gender</th>
+						<th>性别</th>
 							<td>
 								<input name="gender" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写gender"  style="width: 155px;"/>
 							</td>
 						</tr>
 						<tr>
-						<th>birthday</th>
+						<th>生日</th>
 							<td>
 								<input name="birthday" type="text" class="easyui-datetimebox" data-options="" missingMessage="请填写birthday"  style="width: 155px;"/>
 							</td>
 						</tr>
 						<tr>
-						<th>nationId</th>
+						<th>民族</th>
 							<td>
 								<input name="nationId" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写nationId"  style="width: 155px;"/>
 							</td>
 						</tr>
 						<tr>
-						<th>identifyid</th>
+						<th>证件号码</th>
 							<td>
 								<input name="identifyid" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写identifyid"  style="width: 155px;"/>
 							</td>
 						</tr>
 						<tr>
-						<th>birthPlace</th>
+						<th>户口所在地</th>
 							<td>
 								<input name="birthPlace" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写birthPlace"  style="width: 155px;"/>
 							</td>
 						</tr>
 						<tr>
-						<th>livePlace</th>
+						<th>目前居住地</th>
 							<td>
 								<input name="livePlace" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写livePlace"  style="width: 155px;"/>
 							</td>
 						</tr>
 						<tr>
-						<th>postCode</th>
+						<th>邮政编码</th>
 							<td>
 								<input name="postCode" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写postCode"  style="width: 155px;"/>
 							</td>
 						</tr>
 						<tr>
-						<th>phone</th>
+						<th>电话号码</th>
 							<td>
 								<input name="phone" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写phone"  style="width: 155px;"/>
 							</td>
 						</tr>
 						<tr>
-						<th>company</th>
+						<th>工作单位</th>
 							<td>
 								<input name="company" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写company"  style="width: 155px;"/>
 							</td>
 						</tr>
 						<tr>
-						<th>eduLevelId</th>
+						<th>教育水平</th>
 							<td>
 								<input name="eduLevelId" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写eduLevelId"  style="width: 155px;"/>
 							</td>
 						</tr>
 						<tr>
-						<th>agentId</th>
+						<th>代理人</th>
 							<td>
 								<input name="agentId" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写agentId"  style="width: 155px;"/>
 							</td>
 						</tr>
 						<tr>
-						<th>createTime</th>
+						<th>创建时间</th>
 							<td>
 								<input name="createTime" type="text" class="easyui-datetimebox" data-options="" missingMessage="请填写createTime"  style="width: 155px;"/>
 							</td>
 						</tr>
 						<tr>
-						<th>categoryId</th>
+						<th>申请人人群类别</th>
 							<td>
 								<input name="categoryId" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写categoryId"  style="width: 155px;"/>
 							</td>
 						</tr>
 						<tr>
-						<th>ifFinancialDifficulty</th>
+						<th>是否经济困难</th>
 							<td>
 								<input name="ifFinancialDifficulty" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写ifFinancialDifficulty"  style="width: 155px;"/>
 							</td>

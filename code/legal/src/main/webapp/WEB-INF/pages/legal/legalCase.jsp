@@ -31,7 +31,7 @@
 			nowrap : false,
 			border : false,
 			idField : 'id',
-			sortName : 'createDt',
+			sortName : 'id',
 			sortOrder : 'desc',
 			columns : [ [ 
 			{field:'ck',checkbox:true,
