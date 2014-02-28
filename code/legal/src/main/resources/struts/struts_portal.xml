@@ -78,11 +78,20 @@
 		<!-- 文件上传相关配置 -->
 
 		<action name="goUploadFile" class="com.neusoft.base.action.FileUploadAction">
-			<result name="success">/WEB-INF/pages/basic/uploadFile.jsp</result>
+			<result name="success">/WEB-INF/pages/security/uploadFile.jsp</result>
 		</action>
 		<!-- 搜索文件信息 -->
 		<action name="searchUploadFile" class="com.neusoft.base.action.FileUploadAction"
-			method="searchUploadFile"></action>
+			method="searchUploadFile">
+			<result type="json">
+				<param name="root">json</param>
+				<param name="excludeProperties"></param>
+			</result>
+			<result type="json" name="datagrid">
+				<param name="root">datagrid</param>
+				<param name="excludeProperties"></param> 
+			</result>
+	    </action>
 
 		<!-- 上传文件 -->
 		<action name="uplaodFile" class="com.neusoft.base.action.FileUploadAction" method="uplaodFile">
