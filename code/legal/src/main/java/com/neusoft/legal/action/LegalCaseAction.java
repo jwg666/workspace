@@ -83,7 +83,7 @@ public class LegalCaseAction extends BaseAction implements ModelDriven<LegalCase
 	 * 添加一个LegalCase
 	 */
 	public String add() {
-		legalCase.setCreateTime(new Date());
+		legalCaseQuery.setCreateTime(new Date());
 		logger.debug("》》》"+legalCaseQuery);
 		legalCaseService.add(legalCaseQuery);
 		json.setSuccess(true);

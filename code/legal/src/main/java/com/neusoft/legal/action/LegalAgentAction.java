@@ -82,13 +82,18 @@ public class LegalAgentAction extends BaseAction implements ModelDriven<LegalAge
 	 * 添加一个LegalAgent
 	 */
 	public String add() {
-		legalAgent.setCreateTime(new Date());
-		System.out.println("<<<"+legalAgentQuery);
-		legalAgentService.add(legalAgentQuery);
-		json.setSuccess(true);
-		json.setObj(legalAgentQuery);
-		json.setMsg("添加成功！");
-		return SUCCESS;
+		try {
+			legalAgentQuery.setCreateTime(new Date());
+			System.out.println("<<<"+legalAgentQuery);
+			legalAgentService.add(legalAgentQuery);
+			json.setSuccess(true);
+			json.setObj(legalAgentQuery);
+			json.setMsg("添加成功！");
+			return SUCCESS;
+		} catch (Exception e) {
+			logger.debug(">>>",e);
+		}
+		return null;
 	}
 
 	/**

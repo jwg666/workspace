@@ -66,6 +66,7 @@ public class LegalApplicantAction extends BaseAction implements ModelDriven<Lega
 	 */
 	public String datagrid() {
 		datagrid = legalApplicantService.datagrid(legalApplicantQuery);
+		logger.debug(">>>datagrid:"+datagrid.getRows().size());
 		return "datagrid";
 	}
 	
