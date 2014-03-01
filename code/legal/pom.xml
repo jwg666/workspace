@@ -139,22 +139,6 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-beans</artifactId>
-			<version>${org.springframework-version}</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-			<version>${org.springframework-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-tx</artifactId>
-			<version>${org.springframework-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
 			<version>${org.springframework-version}</version>
 			<type>jar</type>
@@ -460,36 +444,19 @@
 						<groupId>org.springframework</groupId>
 						<artifactId>spring-core</artifactId>
 					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-beans</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-context</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-tx</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-expression</artifactId>
-					</exclusion>
 			 </exclusions>
 	    </dependency>
-		
 		<!-- activiti -->
 			<dependency>
 				<groupId>org.activiti</groupId>
 				<artifactId>activiti-engine</artifactId>
 				<version>${activiti.version}</version>
-				<exclusions>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-beans</artifactId>
-					</exclusion>
-				</exclusions>
+		</dependency>
+		<!-- activiti -->
+			<dependency>
+				<groupId>org.activiti</groupId>
+				<artifactId>activiti-engine</artifactId>
+				<version>${activiti.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.activiti</groupId>
@@ -499,22 +466,6 @@
 					<exclusion>
 						<artifactId>slf4j-log4j12</artifactId>
 						<groupId>org.slf4j</groupId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-context</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-jdbc</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-orm</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-tx</artifactId>
 					</exclusion>				
 				</exclusions>
 			</dependency>
@@ -524,22 +475,6 @@
 				<artifactId>activiti-explorer</artifactId>
 				<version>5.12</version>
 				<exclusions>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-core</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-beans</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-jdbc</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-web</artifactId>
-					</exclusion>
 					<exclusion>
 						<artifactId>vaadin</artifactId>
 						<groupId>com.vaadin</groupId>
@@ -586,73 +521,6 @@
 		    <version>1.0.10</version>
 		  </dependency>  
 		  
-            <dependency>
-			    <groupId>org.springframework.flex</groupId>
-			    <artifactId>spring-flex-core</artifactId>
-			    <version>1.5.0.BUILD-SNAPSHOT</version>
-			    <exclusions>
-			    	<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-core</artifactId>
-					</exclusion>
-			    	<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-beans</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-context-support</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-context</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-web</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-webmvc</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>com.adobe.blazeds</groupId>
-						<artifactId>blazeds-core</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>com.adobe.blazeds</groupId>
-						<artifactId>blazeds-common</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>com.adobe.blazeds</groupId>
-						<artifactId>blazeds-remoting</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>com.adobe.blazeds</groupId>
-						<artifactId>blazeds-proxy</artifactId>
-					</exclusion>
-			    </exclusions>
-			</dependency>
-		    <dependency>
-				<groupId>com.adobe.blazeds</groupId>
-				<artifactId>blazeds-core</artifactId>
-				<version>${blaze-version}</version>
-			</dependency>
-            <dependency>
-				<groupId>com.adobe.blazeds</groupId>
-				<artifactId>blazeds-common</artifactId>
-				<version>${blaze-version}</version>
-			</dependency>
-            <dependency>
-				<groupId>com.adobe.blazeds</groupId>
-				<artifactId>blazeds-remoting</artifactId>
-				<version>${blaze-version}</version>
-			</dependency>
-            <dependency>
-				<groupId>com.adobe.blazeds</groupId>
-				<artifactId>blazeds-proxy</artifactId>
-				<version>${blaze-version}</version>
-			</dependency>
             
 		<!-- Test -->		
 		<dependency>
