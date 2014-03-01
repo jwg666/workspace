@@ -19,7 +19,7 @@
 	    searchForm = $('#searchForm').form();
 		datagrid = $('#datagrid').datagrid({
 			url : 'legalAgentAction!datagrid.do',
-			title : '代理人列表',
+			title : 'legalAgent列表',
 			iconCls : 'icon-save',
 			pagination : true,
 			pagePosition : 'bottom',

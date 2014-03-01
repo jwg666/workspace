@@ -19,7 +19,7 @@
 	    searchForm = $('#searchForm').form();
 		datagrid = $('#datagrid').datagrid({
 			url : 'legalApplicantAction!datagrid.do',
-			title : '法律援助申请人列表',
+			title : 'legalApplicant列表',
 			iconCls : 'icon-save',
 			pagination : true,
 			pagePosition : 'bottom',
