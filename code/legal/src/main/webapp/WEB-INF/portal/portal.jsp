@@ -106,7 +106,7 @@
 							
 							<ul id="todotasks">
 							<!-- 待办列表demo start-->
-							    <li  src="" resName="案件审核" resIcon="" resH="20"  resW="20" resid="2"  id="resource_2">
+							    <li  src="../legal/legalApplicantAction!goLegalApplicant.do" resName="案件审核" resIcon="" resH="20"  resW="20" resid="2"  id="resource_2">
 								 <div class="main-content-navi-icon">
 								 <img width="35px" height="35px" src="${staticURL}/portal/img/images/content-icon1.png" />
 										<div class="live-tip">6</div>
@@ -180,12 +180,12 @@
 					</div>
 					<!-- iframe -->
 					<div id="homeIframeContent" style="height:400px;width:100%;background-color: white;">
-						<!-- <iframe id="homeIframe"  style="height:400px;width:100%; border:0 none;" src="../legal/legalAction!stepOne.do" ></iframe> -->
-						<!-- <iframe id="homeIframe"  style="height:400px;width:100%; border:0 none;" src="../legal/legalCaseAction!goLegalCase.do" ></iframe> -->
-						<!-- <iframe id="homeIframe"  style="height:400px;width:100%; border:0 none;" src="../legal/legalAgentAction!goLegalAgent.do" ></iframe> -->
-						<!-- <iframe id="homeIframe"  style="height:400px;width:100%; border:0 none;" src="../legal/legalApproveAction!goLegalApprove.do" ></iframe> -->
+						<iframe id="homeIframe"  style="height:400px;width:100%; border:0 none;" src="../legal/legalAction!stepOne.do" ></iframe>
+<!-- 						<iframe id="homeIframe"  style="height:400px;width:100%; border:0 none;" src="../legal/legalCaseAction!goLegalCase.do" ></iframe>
+						<iframe id="homeIframe"  style="height:400px;width:100%; border:0 none;" src="../legal/legalAgentAction!goLegalAgent.do" ></iframe>
+						<iframe id="homeIframe"  style="height:400px;width:100%; border:0 none;" src="../legal/legalApproveAction!goLegalApprove.do" ></iframe>
 						<iframe id="homeIframe"  style="height:400px;width:100%; border:0 none;" src="../legal/legalApplicantAction!goLegalApplicant.do" ></iframe>
-					</div>
+ -->					</div>
 				</div>
 			</div>
 		</div>
