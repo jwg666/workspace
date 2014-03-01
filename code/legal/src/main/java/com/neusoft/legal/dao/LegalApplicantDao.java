@@ -51,11 +51,9 @@ public class LegalApplicantDao extends HBaseDAO<LegalApplicant>{
 	
 	public Pager<LegalApplicant> findPage(LegalApplicantQuery query) {
 		try {
-			System.out.println(getClass()+">>>"+query);
 			Pager<LegalApplicant> pager = new Pager<LegalApplicant>();
 			Map map = ConverterUtil.toHashMap(query);
 			List<LegalApplicant> appList = findList(LegalApplicant.class, map, query.getPage().intValue(), query.getRows().intValue());
-			System.out.println(getClass()+">>>"+appList.size());
 			pager.setTotalRecords(getTotalCount(LegalApplicant.class, map));
 			pager.setCurrentPage(query.getPage());
 			pager.setPageSize(query.getRows());
