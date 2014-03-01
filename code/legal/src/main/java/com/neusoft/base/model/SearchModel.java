@@ -33,7 +33,6 @@ public  class SearchModel<T> implements Serializable {
 	private String  sort;
 	
 	public Long getPage() {
-		System.out.println(">>>>>rows:"+rows);
 		return page;
 	}
 	public void setPage(Long page) {
