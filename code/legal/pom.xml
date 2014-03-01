@@ -15,6 +15,7 @@
 		<org.slf4j-version>1.6.1</org.slf4j-version>
 		<struts2-version>2.3.16</struts2-version>
 		<activiti.version>5.13</activiti.version>
+		<blaze-version>3.2.0.3978</blaze-version>
 	</properties>
 	
 	<!-- 不同的打包环境 -->
@@ -62,6 +63,14 @@
 					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
 				 </exclusion>
+				<exclusion>
+					<artifactId>spring-core</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>spring-beans</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
 			</exclusions>
 		</dependency>
 		<dependency>
@@ -70,21 +79,50 @@
 			<version>${org.springframework-version}</version>
 			<type>jar</type>
 	         <scope>compile</scope>
+	         <exclusions>
+	         	<exclusion>
+	         		<artifactId>spring-core</artifactId>
+	         		<groupId>org.springframework</groupId>
+	         	</exclusion>
+	         	<exclusion>
+	         		<artifactId>spring-beans</artifactId>
+	         		<groupId>org.springframework</groupId>
+	         	</exclusion>
+	         </exclusions>
 		</dependency>
-		
 		<dependency>
-         	<groupId>org.springframework</groupId>
-         	<artifactId>spring-tx</artifactId>
-         	<version>${org.springframework-version}</version> 
-         	<type>jar</type>
-    	    <scope>compile</scope>        	
-         </dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework-version}</version>
+			<type>jar</type>
+	         <scope>compile</scope>
+	         <exclusions>
+	         	<exclusion>
+	         		<artifactId>spring-beans</artifactId>
+	         		<groupId>org.springframework</groupId>
+	         	</exclusion>
+	         	<exclusion>
+	         		<artifactId>spring-core</artifactId>
+	         		<groupId>org.springframework</groupId>
+	         	</exclusion>
+	         </exclusions>
+		</dependency>
          <dependency>
          	<groupId>org.springframework</groupId>
          	<artifactId>spring-aop</artifactId>
          	<version>${org.springframework-version}</version>
          	<type>jar</type>
          	<scope>compile</scope>
+         	<exclusions>
+         		<exclusion>
+         			<artifactId>spring-beans</artifactId>
+         			<groupId>org.springframework</groupId>
+         		</exclusion>
+         		<exclusion>
+         			<artifactId>spring-core</artifactId>
+         			<groupId>org.springframework</groupId>
+         		</exclusion>
+         	</exclusions>
          </dependency>
          <dependency>
          	<groupId>org.springframework</groupId>
@@ -92,21 +130,40 @@
          	<version>${org.springframework-version}</version>
          	<type>jar</type>
          	<scope>compile</scope>
-         </dependency>
-         <dependency>
-         	<groupId>org.springframework</groupId>
-         	<artifactId>spring-core</artifactId>
-         	<version>${org.springframework-version}</version>
-         	<type>jar</type>
-         	<scope>compile</scope>
+         	<exclusions>
+         		<exclusion>
+         			<artifactId>spring-tx</artifactId>
+         			<groupId>org.springframework</groupId>
+         		</exclusion>
+         		<exclusion>
+         			<artifactId>spring-beans</artifactId>
+         			<groupId>org.springframework</groupId>
+         		</exclusion>
+         		<exclusion>
+         			<artifactId>spring-core</artifactId>
+         			<groupId>org.springframework</groupId>
+         		</exclusion>
+         	</exclusions>
          </dependency>
          <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-orm</artifactId>
                 <version>${org.springframework-version}</version>
+                <exclusions>
+                	<exclusion>
+                		<artifactId>spring-tx</artifactId>
+                		<groupId>org.springframework</groupId>
+                	</exclusion>
+                	<exclusion>
+                		<artifactId>spring-beans</artifactId>
+                		<groupId>org.springframework</groupId>
+                	</exclusion>
+                	<exclusion>
+                		<artifactId>spring-core</artifactId>
+                		<groupId>org.springframework</groupId>
+                	</exclusion>
+                </exclusions>
          </dependency>
-
-            
          <dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-core-asl</artifactId>
@@ -134,6 +191,10 @@
 					<exclusion>
 						<groupId>com.sun</groupId>
 						<artifactId>tools</artifactId>
+					</exclusion>
+					<exclusion>
+						<artifactId>asm</artifactId>
+						<groupId>asm</groupId>
 					</exclusion>
 				</exclusions>
 			</dependency>            
@@ -223,6 +284,12 @@
          	<version>2.2.2</version>
          	<type>jar</type>
          	<scope>compile</scope>
+         	<exclusions>
+         		<exclusion>
+         			<artifactId>asm</artifactId>
+         			<groupId>asm</groupId>
+         		</exclusion>
+         	</exclusions>
          </dependency>
          
 			  <dependency>
@@ -314,6 +381,12 @@
 				<groupId>org.activiti</groupId>
 				<artifactId>activiti-engine</artifactId>
 				<version>${activiti.version}</version>
+		</dependency>
+		<!-- activiti -->
+			<dependency>
+				<groupId>org.activiti</groupId>
+				<artifactId>activiti-engine</artifactId>
+				<version>${activiti.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.activiti</groupId>
@@ -323,7 +396,7 @@
 					<exclusion>
 						<artifactId>slf4j-log4j12</artifactId>
 						<groupId>org.slf4j</groupId>
-					</exclusion>
+					</exclusion>				
 				</exclusions>
 			</dependency>
 
@@ -347,7 +420,7 @@
 					<exclusion>
 						<artifactId>slf4j-log4j12</artifactId>
 						<groupId>org.slf4j</groupId>
-					</exclusion>
+					</exclusion>				
 				</exclusions>
 			</dependency>
 			<dependency>
@@ -372,7 +445,7 @@
 		  </dependency>
 		  		
 		  <!-- aliyun -->
-		    <dependency>
+		  <dependency>
 		    <groupId>com.aliyun.openservices</groupId>
 		    <artifactId>aliyun-openservices</artifactId>
 		    <version>1.0.10</version>
@@ -382,26 +455,68 @@
 			    <groupId>org.springframework.flex</groupId>
 			    <artifactId>spring-flex-core</artifactId>
 			    <version>1.5.0.BUILD-SNAPSHOT</version>
+			    <exclusions>
+			    	<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring-core</artifactId>
+					</exclusion>
+			    	<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring-beans</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring-context-support</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring-context</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring-web</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring-webmvc</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>com.adobe.blazeds</groupId>
+						<artifactId>blazeds-core</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>com.adobe.blazeds</groupId>
+						<artifactId>blazeds-common</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>com.adobe.blazeds</groupId>
+						<artifactId>blazeds-remoting</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>com.adobe.blazeds</groupId>
+						<artifactId>blazeds-proxy</artifactId>
+					</exclusion>
+			    </exclusions>
 			</dependency>
 		    <dependency>
 				<groupId>com.adobe.blazeds</groupId>
 				<artifactId>blazeds-core</artifactId>
-				<version>3.2.0.3978</version>
+				<version>${blaze-version}</version>
 			</dependency>
             <dependency>
 				<groupId>com.adobe.blazeds</groupId>
 				<artifactId>blazeds-common</artifactId>
-				<version>3.2.0.3978</version>
+				<version>${blaze-version}</version>
 			</dependency>
             <dependency>
 				<groupId>com.adobe.blazeds</groupId>
 				<artifactId>blazeds-remoting</artifactId>
-				<version>3.2.0.3978</version>
+				<version>${blaze-version}</version>
 			</dependency>
             <dependency>
 				<groupId>com.adobe.blazeds</groupId>
 				<artifactId>blazeds-proxy</artifactId>
-				<version>3.2.0.3978</version>
+				<version>${blaze-version}</version>
 			</dependency>
             
 		<!-- Test -->		
@@ -565,6 +680,6 @@
 		  <url>http://oss.sonatype.org/content/repositories/snapshots</url>
 	      <releases><enabled>false</enabled></releases>
 	      <snapshots><enabled>true</enabled></snapshots>
-	    </repository>		
+	    </repository>	
 	</repositories>
 </project>
