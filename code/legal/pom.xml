@@ -476,6 +476,10 @@
 				<version>5.12</version>
 				<exclusions>
 					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring-core</artifactId>
+					</exclusion>
+					<exclusion>
 						<artifactId>vaadin</artifactId>
 						<groupId>com.vaadin</groupId>
 					</exclusion>
