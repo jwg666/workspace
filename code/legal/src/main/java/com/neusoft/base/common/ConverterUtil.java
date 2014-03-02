@@ -25,9 +25,9 @@ public class ConverterUtil {
 					map.put(field.getName(),field.get(o));
 				}				
 			} catch (IllegalArgumentException e) {
-				e.printStackTrace();
+				logger.error("----------------",e);
 			} catch (IllegalAccessException e) {
-				e.printStackTrace();
+				logger.error("----------------",e);
 			}
 		}
 		return map;
@@ -39,16 +39,16 @@ public class ConverterUtil {
 		for (Field field : fields) {
 			try {
 				int mod = field.getModifiers();
-				logger.debug(mod+":"+field.getName());
+//				logger.debug(mod+":"+field.getName());
 				Object value = field.get(o);
 				if (mod==Modifier.PRIVATE&&!(null==value)) {
-					logger.debug("{} value is: {}",field.getName(),value);
+//					logger.debug("{} value is: {}",field.getName(),value);
 					json.put(field.getName(),field.get(o));
 				}				
 			} catch (IllegalArgumentException e) {
-				e.printStackTrace();
+				logger.error("----------------",e);
 			} catch (IllegalAccessException e) {
-				e.printStackTrace();
+				logger.error("----------------",e);
 			}
 		}
 		return json;
