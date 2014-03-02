@@ -2,6 +2,7 @@ package com.neusoft.base.model;
 
 import java.io.Serializable;
 
+
 import com.neusoft.base.common.Pager;
 import com.neusoft.base.common.ValidateUtil;
 
@@ -40,7 +41,7 @@ public  class SearchModel<T> implements Serializable {
 			page=Long.valueOf(1);
 		}
 		getPager().setCurrentPage(page);
-		this.page = (page-1)*rows;
+		this.page = page;
 	}
 	public Long getRows() {		
 		return rows;
