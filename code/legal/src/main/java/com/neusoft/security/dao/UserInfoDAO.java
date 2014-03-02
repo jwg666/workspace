@@ -7,8 +7,8 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.neusoft.base.dao.HBaseDAO;
-import com.neusoft.base.model.SearchModel;
 import com.neusoft.security.domain.UserInfo;
+import com.neusoft.security.query.UserInfoQuery;
 
 /**
  * 用户接口
@@ -31,10 +31,10 @@ public class UserInfoDAO extends HBaseDAO<UserInfo>{
 		return (UserInfo)getCriteria(UserInfo.class).add(Restrictions.eq("empCode", name)).uniqueResult();
 	}
 	
-	public List<UserInfo> searchUserInfo(SearchModel<UserInfo> model){
+	public List<UserInfo> searchUserInfo(UserInfoQuery model){
 		return null;
 	}
-	public Long searchUserInfoCount(SearchModel<UserInfo> model){
+	public Long searchUserInfoCount(UserInfoQuery model){
 		return null;
 	}
 	
@@ -47,10 +47,10 @@ public class UserInfoDAO extends HBaseDAO<UserInfo>{
 		return null;
 	}
 	
-	public List<UserInfo> getUserInfosByGroupId(SearchModel<UserInfo> searchModel){
+	public List<UserInfo> getUserInfosByGroupId(UserInfoQuery userInfoQuery){
 		return null;
 	}
-	public Long getUserInfosByGroupIdCount(SearchModel<UserInfo> searchModel){
+	public Long getUserInfosByGroupIdCount(UserInfoQuery userInfoQuery){
 		return null;
 	}
 	public UserInfo getUserInfoByCode(String empCode){
