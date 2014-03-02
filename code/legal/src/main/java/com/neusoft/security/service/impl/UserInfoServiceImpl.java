@@ -22,6 +22,7 @@ import com.neusoft.base.common.PasswordUtil;
 import com.neusoft.base.model.SearchModel;
 import com.neusoft.security.dao.UserInfoDAO;
 import com.neusoft.security.domain.UserInfo;
+import com.neusoft.security.query.UserInfoQuery;
 import com.neusoft.security.service.UserInfoService;
 
 @Service("userInfoService")
@@ -76,8 +77,8 @@ public class UserInfoServiceImpl implements UserInfoService {
 	}
 	
     /**
-     * 添加一个用户到Activiti {@link org.activiti.engine.identity.UserInfo}
-     * @param UserInfo  用户对象, {@link UserInfo}
+     * 添加一个用户到Activiti {@link org.activiti.engine.identity.UserInfoQuery}
+     * @param UserInfoQuery  用户对象, {@link UserInfo}
      */
     private void saveActivitiUserInfo(UserInfo userInfo) {
         String userInfoId = userInfo.getEmpCode();
@@ -86,7 +87,7 @@ public class UserInfoServiceImpl implements UserInfoService {
     }
     /**
      * 使用系统用户对象属性设置到Activiti UserInfo对象中
-     * @param UserInfo          系统用户对象
+     * @param UserInfoQuery          系统用户对象
      * @param activitiUserInfo  Activiti UserInfo
      */
     private void cloneAndSaveActivitiUser(UserInfo userInfo, org.activiti.engine.identity.User activitiUser) {
@@ -98,10 +99,10 @@ public class UserInfoServiceImpl implements UserInfoService {
     }
 
 	@Override
-	public Pager<UserInfo> searchUserInfo(SearchModel<UserInfo> searchModel) {
-		List<UserInfo> records = userInfoDAO.searchUserInfo(searchModel);
-		long totalRecords = userInfoDAO.searchUserInfoCount(searchModel);
-		return Pager.cloneFromPager(searchModel.getPager(), totalRecords,
+	public Pager<UserInfo> searchUserInfo(UserInfoQuery userInfoQuery) {
+		List<UserInfo> records = userInfoDAO.searchUserInfo(userInfoQuery);
+		long totalRecords = userInfoDAO.searchUserInfoCount(userInfoQuery);
+		return Pager.cloneFromPager(userInfoQuery.getPager(), totalRecords,
 				records);
 	}
 
@@ -535,16 +536,16 @@ public class UserInfoServiceImpl implements UserInfoService {
 	}
 
 	@Override
-	public Pager<UserInfo> getUserInfosByGroupId(SearchModel<UserInfo> model) {
-		List<UserInfo> UserInfos = userInfoDAO.getUserInfosByGroupId(model);
-		long size = userInfoDAO.getUserInfosByGroupIdCount(model);
-		return Pager.cloneFromPager(model.getPager(), size, UserInfos);
+	public Pager<UserInfo> getUserInfosByGroupId(UserInfoQuery  userInfoQuery) {
+		List<UserInfo> UserInfos = userInfoDAO.getUserInfosByGroupId(userInfoQuery);
+		long size = userInfoDAO.getUserInfosByGroupIdCount(userInfoQuery);
+		return Pager.cloneFromPager(userInfoQuery.getPager(), size, UserInfos);
 	}
 
 	@Override
-	public Long searchUserInfoCount(SearchModel<UserInfo> searchModel) {
+	public Long searchUserInfoCount(UserInfoQuery userInfoQuery) {
 		
-		return userInfoDAO.searchUserInfoCount(searchModel);
+		return userInfoDAO.searchUserInfoCount(userInfoQuery);
 	}
 
 	@Override
@@ -582,7 +583,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 	}
 
 	@Override
-	public Pager<Map<String,Object>> getUserInfosAndGroupByGroupId(SearchModel<UserInfo> UserInfoSearchModel) {
+	public Pager<Map<String,Object>> getUserInfosAndGroupByGroupId(UserInfoQuery  userInfoQuery) {
 		//getUserInfosAndGroupByGroupId
 //		List<Map<String,Object>> UserInfos = UserInfoDAO.getUserInfosAndGroupByGroupId(UserInfoSearchModel.getMap());
 //		for(Map<String,Object> map:UserInfos){

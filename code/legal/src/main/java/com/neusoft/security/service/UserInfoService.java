@@ -8,6 +8,7 @@ import com.neusoft.base.common.LoginContext;
 import com.neusoft.base.common.Pager;
 import com.neusoft.base.model.SearchModel;
 import com.neusoft.security.domain.UserInfo;
+import com.neusoft.security.query.UserInfoQuery;
 
 /**
  * @author WangXuzheng
@@ -16,7 +17,7 @@ import com.neusoft.security.domain.UserInfo;
 public interface UserInfoService {
 	/**
 	 * 创建用户信息
-	 * @param UserInfo
+	 * @param UserInfoQuery
 	 * @return
 	 */
 	public ExecuteResult<UserInfo> createUserInfo(UserInfo userInfo);
@@ -33,7 +34,7 @@ public interface UserInfoService {
 	 * @param UserInfoSearchModel
 	 * @return
 	 */
-	public Pager<UserInfo> searchUserInfo(SearchModel<UserInfo> searchModel);
+	public Pager<UserInfo> searchUserInfo(UserInfoQuery userInfoQuery);
 	
 	/**
 	 * 删除用户信息
@@ -44,7 +45,7 @@ public interface UserInfoService {
 	
 	/**
 	 * 更新用户信息
-	 * @param UserInfo
+	 * @param UserInfoQuery
 	 * @return
 	 */
 	public ExecuteResult<UserInfo> updateUserInfo(UserInfo userInfo);
@@ -65,7 +66,7 @@ public interface UserInfoService {
 	
 	/**
 	 * 判断用户密码是否需要提醒
-	 * @param UserInfo
+	 * @param UserInfoQuery
 	 * @return
 	 */
 	public ExecuteResult<Boolean> shouldTipPassword(UserInfo userInfo);
@@ -97,25 +98,25 @@ public interface UserInfoService {
 	public ExecuteResult<UserInfo> updateUserInfoEncode(String name);
 	/**
 	 * 获取用户还有多少天过期
-	 * @param UserInfo
+	 * @param UserInfoQuery
 	 * @return
 	 */
 	public String getExpiredDate(UserInfo userInfo); 
 	/**
 	 * 根据用户名获取用户信息
-	 * @param UserInfo
+	 * @param UserInfoQuery
 	 * @return
 	 */
 	public UserInfo getUserInfoByName(String name);
 	/**
 	 * 获取所有用户信息
-	 * @param UserInfo
+	 * @param UserInfoQuery
 	 * @return
 	 */
 	public List<UserInfo> getAll();
 	/**
 	 * 更新失效账号信息
-	 * @param UserInfo
+	 * @param UserInfoQuery
 	 * @return
 	 */
 	public ExecuteResult<UserInfo> updateExpiredUserInfo(UserInfo userInfo);
@@ -124,13 +125,13 @@ public interface UserInfoService {
 	 * @param
 	 * @return
 	 */
-	public Pager<UserInfo> getUserInfosByGroupId(SearchModel<UserInfo> model);
+	public Pager<UserInfo> getUserInfosByGroupId(UserInfoQuery userInfoQuery);
 	/**
 	 * 获取用户数量
 	 * @param
 	 * @return
 	 */
-	public Long searchUserInfoCount(SearchModel<UserInfo> searchModel);
+	public Long searchUserInfoCount(UserInfoQuery  userInfoQuery);
 	/*
 	 * 查询用户列表
 	 * */
@@ -155,5 +156,5 @@ public interface UserInfoService {
 
 	public List<UserInfo> getUserInfoByEmpCodes(List<String> UserInfoEmpCodeList);
 
-	public Pager<Map<String,Object>> getUserInfosAndGroupByGroupId(SearchModel<UserInfo> searchModel);
+	public Pager<Map<String,Object>> getUserInfosAndGroupByGroupId(UserInfoQuery userInfoQuery);
 }
