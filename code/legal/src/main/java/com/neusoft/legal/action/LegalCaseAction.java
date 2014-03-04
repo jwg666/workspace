@@ -89,8 +89,8 @@ public class LegalCaseAction extends BaseAction implements ModelDriven<LegalCase
 	 */
 	public String add() {
 		legalCaseQuery.setCreateTime(new Date());
-		logger.debug("》》》"+legalCaseQuery);
-		legalCaseService.add(legalCaseQuery);
+		Long id = legalCaseService.add(legalCaseQuery);
+		legalCaseQuery.setId(id);
 		json.setSuccess(true);
 		json.setObj(legalCaseQuery);
 		json.setMsg("添加成功！");
@@ -116,7 +116,10 @@ public class LegalCaseAction extends BaseAction implements ModelDriven<LegalCase
 		json.setSuccess(true);
 		return SUCCESS;
 	}
-
+	public String dock(){
+		
+		return "dock";
+	}
 	@Override
 	public LegalCaseQuery getModel() {
 		return legalCaseQuery;

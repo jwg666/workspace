@@ -65,14 +65,10 @@ public class LegalApplicantAction extends BaseAction implements ModelDriven<Lega
 	 * 获得pageHotel数据表格
 	 */
 	public String datagrid() {
-		try {
-			datagrid = legalApplicantService.datagrid(legalApplicantQuery);
-			logger.debug(">>>datagrid:"+datagrid.getRows().size());
-			logger.debug(">>>datagrid:"+datagrid.getTotal());
-			return "datagrid";
-		} catch (Exception e) {
-			logger.debug(">>>"+e);
-		}return null;
+		datagrid = legalApplicantService.datagrid(legalApplicantQuery);
+		logger.debug(">>>datagrid:"+datagrid.getRows().size());
+		logger.debug(">>>datagrid:"+datagrid.getTotal());
+		return "datagrid";
 	}
 	
 	
@@ -88,18 +84,14 @@ public class LegalApplicantAction extends BaseAction implements ModelDriven<Lega
 	 * 添加一个LegalApplicant
 	 */
 	public String add() {
-		try {
-			legalApplicantQuery.setCreateTime(new Date());
-			logger.debug(">>>"+legalApplicantQuery);
-			legalApplicantService.add(legalApplicantQuery);
-			json.setSuccess(true);
-//			json.setObj(legalApplicantQuery);
-			json.setMsg("添加成功！");
-			json.toString();
-			return SUCCESS;
-		} catch (Exception e) {
-			logger.debug(">>>"+e);
-		}return null;
+		legalApplicantQuery.setCreateTime(new Date());
+		Long id = legalApplicantService.add(legalApplicantQuery);
+		legalApplicantQuery.setId(id);
+		json.setSuccess(true);
+		json.setObj(legalApplicantQuery);
+		json.setMsg("添加成功！");
+		json.toString();
+		return SUCCESS;
 	}
 
 	/**

@@ -57,10 +57,10 @@ public class LegalCaseServiceImpl implements LegalCaseService{
 
 
 	@Override
-	public void add(LegalCaseQuery legalCaseQuery) {
+	public Long add(LegalCaseQuery legalCaseQuery) {
 		LegalCase t = new LegalCase();
 		BeanUtils.copyProperties(legalCaseQuery, t);
-		legalCaseDao.save(t);
+		return legalCaseDao.save(t);
 	}
 
 	@Override

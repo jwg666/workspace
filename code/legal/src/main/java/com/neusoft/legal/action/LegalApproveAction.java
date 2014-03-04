@@ -90,7 +90,8 @@ public class LegalApproveAction extends BaseAction implements ModelDriven<LegalA
 	 */
 	public String add() {
 		legalApproveQuery.setCreateTime(new Date());
-		legalApproveService.add(legalApproveQuery);
+		Long id = legalApproveService.add(legalApproveQuery);
+		legalApproveQuery.setId(id);
 		json.setSuccess(true);
 		json.setObj(legalApproveQuery);
 		json.setMsg("添加成功！");

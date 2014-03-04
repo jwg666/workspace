@@ -25,7 +25,7 @@ public interface LegalCaseService{
 	 * 
 	 * @param legalCaseQuery
 	 */
-	public void add(LegalCaseQuery legalCaseQuery);
+	public Long add(LegalCaseQuery legalCaseQuery);
 
 	/**
 	 * 修改

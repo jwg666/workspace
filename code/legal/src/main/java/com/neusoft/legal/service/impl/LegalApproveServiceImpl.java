@@ -57,10 +57,10 @@ public class LegalApproveServiceImpl implements LegalApproveService{
 
 
 	@Override
-	public void add(LegalApproveQuery legalApproveQuery) {
+	public Long add(LegalApproveQuery legalApproveQuery) {
 		LegalApprove t = new LegalApprove();
 		BeanUtils.copyProperties(legalApproveQuery, t);
-		legalApproveDao.save(t);
+		return legalApproveDao.save(t);
 	}
 
 	@Override

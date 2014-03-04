@@ -10,6 +10,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
+import com.neusoft.base.common.ConverterUtil;
 import com.neusoft.base.common.Pager;
 import com.neusoft.base.common.PropertyUtils;
 import com.neusoft.base.domain.Dictionary;
@@ -44,12 +45,12 @@ public class DictionaryDao extends HBaseDAO<Dictionary>{
 	 
 	@SuppressWarnings("unchecked")
 	public List<Dictionary> findList(DictionaryQuery query) {		
-		return findList(Dictionary.class, PropertyUtils.toParameterMap(query));
+		return findList(Dictionary.class, ConverterUtil.toHashMap(query));
 	}
 	
 	public Pager<Dictionary> findPage(DictionaryQuery query) {
 		Pager<Dictionary> pager = new Pager<Dictionary>();
-		Map map = PropertyUtils.toParameterMap(query);
+		Map map = ConverterUtil.toHashMap(query);
 		List<Dictionary> appList = findList(Dictionary.class, map, query.getPage().intValue(), query.getRows().intValue());
 		pager.setTotalRecords(getTotalCount(Dictionary.class, map));
 		pager.setCurrentPage(query.getPage());

@@ -11,11 +11,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.neusoft.base.common.DateUtils;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
-import org.apache.commons.lang.builder.ToStringStyle;
+
+import com.neusoft.base.common.DateUtils;
 
 
 @Entity
@@ -189,22 +189,7 @@ public class LegalCase  implements java.io.Serializable{
 		public void setSigniturePath(java.lang.String signiturePath) {
 			this.signiturePath = signiturePath;
 		}
-	    /**
-	     * createTime
-	     * @return createTime
-	     */
-	public String getCreateTimeString() {
-		//return DateConvertUtils.format(getCreateTime(), FORMAT_CREATE_TIME);
-		return  DateUtils.format(DateUtils.FORMAT3,getCreateTime());
-	}
-	 /**
-     * createTime
-     * @param createTime createTime
-     */
-	public void setCreateTimeString(String createTime) {
-		setCreateTime(DateUtils.parse(createTime,DateUtils.FORMAT3,java.util.Date.class));
-	}
-	
+	   	
 		 /**
 	     * createTime
 	     * @return createTime
@@ -250,22 +235,7 @@ public class LegalCase  implements java.io.Serializable{
 		public void setCaseFrom(java.lang.String caseFrom) {
 			this.caseFrom = caseFrom;
 		}
-	    /**
-	     * applyDate
-	     * @return applyDate
-	     */
-	public String getApplyDateString() {
-		//return DateConvertUtils.format(getApplyDate(), FORMAT_APPLY_DATE);
-		return  DateUtils.format(DateUtils.FORMAT3,getApplyDate());
-	}
-	 /**
-     * applyDate
-     * @param applyDate applyDate
-     */
-	public void setApplyDateString(String applyDate) {
-		setApplyDate(DateUtils.parse(applyDate,DateUtils.FORMAT3,java.util.Date.class));
-	}
-	
+	  
 		 /**
 	     * applyDate
 	     * @return applyDate

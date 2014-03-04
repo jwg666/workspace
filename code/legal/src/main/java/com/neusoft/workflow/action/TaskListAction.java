@@ -18,7 +18,6 @@ import org.activiti.engine.history.HistoricActivityInstance;
 import org.activiti.engine.history.HistoricActivityInstanceQuery;
 import org.activiti.engine.history.HistoricTaskInstance;
 import org.activiti.engine.history.HistoricTaskInstanceQuery;
-import org.activiti.engine.identity.User;
 import org.activiti.engine.impl.RepositoryServiceImpl;
 import org.activiti.engine.impl.persistence.entity.ExecutionEntity;
 import org.activiti.engine.impl.persistence.entity.HistoricActivityInstanceEntity;
@@ -33,6 +32,7 @@ import org.activiti.engine.runtime.ExecutionQuery;
 import org.activiti.engine.task.IdentityLink;
 import org.activiti.engine.task.Task;
 import org.activiti.engine.task.TaskQuery;
+import org.springframework.beans.BeanUtils;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -45,7 +45,6 @@ import com.neusoft.base.common.Pager;
 import com.neusoft.base.common.ValidateUtil;
 import com.neusoft.base.model.DataGrid;
 import com.neusoft.base.model.Json;
-import com.neusoft.base.model.SearchModel;
 import com.neusoft.security.domain.UserInfo;
 import com.neusoft.security.query.UserInfoQuery;
 import com.neusoft.security.service.UserInfoService;
@@ -351,9 +350,11 @@ public class TaskListAction extends BaseWorkFlowAction {
 		}
 //		userSearchModel.setUser(user);
 //		userSearchModel.setPager(pagerUser);
-//		pagerUser = userService.searchUser(userSearchModel);
-		pagerUser = null;
+		
 		UserInfoQuery userInfoQuery = new UserInfoQuery();
+		BeanUtils.copyProperties(user, userInfoQuery);
+		pagerUser = userInforService.searchUserInfo(userInfoQuery);
+		
 		List<Map<String, Object>> objecList = new ArrayList<Map<String, Object>>();
 		datagrid.setRows(objecList);
 		for (UserInfo u : pagerUser.getRecords()) {

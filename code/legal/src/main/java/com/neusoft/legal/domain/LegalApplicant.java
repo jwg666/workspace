@@ -15,8 +15,6 @@ import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-import com.neusoft.base.common.DateUtils;
-
 
 @Entity
 @Table(name = "LE_LEGAL_APPLICANT")
@@ -164,21 +162,6 @@ public class LegalApplicant  implements java.io.Serializable{
 		public void setGender(java.lang.String gender) {
 			this.gender = gender;
 		}
-	    /**
-	     * birthday
-	     * @return birthday
-	     */
-	public String getBirthdayString() {
-		//return DateConvertUtils.format(getBirthday(), FORMAT_BIRTHDAY);
-		return  DateUtils.format(DateUtils.FORMAT3,getBirthday());
-	}
-	 /**
-     * birthday
-     * @param birthday birthday
-     */
-	public void setBirthdayString(String birthday) {
-		setBirthday(DateUtils.parse(birthday,DateUtils.FORMAT3,java.util.Date.class));
-	}
 	
 		 /**
 	     * birthday
@@ -330,21 +313,6 @@ public class LegalApplicant  implements java.io.Serializable{
 		public void setAgentId(java.lang.Long agentId) {
 			this.agentId = agentId;
 		}
-	    /**
-	     * createTime
-	     * @return createTime
-	     */
-	public String getCreateTimeString() {
-		//return DateConvertUtils.format(getCreateTime(), FORMAT_CREATE_TIME);
-		return  DateUtils.format(DateUtils.FORMAT3,getCreateTime());
-	}
-	 /**
-     * createTime
-     * @param createTime createTime
-     */
-	public void setCreateTimeString(String createTime) {
-		setCreateTime(DateUtils.parse(createTime,DateUtils.FORMAT3,java.util.Date.class));
-	}
 	
 		 /**
 	     * createTime

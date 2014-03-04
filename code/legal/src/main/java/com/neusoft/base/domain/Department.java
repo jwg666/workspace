@@ -143,21 +143,6 @@ public class Department  implements java.io.Serializable{
 		public void setParentId(java.lang.Long parentId) {
 			this.parentId = parentId;
 		}
-	    /**
-	     * createTime
-	     * @return createTime
-	     */
-	public String getCreateTimeString() {
-		//return DateConvertUtils.format(getCreateTime(), FORMAT_CREATE_TIME);
-		return  DateUtils.format(DateUtils.FORMAT3,getCreateTime());
-	}
-	 /**
-     * createTime
-     * @param createTime createTime
-     */
-	public void setCreateTimeString(String createTime) {
-		setCreateTime(DateUtils.parse(createTime,DateUtils.FORMAT3,java.util.Date.class));
-	}
 	
 		 /**
 	     * createTime

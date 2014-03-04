@@ -180,12 +180,8 @@
 					</div>
 					<!-- iframe -->
 					<div id="homeIframeContent" style="height:400px;width:100%;background-color: white;">
-						<iframe id="homeIframe"  style="height:400px;width:100%; border:0 none;" src="../legal/legalAction!stepOne.do" ></iframe>
-<!-- 						<iframe id="homeIframe"  style="height:400px;width:100%; border:0 none;" src="../legal/legalCaseAction!goLegalCase.do" ></iframe>
-						<iframe id="homeIframe"  style="height:400px;width:100%; border:0 none;" src="../legal/legalAgentAction!goLegalAgent.do" ></iframe>
-						<iframe id="homeIframe"  style="height:400px;width:100%; border:0 none;" src="../legal/legalApproveAction!goLegalApprove.do" ></iframe>
-						<iframe id="homeIframe"  style="height:400px;width:100%; border:0 none;" src="../legal/legalApplicantAction!goLegalApplicant.do" ></iframe>
- -->					</div>
+						<iframe id="homeIframe"  style="height:400px;width:100%; border:0 none;" src="" ></iframe>
+					</div>
 				</div>
 			</div>
 		</div>

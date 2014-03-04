@@ -57,10 +57,10 @@ public class LegalApplicantServiceImpl implements LegalApplicantService{
 
 
 	@Override
-	public void add(LegalApplicantQuery legalApplicantQuery) {
+	public Long add(LegalApplicantQuery legalApplicantQuery) {
 		LegalApplicant t = new LegalApplicant();
 		BeanUtils.copyProperties(legalApplicantQuery, t);
-		legalApplicantDao.save(t);
+		return legalApplicantDao.save(t);
 	}
 
 	@Override

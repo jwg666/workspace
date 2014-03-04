@@ -24,6 +24,6 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      http://www.springframework.org/schema/util/spring-util-3.1.xsd
      http://www.directwebremoting.org/schema/spring-dwr
  	 http://www.directwebremoting.org/schema/spring-dwr-3.0.xsd">
-<!--      <dwr:annotation-scan  base-package="com.neusoft.portal.action"  /> -->
+       <dwr:annotation-scan  base-package="com.neusoft.portal.action"  />
 	
 </beans>

@@ -11,11 +11,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.neusoft.base.common.DateUtils;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
-import org.apache.commons.lang.builder.ToStringStyle;
 
 
 @Entity
@@ -124,22 +122,7 @@ public class LegalAgent  implements java.io.Serializable{
 		public void setAgentType(java.lang.String agentType) {
 			this.agentType = agentType;
 		}
-	    /**
-	     * createTime
-	     * @return createTime
-	     */
-	public String getCreateTimeString() {
-		//return DateConvertUtils.format(getCreateTime(), FORMAT_CREATE_TIME);
-		return  DateUtils.format(DateUtils.FORMAT3,getCreateTime());
-	}
-	 /**
-     * createTime
-     * @param createTime createTime
-     */
-	public void setCreateTimeString(String createTime) {
-		setCreateTime(DateUtils.parse(createTime,DateUtils.FORMAT3,java.util.Date.class));
-	}
-	
+	 
 		 /**
 	     * createTime
 	     * @return createTime

@@ -9,6 +9,119 @@ $("document").ready(function(){
 });
 
 </script>
+<script type="text/javascript">
+		var legalApplicantAddForm ;
+		var legalCaseAddForm;
+		var legalAgentAddForm;
+		$(function(){			
+			legalApplicantAddForm = $('#legalApplicantAddForm').form({
+				url : 'legalApplicantAction!add.do',
+				dataType:"json",
+				type:"post",
+				onSubmit: function(){
+				},
+				success : function(data) {
+					var json = $.parseJSON(data);
+					if (json && json.success) {
+						/* $.messager.show({
+							title : '成功',
+							msg : json.msg
+						}); */
+						$("applicantId").val(json.id);
+					} else {
+						$.messager.show({
+							title : '失败',
+							msg : '操作失败！'
+						});
+					}
+				  }
+				});			
+				$("#category").combobox({
+				    url:'../basic/dictionaryAction!combox?parentCode=4',
+				    valueField:'id',
+				    textField:'dicValue'
+				});
+				$("#nationId").combobox({
+				    url:'../basic/dictionaryAction!combox?parentCode=3',
+				    valueField:'id',
+				    textField:'dicValue'
+				});
+				$("#eduLevelId").combobox({
+				    url:'../basic/dictionaryAction!combox?parentCode=7',
+				    valueField:'id',
+				    textField:'dicValue'
+				});
+				$('#name').validatebox({
+				    required: true,
+				    missingMessage:"申请人不能为空"
+				});
+				
+				legalAgentAddForm = $('#legalAgentAddForm').form({
+					url : 'legalAgentAction!add.do',
+					success : function(data) {
+						var json = $.parseJSON(data);
+						if (json && json.success) {
+						/* 	$.messager.show({
+								title : '成功',
+								msg : json.msg 								
+							}); */
+							$("agentId").val(json.id);
+						} else {
+							$.messager.show({
+								title : '失败',
+								msg : '操作失败！'
+							});
+						}
+					}
+				});
+				legalCaseAddForm = $('#legalCaseAddForm').form({
+					url : 'legalCaseAction!add.do',
+					success : function(data) {
+						var json = $.parseJSON(data);
+						if (json && json.success) {
+							$.messager.show({
+								title : '成功',
+								msg : json.msg
+							});
+							datagrid.datagrid('reload');
+							legalCaseAddDialog.dialog('close');
+						} else {
+							$.messager.show({
+								title : '失败',
+								msg : '操作失败！'
+							});
+						}
+					}
+				});
+				$('#description').validatebox({
+				    required: true,
+				    missingMessage:"案件描述不能为空"
+				});
+				$("#applyTypeId").combobox({
+				    url:'../basic/dictionaryAction!combox?parentCode=5',
+				    valueField:'id',
+				    textField:'dicValue'
+				});
+				$("#caseFrom").combobox({
+				    url:'../basic/dictionaryAction!combox?parentCode=9',
+				    valueField:'id',
+				    textField:'dicValue'
+				});
+			});
+		
+		function resetInfo(obj){
+			obj.reset();
+		}
+		function submitLegalApplicant(){
+			legalApplicantAddForm.submit();
+		}
+		function submitLegalAgent(){
+			legalAgentAddForm.submit();
+		}
+		function submitLegalCase(){
+			legalCaseAddForm.submit();
+		}
+	</script>
 </head>
 <body class="easyui-layout">
 	<div region="north" split="true" style="height:10px;"  collapsed="false" border="false">
@@ -26,13 +139,13 @@ $("document").ready(function(){
 		<div class="part_zoc" style="margin:0px 0px 0px 0px;">
 				<form id="legalApplicantAddForm">
 			    <div class="partnavi_zoc">
-					<span>申请人基本信息</span>
+					<span>第一步：填写申请人基本信息</span>
 				</div>
 				<div class="oneline">
 				    <div class="item25">
 						<div class="itemleft100">姓名：</div>
 						<div class="righttext">
-							<input id="name" name="name" class="easyui-validatebox" data-options="required:true" style="width:100px"/>
+							<input id="name" name="name" class="easyui-validatebox" data-options="required:true" type="text" style="width:100px"/>
 						</div>
 				    </div>				    
 				    <div class="item25">
@@ -121,12 +234,20 @@ $("document").ready(function(){
 						<div class="righttext">
 							<input id="company" name="company"  style="width:100px"/>
 						</div>
-				    </div>
-			   </div>		
+				    </div>				    
+			   </div>
+			   <div class="oneline">	
+			   	   <div class="item100">
+				       <div class="oprationbutt">
+					        <input type="button" value="确认进行第二步" onclick="submitLegalApplicant()"/>
+					        <input type="button" value="填写有误重新填写"  onclick="resetInfo(this)"/>
+				       </div>
+			       </div>	
+			   </div>
 			</form>	
 			<!-- 代理人 开始-->
 			<div class="partnavi_zoc">
-					<span>代理人信息</span>
+					<span>第二步：代理人信息</span>
 			</div>			
 			<form id="legalAgentAddForm">
 				<div class="oneline">
@@ -139,7 +260,10 @@ $("document").ready(function(){
 				     <div class="item25">
 						<div class="itemleft100">代理类别：</div>
 						<div class="righttext">
-							<input id="agentType" name="agentType"  style="width:100px"/>
+							<select id="agentType" name="agentType">
+								<option value="1">法定代理人</option>
+								<option value="2">委托代理人</option>
+							</select>
 						</div>
 				    </div>
 				    <div class="item25 lastitem">
@@ -148,14 +272,38 @@ $("document").ready(function(){
 							<input id="identifyid" name="identifyid"  style="width:100px"/>
 						</div>
 				    </div>
+			   </div>
+			    <div class="oneline">	
+			   	   <div class="item100">
+				       <div class="oprationbutt">
+					        <input type="button" value="确认进行第三步" onclick="submitLegalAgent()"/>
+					        <input type="button" value="填写有误重新填写"  onclick="resetInfo(this)"/>
+				       </div>
+			       </div>	
 			   </div>	
 			</form>
 			<!-- 代理人 结束-->
 			<!-- 案件信息开始 -->
 			<div class="partnavi_zoc">
-					<span>案件信息</span>
+					<span>第三步：案件信息录入</span>
 			</div>
 			<form id="legalCaseAddForm">
+				<input type="hidden" id="applicantId"name="applicantId">
+				<input type="hidden" id="agentId"name="agentId">
+				<div class="oneline">				    
+				     <div class="item25">
+						<div class="itemleft100">案件来源：</div>
+						<div class="righttext">
+							<input id="caseFrom" name="caseFrom"  style="width:120px"/>
+						</div>
+				    </div>
+				    <div class="item25 lastitem">
+						<div class="itemleft100">申请事项：</div>
+						<div class="righttext">
+							<input id="applyTypeId" name="applyTypeId"  style="width:120px"/>
+						</div>
+				    </div>
+			   </div>
 				<div class='oneline'>								
 					<div class="half_zoc">
 						<table>
@@ -179,8 +327,8 @@ $("document").ready(function(){
 				    </div>
 				   	<div class="item100">
 				        <div class="oprationbutt">
-					        <input type="button" value="提交" onclick="submitInfo()"/>
-					        <input type="button" value="重置"  onclick="resetInfo()"/>
+					        <input type="button" value="提交申请" onclick="submitLegalCase()"/>
+					        <input type="button" value="重置"  onclick="resetInfo(this)"/>
 				       </div>
 			        </div>
 				</div>
@@ -189,157 +337,6 @@ $("document").ready(function(){
 		</div>
 	</div>
 </div>
-<div style="display: none;">
-	<script type="text/javascript">
-		function submitInfo(){
-			var legalApplicantAddForm = $("#legalApplicantAddForm");
-			var legalCaseAddForm = $("#legalCaseAddForm");
-			var legalAgentAddForm = $("#legalAgentAddForm");
-			var bl = false;
-			legalAgentAddForm = $('#legalAgentAddForm').form('submit',{
-				url : 'legalAgentAction!add.do',
-				type:"post",
-				onSubmit: function(){
-					//alert(">>>><<<<");
-				},
-				success : function(data) {
-					var json = $.parseJSON(data);
-					if (json && json.success) {
-						$.messager.show({
-							title : '成功',
-							msg : json.msg
-						});
-						bl = true;
-					} else {
-						$.messager.show({
-							title : '失败',
-							msg : '操作失败！'
-						});
-					}
-				}
-			});
-			legalApplicantAddForm = $('#legalApplicantAddForm').form('submit',{
-				url : 'legalApplicantAction!add.do',
-				//dataType:"json",
-				type:"post",
-				onSubmit: function(){
-					var str = null;
-					var strValue = false;
-					str = $("#name").val();
-					strValue = checkInfo(str);
-					if(strValue){
-						alert("姓名不能为空！");
-						$("#name").focus();
-						return false;
-					}
-					str = $("#identifyid").val();
-					strValue = checkInfo(str);
-					if(strValue){
-						alert("证件号不能为空！");
-						$("#identifyid").focus();
-						return false;
-					}
-					str = $("#birthPlace").val();
-					strValue = checkInfo(str);
-					if(strValue){
-						alert("户籍所在地不能为空！");
-						$("#birthPlace").focus();
-						return false;
-					}
-					str = $("#livePlace").val();
-					strValue = checkInfo(str);
-					if(strValue){
-						alert("住所不能为空！");
-						$("#livePlace").focus();
-						return false;
-					}
-					str = $("#phone").val();
-					strValue = checkInfo(str);
-					if(strValue){
-						alert("电话不能为空！");
-						$("#phone").focus();
-						return false;
-					}
-					str = $("#description").text();
-					strValue = checkInfo(str);
-					if(strValue){
-						alert("案件描述不能为空！");
-						$("#description").focus();
-						return false;
-					}
-				},
-				success : function(data) {
-					var json = $.parseJSON(data);
-					if (json && json.success) {
-						$.messager.show({
-							title : '成功',
-							msg : json.msg
-						});
-						bl = true;
-					} else {
-						$.messager.show({
-							title : '失败',
-							msg : '操作失败！'
-						});
-					}
-				}
-			});
-			
-			
-			legalCaseAddForm = $('#legalCaseAddForm').form('submit',{
-				url : 'legalCaseAction!add.do',
-				type:"post",
-				onSubmit: function(){
-					//alert(">>>><<<<");
-				},
-				success : function(data) {
-					var json = $.parseJSON(data);
-					if (json && json.success) {
-						$.messager.show({
-							title : '成功',
-							msg : json.msg
-						});
-						bl = true;
-					} else {
-						$.messager.show({
-							title : '失败',
-							msg : '操作失败！'
-						});
-					}
-				}
-			});
-		}
-		function resetInfo(){
-			$("#name").val("");
-			$("#birthday").val("");
-			$("#nationId").val("");
-			$("#eduLevelId").val("");
-			$("#category").val("");
-			$("#identifyid").val("");
-			$("#birthPlace").val("");
-			$("#livePlace").val("");
-			$("#postCode").val("");
-			$("#phone").val("");
-			$("#company").val("");
-			$("#agentName").val("");
-			$("#agentType").val("");
-			$("#dl_identifyid").val("");
-			$("#righttext").html("");
-			$("#description").html("");
-			$("#qm_description").html("");
-		}
-		function checkInfo(str){
-			if(str==null||str=="")return true;
-			else return false;
-		}
-		function getEducation(){
-			/* $('#eduLevelId').combobox({
-		    url:'../basic/dictionaryAction!combox.do',
-		    valueField:'id',
-		    textField:'dicValue'
-		}); */
-		}
-	</script>
-</div>
+
 </body>
 </html>

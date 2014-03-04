@@ -25,7 +25,7 @@ public interface LegalAgentService{
 	 * 
 	 * @param legalAgentQuery
 	 */
-	public void add(LegalAgentQuery legalAgentQuery);
+	public Long add(LegalAgentQuery legalAgentQuery);
 
 	/**
 	 * 修改

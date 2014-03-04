@@ -31,7 +31,6 @@ public class Dictionary  implements java.io.Serializable{
 	public static final String ALIAS_CREATE_TIME = "创建时间";
 	public static final String ALIAS_CREATE_BY = "创建人";
 	public static final String ALIAS_DESCRIPTION = "描述";
-	public static final String ALIAS_DIC_TYPE = "1地区 2.民族 3.人群类别 4.申请事项 5.处理阶段 6.文化程度 7.案件理由";
 	
     /**
      * id       db_column: ID 
@@ -61,11 +60,6 @@ public class Dictionary  implements java.io.Serializable{
      * description       db_column: DESCRIPTION 
      */	
 	private java.lang.String description;
-    /**
-     * 1地区 2.民族 3.人群类别 4.申请事项 5.处理阶段 6.文化程度 7.案件理由       db_column: DIC_TYPE 
-     */	
-	private java.lang.String dicType;
-	//columns END
 
 	public Dictionary(){
 	}
@@ -138,22 +132,7 @@ public class Dictionary  implements java.io.Serializable{
 		public void setParentCode(java.lang.String parentCode) {
 			this.parentCode = parentCode;
 		}
-	    /**
-	     * createTime
-	     * @return createTime
-	     */
-	public String getCreateTimeString() {
-		//return DateConvertUtils.format(getCreateTime(), FORMAT_CREATE_TIME);
-		return  DateUtils.format(DateUtils.FORMAT3,getCreateTime());
-	}
-	 /**
-     * createTime
-     * @param createTime createTime
-     */
-	public void setCreateTimeString(String createTime) {
-		setCreateTime(DateUtils.parse(createTime,DateUtils.FORMAT3,java.util.Date.class));
-	}
-	
+	   
 		 /**
 	     * createTime
 	     * @return createTime
@@ -198,21 +177,6 @@ public class Dictionary  implements java.io.Serializable{
 	     */
 		public void setDescription(java.lang.String description) {
 			this.description = description;
-		}
-		 /**
-	     * 1地区 2.民族 3.人群类别 4.申请事项 5.处理阶段 6.文化程度 7.案件理由
-	     * @return 1地区 2.民族 3.人群类别 4.申请事项 5.处理阶段 6.文化程度 7.案件理由
-	     */
-		@Column(name="DIC_TYPE")
-		public java.lang.String getDicType() {
-			return this.dicType;
-		}
-		/**
-	     * 1地区 2.民族 3.人群类别 4.申请事项 5.处理阶段 6.文化程度 7.案件理由
-	     * @param dicType 1地区 2.民族 3.人群类别 4.申请事项 5.处理阶段 6.文化程度 7.案件理由
-	     */
-		public void setDicType(java.lang.String dicType) {
-			this.dicType = dicType;
 		}
 
 	public String toString() {

@@ -66,13 +66,8 @@ public class LegalAgentAction extends BaseAction implements ModelDriven<LegalAge
 	 * 
 	 */
 	public String datagrid() {
-		try {
-			datagrid = legalAgentService.datagrid(legalAgentQuery);
-			return "datagrid";
-		} catch (Exception e) {
-			logger.debug(">>>"+e);
-		}
-		return null;
+		datagrid = legalAgentService.datagrid(legalAgentQuery);
+		return "datagrid";
 	}
 	
 	
@@ -88,18 +83,13 @@ public class LegalAgentAction extends BaseAction implements ModelDriven<LegalAge
 	 * 添加一个LegalAgent
 	 */
 	public String add() {
-		try {
-			legalAgentQuery.setCreateTime(new Date());
-			System.out.println("<<<"+legalAgentQuery);
-			legalAgentService.add(legalAgentQuery);
-			json.setSuccess(true);
-			json.setObj(legalAgentQuery);
-			json.setMsg("添加成功！");
-			return SUCCESS;
-		} catch (Exception e) {
-			logger.debug(">>>",e);
-		}
-		return null;
+		legalAgentQuery.setCreateTime(new Date());
+		Long id = legalAgentService.add(legalAgentQuery);
+		legalAgentQuery.setId(id);
+		json.setSuccess(true);
+		json.setObj(legalAgentQuery);
+		json.setMsg("添加成功！");
+		return SUCCESS;
 	}
 
 	/**

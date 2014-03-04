@@ -1,0 +1,13 @@
+127.0.0.1 - - [04/Mar/2014:10:53:25 +0800] "GET /legal/index.jsp HTTP/1.1" 200 319 http-bio-8080-exec-1 222
+127.0.0.1 - - [04/Mar/2014:10:53:25 +0800] "GET /legal/portal/portal.do HTTP/1.1" 302 - http-bio-8080-exec-3 118
+127.0.0.1 - - [04/Mar/2014:10:53:26 +0800] "GET /legal/security/login.action HTTP/1.1" 200 4352 http-bio-8080-exec-4 797
+127.0.0.1 - - [04/Mar/2014:10:53:26 +0800] "GET /legal/assets/style/images/login_btn.jpg HTTP/1.1" 304 - http-bio-8080-exec-2 96
+127.0.0.1 - - [04/Mar/2014:10:53:26 +0800] "GET /legal/assets/style/newlogin.css?v=2.5 HTTP/1.1" 304 - http-bio-8080-exec-5 97
+127.0.0.1 - - [04/Mar/2014:10:53:26 +0800] "GET /legal/assets/style/images/login_btn_bg.png HTTP/1.1" 304 - http-bio-8080-exec-8 82
+127.0.0.1 - - [04/Mar/2014:10:53:26 +0800] "GET /legal/assets/style/images/login_box_right.png HTTP/1.1" 304 - http-bio-8080-exec-10 91
+127.0.0.1 - - [04/Mar/2014:10:53:26 +0800] "GET /legal/assets/style/images/login_pad_bg.png HTTP/1.1" 304 - http-bio-8080-exec-7 108
+127.0.0.1 - - [04/Mar/2014:10:53:26 +0800] "GET /legal/assets/style/images/login_box_center.png HTTP/1.1" 304 - http-bio-8080-exec-1 112
+127.0.0.1 - - [04/Mar/2014:10:53:26 +0800] "GET /legal/assets/style/images/login_main_bg.png HTTP/1.1" 304 - http-bio-8080-exec-6 152
+127.0.0.1 - - [04/Mar/2014:10:53:26 +0800] "GET /legal/assets/style/images/login_box_left.png HTTP/1.1" 304 - http-bio-8080-exec-9 140
+127.0.0.1 - - [04/Mar/2014:10:53:26 +0800] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-9 0
+127.0.0.1 - - [04/Mar/2014:10:53:52 +0800] "POST /legal/security/login.action HTTP/1.1" 200 33430 http-bio-8080-exec-9 21562

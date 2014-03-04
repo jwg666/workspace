@@ -359,7 +359,7 @@
 						</div>
 						<div style="height: 54px; width: 90px; overflow: hidden; float: left; padding-left: 0px; padding-top: 0px;">
 							<div tabindex="0" class="v-button main-menu-button v-button-link link active" role="button" style="height: 54px; width: 90px;">
-								 <a href="${dynamicURL}/workflow/processAction!ProcessAction.do" >
+								 <a href="${dynamicURL}/workflow/processAction!processAction.do" >
 								<span class="v-button-wrap">
 									<img alt="" class="v-icon" src="${staticURL}/style/activi/img/mm-manage.png">
 									 <span class="v-button-caption">

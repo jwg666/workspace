@@ -58,10 +58,10 @@ public class LegalAgentServiceImpl implements LegalAgentService{
 
 
 	@Override
-	public void add(LegalAgentQuery legalAgentQuery) {
+	public Long add(LegalAgentQuery legalAgentQuery) {
 		LegalAgent t = new LegalAgent();
 		BeanUtils.copyProperties(legalAgentQuery, t);
-		legalAgentDao.save(t);
+		return legalAgentDao.save(t);
 	}
 
 	@Override

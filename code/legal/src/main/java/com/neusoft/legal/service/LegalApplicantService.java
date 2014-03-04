@@ -25,7 +25,7 @@ public interface LegalApplicantService{
 	 * 
 	 * @param legalApplicantQuery
 	 */
-	public void add(LegalApplicantQuery legalApplicantQuery);
+	public Long add(LegalApplicantQuery legalApplicantQuery);
 
 	/**
 	 * 修改

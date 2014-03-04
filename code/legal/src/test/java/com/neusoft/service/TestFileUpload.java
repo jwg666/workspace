@@ -16,11 +16,13 @@ public class TestFileUpload extends BaseTestCase {
 	private FileUploadService fileUploadService;
 	@Test
 	public void testUploadFile(){
-		File dir = new File("E:\\mobilefile\\baidu\\png");
+//		File dir = new File("E:\\mobilefile\\baidu\\png");
+		File dir = new File("E:\\project\\java\\legal\\src\\main\\webapp\\assets\\portal\\img\\wallpaper");
+		
 		File[] files = dir.listFiles();
 		for(File fileInput:files){
 			try {
-				fileUploadService.fileUpload(fileInput, fileInput.getName(), "image/png", "icon");
+				fileUploadService.fileUpload(fileInput, fileInput.getName(), "image/png", "wallpaper");
 			} catch (IOException e) {
 				logger.error("fileInput--"+fileInput.getName(),e);
 			}

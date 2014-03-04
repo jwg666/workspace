@@ -11,11 +11,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.neusoft.base.common.DateUtils;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
-import org.apache.commons.lang.builder.ToStringStyle;
+
+import com.neusoft.base.common.DateUtils;
 
 
 @Entity
@@ -154,22 +154,7 @@ public class LegalApprove  implements java.io.Serializable{
 		public void setSigniturePath(java.lang.String signiturePath) {
 			this.signiturePath = signiturePath;
 		}
-	    /**
-	     * approveTime
-	     * @return approveTime
-	     */
-	public String getApproveTimeString() {
-		//return DateConvertUtils.format(getApproveTime(), FORMAT_APPROVE_TIME);
-		return  DateUtils.format(DateUtils.FORMAT3,getApproveTime());
-	}
-	 /**
-     * approveTime
-     * @param approveTime approveTime
-     */
-	public void setApproveTimeString(String approveTime) {
-		setApproveTime(DateUtils.parse(approveTime,DateUtils.FORMAT3,java.util.Date.class));
-	}
-	
+	   	
 		 /**
 	     * approveTime
 	     * @return approveTime
@@ -185,22 +170,7 @@ public class LegalApprove  implements java.io.Serializable{
 		public void setApproveTime(java.util.Date approveTime) {
 			this.approveTime = approveTime;
 		}
-	    /**
-	     * workTime
-	     * @return workTime
-	     */
-	public String getWorkTimeString() {
-		//return DateConvertUtils.format(getWorkTime(), FORMAT_WORK_TIME);
-		return  DateUtils.format(DateUtils.FORMAT3,getWorkTime());
-	}
-	 /**
-     * workTime
-     * @param workTime workTime
-     */
-	public void setWorkTimeString(String workTime) {
-		setWorkTime(DateUtils.parse(workTime,DateUtils.FORMAT3,java.util.Date.class));
-	}
-	
+	  	
 		 /**
 	     * workTime
 	     * @return workTime
@@ -216,23 +186,7 @@ public class LegalApprove  implements java.io.Serializable{
 		public void setWorkTime(java.util.Date workTime) {
 			this.workTime = workTime;
 		}
-	    /**
-	     * createTime
-	     * @return createTime
-	     */
-	public String getCreateTimeString() {
-		//return DateConvertUtils.format(getCreateTime(), FORMAT_CREATE_TIME);
-		return  DateUtils.format(DateUtils.FORMAT3,getCreateTime());
-	}
-	 /**
-     * createTime
-     * @param createTime createTime
-     */
-	public void setCreateTimeString(String createTime) {
-		setCreateTime(DateUtils.parse(createTime,DateUtils.FORMAT3,java.util.Date.class));
-	}
-	
-		 /**
+	  	 /**
 	     * createTime
 	     * @return createTime
 	     */

@@ -10,6 +10,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
+import com.neusoft.base.common.ConverterUtil;
 import com.neusoft.base.common.Pager;
 import com.neusoft.base.common.PropertyUtils;
 import com.neusoft.base.domain.Department;
@@ -44,12 +45,12 @@ public class DepartmentDao extends HBaseDAO<Department>{
 	 
 	@SuppressWarnings("unchecked")
 	public List<Department> findList(DepartmentQuery query) {		
-		return findList(Department.class, PropertyUtils.toParameterMap(query));
+		return findList(Department.class, ConverterUtil.toHashMap(query));
 	}
 	
 	public Pager<Department> findPage(DepartmentQuery query) {
 		Pager<Department> pager = new Pager<Department>();
-		Map map = PropertyUtils.toParameterMap(query);
+		Map map = ConverterUtil.toHashMap(query);
 		List<Department> appList = findList(Department.class, map, query.getPage().intValue(), query.getRows().intValue());
 		pager.setTotalRecords(getTotalCount(Department.class, map));
 		pager.setCurrentPage(query.getPage());

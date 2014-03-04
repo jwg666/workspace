@@ -25,7 +25,7 @@ public interface LegalApproveService{
 	 * 
 	 * @param legalApproveQuery
 	 */
-	public void add(LegalApproveQuery legalApproveQuery);
+	public Long add(LegalApproveQuery legalApproveQuery);
 
 	/**
 	 * 修改
