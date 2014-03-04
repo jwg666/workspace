@@ -33,72 +33,79 @@
 			idField : 'id',
 			sortName : 'id',
 			sortOrder : 'desc',
-			columns : [[ 
-			{field:'ck',checkbox:true,
-						formatter:function(value,row,index){
-							return row.id;
-						}
-					},
-			   {field:'id',title:'id',align:'center',sortable:true,
+			frozenColumns:[[
+				{field:'ck',checkbox:true,
 					formatter:function(value,row,index){
 						return row.id;
 					}
+				},
+				{field:'id',title:'id',align:'center',sortable:true,
+				formatter:function(value,row,index){
+					return row.id;
+				}
 				},				
-			   {field:'姓名',title:'姓名',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.name;
+				{field:'姓名',title:'姓名',align:'center',sortable:true,
+				formatter:function(value,row,index){
+					return row.name;
+				}
+				},				
+				{field:'性别',title:'性别',align:'center',sortable:true,
+				formatter:function(value,row,index){
+					if(row.gender=="m"){
+						return "男";
+					}else {
+						return "女";
 					}
+				}
 				},				
-			   {field:'性别',title:'性别',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.gender;
-					}
+				{field:'生日',title:'生日',align:'center',sortable:true,
+				formatter:function(value,row,index){
+					return dateFormatYMD(row.birthday);
+				}
 				},				
-			   {field:'生日',title:'生日',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return dateFormatYMD(row.birthday);
-					}
+				{field:'民族',title:'民族',align:'center',sortable:true,
+				formatter:function(value,row,index){
+					return row.nationId;
+				}
 				},				
-			   {field:'民族',title:'民族',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.nationId;
-					}
+				{field:'证件号码',title:'证件号码',align:'center',sortable:true,
+				formatter:function(value,row,index){
+					return row.identifyid;
+				}
 				},				
-			   {field:'证件号码',title:'证件号码',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.identifyid;
-					}
+				{field:'户口所在地',title:'户口所在地',align:'center',sortable:true,
+				formatter:function(value,row,index){
+					return row.birthPlace;
+				}
 				},				
-			   {field:'户口所在地',title:'户口所在地',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.birthPlace;
-					}
+				{field:'目前居住地',title:'目前居住地',align:'center',sortable:true,
+				formatter:function(value,row,index){
+					return row.livePlace;
+				}
 				},				
-			   {field:'目前居住地',title:'目前居住地',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.livePlace;
-					}
+				{field:'邮政编码',title:'邮政编码',align:'center',sortable:true,
+				formatter:function(value,row,index){
+					return row.postCode;
+				}
 				},				
-			   {field:'邮政编码',title:'邮政编码',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.postCode;
-					}
+				{field:'电话号码',title:'电话号码',align:'center',sortable:true,
+				formatter:function(value,row,index){
+					return row.phone;
+				}
 				},				
-			   {field:'电话号码',title:'电话号码',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.phone;
-					}
+				{field:'工作单位',title:'工作单位',align:'center',sortable:true,
+				formatter:function(value,row,index){
+					return row.company;
+				}
 				},				
-			   {field:'工作单位',title:'工作单位',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.company;
-					}
-				},				
-			   {field:'教育水平',title:'教育水平',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.eduLevelId;
-					}
-				},				
+				{field:'教育水平',title:'教育水平',align:'center',sortable:true,
+				formatter:function(value,row,index){
+					return row.eduLevelId;
+				}
+				}
+			]],
+			columns : [[ 
+							
 			   {field:'代理人',title:'代理人',align:'center',sortable:true,
 					formatter:function(value,row,index){
 						return row.agentId;
