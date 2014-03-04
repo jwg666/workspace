@@ -15,8 +15,6 @@ import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-import com.neusoft.base.common.DateUtils;
-
 
 @Entity
 @Table(name = "LE_LEGAL_CASE")
@@ -73,7 +71,7 @@ public class LegalCase  implements java.io.Serializable{
     /**
      * caseFrom       db_column: case_from 
      */	
-	private java.lang.String caseFrom;
+	private java.lang.Long caseFrom;
     /**
      * applyDate       db_column: apply_date 
      */	
@@ -148,7 +146,7 @@ public class LegalCase  implements java.io.Serializable{
 	     * description
 	     * @return description
 	     */
-		@Column(name="description")
+		@Column(name="description",columnDefinition="text")
 		public java.lang.String getDescription() {
 			return this.description;
 		}
@@ -225,14 +223,14 @@ public class LegalCase  implements java.io.Serializable{
 	     * @return caseFrom
 	     */
 		@Column(name="case_from")
-		public java.lang.String getCaseFrom() {
+		public java.lang.Long getCaseFrom() {
 			return this.caseFrom;
 		}
 		/**
 	     * caseFrom
 	     * @param caseFrom caseFrom
 	     */
-		public void setCaseFrom(java.lang.String caseFrom) {
+		public void setCaseFrom(java.lang.Long caseFrom) {
 			this.caseFrom = caseFrom;
 		}
 	  

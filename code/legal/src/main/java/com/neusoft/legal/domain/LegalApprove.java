@@ -15,8 +15,6 @@ import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-import com.neusoft.base.common.DateUtils;
-
 
 @Entity
 @Table(name = "LE_LEGAL_APPROVE")
@@ -128,7 +126,7 @@ public class LegalApprove  implements java.io.Serializable{
 	     * approveContent
 	     * @return approveContent
 	     */
-		@Column(name="APPROVE_CONTENT")
+		@Column(name="APPROVE_CONTENT",columnDefinition="text")
 		public java.lang.String getApproveContent() {
 			return this.approveContent;
 		}
