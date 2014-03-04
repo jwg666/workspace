@@ -21,4 +21,5 @@
     <context:component-scan base-package="com.neusoft" />
 	
 	<bean class="com.neusoft.portal.listener.SystemBootstrap"/>
+	<bean id="springApplicationContextHolder" class="com.neusoft.base.common.SpringApplicationContextHolder" />
 </beans>

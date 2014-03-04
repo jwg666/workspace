@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="legal" default="welcome">
+
+	<!-- properties from key value -->
+	<property name="workflow.diagrams" value="src/main/resources/activiti/process" />
+	<property name="workflow.deployments" value="src/main/resources/activiti/deploy" />
+
+	<!-- 流程定义：每个模块的路径 -->
+	<property name="wd.legal" value="${workflow.diagrams}/legal" />
+	
+
+	<!-- 显示欢迎信息以及操作提示 -->
+	<target name="welcome">
+		<echo>Activiti自动打包程序，请输入命令后操作！</echo>
+	</target>
+
+	<!--法律援助申请-->
+	<target name="workflow.package.legal">
+			<echo>打包流程定义：订单修改申请</echo>
+			<copy file="${wd.legal}/CaseTrace.bpmn" tofile="${wd.legal}/CaseTrace.bpmn20.xml" />
+			<zip destfile="${workflow.deployments}/LegalAid.bar" basedir="${wd.legal}" update="true" includes="*.xml,*.png,*.form,*.drl" />
+			<delete file="${wd.legal}/CaseTrace.bpmn20.xml" />
+		</target>
+	
+	<!-- 流程定义打包 -->
+	<target name="workflow.package.all" depends="">
+	</target>
+</project>
+

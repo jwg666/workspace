@@ -23,7 +23,7 @@ public class ActivitiTest extends BaseTestCase{
 	public void testDeploy(){
 		try {
 			logger.debug("--------------------------------------------------");
-			String filePath = "E:\\project\\java\\legal\\src\\main\\resources\\activiti\\process\\CaseTrace.bpmn";
+			String filePath = "E:\\project\\java\\legal\\src\\main\\resources\\activiti\\process\\legal\\LegalAid.bpmn";
 			File processFile = new File(filePath);
 		    InputStream fileInputStream = new FileInputStream(processFile);
 		      Deployment deployment = null;
@@ -40,7 +40,6 @@ public class ActivitiTest extends BaseTestCase{
 			}
 		} catch (Exception e) {
 			logger.error("布署流程出现问题",e);
-			e.printStackTrace();
 		}
 		
 		

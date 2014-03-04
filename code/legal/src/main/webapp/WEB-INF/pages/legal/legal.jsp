@@ -19,15 +19,19 @@ $("document").ready(function(){
 				dataType:"json",
 				type:"post",
 				onSubmit: function(){
+					var isValid = $(this).form('validate');
+					if (!isValid){
+					}
+					return isValid;
 				},
 				success : function(data) {
 					var json = $.parseJSON(data);
 					if (json && json.success) {
-						/* $.messager.show({
+					    $.messager.show({
 							title : '成功',
-							msg : json.msg
-						}); */
-						$("applicantId").val(json.id);
+							msg : json.obj.id
+						});
+						$("#applicantId").val(json.obj.id);
 					} else {
 						$.messager.show({
 							title : '失败',
@@ -61,11 +65,11 @@ $("document").ready(function(){
 					success : function(data) {
 						var json = $.parseJSON(data);
 						if (json && json.success) {
-						/* 	$.messager.show({
+						    $.messager.show({
 								title : '成功',
-								msg : json.msg 								
-							}); */
-							$("agentId").val(json.id);
+								msg : json.obj.id								
+							}); 
+							$("#agentId").val(json.obj.id);
 						} else {
 							$.messager.show({
 								title : '失败',
@@ -83,9 +87,7 @@ $("document").ready(function(){
 								title : '成功',
 								msg : json.msg
 							});
-							datagrid.datagrid('reload');
-							legalCaseAddDialog.dialog('close');
-						} else {
+						}else {
 							$.messager.show({
 								title : '失败',
 								msg : '操作失败！'

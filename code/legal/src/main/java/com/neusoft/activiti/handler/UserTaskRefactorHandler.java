@@ -7,6 +7,8 @@ import org.activiti.engine.impl.bpmn.parser.BpmnParse;
 import org.activiti.engine.impl.bpmn.parser.handler.AbstractBpmnParseHandler;
 import org.activiti.engine.impl.bpmn.parser.handler.UserTaskParseHandler;
 import org.activiti.engine.impl.task.TaskDefinition;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 
 import com.neusoft.base.common.SpringApplicationContextHolder;
@@ -17,7 +19,7 @@ import com.neusoft.base.common.SpringApplicationContextHolder;
  */
 public class UserTaskRefactorHandler extends AbstractBpmnParseHandler<UserTask> {
 
-
+	private Logger logger = LoggerFactory.getLogger(getClass());
 	protected Class<? extends BaseElement> getHandledType() {
 		return UserTask.class;
 	}
@@ -36,14 +38,13 @@ public class UserTaskRefactorHandler extends AbstractBpmnParseHandler<UserTask> 
 		String taskId = userTask.getId();
 		TaskListener taskListener=null;
 		String defaultTaskListener="defaultUserTaskListener";
-		if(bpmnParse.getCurrentProcessDefinition().getKey().startsWith("orderTrace")){
-			 defaultTaskListener="orderDefaultUserTaskListener";
+		if(bpmnParse.getCurrentProcessDefinition().getKey().startsWith("Legal")){
+			 defaultTaskListener="legalDefaultUserTaskListener";
 		}
 		try {
-			taskListener = (TaskListener)SpringApplicationContextHolder.getApplicationContext().getBean(taskId);
+			taskListener = (TaskListener)SpringApplicationContextHolder.getApplicationContext().getBean(taskId+"Listener");
 		} catch (BeansException e) {
-			// 
-			//logger.error("got exception--",e);
+			logger.error("got exception--",e);
 			taskListener=(TaskListener)SpringApplicationContextHolder.getApplicationContext().getBean(defaultTaskListener);	
 		}
 		if(taskListener==null){

@@ -16,9 +16,6 @@ import com.neusoft.activiti.service.WorkflowTraceService;
 @Component
 public class DefaultUserTaskListener extends UserTaskRefactorListener {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 4554656587173626984L;
 
       @Resource
