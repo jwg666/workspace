@@ -62,7 +62,7 @@ public class LegalCaseQuery extends  SearchModel<LegalCase> implements Serializa
 	  /**
      * caseFrom       db_column: case_from 
      */	
-	private java.lang.String caseFrom;
+	private java.lang.Long caseFrom;
 	  /**
      * applyDate       db_column: apply_date 
      */	
@@ -200,14 +200,14 @@ public class LegalCaseQuery extends  SearchModel<LegalCase> implements Serializa
      * caseFrom
      * @return caseFrom
      */
-	public java.lang.String getCaseFrom() {
+	public java.lang.Long getCaseFrom() {
 		return this.caseFrom;
 	}
 	 /**
      * caseFrom
      * @param caseFrom caseFrom
      */
-	public void setCaseFrom(java.lang.String caseFrom) {
+	public void setCaseFrom(java.lang.Long caseFrom) {
 		this.caseFrom = caseFrom;
 	}
 	
