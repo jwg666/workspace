@@ -1,14 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.neusoft</groupId>
-  <artifactId>legal</artifactId>
-  <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>legal</name>
-  <url>http://maven.apache.org</url>
-  
-  	<properties>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.neusoft</groupId>
+	<artifactId>legal</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>legal</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
 		<java-version>1.7</java-version>
 		<org.springframework-version>3.2.5.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.6.10</org.aspectj-version>
@@ -17,7 +17,7 @@
 		<activiti.version>5.13</activiti.version>
 		<blaze-version>3.2.0.3978</blaze-version>
 	</properties>
-	
+
 	<!-- 不同的打包环境 -->
 	<profiles>
 		<!-- 生产环境 -->
@@ -29,7 +29,7 @@
 				<dwr-scope>provided</dwr-scope>
 			</properties>
 			<repositories>
-		 		<repository>
+				<repository>
 					<id>Codehaus</id>
 					<url>http://repository.codehaus.org</url>
 				</repository>
@@ -37,29 +37,33 @@
 					<id>kafeitu</id>
 					<url>http://maven.kafeitu.me/nexus/content/groups/public</url>
 				</repository>
-				
+
 				<repository>
 					<id>Activiti</id>
 					<url>https://maven.alfresco.com/nexus/content/groups/public</url>
 				</repository>
 				<repository>
-				    <id>spring-snapshot</id>
-				    <name>Spring Portfolio Snapshot Repository</name>
-				    <url>http://maven.springframework.org/snapshot</url>
-				    <releases>
-				        <enabled>false</enabled>
-				    </releases>
-				    <snapshots>
-				        <enabled>true</enabled>
-				    </snapshots>
+					<id>spring-snapshot</id>
+					<name>Spring Portfolio Snapshot Repository</name>
+					<url>http://maven.springframework.org/snapshot</url>
+					<releases>
+						<enabled>false</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
 				</repository>
 				<repository>
-			      <id>oss-sonatype-snapshots</id>
-			      <name>OSS Sonatype Snapshots Repository</name>
-				  <url>http://oss.sonatype.org/content/repositories/snapshots</url>
-			      <releases><enabled>false</enabled></releases>
-			      <snapshots><enabled>true</enabled></snapshots>
-			    </repository>		
+					<id>oss-sonatype-snapshots</id>
+					<name>OSS Sonatype Snapshots Repository</name>
+					<url>http://oss.sonatype.org/content/repositories/snapshots</url>
+					<releases>
+						<enabled>false</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</repository>
 			</repositories>
 		</profile>
 		<!-- 开发环境 -->
@@ -68,13 +72,13 @@
 			<properties>
 				<env>dev</env>
 				<dwr-version>3.0.0-rc3-20130424.090803-1</dwr-version>
-				<dwr-scope>provided</dwr-scope>
-			</properties>	
+				<dwr-scope>compile</dwr-scope>
+			</properties>
 			<activation>
 				<activeByDefault>true</activeByDefault>
-			</activation>	
+			</activation>
 			<repositories>
-		 		<repository>
+				<repository>
 					<id>Codehaus</id>
 					<url>http://repository.codehaus.org</url>
 				</repository>
@@ -82,23 +86,23 @@
 					<id>kafeitu</id>
 					<url>http://maven.kafeitu.me/nexus/content/groups/public</url>
 				</repository>
-				
+
 				<repository>
 					<id>Activiti</id>
 					<url>https://maven.alfresco.com/nexus/content/groups/public</url>
 				</repository>
 				<repository>
-				    <id>spring-snapshot</id>
-				    <name>Spring Portfolio Snapshot Repository</name>
-				    <url>http://maven.springframework.org/snapshot</url>
-				    <releases>
-				        <enabled>false</enabled>
-				    </releases>
-				    <snapshots>
-				        <enabled>true</enabled>
-				    </snapshots>
+					<id>spring-snapshot</id>
+					<name>Spring Portfolio Snapshot Repository</name>
+					<url>http://maven.springframework.org/snapshot</url>
+					<releases>
+						<enabled>false</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
 				</repository>
-					
+
 			</repositories>
 		</profile>
 
@@ -107,7 +111,7 @@
 			<id>test</id>
 			<properties>
 				<env>test</env>
-			</properties>			
+			</properties>
 		</profile>
 	</profiles>
 	<scm>
@@ -126,7 +130,7 @@
 				<exclusion>
 					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
-				 </exclusion>
+				</exclusion>
 				<exclusion>
 					<artifactId>spring-core</artifactId>
 					<groupId>org.springframework</groupId>
@@ -142,7 +146,7 @@
 			<artifactId>spring-beans</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
@@ -158,262 +162,262 @@
 			<artifactId>spring-web</artifactId>
 			<version>${org.springframework-version}</version>
 			<type>jar</type>
-	         <scope>compile</scope>
-	         <exclusions>
-	         	<exclusion>
-	         		<artifactId>spring-core</artifactId>
-	         		<groupId>org.springframework</groupId>
-	         	</exclusion>
-	         	<exclusion>
-	         		<artifactId>spring-beans</artifactId>
-	         		<groupId>org.springframework</groupId>
-	         	</exclusion>
-	         </exclusions>
+			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>spring-core</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>spring-beans</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
 			<type>jar</type>
-	         <scope>compile</scope>
-	         <exclusions>
-	         	<exclusion>
-	         		<artifactId>spring-beans</artifactId>
-	         		<groupId>org.springframework</groupId>
-	         	</exclusion>
-	         	<exclusion>
-	         		<artifactId>spring-core</artifactId>
-	         		<groupId>org.springframework</groupId>
-	         	</exclusion>
-	         </exclusions>
+			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>spring-beans</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>spring-core</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
-         <dependency>
-         	<groupId>org.springframework</groupId>
-         	<artifactId>spring-aop</artifactId>
-         	<version>${org.springframework-version}</version>
-         	<type>jar</type>
-         	<scope>compile</scope>
-         	<exclusions>
-         		<exclusion>
-         			<artifactId>spring-beans</artifactId>
-         			<groupId>org.springframework</groupId>
-         		</exclusion>
-         		<exclusion>
-         			<artifactId>spring-core</artifactId>
-         			<groupId>org.springframework</groupId>
-         		</exclusion>
-         	</exclusions>
-         </dependency>
-         <dependency>
-         	<groupId>org.springframework</groupId>
-         	<artifactId>spring-jdbc</artifactId>
-         	<version>${org.springframework-version}</version>
-         	<type>jar</type>
-         	<scope>compile</scope>
-         	<exclusions>
-         		<exclusion>
-         			<artifactId>spring-tx</artifactId>
-         			<groupId>org.springframework</groupId>
-         		</exclusion>
-         		<exclusion>
-         			<artifactId>spring-beans</artifactId>
-         			<groupId>org.springframework</groupId>
-         		</exclusion>
-         		<exclusion>
-         			<artifactId>spring-core</artifactId>
-         			<groupId>org.springframework</groupId>
-         		</exclusion>
-         	</exclusions>
-         </dependency>
-         <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-orm</artifactId>
-                <version>${org.springframework-version}</version>
-                <exclusions>
-                	<exclusion>
-                		<artifactId>spring-tx</artifactId>
-                		<groupId>org.springframework</groupId>
-                	</exclusion>
-                	<exclusion>
-                		<artifactId>spring-beans</artifactId>
-                		<groupId>org.springframework</groupId>
-                	</exclusion>
-                	<exclusion>
-                		<artifactId>spring-core</artifactId>
-                		<groupId>org.springframework</groupId>
-                	</exclusion>
-                </exclusions>
-         </dependency>
-         <dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${org.springframework-version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>spring-beans</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>spring-core</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${org.springframework-version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>spring-tx</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>spring-beans</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>spring-core</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${org.springframework-version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>spring-tx</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>spring-beans</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>spring-core</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-core-asl</artifactId>
 			<version>1.9.12</version>
 			<scope>compile</scope>
-		 </dependency>
-            <dependency>
-				<groupId>org.codehaus.jackson</groupId>
-				<artifactId>jackson-mapper-asl</artifactId>
-				<version>1.9.12</version>
-				<scope>compile</scope>
-			</dependency>
-			            
-            <dependency>
-				<groupId>org.aspectj</groupId>
-				<artifactId>aspectjweaver</artifactId>
-				<version>1.6.11</version>
-			</dependency>
-			<!-- struts2 -->
-			<dependency>
-				<groupId>org.apache.struts</groupId>
-				<artifactId>struts2-core</artifactId>
-				<version>${struts2-version}</version>
-				<exclusions>
-					<exclusion>
-						<groupId>com.sun</groupId>
-						<artifactId>tools</artifactId>
-					</exclusion>
-					<exclusion>
-						<artifactId>asm</artifactId>
-						<groupId>asm</groupId>
-					</exclusion>
-				</exclusions>
-			</dependency>            
-			<dependency>
-				<groupId>org.apache.struts</groupId>
-				<artifactId>struts2-json-plugin</artifactId>
-				<version>${struts2-version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.struts</groupId>
-				<artifactId>struts2-spring-plugin</artifactId>
-				<version>${struts2-version}</version>
-				<exclusions>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-beans</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-core</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-context</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-web</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-mock</artifactId>
-					</exclusion>
-				</exclusions>
-			</dependency>
-			
-			<dependency>
-				<groupId>org.freemarker</groupId>
-				<artifactId>freemarker</artifactId>
-				<version>2.3.19</version>
-				<scope>compile</scope>
-			</dependency>
-			<dependency>
-				<groupId>net.sf.json-lib</groupId>
-				<artifactId>json-lib</artifactId>
-				<version>2.3</version>
-				<classifier>jdk15</classifier>
-			</dependency>
-			
-    <!-- mysql -->
-     <dependency>
-         	<groupId>mysql</groupId>
-         	<artifactId>mysql-connector-java</artifactId>
-         	<version>5.1.26</version>         	
-         </dependency>
-	
+		</dependency>
 		<dependency>
-         	<groupId>org.apache.commons</groupId>
-         	<artifactId>commons-lang3</artifactId>
-         	<version>3.1</version>         	
-         	<scope>compile</scope>
-         </dependency>
-         <dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.12</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.6.11</version>
+		</dependency>
+		<!-- struts2 -->
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-core</artifactId>
+			<version>${struts2-version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.sun</groupId>
+					<artifactId>tools</artifactId>
+				</exclusion>
+				<exclusion>
+					<artifactId>asm</artifactId>
+					<groupId>asm</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-json-plugin</artifactId>
+			<version>${struts2-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-spring-plugin</artifactId>
+			<version>${struts2-version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-beans</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-context</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-web</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-mock</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<version>2.3.19</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+			<version>2.3</version>
+			<classifier>jdk15</classifier>
+		</dependency>
+
+		<!-- mysql -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.26</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.1</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
 			<groupId>commons-beanutils</groupId>
 			<artifactId>commons-beanutils</artifactId>
 			<version>1.8.3</version>
 		</dependency>
-         <dependency>
+		<dependency>
 			<groupId>commons-pool</groupId>
 			<artifactId>commons-pool</artifactId>
 			<version>1.2</version>
 		</dependency>
-	    <dependency>
-		    <groupId>commons-codec</groupId>
-		    <artifactId>commons-codec</artifactId>
-		    <version>1.3</version>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.3</version>
 		</dependency>
 		<dependency>
-		    <groupId>commons-collections</groupId>
-		    <artifactId>commons-collections</artifactId>
-		    <version>3.1</version>
-		</dependency>   
-         
-         <dependency>
-         	<groupId>cglib</groupId>
-         	<artifactId>cglib</artifactId>
-         	<version>2.2.2</version>
-         	<type>jar</type>
-         	<scope>compile</scope>
-         	<exclusions>
-         		<exclusion>
-         			<artifactId>asm</artifactId>
-         			<groupId>asm</groupId>
-         		</exclusion>
-         	</exclusions>
-         </dependency>
-         
-			  <dependency>
-				<groupId>commons-dbcp</groupId>
-				<artifactId>commons-dbcp</artifactId>
-				<version>1.4</version>
-			</dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>2.2.2</version>
+			<type>jar</type>
+			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>asm</artifactId>
+					<groupId>asm</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.4</version>
+		</dependency>
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj-version}</version>
-		</dependency>	
-		
-		<!-- Logging -->		
+		</dependency>
+
+		<!-- Logging -->
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
 			<version>1.0.13</version>
 		</dependency>
-            
+
 		<!-- @Inject -->
 		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
 			<version>1</version>
 		</dependency>
-				
+
 		<!-- Servlet -->
 
-		 <dependency>  
-            <groupId>javax.servlet</groupId>  
-            <artifactId>javax.servlet-api</artifactId>  
-            <version>3.1-b09</version>  
-            <scope>provided</scope>  
-        </dependency> 
-        
-        <dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1-b09</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
 			<groupId>org.tuckey</groupId>
 			<artifactId>urlrewrite</artifactId>
 			<version>2.5.2</version>
 		</dependency>
-            
-        
+
+
 		<!-- hibernate -->
 		<dependency>
 			<groupId>javax.validation</groupId>
@@ -425,14 +429,14 @@
 			<artifactId>hibernate-validator</artifactId>
 			<version>4.1.0.Final</version>
 		</dependency>
-            
-        <dependency>
+
+		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>4.2.0.Final</version>
 		</dependency>
-                    
-	    <!-- Joda Time Library -->	
+
+		<!-- Joda Time Library -->
 		<dependency>
 			<groupId>joda-time</groupId>
 			<artifactId>joda-time</artifactId>
@@ -444,344 +448,387 @@
 			<groupId>commons-fileupload</groupId>
 			<artifactId>commons-fileupload</artifactId>
 			<version>1.2.2</version>
-		</dependency>	
+		</dependency>
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>2.0.1</version>
 		</dependency>
-			<!-- spring mongo -->
+		<!-- spring mongo -->
 		<dependency>
-	        <groupId>org.springframework.data</groupId>
-	        <artifactId>spring-data-mongodb</artifactId>
-	        <version>1.3.3.RELEASE</version>
-	         <exclusions>
-			    	<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-core</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-beans</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-context</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-tx</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-expression</artifactId>
-					</exclusion>
-			 </exclusions>
-	    </dependency>
-		
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-mongodb</artifactId>
+			<version>1.3.3.RELEASE</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-beans</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-context</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-tx</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-expression</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
 		<!-- activiti -->
-			<dependency>
-				<groupId>org.activiti</groupId>
-				<artifactId>activiti-engine</artifactId>
-				<version>${activiti.version}</version>
-				<exclusions>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-beans</artifactId>
-					</exclusion>
-				</exclusions>
-			</dependency>
-			<dependency>
-				<groupId>org.activiti</groupId>
-				<artifactId>activiti-spring</artifactId>
-				<version>${activiti.version}</version>
-				<exclusions>
-					<exclusion>
-						<artifactId>slf4j-log4j12</artifactId>
-						<groupId>org.slf4j</groupId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-context</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-jdbc</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-orm</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-tx</artifactId>
-					</exclusion>				
-				</exclusions>
-			</dependency>
+		<dependency>
+			<groupId>org.activiti</groupId>
+			<artifactId>activiti-engine</artifactId>
+			<version>${activiti.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-beans</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.activiti</groupId>
+			<artifactId>activiti-spring</artifactId>
+			<version>${activiti.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>slf4j-log4j12</artifactId>
+					<groupId>org.slf4j</groupId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-context</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-jdbc</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-orm</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-tx</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 
-			<dependency>
-				<groupId>org.activiti</groupId>
-				<artifactId>activiti-explorer</artifactId>
-				<version>5.12</version>
-				<exclusions>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-core</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-beans</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-jdbc</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-web</artifactId>
-					</exclusion>
-					<exclusion>
-						<artifactId>vaadin</artifactId>
-						<groupId>com.vaadin</groupId>
-					</exclusion>
-					<exclusion>
-						<artifactId>dcharts-widget</artifactId>
-						<groupId>org.vaadin.addons</groupId>
-					</exclusion>
-					<exclusion>
-						<artifactId>activiti-simple-workflow</artifactId>
-						<groupId>org.activiti</groupId>
-					</exclusion>
-					<exclusion>
-						<artifactId>slf4j-log4j12</artifactId>
-						<groupId>org.slf4j</groupId>
-					</exclusion>				
-				</exclusions>
-			</dependency>
-			<dependency>
-				<groupId>org.activiti</groupId>
-				<artifactId>activiti-modeler</artifactId>
-				<version>5.12</version>
-			</dependency>
+		<dependency>
+			<groupId>org.activiti</groupId>
+			<artifactId>activiti-explorer</artifactId>
+			<version>5.12</version>
+			<exclusions>
 
-					<!-- 支持activiti缓存 -->
-			<dependency>
-				<groupId>org.infinispan</groupId>
-				<artifactId>infinispan-core</artifactId>
-				<version>5.1.7.Final</version>
-			</dependency>
-			
+				<exclusion>
+					<artifactId>vaadin</artifactId>
+					<groupId>com.vaadin</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>dcharts-widget</artifactId>
+					<groupId>org.vaadin.addons</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>activiti-simple-workflow</artifactId>
+					<groupId>org.activiti</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>slf4j-log4j12</artifactId>
+					<groupId>org.slf4j</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.activiti</groupId>
+			<artifactId>activiti-modeler</artifactId>
+			<version>5.12</version>
+		</dependency>
+
+		<!-- 支持activiti缓存 -->
+		<dependency>
+			<groupId>org.infinispan</groupId>
+			<artifactId>infinispan-core</artifactId>
+			<version>5.1.7.Final</version>
+		</dependency>
+
 		<!-- DWR -->
 		<dependency>
-		    <groupId>org.directwebremoting</groupId>
-		    <artifactId>dwr</artifactId>
-		    <version>${dwr-version}</version>
-		    <scope>${dwr-scope}</scope>
-		  </dependency>
-		  		
-		  <!-- aliyun -->
-		  <dependency>
-		    <groupId>com.aliyun.openservices</groupId>
-		    <artifactId>aliyun-openservices</artifactId>
-		    <version>1.0.10</version>
-		  </dependency>  
-		  
-            <dependency>
-			    <groupId>org.springframework.flex</groupId>
-			    <artifactId>spring-flex-core</artifactId>
-			    <version>1.5.0.BUILD-SNAPSHOT</version>
-			    <exclusions>
-			    	<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-core</artifactId>
-					</exclusion>
-			    	<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-beans</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-context-support</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-context</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-web</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring-webmvc</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>com.adobe.blazeds</groupId>
-						<artifactId>blazeds-core</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>com.adobe.blazeds</groupId>
-						<artifactId>blazeds-common</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>com.adobe.blazeds</groupId>
-						<artifactId>blazeds-remoting</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>com.adobe.blazeds</groupId>
-						<artifactId>blazeds-proxy</artifactId>
-					</exclusion>
-			    </exclusions>
-			</dependency>
-		    <dependency>
-				<groupId>com.adobe.blazeds</groupId>
-				<artifactId>blazeds-core</artifactId>
-				<version>${blaze-version}</version>
-			</dependency>
-            <dependency>
-				<groupId>com.adobe.blazeds</groupId>
-				<artifactId>blazeds-common</artifactId>
-				<version>${blaze-version}</version>
-			</dependency>
-            <dependency>
-				<groupId>com.adobe.blazeds</groupId>
-				<artifactId>blazeds-remoting</artifactId>
-				<version>${blaze-version}</version>
-			</dependency>
-            <dependency>
-				<groupId>com.adobe.blazeds</groupId>
-				<artifactId>blazeds-proxy</artifactId>
-				<version>${blaze-version}</version>
-			</dependency>
-            
-		<!-- Test -->		
+			<groupId>org.directwebremoting</groupId>
+			<artifactId>dwr</artifactId>
+			<version>${dwr-version}</version>
+		</dependency>
+
+		<!-- aliyun -->
+		<dependency>
+			<groupId>com.aliyun.openservices</groupId>
+			<artifactId>aliyun-openservices</artifactId>
+			<version>1.0.10</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.flex</groupId>
+			<artifactId>spring-flex-core</artifactId>
+			<version>1.5.0.BUILD-SNAPSHOT</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-beans</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-context-support</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-context</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-web</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-webmvc</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.adobe.blazeds</groupId>
+					<artifactId>blazeds-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.adobe.blazeds</groupId>
+					<artifactId>blazeds-common</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.adobe.blazeds</groupId>
+					<artifactId>blazeds-remoting</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.adobe.blazeds</groupId>
+					<artifactId>blazeds-proxy</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.adobe.blazeds</groupId>
+			<artifactId>blazeds-core</artifactId>
+			<version>${blaze-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.adobe.blazeds</groupId>
+			<artifactId>blazeds-common</artifactId>
+			<version>${blaze-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.adobe.blazeds</groupId>
+			<artifactId>blazeds-remoting</artifactId>
+			<version>${blaze-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.adobe.blazeds</groupId>
+			<artifactId>blazeds-proxy</artifactId>
+			<version>${blaze-version}</version>
+		</dependency>
+
+		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.8.2</version>
 			<scope>test</scope>
 		</dependency>
-		 <dependency>
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-                  
+
 	</dependencies>
-	
+
 	<build>
 		<defaultGoal>install</defaultGoal>
 		<filters>
-			<filter>src/main/filters/${env}/filter.properties</filter>			
+			<filter>src/main/filters/${env}/filter.properties</filter>
 		</filters>
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
-				<filtering>true</filtering> 
-			</resource>			
+				<filtering>true</filtering>
+			</resource>
 		</resources>
-		<plugins>
-		<plugin>  
-				<groupId>org.apache.maven.plugins</groupId>  
-				<artifactId>maven-resources-plugin</artifactId>  
-				<configuration>  
-					<encoding>UTF-8</encoding>  
-				</configuration>  
-			</plugin> 
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>				
-				<configuration>
-					<source>${java-version}</source>
-					<target>${java-version}</target>
-					<encoding>UTF8</encoding> 
-				</configuration>
-			</plugin>
-			
-			<!-- 生成javadoc插件 -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<configuration>
-					<charset>UTF-8</charset>
-					<encoding>UTF-8</encoding>
-				</configuration>
-			</plugin>
-			<!-- 打包java源码 -->
-			<plugin>
-				<artifactId>maven-source-plugin</artifactId>
-				<version>2.2.1</version>
-				<configuration>
-					<attach>true</attach>
-				</configuration>
-				<executions>
-					<execution>
-						<phase>compile</phase>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			
-		
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.12</version>
-				<configuration>
-					<includes>
-						<include>**/*Test.java</include>
-					</includes>
-					<excludes>
-						<exclude>**/Abstract*.java</exclude>
-					</excludes>
-					<junitArtifactName>junit:junit</junitArtifactName>
-					<argLine>-Xmx512m</argLine>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>install</id>
-						<phase>install</phase>
-						<goals>
-							<goal>sources</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			
-			<plugin>  
-			    <groupId>org.eclipse.jetty</groupId>  
-			    <artifactId>jetty-maven-plugin</artifactId>  
-			    <version>9.0.0.RC2</version>  
-			    <configuration>  
-			        <scanIntervalSeconds>10</scanIntervalSeconds>  
-			        <webAppConfig>  
-			            <contextPath>/legal</contextPath>  
-			        </webAppConfig>  
-			    </configuration>  	    
-			</plugin>  
-		
-		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.codehaus.mojo</groupId>
+										<artifactId>aspectj-maven-plugin</artifactId>
+										<versionRange>[1.0,)</versionRange>
+										<goals>
+											<goal>test-compile</goal>
+											<goal>compile</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<execute />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<configuration>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.1</version>
+					<configuration>
+						<source>${java-version}</source>
+						<target>${java-version}</target>
+						<encoding>UTF8</encoding>
+					</configuration>
+				</plugin>
+
+				<!-- 生成javadoc插件 -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<configuration>
+						<charset>UTF-8</charset>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+				<!-- 打包java源码 -->
+				<plugin>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>2.2.1</version>
+					<configuration>
+						<attach>true</attach>
+					</configuration>
+					<executions>
+						<execution>
+							<phase>compile</phase>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.12</version>
+					<configuration>
+						<includes>
+							<include>**/*Test.java</include>
+						</includes>
+						<excludes>
+							<exclude>**/Abstract*.java</exclude>
+						</excludes>
+						<junitArtifactName>junit:junit</junitArtifactName>
+						<argLine>-Xmx512m</argLine>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>install</id>
+							<phase>install</phase>
+							<goals>
+								<goal>sources</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+				<plugin>
+					<groupId>org.eclipse.jetty</groupId>
+					<artifactId>jetty-maven-plugin</artifactId>
+					<version>9.0.0.RC2</version>
+					<configuration>
+						<scanIntervalSeconds>10</scanIntervalSeconds>
+						<webAppConfig>
+							<contextPath>/legal</contextPath>
+						</webAppConfig>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.tomcat.maven</groupId>
+					<artifactId>tomcat7-maven-plugin</artifactId>
+					<version>2.2</version>
+					<executions>
+						<execution>
+							<id>tomcat-run</id>
+							<goals>
+								<goal>exec-war-only</goal>
+							</goals>
+							<phase>package</phase>
+							<configuration>
+								<path>legal</path>
+								<attachArtifactClassifier>legal_war</attachArtifactClassifier>
+								<attachArtifactClassifierType>war</attachArtifactClassifierType>
+								<contextReloadable>true</contextReloadable>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.zeroturnaround</groupId>
+					<artifactId>javarebel-maven-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>generate-rebel-xml</id>
+							<phase>process-resources</phase>
+							<goals>
+								<goal>generate</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
-	 <pluginRepositories>
-	  <pluginRepository>
-	   <id>central</id>
-	   <name>Maven Plugin Repository</name>
-	   <url>http://repo1.maven.org/maven2</url>
-	   <layout>default</layout>
-	   <snapshots>
-	    <enabled>false</enabled>
-	   </snapshots>
-	   <releases>
-	    <updatePolicy>never</updatePolicy>
-	   </releases>
-	  </pluginRepository> 
-	 </pluginRepositories>
- 
+	<pluginRepositories>
+		<pluginRepository>
+			<id>central</id>
+			<name>Maven Plugin Repository</name>
+			<url>http://repo1.maven.org/maven2</url>
+			<layout>default</layout>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+		</pluginRepository>
+	</pluginRepositories>
+
 </project>
