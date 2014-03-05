@@ -27,10 +27,10 @@
 		    <interceptor name="loginContextInterceptor" class="com.neusoft.base.interceptor.LoginContextInterceptor" />
 			<interceptor name="i18n" class="com.neusoft.base.interceptor.I18nResolverInterceptor" />
 			<interceptor-stack name="defaultStack">
-				<interceptor-ref name="exception">
+				<!-- <interceptor-ref name="exception">
 					<param name="logEnabled">true</param>
 					<param name="logLevel">DEBUG</param>
-				</interceptor-ref>
+				</interceptor-ref> -->
 				<interceptor-ref name="i18n" />
 				<interceptor-ref name="modelDriven" />
 				<interceptor-ref name="fileUpload" />

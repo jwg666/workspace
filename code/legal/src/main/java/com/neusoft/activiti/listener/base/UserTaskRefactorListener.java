@@ -9,8 +9,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-import javax.annotation.Resource;
-
 import org.activiti.engine.IdentityService;
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
@@ -35,18 +33,7 @@ import com.neusoft.security.service.UserInfoService;
 
 public abstract class UserTaskRefactorListener extends ActivityCommonBehavior implements TaskListener {
 
-	@Resource
-	private IdentityService identityService;
-	@Resource
-	private TaskService taskService;
-	@Resource
-	private UserInfoService userInfoService;
-//	@Resource
-//	private ActSetService actSetService;
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 265996712262081079L;
 	protected Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -54,6 +41,7 @@ public abstract class UserTaskRefactorListener extends ActivityCommonBehavior im
 	public void notify(DelegateTask delegateTask) {
 		TaskEntity taskEntity = (TaskEntity) delegateTask;
 		String eventName = taskEntity.getEventName();
+		TaskService taskService = (TaskService)SpringApplicationContextHolder.getApplicationContext().getBean("taskService");
 		Map<String, Object> variables=taskService.getVariables(taskEntity.getId());
 		//Map<String, Object> variables = taskEntity.getVariables();
 		// 如果是分配事件
@@ -156,6 +144,7 @@ public abstract class UserTaskRefactorListener extends ActivityCommonBehavior im
 			} else {
 				title = "你有一条新待办，请及时查收";
 			}
+			TaskService taskService = (TaskService)SpringApplicationContextHolder.getApplicationContext().getBean("taskService");
 			String content = "订单号为：" + taskService.getVariable(taskId, "businformId");
 			if (ValidateUtil.isValid(docuMap.get("title"))) {
 				if (ValidateUtil.isValid(parentTaskId)) {
@@ -179,6 +168,7 @@ public abstract class UserTaskRefactorListener extends ActivityCommonBehavior im
 			message.put("nodeUrl", docuMap.get("url"));
 			message.put("nodeTitle", docuMap.get("title"));
 			message.put("id", taskEntity.getId());
+			UserInfoService userInfoService = (UserInfoService)SpringApplicationContextHolder.getApplicationContext().getBean("userInfoService");
 			List<Long> userIdList = userInfoService.getUserInfoIdsByEmpCodes(new ArrayList<String>(empCodeSet));
 			new BaseMessageRunable(userIdList, message).execute();
 		}
@@ -191,10 +181,12 @@ public abstract class UserTaskRefactorListener extends ActivityCommonBehavior im
 		if (ValidateUtil.isValid(taskEntity.getAssignee())) {
 			empCodeSet.add(taskEntity.getAssignee());
 		} else {
+			TaskService taskService = (TaskService)SpringApplicationContextHolder.getBean("taskService");
 			List<IdentityLink> identityLinks = taskService.getIdentityLinksForTask(taskId);
 			for (IdentityLink identityLink : identityLinks) {
 				String groupId = identityLink.getGroupId();
 				if (ValidateUtil.isValid(groupId)) {
+					IdentityService identityService = (IdentityService)SpringApplicationContextHolder.getBean("identityService");
 					List<User> userList = identityService.createUserQuery().memberOfGroup(groupId).list();
 					for (User user : userList) {
 						empCodeSet.add(user.getId());
@@ -245,6 +237,7 @@ public abstract class UserTaskRefactorListener extends ActivityCommonBehavior im
 		TaskEntityManager taskEntityManager = Context.getCommandContext().getTaskEntityManager();
 		List<Task> subTaskList = taskEntityManager.findTasksByParentTaskId(taskEntity.getId());
 		if(ValidateUtil.isValid(subTaskList)){
+			TaskService taskService = (TaskService)SpringApplicationContextHolder.getBean("taskService");
 			for(Task task:subTaskList){
 				taskService.setAssignee(task.getId(), taskEntity.getAssignee());
 				//taskService.claim(task.getId(), taskEntity.getAssignee());
@@ -280,6 +273,7 @@ public abstract class UserTaskRefactorListener extends ActivityCommonBehavior im
 		}
 		getEmpCodeInfo(taskEntity, empCodeSet, documentation, docuMap, taskId);
 		if (ValidateUtil.isValid(empCodeSet)) {
+			UserInfoService userInfoService = (UserInfoService)SpringApplicationContextHolder.getBean("userInfoService");
 			empCodeSet.add("admin");
 			List<Long> userIdList = userInfoService.getUserInfoIdsByEmpCodes(new ArrayList<String>(empCodeSet));
 			new BaseRemoveMessageRunable(userIdList, taskIdList).execute();

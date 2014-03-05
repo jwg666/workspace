@@ -6,14 +6,14 @@ import org.activiti.engine.RuntimeService;
 import org.activiti.engine.impl.persistence.entity.TaskEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import com.neusoft.activiti.service.ProcessCustomService;
 import com.neusoft.activiti.util.Constant;
 import com.neusoft.base.common.SpringApplicationContextHolder;
 import com.neusoft.base.common.ValidateUtil;
 
-@Service("taskService")
+@Component("taskService")
 public class TaskServiceImpl extends org.activiti.engine.impl.TaskServiceImpl {
 	private RuntimeService runtimeService;
 	private ProcessCustomService processCustomService;

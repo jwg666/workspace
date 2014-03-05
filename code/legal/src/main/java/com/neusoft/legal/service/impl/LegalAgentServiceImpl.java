@@ -16,7 +16,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.neusoft.base.common.Pager;
 import com.neusoft.base.model.DataGrid;
-
 import com.neusoft.legal.dao.LegalAgentDao;
 import com.neusoft.legal.domain.LegalAgent;
 import com.neusoft.legal.query.LegalAgentQuery;
@@ -102,6 +101,12 @@ public class LegalAgentServiceImpl implements LegalAgentService{
 		List<LegalAgentQuery> listQuery =getQuerysFromEntitys(list) ;
 		return listQuery;
 	}
-	
+	@Override
+	public LegalAgentQuery getQuery(Long agentId) {
+		LegalAgent legalAgent = legalAgentDao.getById(agentId);
+		LegalAgentQuery query = new LegalAgentQuery();
+		BeanUtils.copyProperties(legalAgent, query);
+		return query;
+	}
 	
 }

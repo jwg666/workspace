@@ -18,7 +18,6 @@ import org.hibernate.criterion.Restrictions;
 public class HBaseDAO<T> {
 	@Resource
 	private SessionFactory sessionFactory;
-//	private Session session ;
 	
 	public Session getSession() {
 		return sessionFactory.getCurrentSession();
@@ -84,7 +83,6 @@ public class HBaseDAO<T> {
 		}
 		q.setFirstResult(begin);
 		q.setMaxResults(pageSize);
-		//log.warn(q.list().size());
 		return q.list();
 	}	
 	public Criteria getCriteria(Class<T> claz){
@@ -100,7 +98,11 @@ public class HBaseDAO<T> {
 			Iterator<Entry<String,Object>> it = map.entrySet().iterator();
 			while (it.hasNext()) {
 				Entry<String,Object> e = it.next();
-				c.add(Restrictions.eq(e.getKey(), e.getValue()));
+				if(e.getValue() instanceof List){
+					c.add(Restrictions.in(e.getKey(), (List)e.getValue()));
+				}else{
+					c.add(Restrictions.eq(e.getKey(), e.getValue()));
+				}
 			}
 		}
 		
@@ -114,7 +116,11 @@ public class HBaseDAO<T> {
 			Iterator<Entry<String,Object>> it = map.entrySet().iterator();
 			while (it.hasNext()) {
 				Entry<String,Object> e = it.next();
-				c.add(Restrictions.eq(e.getKey(), e.getValue()));
+				if(e.getValue() instanceof List){
+					c.add(Restrictions.in(e.getKey(), (List)e.getValue()));
+				}else{
+					c.add(Restrictions.eq(e.getKey(), e.getValue()));
+				}				
 			}
 		}
 		c.setFirstResult(begin);
@@ -136,11 +142,30 @@ public class HBaseDAO<T> {
 			Iterator<Entry<String,Object>> it = map.entrySet().iterator();
 			while (it.hasNext()) {
 				Entry<String,Object> e = it.next();
-				c.add(Restrictions.eq(e.getKey(), e.getValue()));
+				if(e.getValue() instanceof List){
+					c.add(Restrictions.in(e.getKey(), (List)e.getValue()));
+				}else{
+					c.add(Restrictions.eq(e.getKey(), e.getValue()));
+				}
 			}
 		}
 		c.setProjection(Projections.rowCount());
 		
 		return (Long)c.uniqueResult();
+	}
+	public Object finUnique(Class<T> claz,Map map){
+		Criteria c = getSession().createCriteria(claz);
+		if(map!=null&&map.size()>0){
+			Iterator<Entry<String,Object>> it = map.entrySet().iterator();
+			while (it.hasNext()) {
+				Entry<String,Object> e = it.next();
+				if(e.getValue() instanceof List){
+					c.add(Restrictions.in(e.getKey(), (List)e.getValue()));
+				}else{
+					c.add(Restrictions.eq(e.getKey(), e.getValue()));
+				}
+			}
+		}
+		return c.uniqueResult();
 	}
 }

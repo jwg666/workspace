@@ -11,7 +11,7 @@ import javax.annotation.Resource;
 import org.activiti.engine.IdentityService;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.time.DateUtils;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.neusoft.base.common.ExecuteResult;
@@ -24,7 +24,7 @@ import com.neusoft.security.domain.UserInfo;
 import com.neusoft.security.query.UserInfoQuery;
 import com.neusoft.security.service.UserInfoService;
 
-@Service("userInfoService")
+@Component("userInfoService")
 @Transactional
 public class UserInfoServiceImpl implements UserInfoService {
 //	private static final I18nResolver I18N_RESOLVER = I18nResolverFactory

@@ -70,7 +70,10 @@ public class LegalCaseAction extends BaseAction implements ModelDriven<LegalCase
 		logger.debug(">>>datagrid:"+datagrid.getRows().size());
 		return "datagrid";
 	}
-	
+	public String taskgrid() {
+		datagrid = legalCaseService.taskgrid(legalCaseQuery);
+		return "datagrid";
+	}
 	
 	/**
 	 * 获得无分页的所有数据

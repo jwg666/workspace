@@ -19,8 +19,13 @@ import com.neusoft.base.action.BaseAction;
 import com.neusoft.base.model.DataGrid;
 import com.neusoft.base.model.Json;
 import com.neusoft.legal.domain.LegalApprove;
+import com.neusoft.legal.domain.LegalCase;
+import com.neusoft.legal.query.LegalAgentQuery;
 import com.neusoft.legal.query.LegalApproveQuery;
+import com.neusoft.legal.query.LegalCaseQuery;
+import com.neusoft.legal.service.LegalAgentService;
 import com.neusoft.legal.service.LegalApproveService;
+import com.neusoft.legal.service.LegalCaseService;
 import com.opensymphony.xwork2.ModelDriven;
 /**
  * 
@@ -35,14 +40,17 @@ public class LegalApproveAction extends BaseAction implements ModelDriven<LegalA
 
 	@Resource
 	private LegalApproveService legalApproveService;
-	
+	@Resource
+	private LegalCaseService legalCaseService;
+	@Resource
+	private LegalAgentService legalAgentService;
 	private LegalApproveQuery legalApproveQuery = new LegalApproveQuery();
 	private LegalApprove legalApprove;
 	private DataGrid datagrid;
 	private List<LegalApproveQuery>  legalApproveList = new ArrayList<LegalApproveQuery>();
 	private Json json = new Json();
-	
-	
+	private LegalCaseQuery legalCaseQuery;
+	private LegalAgentQuery legalAgentQuery;
 	
 	/**
 	 * 跳转到LegalApprove管理页面
@@ -116,9 +124,10 @@ public class LegalApproveAction extends BaseAction implements ModelDriven<LegalA
 	public String goTaskList(){
 		return "taskList";
 	}
-	public String taskgrid() {
-		datagrid = legalApproveService.taskgrid(legalApproveQuery);
-		return "datagrid";
+	public String taskDetail(){
+		legalCaseQuery = legalCaseService.getQuery(legalApproveQuery.getCaseId());
+		legalAgentQuery = legalAgentService.getQuery(legalCaseQuery.getAgentId());
+		return "taskDetail";
 	}
 	@Override
 	public LegalApproveQuery getModel() {
@@ -144,5 +153,30 @@ public class LegalApproveAction extends BaseAction implements ModelDriven<LegalA
 	public Json getJson() {
 		return json;
 	}
+	public void setLegalApprove(LegalApprove legalApprove) {
+		this.legalApprove = legalApprove;
+	}
+	public LegalCaseQuery getLegalCaseQuery() {
+		return legalCaseQuery;
+	}
+	public void setLegalCaseQuery(LegalCaseQuery legalCaseQuery) {
+		this.legalCaseQuery = legalCaseQuery;
+	}
+	public LegalAgentQuery getLegalAgentQuery() {
+		return legalAgentQuery;
+	}
+	public void setLegalAgentQuery(LegalAgentQuery legalAgentQuery) {
+		this.legalAgentQuery = legalAgentQuery;
+	}
+	public void setDatagrid(DataGrid datagrid) {
+		this.datagrid = datagrid;
+	}
+	public void setLegalApproveList(List<LegalApproveQuery> legalApproveList) {
+		this.legalApproveList = legalApproveList;
+	}
+	public void setJson(Json json) {
+		this.json = json;
+	}
+	
 	
 }

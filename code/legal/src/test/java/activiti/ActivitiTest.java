@@ -12,10 +12,14 @@ import javax.annotation.Resource;
 
 import org.activiti.engine.RepositoryService;
 import org.activiti.engine.RuntimeService;
+import org.activiti.engine.TaskService;
 import org.activiti.engine.repository.Deployment;
 import org.activiti.engine.repository.ProcessDefinition;
+import org.activiti.engine.task.Task;
 import org.apache.commons.io.FilenameUtils;
 import org.junit.Test;
+
+
 
 
 
@@ -26,6 +30,8 @@ public class ActivitiTest extends BaseTestCase{
 	private RepositoryService repositoryService;
 	@Resource
 	private RuntimeService runtimeService;
+	@Resource
+	private TaskService taskService;
 //	public void testDeploy(){
 //		try {
 //			logger.debug("--------------------------------------------------");
@@ -48,11 +54,16 @@ public class ActivitiTest extends BaseTestCase{
 //			logger.error("布署流程出现问题",e);
 //		}
 //	}
+//	@Test
+//	public void testStartWorkFlow(){
+//		Map<String, Object> variables = new HashMap<String, Object>();
+//		variables.put("businformId", "11");
+//		variables.put("businformType", "LE_LEGAL_CASE");
+//		runtimeService.startProcessInstanceByKey("LegalAidProcess", variables);	
+//	}
 	@Test
-	public void testStartWorkFlow(){
-		Map<String, Object> variables = new HashMap<String, Object>();
-		variables.put("businformId", "11");
-		variables.put("businformType", "LE_LEGAL_CASE");
-		runtimeService.startProcessInstanceByKey("LegalAidProcess", variables);	
+	public void testGetTask(){
+		List<Task> list =  taskService.createTaskQuery().taskDefinitionKey("caseApprove").list();
+		logger.debug("------------------");
 	}
 }

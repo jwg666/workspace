@@ -64,6 +64,8 @@ public interface LegalAgentService{
 	 */
 	public List<LegalAgentQuery> listAll(LegalAgentQuery legalAgentQuery);
 
+	public LegalAgentQuery getQuery(Long agentId);
+
 	
 	
 }

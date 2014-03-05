@@ -1,5 +1,6 @@
 package com.neusoft.activiti.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -46,10 +47,13 @@ public class WfProcinstanceDao extends HBaseDAO<WfProcinstance> {
 		return pager;
 	}
 	public WfProcinstance findProidByBusid(Map map) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	public WfProcinstance getById(String rowId) {		
 		return getById(new Long(rowId));
+	}
+	public WfProcinstance finUnique(WfProcinstanceQuery wfQuery) {
+		Map<String,Object> map = new HashMap<String,Object>();
+		return (WfProcinstance)finUnique(WfProcinstance.class, map);
 	}
 }

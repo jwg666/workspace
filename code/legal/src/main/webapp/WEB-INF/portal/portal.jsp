@@ -106,7 +106,7 @@
 							
 							<ul id="todotasks">
 							<!-- 待办列表demo start-->
-							    <li  src="../legal/legalApplicantAction!goLegalApplicant.do" resName="案件审核" resIcon="" resH="20"  resW="20" resid="2"  id="resource_2">
+							    <li  src="../legal/legalApproveAction!goTaskList" resName="案件审核" resIcon="" resH="20"  resW="20" resid="1"  id="resource_1">
 								 <div class="main-content-navi-icon">
 								 <img width="35px" height="35px" src="${staticURL}/portal/img/images/content-icon1.png" />
 										<div class="live-tip">6</div>
@@ -121,21 +121,21 @@
 									<div class="main-content-navi-icontext">指派律师事务所</div>
 									<div class="navi-selected-icon"></div>
 								</li>
-								<li  src="" resName="事务所受理案件" resIcon="" resH="20"  resW="20" resid="2"  id="resource_2">
+								<li  src="" resName="事务所受理案件" resIcon="" resH="20"  resW="20" resid="3"  id="resource_3">
 								 <div class="main-content-navi-icon"><img width="35px" height="35px" src="${staticURL}/portal/img/images/content-icon7.png" />
 										<div class="live-tip ">6</div>
 									</div>
 									<div class="main-content-navi-icontext">事务所受理案件</div>
 									<div class="navi-selected-icon"></div>
 								</li>
-								<li  src="" resName="受理结果公示" resIcon="" resH="20"  resW="20" resid="2"  id="resource_2">
+								<li  src="" resName="受理结果公示" resIcon="" resH="20"  resW="20" resid="4"  id="resource_4">
 								 <div class="main-content-navi-icon"><img width="35px" height="35px" src="${staticURL}/portal/img/images/content-icon4.png" />
 										<div class="live-tip ">8</div>
 									</div>
 									<div class="main-content-navi-icontext">受理结果公示</div>
 									<div class="navi-selected-icon"></div>
 								</li>
-								<li class="last-li"  src="" resName="结案" resIcon="" resH="20"  resW="20" resid="2"  id="resource_2">
+								<li class="last-li"  src="" resName="结案" resIcon="" resH="20"  resW="20" resid="5"  id="resource_5">
 								 <div class="main-content-navi-icon"><img width="35px" height="35px" src="${staticURL}/portal/img/images/content-icon5.png" />
 										<div class="live-tip">12</div>
 									</div>

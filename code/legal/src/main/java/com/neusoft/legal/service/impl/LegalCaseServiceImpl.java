@@ -13,10 +13,15 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.activiti.engine.RuntimeService;
+import org.activiti.engine.TaskService;
+import org.activiti.engine.task.Task;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.neusoft.activiti.dao.WfProcinstanceDao;
+import com.neusoft.activiti.domain.WfProcinstance;
+import com.neusoft.activiti.query.WfProcinstanceQuery;
 import com.neusoft.base.common.Pager;
 import com.neusoft.base.model.DataGrid;
 import com.neusoft.legal.dao.LegalCaseDao;
@@ -35,7 +40,10 @@ public class LegalCaseServiceImpl implements LegalCaseService{
 	private LegalCaseDao legalCaseDao;
 	@Resource
 	private RuntimeService runtimeService;
-
+	@Resource
+	private TaskService taskService;
+	@Resource
+	private WfProcinstanceDao wfProcinstanceDao;
 	@Override
 	public DataGrid datagrid(LegalCaseQuery legalCaseQuery) {
 		DataGrid j = new DataGrid();
@@ -114,5 +122,29 @@ public class LegalCaseServiceImpl implements LegalCaseService{
 		runtimeService.startProcessInstanceByKey("LegalAidProcess", variables);		
 	}
 	
-	
+	@Override
+	public DataGrid taskgrid(LegalCaseQuery legalCaseQuery) {
+		List<Task> taskList = taskService.createTaskQuery().taskDefinitionKey(legalCaseQuery.getDefinitionKey()).list();
+		WfProcinstance wf;
+		WfProcinstanceQuery wfQuery = new WfProcinstanceQuery();
+		List<Long> idList = new ArrayList<Long>();
+		for (Task task : taskList) {
+			wfQuery.setProcessinstanceId(task.getProcessInstanceId());
+			wf = wfProcinstanceDao.finUnique(wfQuery);
+			idList.add(new Long(wf.getBusinformId()));
+		}
+		legalCaseQuery.setIdList(idList);
+		DataGrid j = new DataGrid();
+		Pager<LegalCase> pager  = legalCaseDao.findPage(legalCaseQuery);
+		j.setRows(getQuerysFromEntitys(pager.getRecords()));
+		j.setTotal(pager.getTotalRecords());
+		return j;
+	}
+	@Override
+	public LegalCaseQuery getQuery(Long id) {
+		LegalCase legalCase = legalCaseDao.getById(id);
+		LegalCaseQuery query = new LegalCaseQuery();
+		BeanUtils.copyProperties(legalCase, query);
+		return query;
+	}
 }

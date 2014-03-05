@@ -21,6 +21,7 @@ import com.neusoft.base.common.LoginContext;
 import com.neusoft.base.common.LoginContextHolder;
 import com.neusoft.base.common.Pager;
 import com.neusoft.base.common.PropertyUtils;
+import com.neusoft.base.common.SpringApplicationContextHolder;
 import com.neusoft.base.model.DataGrid;
 import com.neusoft.base.model.Json;
 import com.neusoft.portal.model.Member;
@@ -57,8 +58,6 @@ public class PortalAction extends BaseAction {
 	private	WallpaperService 	wallpaperService;
 	@javax.annotation.Resource
 	private	ResourceInfoService 	resourceInfoService;
-	@javax.annotation.Resource
-	private TaskCountService taskCountService;
 	
 //	@javax.annotation.ResourceInfo
 //	private FileUploadService fileUploadServiceImpl;
@@ -136,10 +135,16 @@ public class PortalAction extends BaseAction {
 //	private List<Grantor> grantorList;
 	
 	//资源ids
-	private String resourceInfoIds;
-	
-	
+	private String resourceInfoIds;	
 	private Json json = new Json();	
+	
+	static{
+		serviceMap.put("1", "caseApproveTaskCountService");
+		serviceMap.put("2", "asignLegalOfficeTaskCountService");
+		serviceMap.put("3", "accessCaseTaskCountService");
+		serviceMap.put("4", "publishResultTaskCountService");
+		serviceMap.put("5", "endCaseTaskCountService");
+	}
 	
 	public String portal(){
 		logger.debug("-------------------------------------------------------------------");
@@ -180,10 +185,12 @@ public class PortalAction extends BaseAction {
 		Map<String, Integer> taskCountMap = new HashMap<String, Integer>();
 		if(StringUtils.isNotBlank(resourceInfoIds)){
 			String resIds[] = resourceInfoIds.split(",");
+			TaskCountService taskCountService;
 			String countService;
 			for(String resId : resIds){
 				countService = serviceMap.get(resId);
 				if(countService!=null && taskCountMap.get(resId)==null){
+					taskCountService = (TaskCountService)SpringApplicationContextHolder.getBean(countService);
 					try {
 						taskCountMap.put(resId, taskCountService.getTaskCount(empCode));
 					} catch (NoSuchBeanDefinitionException e) {

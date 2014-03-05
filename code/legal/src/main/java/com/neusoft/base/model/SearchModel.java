@@ -1,13 +1,10 @@
 package com.neusoft.base.model;
 
 import java.io.Serializable;
-
-
-
+import java.util.List;
 
 import com.neusoft.base.common.Pager;
 import com.neusoft.base.common.ValidateUtil;
-
 
 public  class SearchModel<T> implements Serializable {
 	
@@ -42,10 +39,12 @@ public  class SearchModel<T> implements Serializable {
 	   * 任务id的数组
 	   * */
 	protected String[] taskIds;
+	protected List idList;
 	  /*
 	   * 任务id
 	   * */
 	protected String taskId;
+	
 	
 	public Long getPage() {
 		return page;
@@ -105,6 +104,12 @@ public  class SearchModel<T> implements Serializable {
 	}
 	public void setDefinitionKey(String definitionKey) {
 		this.definitionKey = definitionKey;
+	}
+	public List getIdList() {
+		return idList;
+	}
+	public void setIdList(List idList) {
+		this.idList = idList;
 	}
 	
 	

@@ -66,6 +66,10 @@ public interface LegalCaseService{
 
 	public void startWorkFlow(LegalCaseQuery legalCaseQuery);
 
+	public DataGrid taskgrid(LegalCaseQuery legalCaseQuery);
+
+	public LegalCaseQuery getQuery(Long id);
+
 	
 	
 }

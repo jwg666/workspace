@@ -1,7 +1,9 @@
 package com.neusoft.activiti.count.impl;
 
-import com.neusoft.activiti.count.TaskCountService;
+import org.springframework.stereotype.Component;
 
+import com.neusoft.activiti.count.TaskCountService;
+@Component("endCaseTaskCountService")
 public class EndCaseTaskCountServiceImpl implements TaskCountService {
 
 	@Override

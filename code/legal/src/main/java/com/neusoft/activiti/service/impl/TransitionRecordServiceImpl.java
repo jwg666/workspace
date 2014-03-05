@@ -14,7 +14,7 @@ import org.activiti.engine.runtime.ProcessInstance;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import com.neusoft.activiti.dao.TransitionRecordDao;
 import com.neusoft.activiti.domain.TransitionRecord;
@@ -24,7 +24,7 @@ import com.neusoft.activiti.service.WfProcinstanceService;
 import com.neusoft.base.common.Pager;
 import com.neusoft.base.common.ValidateUtil;
 import com.neusoft.base.model.DataGrid;
-@Service("transitionRecordService")
+@Component("transitionRecordService")
 public class TransitionRecordServiceImpl implements TransitionRecordService{
 	@Resource
 	private TransitionRecordDao transitionRecordDao;

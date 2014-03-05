@@ -52,7 +52,12 @@ public class LegalCaseDao extends HBaseDAO<LegalCase>{
 	public Pager<LegalCase> findPage(LegalCaseQuery query) {
 		Pager<LegalCase> pager = new Pager<LegalCase>();
 		Map map = ConverterUtil.toHashMap(query);
-		List<LegalCase> appList = findList(LegalCase.class, map, query.getPage().intValue(), query.getRows().intValue());
+		List idList = query.getIdList();
+		if(idList!=null&&!idList.isEmpty()){
+			map.put("id",idList);
+		}
+		int begin = (query.getPage().intValue()-1)*(query.getRows().intValue());
+		List<LegalCase> appList = findList(LegalCase.class, map, begin, query.getRows().intValue());
 		pager.setTotalRecords(getTotalCount(LegalCase.class, map));
 		pager.setCurrentPage(query.getPage());
 		pager.setPageSize(query.getRows());
