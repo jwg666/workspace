@@ -100,14 +100,14 @@ public class WfProcinstanceServiceImpl implements WfProcinstanceService{
 		WfProcinstance t = new WfProcinstance();
 		BeanUtils.copyProperties(wfProcinstanceQuery, t);
 		wfProcinstanceDao.save(t);
-		wfProcinstanceQuery.setRowId(t.getRowId());
+		wfProcinstanceQuery.setId(t.getId());
 		return t;
 		
 	}
 
 	@Override
 	public void update(WfProcinstanceQuery wfProcinstanceQuery) {
-		WfProcinstance t = wfProcinstanceDao.getById(wfProcinstanceQuery.getRowId());
+		WfProcinstance t = wfProcinstanceDao.getById(wfProcinstanceQuery.getId());
 	    if(t != null) {
 	    	BeanUtils.copyProperties(wfProcinstanceQuery, t);
 		}
@@ -128,7 +128,7 @@ public class WfProcinstanceServiceImpl implements WfProcinstanceService{
 
 	@Override
 	public WfProcinstance get(WfProcinstanceQuery wfProcinstanceQuery) {
-		return wfProcinstanceDao.getById(wfProcinstanceQuery.getRowId());
+		return wfProcinstanceDao.getById(wfProcinstanceQuery.getId());
 	}
 
 	@Override

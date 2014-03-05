@@ -3,6 +3,8 @@ package com.neusoft.base.model;
 import java.io.Serializable;
 
 
+
+
 import com.neusoft.base.common.Pager;
 import com.neusoft.base.common.ValidateUtil;
 
@@ -16,7 +18,10 @@ public  class SearchModel<T> implements Serializable {
 	 */
 	public final static  String TASK_TYPE_MY="my";
 	public final static  String TASK_TYPE_GROUP="group";
-	
+	/**
+	 * 节点流程ID
+	 */
+	protected String definitionKey;
 	/**
 	 * 
 	 */
@@ -32,6 +37,15 @@ public  class SearchModel<T> implements Serializable {
 	private Long  page=1L;	
 	private Long  rows=20L;
 	private String  sort;
+	
+	  /*
+	   * 任务id的数组
+	   * */
+	protected String[] taskIds;
+	  /*
+	   * 任务id
+	   * */
+	protected String taskId;
 	
 	public Long getPage() {
 		return page;
@@ -73,6 +87,24 @@ public  class SearchModel<T> implements Serializable {
 	}
 	public void setPager(Pager<T> pager) {
 		this.pager = pager;
+	}
+	public String[] getTaskIds() {
+		return taskIds;
+	}
+	public void setTaskIds(String[] taskIds) {
+		this.taskIds = taskIds;
+	}
+	public String getTaskId() {
+		return taskId;
+	}
+	public void setTaskId(String taskId) {
+		this.taskId = taskId;
+	}
+	public String getDefinitionKey() {
+		return definitionKey;
+	}
+	public void setDefinitionKey(String definitionKey) {
+		this.definitionKey = definitionKey;
 	}
 	
 	

@@ -7,8 +7,8 @@ import org.springframework.stereotype.Repository;
 
 import com.neusoft.activiti.domain.WfProcinstance;
 import com.neusoft.activiti.query.WfProcinstanceQuery;
+import com.neusoft.base.common.ConverterUtil;
 import com.neusoft.base.common.Pager;
-import com.neusoft.base.common.PropertyUtils;
 import com.neusoft.base.dao.HBaseDAO;
 
 /**
@@ -18,7 +18,7 @@ import com.neusoft.base.dao.HBaseDAO;
 @Repository
 public class WfProcinstanceDao extends HBaseDAO<WfProcinstance> {
 	public void saveOrUpdate(WfProcinstance entity) {
-		if (entity.getRowId() == null) {
+		if (entity.getId() == null) {
 			save(entity);
 		} else {
 			update(entity);
@@ -31,13 +31,13 @@ public class WfProcinstanceDao extends HBaseDAO<WfProcinstance> {
 
 	@SuppressWarnings("unchecked")
 	public List<WfProcinstance> findList(WfProcinstanceQuery WfProcinstanceQuery) {		
-		return findList(WfProcinstance.class, PropertyUtils.toParameterMap(WfProcinstanceQuery));
+		return findList(WfProcinstance.class, ConverterUtil.toHashMap(WfProcinstanceQuery));
 	}
 
 
 	public Pager<WfProcinstance> findPage(WfProcinstanceQuery WfProcinstanceQuery) {
 		Pager<WfProcinstance> pager = new Pager<WfProcinstance>();
-		Map map = PropertyUtils.toParameterMap(WfProcinstanceQuery);
+		Map map = ConverterUtil.toHashMap(WfProcinstanceQuery);
 		List<WfProcinstance> WfProcinstanceList = findList(WfProcinstance.class, map, WfProcinstanceQuery.getPage().intValue(), WfProcinstanceQuery.getRows().intValue());
 		pager.setTotalRecords(getTotalCount(WfProcinstance.class, map));
 		pager.setCurrentPage(WfProcinstanceQuery.getPage());

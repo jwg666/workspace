@@ -26,7 +26,7 @@ public class WfProcinstanceQuery extends  SearchModel<WfProcinstance> implements
 	  /**
      * 唯一标识       db_column: ROW_ID 
      */	
-	private java.lang.String rowId;
+	private java.lang.Long id;
 	  /**
      * 流程实例Id       db_column: PROCESSINSTANCE_ID 
      */	
@@ -77,14 +77,20 @@ public class WfProcinstanceQuery extends  SearchModel<WfProcinstance> implements
 		this.businformType = businformType;
 	}
 
-	public java.lang.String getRowId() {
-		return this.rowId;
-	}
 	
-	public void setRowId(java.lang.String value) {
-		this.rowId = value;
-	}
 	
+	public java.lang.Long getId() {
+		return id;
+	}
+
+
+
+	public void setId(java.lang.Long id) {
+		this.id = id;
+	}
+
+
+
 	public java.lang.String getProcessinstanceId() {
 		return this.processinstanceId;
 	}

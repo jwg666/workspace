@@ -64,6 +64,8 @@ public interface LegalCaseService{
 	 */
 	public List<LegalCaseQuery> listAll(LegalCaseQuery legalCaseQuery);
 
+	public void startWorkFlow(LegalCaseQuery legalCaseQuery);
+
 	
 	
 }

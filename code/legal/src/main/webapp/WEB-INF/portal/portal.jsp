@@ -382,9 +382,9 @@ $(function(){
 		$("#desk-6 .main-content .main-subnav").hide().find("ul").hide();
 	});
 	//2秒后 请求taskCount
-	//setTimeout(showTaskCount,1000);
+	setTimeout(showTaskCount,1000);
 	//10分钟刷新taskCount
-	//setInterval(showTaskCount,600000);
+	setInterval(showTaskCount,600000);
 	//10钟刷新在线用户
 	//setInterval(refreshOnLineUser,1000*10);
 	

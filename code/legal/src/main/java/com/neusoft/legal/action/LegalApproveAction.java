@@ -67,13 +67,8 @@ public class LegalApproveAction extends BaseAction implements ModelDriven<LegalA
 	 * 获得pageHotel数据表格
 	 */
 	public String datagrid() {
-		try {
-			datagrid = legalApproveService.datagrid(legalApproveQuery);
-			return "datagrid";
-		} catch (Exception e) {
-			logger.debug(">>>"+e);
-		}
-		return null;
+		datagrid = legalApproveService.datagrid(legalApproveQuery);
+		return "datagrid";
 	}
 	
 	
@@ -117,7 +112,14 @@ public class LegalApproveAction extends BaseAction implements ModelDriven<LegalA
 		json.setSuccess(true);
 		return SUCCESS;
 	}
-
+	
+	public String goTaskList(){
+		return "taskList";
+	}
+	public String taskgrid() {
+		datagrid = legalApproveService.taskgrid(legalApproveQuery);
+		return "datagrid";
+	}
 	@Override
 	public LegalApproveQuery getModel() {
 		return legalApproveQuery;

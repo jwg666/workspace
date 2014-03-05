@@ -10,6 +10,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.activiti.engine.TaskService;
+import org.activiti.engine.task.Task;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,7 +32,8 @@ import com.neusoft.legal.service.LegalApproveService;
 public class LegalApproveServiceImpl implements LegalApproveService{
 	@Resource
 	private LegalApproveDao legalApproveDao;
-	
+	@Resource
+	private TaskService taskService;
 
 	@Override
 	public DataGrid datagrid(LegalApproveQuery legalApproveQuery) {
@@ -100,6 +103,15 @@ public class LegalApproveServiceImpl implements LegalApproveService{
 	    List<LegalApprove> list = legalApproveDao.findList(legalApproveQuery);
 		List<LegalApproveQuery> listQuery =getQuerysFromEntitys(list) ;
 		return listQuery;
+	}
+
+	@Override
+	public DataGrid taskgrid(LegalApproveQuery legalApproveQuery) {
+		legalApproveQuery.setDefinitionKey("caseApprove");
+//		legalApproveQuery.set
+		List<Task> taskList = taskService.createTaskQuery().taskDefinitionKey("caseApprove").list();
+		
+		return null;
 	}
 	
 	

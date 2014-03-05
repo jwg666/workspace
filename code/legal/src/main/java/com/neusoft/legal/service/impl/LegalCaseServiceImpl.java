@@ -6,10 +6,13 @@
 
 package com.neusoft.legal.service.impl;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.activiti.engine.RuntimeService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,7 +33,8 @@ import com.neusoft.legal.service.LegalCaseService;
 public class LegalCaseServiceImpl implements LegalCaseService{
 	@Resource
 	private LegalCaseDao legalCaseDao;
-	
+	@Resource
+	private RuntimeService runtimeService;
 
 	@Override
 	public DataGrid datagrid(LegalCaseQuery legalCaseQuery) {
@@ -100,6 +104,14 @@ public class LegalCaseServiceImpl implements LegalCaseService{
 	    List<LegalCase> list = legalCaseDao.findList(legalCaseQuery);
 		List<LegalCaseQuery> listQuery =getQuerysFromEntitys(list) ;
 		return listQuery;
+	}
+
+	@Override
+	public void startWorkFlow(LegalCaseQuery legalCaseQuery) {
+		Map<String, Object> variables = new HashMap<String, Object>();
+		variables.put("businformId", legalCaseQuery.getId());
+		variables.put("businformType", "LE_LEGAL_CASE");
+		runtimeService.startProcessInstanceByKey("LegalAidProcess", variables);		
 	}
 	
 	

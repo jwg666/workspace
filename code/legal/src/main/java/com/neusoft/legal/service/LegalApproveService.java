@@ -64,6 +64,9 @@ public interface LegalApproveService{
 	 */
 	public List<LegalApproveQuery> listAll(LegalApproveQuery legalApproveQuery);
 
+	public DataGrid taskgrid(LegalApproveQuery legalApproveQuery);
+
+
 	
 	
 }

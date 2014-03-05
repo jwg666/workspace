@@ -57,8 +57,8 @@ public class PortalAction extends BaseAction {
 	private	WallpaperService 	wallpaperService;
 	@javax.annotation.Resource
 	private	ResourceInfoService 	resourceInfoService;
-//	@javax.annotation.Resource
-//	private TaskCountService taskCountService;
+	@javax.annotation.Resource
+	private TaskCountService taskCountService;
 	
 //	@javax.annotation.ResourceInfo
 //	private FileUploadService fileUploadServiceImpl;
@@ -185,7 +185,7 @@ public class PortalAction extends BaseAction {
 				countService = serviceMap.get(resId);
 				if(countService!=null && taskCountMap.get(resId)==null){
 					try {
-//						taskCountMap.put(resId, taskCountService.getTaskCount(empCode));
+						taskCountMap.put(resId, taskCountService.getTaskCount(empCode));
 					} catch (NoSuchBeanDefinitionException e) {
 						logger.error("got exception--",e);
 						taskCountMap.put(resId, 0);

@@ -19,7 +19,6 @@ import com.neusoft.base.common.LoginContext;
 import com.neusoft.base.common.LoginContextHolder;
 import com.neusoft.base.common.Pager;
 import com.neusoft.base.common.PasswordUtil;
-import com.neusoft.base.model.SearchModel;
 import com.neusoft.security.dao.UserInfoDAO;
 import com.neusoft.security.domain.UserInfo;
 import com.neusoft.security.query.UserInfoQuery;

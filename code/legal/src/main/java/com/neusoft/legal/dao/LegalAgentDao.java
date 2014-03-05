@@ -12,9 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import com.neusoft.base.common.ConverterUtil;
 import com.neusoft.base.common.Pager;
-import com.neusoft.base.common.PropertyUtils;
 import com.neusoft.base.dao.HBaseDAO;
-
 import com.neusoft.legal.domain.LegalAgent;
 import com.neusoft.legal.query.LegalAgentQuery;
 
@@ -47,7 +45,7 @@ public class LegalAgentDao extends HBaseDAO<LegalAgent>{
 	 
 	@SuppressWarnings("unchecked")
 	public List<LegalAgent> findList(LegalAgentQuery query) {		
-		return findList(LegalAgent.class, PropertyUtils.toParameterMap(query));
+		return findList(LegalAgent.class, ConverterUtil.toHashMap(query));
 	}
 	
 	public Pager<LegalAgent> findPage(LegalAgentQuery query) {
