@@ -774,7 +774,7 @@
 					<artifactId>jetty-maven-plugin</artifactId>
 					<version>9.0.0.RC2</version>
 					<configuration>
-						<scanIntervalSeconds>10</scanIntervalSeconds>
+						<scanIntervalSeconds>0</scanIntervalSeconds>
 						<webAppConfig>
 							<contextPath>/legal</contextPath>
 						</webAppConfig>
