@@ -53,7 +53,7 @@ public class WfProcinstanceDao extends HBaseDAO<WfProcinstance> {
 		return getById(new Long(rowId));
 	}
 	public WfProcinstance finUnique(WfProcinstanceQuery wfQuery) {
-		Map<String,Object> map = new HashMap<String,Object>();
+		Map<String,Object> map = ConverterUtil.toHashMap(wfQuery);
 		return (WfProcinstance)finUnique(WfProcinstance.class, map);
 	}
 }

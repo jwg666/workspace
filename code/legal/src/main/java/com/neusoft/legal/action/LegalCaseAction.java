@@ -96,6 +96,8 @@ public class LegalCaseAction extends BaseAction implements ModelDriven<LegalCase
 		if(null!=id&&!id.equals(0)){
 			//FIXME 启动工作流
 			legalCaseService.startWorkFlow(legalCaseQuery);
+			
+			logger.debug("工作流启动成功");
 		}
 		return SUCCESS;
 	}

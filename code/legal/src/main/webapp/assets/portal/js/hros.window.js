@@ -15,7 +15,7 @@ HROS.window = (function(){
 			$('.popup-menu').hide();
 			$('.quick_view_container').remove();
 			var type = 'app';
-			var appid = obj.realappid == null ? Date.parse(new Date()) : obj.realappid;
+			var appid = obj.realappid == null ? 0 : obj.realappid;
 			var customWindow = obj.customWindow;
 			//判断窗口是否已打开
 			var iswindowopen = false;
@@ -201,7 +201,7 @@ HROS.window = (function(){
 							}
 							//隐藏loading
 							$(windowId + ' .window-noframe').children('div').eq(1).fadeOut();
-						})
+						});
 					}else{
 						if(typeof(obj.content) == "string"){
 							$(windowId).find(".noframe").html(obj.content);

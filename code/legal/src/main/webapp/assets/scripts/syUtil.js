@@ -397,7 +397,7 @@ $.fn.combo.methods.enableValue=function(jq){
 	jq.each(function(){
 		var combo = $.data(this, "combo").combo;
 		combo.find(".combo-value").removeAttr("disabled");
-	})
+	});
 }
 
 
@@ -865,9 +865,9 @@ $(function(){
 	$("input.orderAutoComple").live('focusout', function() {
 		var v = $(this).val();
 		if (v && v.length > 0 && v.length < 10) {
-			$(this).val('0000000000'.substr(v.length) + v)
+			$(this).val('0000000000'.substr(v.length) + v);
 		}
-	})
+	});
 });
 //datagrid 获取解析后的json
 function datagridParse(datagrid,checked){
@@ -891,7 +891,7 @@ function datagridParse(datagrid,checked){
 				}
 			});
 		});
-	})
+	});
 	//表内容
 	grid.datagrid("getPanel").find(".datagrid-body .datagrid-btable").each(function(){
 		$(this).find("tr.datagrid-row").each(function(i){
@@ -912,7 +912,7 @@ function datagridParse(datagrid,checked){
 				}
 			});
 		});
-	})
+	});
 	if(checked){
 		var newrows = [];
 		for(var i=0,l=selected.length;i<l;i++){
@@ -969,7 +969,7 @@ function gridToTable(obj){
 				hm[i] = hm[i] == null?d:hm[i]+d;
 			});
 			
-		})
+		});
 		//表内容
 		var bm = [];
 		$(this).find(".datagrid-body .datagrid-btable").each(function(){
@@ -988,7 +988,7 @@ function gridToTable(obj){
 				});
 				bm[i] = bm[i] == null?d:bm[i]+d;
 			});
-		})
+		});
 		//页脚
 		var fm = [];
 		$(this).find(".datagrid-footer .datagrid-ftable").each(function(){
@@ -1007,7 +1007,7 @@ function gridToTable(obj){
 				});
 				fm[i] = fm[i] == null?d:fm[i]+d;
 			});
-		})
+		});
 		var b = "";
 		for(var i = 0,l=bm.length;i<l;i++){
 			b = b + "<tr>" + bm[i] + "</tr>";
@@ -1023,7 +1023,7 @@ function gridToTable(obj){
 		table.append(h+b+f);
 		t.after(table);
 		t.remove();
-	})
+	});
 	obj.find("input[type=text]").each(function(){
 		var v = $(this).val();
 		if(v==''){

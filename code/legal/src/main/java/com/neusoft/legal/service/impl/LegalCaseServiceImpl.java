@@ -117,7 +117,7 @@ public class LegalCaseServiceImpl implements LegalCaseService{
 	@Override
 	public void startWorkFlow(LegalCaseQuery legalCaseQuery) {
 		Map<String, Object> variables = new HashMap<String, Object>();
-		variables.put("businformId", legalCaseQuery.getId());
+		variables.put("businformId", legalCaseQuery.getId().toString());
 		variables.put("businformType", "LE_LEGAL_CASE");
 		runtimeService.startProcessInstanceByKey("LegalAidProcess", variables);		
 	}

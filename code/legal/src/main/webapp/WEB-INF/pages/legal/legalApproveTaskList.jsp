@@ -88,7 +88,21 @@
 		});
 	});
 	function goApprove(){
-		
+		var rows = datagrid.datagrid('getSelections');
+		var caseId = rows[0].id;
+		if (rows.length == 1) {
+			parent.window.HROS.window.createTemp({
+				title : '案件审核',
+				url : 'legalApproveAction!taskDetail?caseId='+caseId,
+				width : 600,
+				height : 500,
+				isresize : false,
+				isopenmax : true,
+				isflash : false
+			});
+		}else{
+			$.messager.alert('提示', '请选择一条提单记录', 'warning');
+		}
 	}
 </script>
 </head>

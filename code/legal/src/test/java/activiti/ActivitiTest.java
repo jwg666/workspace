@@ -54,16 +54,16 @@ public class ActivitiTest extends BaseTestCase{
 //			logger.error("布署流程出现问题",e);
 //		}
 //	}
-//	@Test
-//	public void testStartWorkFlow(){
-//		Map<String, Object> variables = new HashMap<String, Object>();
-//		variables.put("businformId", "11");
-//		variables.put("businformType", "LE_LEGAL_CASE");
-//		runtimeService.startProcessInstanceByKey("LegalAidProcess", variables);	
-//	}
 	@Test
-	public void testGetTask(){
-		List<Task> list =  taskService.createTaskQuery().taskDefinitionKey("caseApprove").list();
-		logger.debug("------------------");
+	public void testStartWorkFlow(){
+		Map<String, Object> variables = new HashMap<String, Object>();
+		variables.put("businformId", "12");
+		variables.put("businformType", "LE_LEGAL_CASE");
+		runtimeService.startProcessInstanceByKey("LegalAidProcess", variables);	
 	}
+//	@Test
+//	public void testGetTask(){
+//		List<Task> list =  taskService.createTaskQuery().taskDefinitionKey("caseApprove").list();
+//		logger.debug("------------------");
+//	}
 }

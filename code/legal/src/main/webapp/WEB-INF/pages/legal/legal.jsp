@@ -3,12 +3,7 @@
 <html>
 <head>
 <jsp:include page="/common/common_js.jsp"></jsp:include>
-<script type="text/javascript" charset="utf-8">
-$("document").ready(function(){
-	
-});
 
-</script>
 <script type="text/javascript">
 		var legalApplicantAddForm ;
 		var legalCaseAddForm;
@@ -25,11 +20,12 @@ $("document").ready(function(){
 					return isValid;
 				},
 				success : function(data) {
+					$.messager.progress('close');
 					var json = $.parseJSON(data);
 					if (json && json.success) {
 					    $.messager.show({
 							title : '成功',
-							msg : json.obj.id
+							msg : json.msg
 						});
 						$("#applicantId").val(json.obj.id);
 					} else {
@@ -63,11 +59,12 @@ $("document").ready(function(){
 				legalAgentAddForm = $('#legalAgentAddForm').form({
 					url : 'legalAgentAction!add.do',
 					success : function(data) {
+						$.messager.progress('close');
 						var json = $.parseJSON(data);
 						if (json && json.success) {
 						    $.messager.show({
 								title : '成功',
-								msg : json.obj.id								
+								msg : json.msg								
 							}); 
 							$("#agentId").val(json.obj.id);
 						} else {
@@ -81,12 +78,16 @@ $("document").ready(function(){
 				legalCaseAddForm = $('#legalCaseAddForm').form({
 					url : 'legalCaseAction!add.do',
 					success : function(data) {
+						$.messager.progress('close');
 						var json = $.parseJSON(data);
 						if (json && json.success) {
 							$.messager.show({
 								title : '成功',
 								msg : json.msg
 							});
+							legalApplicantAddForm.form('clear');
+							legalAgentAddForm.form('clear');
+							legalCaseAddForm.form('clear');
 						}else {
 							$.messager.show({
 								title : '失败',
@@ -112,16 +113,28 @@ $("document").ready(function(){
 			});
 		
 		function resetInfo(obj){
-			obj.reset();
+			obj.form('reset');
 		}
 		function submitLegalApplicant(){
 			legalApplicantAddForm.submit();
+			$.messager.progress({
+				text : '数据处理中……',
+				interval : 100
+			});
 		}
 		function submitLegalAgent(){
 			legalAgentAddForm.submit();
+			$.messager.progress({
+				text : '数据处理中……',
+				interval : 100
+			});
 		}
 		function submitLegalCase(){
 			legalCaseAddForm.submit();
+			$.messager.progress({
+				text : '数据处理中……',
+				interval : 100
+			});
 		}
 	</script>
 </head>
