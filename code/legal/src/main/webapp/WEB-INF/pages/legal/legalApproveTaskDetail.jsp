@@ -46,13 +46,18 @@
 				    <div class="item25">
 						<div class="itemleft100">性别：</div>
 						<div class="righttext">
-							<input id="applicantGender" type="text" style="width:10px" value="${legalApplicantQuery.gender}"/>
+							<s:if test="${legalApplicantQuery.gender=='m'}">
+								<input id="applicantGender" type="text" style="width:10px" value="男"/>
+							</s:if>
+							<s:else>
+								<input id="applicantGender" type="text" style="width:10px" value="女"/>
+							</s:else>
 						</div>
 				    </div>
 				    <div class="item25">
 						<div class="itemleft100">出生日期：</div>
 						<div class="righttext">
-							<input id="birthday" name="birthday"  style="width:100px" class="easyui-datebox"/>
+							<s:date  name="legalApplicantQuery.birthday"   format="yyyy-mm-dd"  nice=“true”/>
 						</div>
 				    </div>
 				    <div class="item25 lastitem">
@@ -79,7 +84,7 @@
 				    <div class="item25">
 						<div class="itemleft100">证件号码：</div>
 						<div class="righttext">
-							<input id="identifyid" name="identifyid"  style="width:100px"/>
+							<input id="identifyid" name="identifyid"  style="width:100px" value="${legalApplicantQuery.identifyid}"/>
 						</div>
 				    </div>
 				    <div class="item25 lastitem" >
