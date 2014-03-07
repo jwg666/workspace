@@ -192,13 +192,11 @@ var editFolderDialogTemp = template(
 		'<div class="folderInput"><input type="text" class="folderName" id="folderName" value="<%=name%>"></div>'+
 		'<div class="folderNameError">文件夹名称不能只包含空字符</div>'+
 		'<div class="fcDropdown">'+
-				'<a class="fcDropdown_item" title="默认"><img class="fcDropdown_img"	src_val="906" src="'+HROS.CONFIG.downloadImage+'"906"></a>'+
-				'<a class="fcDropdown_item" title="文本"><img class="fcDropdown_img"	src_val="907" src="'+HROS.CONFIG.downloadImage+'"907"></a>'+
-				'<a class="fcDropdown_item" title="游戏"><img class="fcDropdown_img"	src_val="908" src="'+HROS.CONFIG.downloadImage+'"908"></a>'+
-				'<a class="fcDropdown_item" title="生活"><img class="fcDropdown_img"	src_val="909" src="'+HROS.CONFIG.downloadImage+'"909"></a>'+
-				'<a class="fcDropdown_item" title="音乐"><img class="fcDropdown_img"	src_val="910" src="'+HROS.CONFIG.downloadImage+'"910"></a>'+
-				'<a class="fcDropdown_item" title="工具"><img class="fcDropdown_img"	src_val="911" src="'+HROS.CONFIG.downloadImage+'"911"></a>'+
-				'<a class="fcDropdown_item" title="视频"><img class="fcDropdown_img"	src_val="912" src="'+HROS.CONFIG.downloadImage+'"912"></a>'+
+				'<a class="fcDropdown_item" title="默认"><img class="fcDropdown_img"	src_val="2949" src="'+HROS.CONFIG.downloadImage+'"2949"></a>'+
+				'<a class="fcDropdown_item" title="文本"><img class="fcDropdown_img"	src_val="2016" src="'+HROS.CONFIG.downloadImage+'"2016"></a>'+
+				'<a class="fcDropdown_item" title="音乐"><img class="fcDropdown_img"	src_val="2013" src="'+HROS.CONFIG.downloadImage+'"2013"></a>'+
+				'<a class="fcDropdown_item" title="工具"><img class="fcDropdown_img"	src_val="2023" src="'+HROS.CONFIG.downloadImage+'"2023"></a>'+
+				'<a class="fcDropdown_item" title="通讯"><img class="fcDropdown_img"	src_val="2027" src="'+HROS.CONFIG.downloadImage+'"2027"></a>'+
 		'</div>'+
 	'</div>'
 );

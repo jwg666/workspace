@@ -127,17 +127,17 @@ public class ActivitiServiceImpl implements ActivitiService {
 		 * 更新工作流变量
 		 */
 		Map<String, Object> variablesMap = new HashMap<String, Object>();
-		for (Entry<String, String> entry : Constant.updateAssgineeMap
-				.entrySet()) {
-			String variables = entry.getKey().replaceAll("[//$//{//}]", "")
-					.trim();
-			String beanId = entry.getValue();
+//		for (Entry<String, String> entry : Constant.updateAssgineeMap
+//				.entrySet()) {
+//			String variables = entry.getKey().replaceAll("[//$//{//}]", "")
+//					.trim();
+//			String beanId = entry.getValue();
 //			UpdateAssgineeService updateAssgineeService = SpringApplicationContextHolder
 //					.getBean(beanId);
 //			String value = updateAssgineeService.getNewAssgineeService(
 //					proinstId, orderCode);
 //			variablesMap.put(variables, value);
-		}
+//		}
 		runtimeService.setVariables(proinstId, variablesMap);
 		/* 把现在已经处于活动状态的任务 如果使用了流程变量 修改 */
 		RepositoryServiceImpl repositoryServiceImpl = (RepositoryServiceImpl) repositoryService;
@@ -168,10 +168,10 @@ public class ActivitiServiceImpl implements ActivitiService {
 					Expression expression = taskDefinition
 							.getAssigneeExpression();
 					if (expression != null) {
-						Map<String, String> updateAssgineeMap = Constant.updateAssgineeMap;
-						String beanId = updateAssgineeMap.get(expression
-								.getExpressionText());
-						if (ValidateUtil.isValid(beanId)) {
+//						Map<String, String> updateAssgineeMap = Constant.updateAssgineeMap;
+//						String beanId = updateAssgineeMap.get(expression
+//								.getExpressionText());
+//						if (ValidateUtil.isValid(beanId)) {
 //							UpdateAssgineeService updateAssgineeService = SpringApplicationContextHolder
 //									.getBean(beanId);
 //							String newEmpCode = updateAssgineeService
@@ -184,7 +184,7 @@ public class ActivitiServiceImpl implements ActivitiService {
 //											newEmpCode);
 //								}
 //							}
-						}
+//						}
 					}
 				}
 			}

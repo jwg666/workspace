@@ -427,7 +427,7 @@ public class MemberAppServiceImpl implements MemberAppService{
 			List<Long> listApp = stringsToList(apps);
 			for(Long l : listApp){
 				for(MemberAppQuery query:list){
-					if(l.longValue() == query.getRealid().longValue()){
+					if(l.longValue() == query.getTbid().longValue()){
 						 initLocalMsg(query);
 						deskList.add(query);
 						break;

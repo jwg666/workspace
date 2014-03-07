@@ -45,11 +45,8 @@
 				    </div>				    
 				    <div class="item25">
 						<div class="itemleft100">性别：</div>
-						<div class="rightselect_easyui">
-							<select id="gender" name="gender"  class="short50">
-								<option value="m">男</option>
-								<option value="f">女</option>
-							</select>
+						<div class="righttext">
+							<input id="applicantGender" type="text" style="width:10px" value="${legalApplicantQuery.gender}"/>
 						</div>
 				    </div>
 				    <div class="item25">

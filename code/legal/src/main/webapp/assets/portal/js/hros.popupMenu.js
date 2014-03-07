@@ -345,8 +345,8 @@ HROS.popupMenu = (function(){
 						padding : 0,
 						content : editFolderDialogTemp({
 							'name' : '新建文件夹',
-							'src' : HROS.CONFIG.downloadImage+'906',
-							'src_val':'906'
+							'src' : HROS.CONFIG.downloadImage+'2949',
+							'src_val':'2949'
 						}),
 						ok : function(){
 							if($('#folderName').val() != ''){
