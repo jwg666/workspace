@@ -16,8 +16,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.neusoft.base.action.BaseAction;
-import com.neusoft.base.model.DataGrid;
-import com.neusoft.base.model.Json;
 import com.neusoft.legal.domain.LegalCase;
 import com.neusoft.legal.query.LegalCaseQuery;
 import com.neusoft.legal.service.LegalCaseService;
@@ -37,9 +35,7 @@ public class LegalCaseAction extends BaseAction implements ModelDriven<LegalCase
 	
 	private LegalCaseQuery legalCaseQuery = new LegalCaseQuery();
 	private LegalCase legalCase;
-	private DataGrid datagrid;
 	private List<LegalCaseQuery>  legalCaseList = new ArrayList<LegalCaseQuery>();
-	private Json json = new Json();
 
 	
 	
@@ -142,12 +138,6 @@ public class LegalCaseAction extends BaseAction implements ModelDriven<LegalCase
 	}
 	public List<LegalCaseQuery> getLegalCaseList() {
 		return legalCaseList;
-	}
-	public DataGrid getDatagrid() {
-		return datagrid;
-	}
-	public Json getJson() {
-		return json;
 	}
 	
 }

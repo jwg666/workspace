@@ -11,16 +11,15 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import com.neusoft.base.action.BaseAction;
-import com.neusoft.base.model.Json;
-import com.neusoft.base.model.DataGrid;
 import org.springframework.beans.BeanUtils;
-import com.opensymphony.xwork2.ModelDriven;
-import org.springframework.stereotype.Controller;
 import org.springframework.context.annotation.Scope;
-import com.neusoft.legal.service.LegalAgentService;
+import org.springframework.stereotype.Controller;
+
+import com.neusoft.base.action.BaseAction;
 import com.neusoft.legal.domain.LegalAgent;
 import com.neusoft.legal.query.LegalAgentQuery;
+import com.neusoft.legal.service.LegalAgentService;
+import com.opensymphony.xwork2.ModelDriven;
 /**
  * 
  * @author jiawg
@@ -37,9 +36,7 @@ public class LegalAgentAction extends BaseAction implements ModelDriven<LegalAge
 	
 	private LegalAgentQuery legalAgentQuery = new LegalAgentQuery();
 	private LegalAgent legalAgent;
-	private DataGrid datagrid;
 	private List<LegalAgentQuery>  legalAgentList = new ArrayList<LegalAgentQuery>();
-	private Json json = new Json();
 		
 	
 	/**
@@ -129,12 +126,6 @@ public class LegalAgentAction extends BaseAction implements ModelDriven<LegalAge
 	}
 	public List<LegalAgentQuery> getLegalAgentList() {
 		return legalAgentList;
-	}
-	public DataGrid getDatagrid() {
-		return datagrid;
-	}
-	public Json getJson() {
-		return json;
 	}
 	
 }

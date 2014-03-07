@@ -102,5 +102,11 @@ public class LegalApplicantServiceImpl implements LegalApplicantService{
 		return listQuery;
 	}
 	
-	
+	@Override
+	public LegalApplicantQuery getQuery(Long applicantId) {
+		LegalApplicant applicant = legalApplicantDao.getById(applicantId);
+		LegalApplicantQuery query = new LegalApplicantQuery();
+		BeanUtils.copyProperties(applicant, query);
+		return query;
+	}
 }

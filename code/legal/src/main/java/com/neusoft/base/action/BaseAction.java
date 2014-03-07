@@ -21,10 +21,17 @@ public class BaseAction extends ActionSupport{
 	protected Logger logger = LoggerFactory.getLogger(getClass());
 	protected int pageNo=1;
 	protected int pageSize=20;
-	
+	protected String order;
 	protected PageList pageList;
 	protected DataGrid datagrid;
 	protected final Json json = new Json();
+	
+	public String getOrder() {
+		return order;
+	}
+	public void setOrder(String order) {
+		this.order = order;
+	}
 	public int getPageNo() {
 		return pageNo;
 	}

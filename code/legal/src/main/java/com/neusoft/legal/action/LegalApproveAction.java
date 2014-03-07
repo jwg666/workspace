@@ -16,14 +16,13 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.neusoft.base.action.BaseAction;
-import com.neusoft.base.model.DataGrid;
-import com.neusoft.base.model.Json;
 import com.neusoft.legal.domain.LegalApprove;
-import com.neusoft.legal.domain.LegalCase;
 import com.neusoft.legal.query.LegalAgentQuery;
+import com.neusoft.legal.query.LegalApplicantQuery;
 import com.neusoft.legal.query.LegalApproveQuery;
 import com.neusoft.legal.query.LegalCaseQuery;
 import com.neusoft.legal.service.LegalAgentService;
+import com.neusoft.legal.service.LegalApplicantService;
 import com.neusoft.legal.service.LegalApproveService;
 import com.neusoft.legal.service.LegalCaseService;
 import com.opensymphony.xwork2.ModelDriven;
@@ -43,13 +42,14 @@ public class LegalApproveAction extends BaseAction implements ModelDriven<LegalA
 	@Resource
 	private LegalCaseService legalCaseService;
 	@Resource
+	private LegalApplicantService legalApplicantService;
+	@Resource
 	private LegalAgentService legalAgentService;
 	private LegalApproveQuery legalApproveQuery = new LegalApproveQuery();
 	private LegalApprove legalApprove;
-	private DataGrid datagrid;
 	private List<LegalApproveQuery>  legalApproveList = new ArrayList<LegalApproveQuery>();
-	private Json json = new Json();
 	private LegalCaseQuery legalCaseQuery;
+	private LegalApplicantQuery legalApplicantQuery;
 	private LegalAgentQuery legalAgentQuery;
 	
 	/**
@@ -124,8 +124,9 @@ public class LegalApproveAction extends BaseAction implements ModelDriven<LegalA
 	public String goTaskList(){
 		return "taskList";
 	}
-	public String taskDetail(){
+	public String taskDetail(){		
 		legalCaseQuery = legalCaseService.getQuery(legalApproveQuery.getCaseId());
+		legalApplicantQuery = legalApplicantService.getQuery(legalCaseQuery.getApplicantId());
 		legalAgentQuery = legalAgentService.getQuery(legalCaseQuery.getAgentId());
 		return "taskDetail";
 	}
@@ -140,18 +141,11 @@ public class LegalApproveAction extends BaseAction implements ModelDriven<LegalA
 		this.legalApproveQuery = legalApproveQuery;
 	}
 	
-	
 	public LegalApprove getLegalApprove() {
 		return legalApprove;
 	}
 	public List<LegalApproveQuery> getLegalApproveList() {
 		return legalApproveList;
-	}
-	public DataGrid getDatagrid() {
-		return datagrid;
-	}
-	public Json getJson() {
-		return json;
 	}
 	public void setLegalApprove(LegalApprove legalApprove) {
 		this.legalApprove = legalApprove;
@@ -168,15 +162,14 @@ public class LegalApproveAction extends BaseAction implements ModelDriven<LegalA
 	public void setLegalAgentQuery(LegalAgentQuery legalAgentQuery) {
 		this.legalAgentQuery = legalAgentQuery;
 	}
-	public void setDatagrid(DataGrid datagrid) {
-		this.datagrid = datagrid;
-	}
 	public void setLegalApproveList(List<LegalApproveQuery> legalApproveList) {
 		this.legalApproveList = legalApproveList;
 	}
-	public void setJson(Json json) {
-		this.json = json;
+	public LegalApplicantQuery getLegalApplicantQuery() {
+		return legalApplicantQuery;
 	}
-	
+	public void setLegalApplicantQuery(LegalApplicantQuery legalApplicantQuery) {
+		this.legalApplicantQuery = legalApplicantQuery;
+	}
 	
 }

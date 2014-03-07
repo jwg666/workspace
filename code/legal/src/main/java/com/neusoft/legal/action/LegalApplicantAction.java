@@ -16,8 +16,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.neusoft.base.action.BaseAction;
-import com.neusoft.base.model.DataGrid;
-import com.neusoft.base.model.Json;
 import com.neusoft.legal.domain.LegalApplicant;
 import com.neusoft.legal.query.LegalApplicantQuery;
 import com.neusoft.legal.service.LegalApplicantService;
@@ -38,9 +36,7 @@ public class LegalApplicantAction extends BaseAction implements ModelDriven<Lega
 	
 	private LegalApplicantQuery legalApplicantQuery = new LegalApplicantQuery();
 	private LegalApplicant legalApplicant;
-	private DataGrid datagrid;
 	private List<LegalApplicantQuery>  legalApplicantList = new ArrayList<LegalApplicantQuery>();
-	private Json json = new Json();
 	
 	/**
 	 * 跳转到LegalApplicant管理页面
@@ -131,12 +127,6 @@ public class LegalApplicantAction extends BaseAction implements ModelDriven<Lega
 	}
 	public List<LegalApplicantQuery> getLegalApplicantList() {
 		return legalApplicantList;
-	}
-	public DataGrid getDatagrid() {
-		return datagrid;
-	}
-	public Json getJson() {
-		return json;
 	}
 	
 }
