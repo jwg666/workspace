@@ -23,7 +23,7 @@
 			nowrap : false,
 			border : false,
 			idField : 'id',
-			sortName : 'id',
+			sortName : 'applicantId',
 			sortOrder : 'desc',
 			columns : [ [ 
 			{field:'ck',checkbox:true,
@@ -93,7 +93,7 @@
 		if (rows.length == 1) {
 			parent.window.HROS.window.createTemp({
 				title : '案件审核',
-				url : 'legalApproveAction!taskDetail?caseId='+caseId,
+				url : '../legal/legalApproveAction!taskDetail?caseId='+caseId,
 				width : 600,
 				height : 500,
 				isresize : false,

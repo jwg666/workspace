@@ -50,7 +50,7 @@ HROS.window = (function(){
 						'zIndex' : HROS.CONFIG.createIndexid,
 						'type' : options.type,
 						'id' : 'w_' + options.appid,
-						'appid' : options.realappid,
+						'appid' : options.appid,
 						'realappid' : options.realappid,
 						'title' : options.title,
 						'url' : options.url,

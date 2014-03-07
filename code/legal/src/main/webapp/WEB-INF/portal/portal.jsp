@@ -527,7 +527,7 @@ function showTaskWindow(obj){
 			$.ajax({
 				 url:"${dynamicURL}/portal/taskCount.do",
 			     data:{
-			    	 resourceIds:resIds
+			    	 resourceInfoIds:resIds
 			     },
 			     dataType:"json",
 			     type:'post',

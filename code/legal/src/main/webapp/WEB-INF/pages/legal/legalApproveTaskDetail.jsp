@@ -26,9 +26,7 @@
 				}
 			}
 		});
-
-		
-	}
+	});
 </script>
 </head>
 <body class="easyui-layout">	
@@ -41,7 +39,8 @@
 				    <div class="item25">
 						<div class="itemleft100">姓名：</div>
 						<div class="righttext">
-							<input id="name" name="name" type="text" style="width:100px"/>
+							<input id="applicantName" type="text" style="width:100px" value="${legalApplicantQuery.name}"/>
+							
 						</div>
 				    </div>				    
 				    <div class="item25">
