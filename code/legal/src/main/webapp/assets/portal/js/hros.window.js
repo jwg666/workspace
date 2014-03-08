@@ -51,7 +51,7 @@ HROS.window = (function(){
 						'type' : options.type,
 						'id' : 'w_' + options.appid,
 						'appid' : options.appid,
-						'realappid' : options.realappid,
+						'realappid' : 0,
 						'title' : options.title,
 						'url' : options.url,
 						'imgsrc' : options.imgsrc,

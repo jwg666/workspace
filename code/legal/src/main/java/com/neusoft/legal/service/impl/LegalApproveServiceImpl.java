@@ -19,6 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.neusoft.activiti.dao.WfProcinstanceDao;
 import com.neusoft.activiti.domain.WfProcinstance;
 import com.neusoft.activiti.query.WfProcinstanceQuery;
+import com.neusoft.base.common.LoginContextHolder;
 import com.neusoft.base.common.Pager;
 import com.neusoft.base.model.DataGrid;
 import com.neusoft.legal.dao.LegalApproveDao;
@@ -38,7 +39,10 @@ import com.neusoft.legal.service.LegalApproveService;
 public class LegalApproveServiceImpl implements LegalApproveService{
 	@Resource
 	private LegalApproveDao legalApproveDao;
-
+	@Resource
+	private TaskService taskService;
+	@Resource
+	private WfProcinstanceDao wfProcinstanceDao;
 	@Override
 	public DataGrid datagrid(LegalApproveQuery legalApproveQuery) {
 		DataGrid j = new DataGrid();
@@ -65,6 +69,13 @@ public class LegalApproveServiceImpl implements LegalApproveService{
 
 	@Override
 	public Long add(LegalApproveQuery legalApproveQuery) {
+		WfProcinstanceQuery wfQuery = new WfProcinstanceQuery();
+		wfQuery.setBusinformId(legalApproveQuery.getCaseId().toString());
+		WfProcinstance wf =  wfProcinstanceDao.finUnique(wfQuery);
+		String processInstanceId = wf.getProcessinstanceId();
+		Task task = taskService.createTaskQuery().taskDefinitionKey("caseApprove").processInstanceId(processInstanceId).singleResult();
+		taskService.claim(task.getId(), legalApproveQuery.getApproveId().toString());
+		taskService.complete(task.getId());
 		LegalApprove t = new LegalApprove();
 		BeanUtils.copyProperties(legalApproveQuery, t);
 		return legalApproveDao.save(t);

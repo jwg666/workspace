@@ -114,28 +114,22 @@
 									<div class="main-content-navi-icontext">案件审核</div>
 									<div class="navi-selected-icon"></div>
 								</li>
-								<li  src="" resName="指派律师事务所" resIcon="" resH="20"  resW="20" resid="2"  id="resource_2">
+								<li  src="../legal/legalAction!asignLegalOfficeTaskList" resName="指派律师事务所" resIcon="" resH="20"  resW="20" resid="2"  id="resource_2">
 								 <div class="main-content-navi-icon"><img width="35px" height="35px" src="${staticURL}/portal/img/images/content-icon8.png" />
 										<div class="live-tip no-background-image"></div>
 									</div>
 									<div class="main-content-navi-icontext">指派律师事务所</div>
 									<div class="navi-selected-icon"></div>
 								</li>
-								<li  src="" resName="事务所受理案件" resIcon="" resH="20"  resW="20" resid="3"  id="resource_3">
+								<li  src="../legal/legalAction!accessCaseTaskList" resName="事务所受理案件" resIcon="" resH="20"  resW="20" resid="3"  id="resource_3">
 								 <div class="main-content-navi-icon"><img width="35px" height="35px" src="${staticURL}/portal/img/images/content-icon7.png" />
 										<div class="live-tip no-background-image"></div>
 									</div>
 									<div class="main-content-navi-icontext">事务所受理案件</div>
 									<div class="navi-selected-icon"></div>
 								</li>
-								<li  src="" resName="受理结果公示" resIcon="" resH="20"  resW="20" resid="4"  id="resource_4">
-								 <div class="main-content-navi-icon"><img width="35px" height="35px" src="${staticURL}/portal/img/images/content-icon4.png" />
-										<div class="live-tip no-background-image"></div>
-									</div>
-									<div class="main-content-navi-icontext">受理结果公示</div>
-									<div class="navi-selected-icon"></div>
-								</li>
-								<li class="last-li"  src="" resName="结案" resIcon="" resH="20"  resW="20" resid="5"  id="resource_5">
+								
+								<li class="last-li"  src="../legal/legalAction!endCaseTaskList" resName="结案" resIcon="" resH="20"  resW="20" resid="5"  id="resource_5">
 								 <div class="main-content-navi-icon"><img width="35px" height="35px" src="${staticURL}/portal/img/images/content-icon5.png" />
 										<div class="live-tip no-background-image"></div>
 									</div>

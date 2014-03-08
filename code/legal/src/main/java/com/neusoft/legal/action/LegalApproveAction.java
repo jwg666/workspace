@@ -16,6 +16,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.neusoft.base.action.BaseAction;
+import com.neusoft.base.common.LoginContext;
+import com.neusoft.base.common.LoginContextHolder;
 import com.neusoft.legal.domain.LegalApprove;
 import com.neusoft.legal.query.LegalAgentQuery;
 import com.neusoft.legal.query.LegalApplicantQuery;
@@ -51,7 +53,14 @@ public class LegalApproveAction extends BaseAction implements ModelDriven<LegalA
 	private LegalCaseQuery legalCaseQuery;
 	private LegalApplicantQuery legalApplicantQuery;
 	private LegalAgentQuery legalAgentQuery;
+	private String ifPass;
 	
+	public String getIfPass() {
+		return ifPass;
+	}
+	public void setIfPass(String ifPass) {
+		this.ifPass = ifPass;
+	}
 	/**
 	 * 跳转到LegalApprove管理页面
 	 * 
@@ -93,11 +102,13 @@ public class LegalApproveAction extends BaseAction implements ModelDriven<LegalA
 	 */
 	public String add() {
 		legalApproveQuery.setCreateTime(new Date());
+		legalApproveQuery.setApproveId(LoginContextHolder.get().getUserId());
 		Long id = legalApproveService.add(legalApproveQuery);
 		legalApproveQuery.setId(id);
 		json.setSuccess(true);
 		json.setObj(legalApproveQuery);
 		json.setMsg("添加成功！");
+		
 		return SUCCESS;
 	}
 

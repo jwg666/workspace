@@ -70,6 +70,6 @@ public interface LegalCaseService{
 
 	public LegalCaseQuery getQuery(Long id);
 
-	
+	public String completTask(LegalCaseQuery legalCaseQuery);
 	
 }

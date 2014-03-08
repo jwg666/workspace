@@ -10,9 +10,9 @@
 		datagrid = $('#datagrid').datagrid({
 			url : 'legalCaseAction!taskgrid.do',
 			data: [
-					{definitionKey:'caseApprove'}
+					{definitionKey:'asignLegalOffice'}
 				],
-			title : '案件审核待办列表',
+			title : '指派律师事务所待办列表',
 			iconCls : 'icon-save',
 			pagination : true,
 			pagePosition : 'bottom',
@@ -88,13 +88,13 @@
 			}
 		});
 	});
-	function goApprove(){
+	function goAsign(){
 		var rows = datagrid.datagrid('getSelections');
 		var caseId = rows[0].id;
 		if (rows.length == 1) {
 			currentappid = parent.window.HROS.window.createTemp({
-				title : '案件审核',
-				url : '../legal/legalApproveAction!taskDetail?caseId='+caseId,
+				title : '指派律师事务所',
+				url : '../legal/legalAction!goAsignLegalOffice?legalCaseQuery.id='+caseId,
 				width : 900,
 				height : 500,
 				isresize : true,

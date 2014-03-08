@@ -335,7 +335,7 @@
 							<tr>
 								<td>签名</td>
 								<td>
-									<textarea id="description" name="description"  style="width:300px;height:150px"></textarea>
+									<textarea id="" name=""  style="width:300px;height:150px"></textarea>
 								</td>
 							</tr>
 						</table>

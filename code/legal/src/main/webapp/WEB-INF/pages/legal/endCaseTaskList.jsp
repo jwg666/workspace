@@ -10,9 +10,9 @@
 		datagrid = $('#datagrid').datagrid({
 			url : 'legalCaseAction!taskgrid.do',
 			data: [
-					{definitionKey:'caseApprove'}
+					{definitionKey:'endCase'}
 				],
-			title : '案件审核待办列表',
+			title : '结案待办列表',
 			iconCls : 'icon-save',
 			pagination : true,
 			pagePosition : 'bottom',
@@ -68,7 +68,7 @@
 				text : '办理',
 				iconCls : 'icon-add',
 				handler : function() {
-					goApprove();
+					goAccess();
 				}
 			}, '-', {
 				text : '取消选中',
@@ -88,13 +88,13 @@
 			}
 		});
 	});
-	function goApprove(){
+	function goAccess(){
 		var rows = datagrid.datagrid('getSelections');
 		var caseId = rows[0].id;
 		if (rows.length == 1) {
 			currentappid = parent.window.HROS.window.createTemp({
-				title : '案件审核',
-				url : '../legal/legalApproveAction!taskDetail?caseId='+caseId,
+				title : '办理结案',
+				url : '../legal/legalAction!goEndCase?legalCaseQuery.id='+caseId,
 				width : 900,
 				height : 500,
 				isresize : true,

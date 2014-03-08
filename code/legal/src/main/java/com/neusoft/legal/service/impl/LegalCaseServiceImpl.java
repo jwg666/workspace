@@ -22,6 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.neusoft.activiti.dao.WfProcinstanceDao;
 import com.neusoft.activiti.domain.WfProcinstance;
 import com.neusoft.activiti.query.WfProcinstanceQuery;
+import com.neusoft.base.common.LoginContextHolder;
 import com.neusoft.base.common.Pager;
 import com.neusoft.base.model.DataGrid;
 import com.neusoft.legal.dao.LegalCaseDao;
@@ -146,5 +147,17 @@ public class LegalCaseServiceImpl implements LegalCaseService{
 		LegalCaseQuery query = new LegalCaseQuery();
 		BeanUtils.copyProperties(legalCase, query);
 		return query;
+	}
+	@Override
+	public String completTask(LegalCaseQuery legalCaseQuery) {
+		WfProcinstanceQuery wfQuery = new WfProcinstanceQuery();
+		wfQuery.setBusinformId(legalCaseQuery.getId().toString());
+		WfProcinstance wf =  wfProcinstanceDao.finUnique(wfQuery);
+		String processInstanceId = wf.getProcessinstanceId();
+		Task task = taskService.createTaskQuery().taskDefinitionKey(legalCaseQuery.getDefinitionKey()).processInstanceId(processInstanceId).singleResult();
+		Long userId = LoginContextHolder.get().getUserId();
+		taskService.claim(task.getId(), userId.toString());
+		taskService.complete(task.getId());
+		return null;
 	}
 }

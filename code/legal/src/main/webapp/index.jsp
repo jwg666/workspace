@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>XXX系统!</title>
+<title>法律援助综合信息平台</title>
 </head>
 <script type="text/javascript">
 	window.location.href='${dynamicURL}/portal/portal.do';

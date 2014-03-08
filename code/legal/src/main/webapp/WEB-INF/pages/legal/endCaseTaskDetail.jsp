@@ -5,10 +5,10 @@
 <head>
 <jsp:include page="/common/common_js.jsp"></jsp:include>
 <script type="text/javascript" charset="utf-8">
-	var legalApproveAddForm;	
+	var endCaseForm;	
 	$(function() {
-		legalApproveAddForm = $('#legalApproveAddForm').form({
-			url : 'legalApproveAction!add.do',
+		endCaseForm = $('#endCaseForm').form({
+			url : 'legalAction!endCase.do',
 			success : function(data) {
 				var json = $.parseJSON(data);
 				if (json && json.success) {
@@ -28,8 +28,8 @@
 			}
 		});
 	});
-	function submitApprove(){
-		legalApproveAddForm.submit();
+	function submitCase(){
+		endCaseForm.submit();
 	}
 	function resetInfo(obj){
 		obj.form('reset');
@@ -207,7 +207,7 @@
 			<div class="partnavi_zoc">
 				<span>案件审核信息</span>
 			</div>
-			<form id="legalApproveAddForm">
+			<form id="endCaseForm">
 			<input type="hidden" id="caseId" name="caseId" value="${legalCaseQuery.id}"/>
 			<div class="oneline">				    
 				     <div class="item25">
@@ -247,7 +247,7 @@
 				</div>
 			<div class="item100">
 		        <div class="oprationbutt">
-			        <input type="button" value="确定" onclick="submitApprove()"/>
+			        <input type="button" value="确定" onclick="submitCase()"/>
 			        <input type="button" value="重置"  onclick="resetInfo(this)"/>
 		       </div>
 	        </div>
