@@ -19,15 +19,11 @@ import org.springframework.transaction.annotation.Transactional;
 import com.neusoft.activiti.dao.WfProcinstanceDao;
 import com.neusoft.activiti.domain.WfProcinstance;
 import com.neusoft.activiti.query.WfProcinstanceQuery;
-import com.neusoft.base.common.LoginContextHolder;
 import com.neusoft.base.common.Pager;
 import com.neusoft.base.model.DataGrid;
 import com.neusoft.legal.dao.LegalApproveDao;
-import com.neusoft.legal.dao.LegalCaseDao;
 import com.neusoft.legal.domain.LegalApprove;
-import com.neusoft.legal.domain.LegalCase;
 import com.neusoft.legal.query.LegalApproveQuery;
-import com.neusoft.legal.query.LegalCaseQuery;
 import com.neusoft.legal.service.LegalApproveService;
 /**
  * 
@@ -120,7 +116,11 @@ public class LegalApproveServiceImpl implements LegalApproveService{
 		return listQuery;
 	}
 
-	
+	@Override
+	public List<LegalApproveQuery> getQueryList(Long caseId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 }

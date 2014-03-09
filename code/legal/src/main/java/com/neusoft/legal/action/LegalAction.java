@@ -1,5 +1,7 @@
 package com.neusoft.legal.action;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.activiti.engine.TaskService;
@@ -7,13 +9,13 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.neusoft.base.action.BaseAction;
-import com.neusoft.base.common.LoginContextHolder;
-import com.neusoft.base.service.DictionaryService;
 import com.neusoft.legal.query.LegalAgentQuery;
 import com.neusoft.legal.query.LegalApplicantQuery;
+import com.neusoft.legal.query.LegalApproveQuery;
 import com.neusoft.legal.query.LegalCaseQuery;
 import com.neusoft.legal.service.LegalAgentService;
 import com.neusoft.legal.service.LegalApplicantService;
+import com.neusoft.legal.service.LegalApproveService;
 import com.neusoft.legal.service.LegalCaseService;
 /**
  * 
@@ -24,17 +26,18 @@ import com.neusoft.legal.service.LegalCaseService;
 @Scope("prototype")
 public class LegalAction extends BaseAction{
 	private static final long serialVersionUID = 8032958721886686532L;
-	@javax.annotation.Resource
-	private	DictionaryService dictionaryService;
 	@Resource
 	private LegalApplicantService legalApplicantService;
 	@Resource
 	private LegalAgentService legalAgentService;
 	@Resource
 	private LegalCaseService legalCaseService;
+	@Resource
+	private LegalApproveService legalApproveService;
 	private LegalCaseQuery legalCaseQuery;
 	private LegalApplicantQuery legalApplicantQuery;
 	private LegalAgentQuery legalAgentQuery;
+	private List<LegalApproveQuery> legalApproveList;
 	@Resource
 	private TaskService taskService;
 	
@@ -50,11 +53,14 @@ public class LegalAction extends BaseAction{
 		legalCaseQuery = legalCaseService.getQuery(legalCaseQuery.getId());
 		legalApplicantQuery = legalApplicantService.getQuery(legalCaseQuery.getApplicantId());
 		legalAgentQuery = legalAgentService.getQuery(legalCaseQuery.getAgentId());
+		legalApproveList = legalApproveService.getQueryList(legalCaseQuery.getId());
 		return "goAsignLegalOffice";
 	}
 	public String asignLegalOffice(){
 		legalCaseQuery.setDefinitionKey("asignLegalOffice");
 		legalCaseService.completTask(legalCaseQuery);	
+		json.setMsg("处理成功");
+		json.setSuccess(true);
 		return "json";
 	}
 	public String accessCaseTaskList(){
@@ -102,6 +108,12 @@ public class LegalAction extends BaseAction{
 	}
 	public void setLegalAgentQuery(LegalAgentQuery legalAgentQuery) {
 		this.legalAgentQuery = legalAgentQuery;
+	}
+	public List<LegalApproveQuery> getLegalApproveList() {
+		return legalApproveList;
+	}
+	public void setLegalApproveList(List<LegalApproveQuery> legalApproveList) {
+		this.legalApproveList = legalApproveList;
 	}
 	
 }

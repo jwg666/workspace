@@ -15,6 +15,8 @@ import javax.annotation.Resource;
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
 import org.activiti.engine.task.Task;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -37,6 +39,7 @@ import com.neusoft.legal.service.LegalCaseService;
 @Service("legalCaseService")
 @Transactional
 public class LegalCaseServiceImpl implements LegalCaseService{
+	private Logger logger = LoggerFactory.getLogger(getClass());
 	@Resource
 	private LegalCaseDao legalCaseDao;
 	@Resource
@@ -156,8 +159,14 @@ public class LegalCaseServiceImpl implements LegalCaseService{
 		String processInstanceId = wf.getProcessinstanceId();
 		Task task = taskService.createTaskQuery().taskDefinitionKey(legalCaseQuery.getDefinitionKey()).processInstanceId(processInstanceId).singleResult();
 		Long userId = LoginContextHolder.get().getUserId();
+		//FIXME 获取legalOfficer
+		taskService.setVariable(task.getId(), "LegalOfficer", "1");
 		taskService.claim(task.getId(), userId.toString());
 		taskService.complete(task.getId());
+		
+		LegalCase legalCase = legalCaseDao.getById(legalCaseQuery.getId());
+		legalCase.setLegalId(legalCaseQuery.getLegalId());
+		legalCaseDao.update(legalCase);
 		return null;
 	}
 }

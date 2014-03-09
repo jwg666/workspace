@@ -85,7 +85,7 @@ public class LegalCase  implements java.io.Serializable{
      */	
 	private java.lang.Long applyTypeProcess;
 	//columns END
-
+	private Long legalId;
 	public LegalCase(){
 	}
 
@@ -279,10 +279,18 @@ public class LegalCase  implements java.io.Serializable{
 		public void setApplyTypeProcess(java.lang.Long applyTypeProcess) {
 			this.applyTypeProcess = applyTypeProcess;
 		}
-
-	public String toString() {
-		return ToStringBuilder.reflectionToString(this);
-	}
+		@Column(name="legal_id")
+		public Long getLegalId() {
+				return legalId;
+			}
+	
+			public void setLegalId(Long legalId) {
+				this.legalId = legalId;
+			}
+	
+		public String toString() {
+			return ToStringBuilder.reflectionToString(this);
+		}
 	
 	public int hashCode() {
 		return new HashCodeBuilder()

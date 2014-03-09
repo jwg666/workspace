@@ -32,14 +32,12 @@ public class DefaultUserTaskListener extends UserTaskRefactorListener {
 	@Override
 	protected void afterCreat(TaskEntity taskEntity,
 			Map<String, Object> variables) {
-		// 
 		logger.debug("----do afterCreat---");
 	}
 
 	@Override
 	protected void afterAssignment(TaskEntity taskEntity,
 			Map<String, Object> variables) {
-		logger.debug("------------------"+taskService+"-----------------------------");
 		logger.debug("----do afterAssignment---");
 	}
 
@@ -47,7 +45,6 @@ public class DefaultUserTaskListener extends UserTaskRefactorListener {
 	@Override
 	protected void afterComplete(TaskEntity taskEntity,
 			Map<String, Object> variables) {
-		// 
 		logger.debug("----do afterComplete---");
 	}
 
