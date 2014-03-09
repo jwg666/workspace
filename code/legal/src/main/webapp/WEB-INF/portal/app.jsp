@@ -29,7 +29,10 @@
 			<div class="label-box form-inline control-group">
 				<div class="shortcutbox">
 				<s:if test="json.obj.icon != null">
-					<div class="shortcut-addicon bgnone"><input type="file" id="uploadfilebtn" style="position:absolute;right:0;bottom:0;opacity:0;filter:alpha(opacity=0);display:block;width:200px;height:100px"><img src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=${json.obj.icon}"></div>
+					<div class="shortcut-addicon bgnone">
+						<input type="file" id="uploadfilebtn" style="position:absolute;right:0;bottom:0;opacity:0;filter:alpha(opacity=0);display:block;width:200px;height:100px">
+						<img src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=${json.obj.icon}">
+					</div>
 				</s:if>
 				<s:else>
 					<div class="shortcut-addicon"><input type="file" id="uploadfilebtn" style="position:absolute;right:0;bottom:0;opacity:0;filter:alpha(opacity=0);display:block;width:200px;height:100px"><img src=""></div>

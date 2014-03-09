@@ -34,16 +34,16 @@
 					<div class="shortcut-addicon"><input type="file" id="uploadfilebtn" style="position:absolute;right:0;bottom:0;opacity:0;filter:alpha(opacity=0);display:block;width:200px;height:100px"><img src=""></div>
 				</s:else>
 					<div class="shortcut-selicon">
-						<a href="javascript:;"><img src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=917" valsrc="917"></a>
-						<a href="javascript:;"><img src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=923" valsrc="923"></a>
-						<a href="javascript:;"><img src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=924" valsrc="924"></a>
-						<a href="javascript:;"><img src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=921" valsrc="921"></a>
-						<a href="javascript:;"><img src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=920" valsrc="920"></a>
-						<a href="javascript:;"><img src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=914" valsrc="914"></a>
-						<a href="javascript:;"><img src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=915" valsrc="915"></a>
-						<a href="javascript:;"><img src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=916" valsrc="916"></a>
-						<a href="javascript:;"><img src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=918" valsrc="918"></a>
-						<a href="javascript:;"><img src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=919" valsrc="919"></a>
+						<a href="javascript:;"><img src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=2013" valsrc="2013"></a>
+						<a href="javascript:;"><img src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=2014" valsrc="2014"></a>
+						<a href="javascript:;"><img src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=2015" valsrc="2015"></a>
+						<a href="javascript:;"><img src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=2016" valsrc="2016"></a>
+						<a href="javascript:;"><img src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=2017" valsrc="2017"></a>
+						<a href="javascript:;"><img src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=2018" valsrc="2018"></a>
+						<a href="javascript:;"><img src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=2019" valsrc="2019"></a>
+						<a href="javascript:;"><img src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=2020" valsrc="2020"></a>
+						<a href="javascript:;"><img src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=2022" valsrc="2021"></a>
+						<a href="javascript:;"><img src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=2022" valsrc="2022"></a>
 					</div>
 				</div>
 				<input type="hidden" name="valIcon" id="valIcon" value="${json.obj.icon }" datatype="*" nullmsg="请选择或上传应用图标">
