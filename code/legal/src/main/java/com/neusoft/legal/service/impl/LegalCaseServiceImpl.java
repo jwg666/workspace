@@ -163,10 +163,17 @@ public class LegalCaseServiceImpl implements LegalCaseService{
 		taskService.setVariable(task.getId(), "LegalOfficer", "1");
 		taskService.claim(task.getId(), userId.toString());
 		taskService.complete(task.getId());
+		if("accessCase".equals(legalCaseQuery.getDefinitionKey())){
+			task = taskService.createTaskQuery().taskDefinitionKey("publishResult").processInstanceId(processInstanceId).singleResult();
+			taskService.claim(task.getId(), userId.toString());
+			taskService.complete(task.getId());
+		}
+		if("asignLegalOffice".equals(legalCaseQuery.getDefinitionKey())){
+			LegalCase legalCase = legalCaseDao.getById(legalCaseQuery.getId());
+			legalCase.setLegalId(legalCaseQuery.getLegalId());
+			legalCaseDao.update(legalCase);
+		}
 		
-		LegalCase legalCase = legalCaseDao.getById(legalCaseQuery.getId());
-		legalCase.setLegalId(legalCaseQuery.getLegalId());
-		legalCaseDao.update(legalCase);
 		return null;
 	}
 }
