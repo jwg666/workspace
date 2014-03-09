@@ -9,9 +9,7 @@
 	$(function() {
 		datagrid = $('#datagrid').datagrid({
 			url : 'legalCaseAction!taskgrid.do',
-			data: [
-					{definitionKey:'caseApprove'}
-				],
+			queryParams: {definitionKey:'caseApprove'},
 			title : '案件审核待办列表',
 			iconCls : 'icon-save',
 			pagination : true,

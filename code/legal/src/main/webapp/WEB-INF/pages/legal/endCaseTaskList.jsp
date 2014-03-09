@@ -9,9 +9,7 @@
 	$(function() {
 		datagrid = $('#datagrid').datagrid({
 			url : 'legalCaseAction!taskgrid.do',
-			data: [
-					{definitionKey:'endCase'}
-				],
+			queryParams:{definitionKey:'endCase'},
 			title : '结案待办列表',
 			iconCls : 'icon-save',
 			pagination : true,

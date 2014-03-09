@@ -83,7 +83,7 @@ var easyuiErrorFunction = function(XMLHttpRequest) {
 		        copy:$('#errorMessageDiv').html(),
 		        afterCopy:function(){
 		        	alert("复制成功，请将错误信息提交给管理员");
-		        	}
+		        }
 		});
 	}
 };
@@ -104,7 +104,7 @@ $.fn.form.defaults.onLoadError = easyuiErrorFunction;
 $.fn.datagrid.defaults.onLoadSuccess = function(){
 	$(this).datagrid("clearSelections").datagrid("clearChecked");
 	
-}
+};
 
 /**
  * @author 
@@ -129,7 +129,7 @@ $.fn.datagrid.defaults.commonSort=false;
 $.fn.datagrid.defaults.beforLoadSuccess = function(data){
       //data.columnAlias="dd";
 	//console.log(data);
-}
+};
 $.fn.datagrid.defaults.changeSortNameBeforeLoad = function(param){
 	var sorts=param.sort;
 	if(sorts){
@@ -156,7 +156,7 @@ $.fn.datagrid.defaults.changeSortNameBeforeLoad = function(param){
 	 }
 	param.sort=newSorts;
 	}
-}
+};
 
 
 /**
@@ -194,7 +194,7 @@ $.fn.datagrid.customInitOptions = function(options){
 		}
 	}
 	//end
-}
+};
 
 
 /**

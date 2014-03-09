@@ -16,7 +16,7 @@
 						title : '成功',
 						msg : json.msg
 					});
-					customWindow.reloaddata();
+					//customWindow.reloaddata();
 					parent.window.HROS.window.close(currentappid);
 					top.window.showTaskCount();
 				} else {

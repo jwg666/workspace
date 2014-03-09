@@ -9,9 +9,7 @@
 	$(function() {
 		datagrid = $('#datagrid').datagrid({
 			url : 'legalCaseAction!taskgrid.do',
-			data: [
-					{definitionKey:'asignLegalOffice'}
-				],
+			queryParams: {definitionKey:'asignLegalOffice'},
 			title : '指派律师事务所待办列表',
 			iconCls : 'icon-save',
 			pagination : true,
@@ -68,7 +66,7 @@
 				text : '办理',
 				iconCls : 'icon-add',
 				handler : function() {
-					goApprove();
+					goAsign();
 				}
 			}, '-', {
 				text : '取消选中',

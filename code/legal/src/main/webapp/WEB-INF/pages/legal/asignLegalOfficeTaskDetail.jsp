@@ -7,7 +7,7 @@
 <script type="text/javascript" charset="utf-8">
 	var asignLegalOfficeForm;	
 	$(function() {
-		asignLegalOfficeForm = $('#legalApproveAddForm').form({
+		asignLegalOfficeForm = $('#asignLegalOfficeForm').form({
 			url : 'legalAction!asignLegalOffice.do',
 			success : function(data) {
 				var json = $.parseJSON(data);
@@ -16,7 +16,7 @@
 						title : '成功',
 						msg : json.msg
 					});
-					customWindow.reloaddata();
+					//customWindow.reloaddata();
 					parent.window.HROS.window.close(currentappid);
 					top.window.showTaskCount();
 				} else {
@@ -27,9 +27,19 @@
 				}
 			}
 		});
+		
+		$("#legalId").combobox({
+		    url:'../basic/departmentAction!combox',
+		    valueField:'id',
+		    textField:'name'
+		});
 	});
 	function submitCase(){
 		asignLegalOfficeForm.submit();
+		$.messager.progress({
+			text : '正在提交数据....',
+			interval : 100
+		});
 	}
 	function resetInfo(obj){
 		obj.form('reset');
@@ -195,56 +205,40 @@
 						<table>
 							<tr>
 								<td>案件描述</td>
-								<td style="width:300px;height:150px">
-									${legalCaseQuery.description}
+								<td >
+									<textarea name="description" id="description" style="width:300px;height:100px">
+										${legalCaseQuery.description}
+									</textarea>
 								</td>
 							</tr>
 						</table>  
 				    </div>
-				</div>
-			<!-- 案件信息结束 -->
-			<!-- 审核开始 -->
-			<div class="partnavi_zoc">
-				<span>案件审核信息</span>
-			</div>
-			<form id="asignLegalOfficeForm">
-			<input type="hidden" id="caseId" name="caseId" value="${legalCaseQuery.id}"/>
-			<div class="oneline">				    
-				     <div class="item25">
-						<div class="itemleft100">审核通过：</div>
-						<div class="righttext">
-							<input id="approvePass" name="ifPass" type="radio" value="1"/>
-						</div>
-				    </div>
-				    <div class="item25 lastitem">
-						<div class="itemleft100">打回重发：</div>
-						<div class="righttext">
-							<input id="approveBack" name="ifPass"  type="radio" value="0"/>
-						</div>
-				    </div>
-			   </div>
-			<div class='oneline'>								
-					<div class="half_zoc">
+				    <div class="half_zoc">
 						<table>
 							<tr>
 								<td>审核意见</td>
 								<td>
-									<textarea name="approveContent" id="approveContent" style="width:300px;height:150px"></textarea>
+									<textarea name="approveContent" id="approveContent" style="width:300px;height:100px"></textarea>
 								</td>
 							</tr>
 						</table>  
 				    </div>
-				       <div class="half_zoc">					    
-						<table>
-							<tr>
-								<td>签名</td>
-								<td>
-									<textarea id="" name=""  style="width:300px;height:150px"></textarea>
-								</td>
-							</tr>
-						</table>
-				    </div>
 				</div>
+			<!-- 案件信息结束 -->			
+			<div class="partnavi_zoc">
+					<span>指派律师事务所</span>
+			</div>
+			
+			<form id="asignLegalOfficeForm">
+			<input type="hidden" id="caseId" name="legalCaseQuery.id" value="${legalCaseQuery.id}"/>
+			<div class="oneline">
+				    <div class="item25">
+						<div class="itemleft100">选择事务所：</div>
+						<div class="righttext">
+							<input id="legalId" name="legalCaseQuery.legalId" style="width:100px"/>
+						</div>
+				    </div>
+		    </div>
 			<div class="item100">
 		        <div class="oprationbutt">
 			        <input type="button" value="确定" onclick="submitCase()"/>
