@@ -12,7 +12,6 @@ import org.springframework.stereotype.Repository;
 
 import com.neusoft.base.common.ConverterUtil;
 import com.neusoft.base.common.Pager;
-import com.neusoft.base.common.PropertyUtils;
 import com.neusoft.base.domain.Dictionary;
 import com.neusoft.base.query.DictionaryQuery;
 
@@ -51,7 +50,8 @@ public class DictionaryDao extends HBaseDAO<Dictionary>{
 	public Pager<Dictionary> findPage(DictionaryQuery query) {
 		Pager<Dictionary> pager = new Pager<Dictionary>();
 		Map map = ConverterUtil.toHashMap(query);
-		List<Dictionary> appList = findList(Dictionary.class, map, query.getPage().intValue(), query.getRows().intValue());
+		int begin = (query.getPage().intValue()-1)*(query.getRows().intValue());
+		List<Dictionary> appList = findList(Dictionary.class, map, begin, query.getRows().intValue());
 		pager.setTotalRecords(getTotalCount(Dictionary.class, map));
 		pager.setCurrentPage(query.getPage());
 		pager.setPageSize(query.getRows());

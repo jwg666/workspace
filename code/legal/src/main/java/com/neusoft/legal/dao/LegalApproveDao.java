@@ -56,7 +56,8 @@ public class LegalApproveDao extends HBaseDAO<LegalApprove>{
 		if(idList!=null&&!idList.isEmpty()){
 			map.put("id",idList);
 		}
-		List<LegalApprove> appList = findList(LegalApprove.class, map, query.getPage().intValue(), query.getRows().intValue());
+		int begin = (query.getPage().intValue()-1)*(query.getRows().intValue());
+		List<LegalApprove> appList = findList(LegalApprove.class, map, begin, query.getRows().intValue());
 		pager.setTotalRecords(getTotalCount(LegalApprove.class, map));
 		pager.setCurrentPage(query.getPage());
 		pager.setPageSize(query.getRows());
