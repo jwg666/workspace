@@ -25,9 +25,12 @@
 			<id>production</id>
 			<properties>
 				<env>production</env>
-				<dwr-version>3.0.0-rc3-SNAPSHOT</dwr-version>
-				<dwr-scope>provided</dwr-scope>
+				<dwr-version>3.0.0-rc3-20130424.090803-1</dwr-version>
+				<dwr-scope>compile</dwr-scope>
 			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 			<repositories>
 				<repository>
 					<id>Codehaus</id>
@@ -53,17 +56,7 @@
 						<enabled>true</enabled>
 					</snapshots>
 				</repository>
-				<repository>
-					<id>oss-sonatype-snapshots</id>
-					<name>OSS Sonatype Snapshots Repository</name>
-					<url>http://oss.sonatype.org/content/repositories/snapshots</url>
-					<releases>
-						<enabled>false</enabled>
-					</releases>
-					<snapshots>
-						<enabled>true</enabled>
-					</snapshots>
-				</repository>
+
 			</repositories>
 		</profile>
 		<!-- 开发环境 -->
@@ -111,7 +104,46 @@
 			<id>test</id>
 			<properties>
 				<env>test</env>
+				<dwr-version>3.0.0-rc3-SNAPSHOT</dwr-version>
+				<dwr-scope>provided</dwr-scope>
 			</properties>
+			<repositories>
+				<repository>
+					<id>Codehaus</id>
+					<url>http://repository.codehaus.org</url>
+				</repository>
+				<repository>
+					<id>kafeitu</id>
+					<url>http://maven.kafeitu.me/nexus/content/groups/public</url>
+				</repository>
+
+				<repository>
+					<id>Activiti</id>
+					<url>https://maven.alfresco.com/nexus/content/groups/public</url>
+				</repository>
+				<repository>
+					<id>spring-snapshot</id>
+					<name>Spring Portfolio Snapshot Repository</name>
+					<url>http://maven.springframework.org/snapshot</url>
+					<releases>
+						<enabled>false</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</repository>
+				<repository>
+					<id>oss-sonatype-snapshots</id>
+					<name>OSS Sonatype Snapshots Repository</name>
+					<url>http://oss.sonatype.org/content/repositories/snapshots</url>
+					<releases>
+						<enabled>false</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</repository>
+			</repositories>
 		</profile>
 	</profiles>
 	<scm>
