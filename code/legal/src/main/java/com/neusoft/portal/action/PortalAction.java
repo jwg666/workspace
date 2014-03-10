@@ -2,10 +2,8 @@ package com.neusoft.portal.action;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import net.sf.json.JSONArray;
 
@@ -37,6 +35,7 @@ import com.neusoft.portal.service.MemberService;
 import com.neusoft.portal.service.PwallpaperService;
 import com.neusoft.portal.service.WallpaperService;
 import com.neusoft.security.domain.ResourceInfo;
+import com.neusoft.security.query.ResourceInfoQuery;
 import com.neusoft.security.service.ResourceInfoService;
 @Controller
 @Scope("prototype")
@@ -388,13 +387,13 @@ public class PortalAction extends BaseAction {
 				pager = new Pager<ResourceInfo>();
 				pager.setCurrentPage(page);
 				pager.setPageSize(rows);
-				ResourceInfo res = new ResourceInfo();
+				ResourceInfoQuery res = new ResourceInfoQuery();
 				res.setName(keyword);
 				if(apptype!=null){
 					res.setId(Long.valueOf(apptype));
 				}				
 				res.setMemberId(member.getTbid());
-				data = resourceInfoService.datagrid(pager, res);
+				data = resourceInfoService.datagrid(res);
 			}
 			return "json";
 		}else{

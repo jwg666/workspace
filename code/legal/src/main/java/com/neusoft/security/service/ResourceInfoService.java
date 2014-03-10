@@ -8,6 +8,7 @@ import com.neusoft.base.common.ExecuteResult;
 import com.neusoft.base.common.Pager;
 import com.neusoft.base.model.DataGrid;
 import com.neusoft.security.domain.ResourceInfo;
+import com.neusoft.security.query.ResourceInfoQuery;
 
 
 /**
@@ -94,7 +95,7 @@ public interface ResourceInfoService {
 	 * @param ResourceInfo
 	 * @return
 	 */
-	public DataGrid datagrid(Pager<ResourceInfo> pager,ResourceInfo ResourceInfo);
+	public DataGrid datagrid(ResourceInfoQuery resourceInfoQuery);
 	
 	/**
 	 * @author Guomm

@@ -15,7 +15,7 @@ public class DataGrid implements java.io.Serializable {
 	private List rows;// 每行记录
 	private List footer;
 	private Date now = new Date();
-
+	private List children;
 	public Long getTotal() {
 		return total;
 	}
@@ -48,4 +48,12 @@ public class DataGrid implements java.io.Serializable {
 		this.now = now;
 	}
 
+	public List getChildren() {
+		return children;
+	}
+
+	public void setChildren(List children) {
+		this.children = children;
+	}
+	
 }

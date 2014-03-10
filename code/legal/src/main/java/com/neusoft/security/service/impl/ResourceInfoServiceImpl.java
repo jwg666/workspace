@@ -20,6 +20,7 @@ import com.neusoft.base.model.DataGrid;
 import com.neusoft.security.dao.ResourceInfoDAO;
 import com.neusoft.security.domain.ResourceInfo;
 import com.neusoft.security.domain.ResourceTypeEnum;
+import com.neusoft.security.query.ResourceInfoQuery;
 import com.neusoft.security.service.ResourceInfoService;
 
 /**
@@ -214,13 +215,12 @@ public class ResourceInfoServiceImpl implements ResourceInfoService {
 //	}
 	
 	@Override
-	public DataGrid datagrid(Pager<ResourceInfo> pager,ResourceInfo ResourceInfo) {
-		Long uid = LoginContextHolder.get().getUserId();
+	public DataGrid datagrid(ResourceInfoQuery resourceInfoQuery) {
 		DataGrid j = new DataGrid();
-		List<ResourceInfo> ResourceInfos = resourceInfoDAO.getDescendantsPage( uid, ResourceInfo, pager);
-		Long count = resourceInfoDAO.getDescendantsCount(uid, ResourceInfo, pager);
-		initLocalMsg(ResourceInfos);
-		j.setRows(ResourceInfos);
+		List<ResourceInfo> resourceInfos = resourceInfoDAO.findList(resourceInfoQuery);
+		Long count = resourceInfoDAO.getTotalCount(resourceInfoQuery);
+		initLocalMsg(resourceInfos);
+		j.setRows(resourceInfos);
 		j.setTotal(count);
 		return j;
 	};

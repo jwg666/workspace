@@ -2,12 +2,15 @@ package com.neusoft.security.dao;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
+import com.neusoft.base.common.ConverterUtil;
 import com.neusoft.base.common.Pager;
 import com.neusoft.base.dao.HBaseDAO;
 import com.neusoft.security.domain.ResourceInfo;
+import com.neusoft.security.query.ResourceInfoQuery;
 
 /**
  * 资源资源
@@ -169,5 +172,23 @@ public class ResourceInfoDAO extends HBaseDAO<ResourceInfo>{
 	public ResourceInfo get(Long id) {
 		
 		return (ResourceInfo)getById(ResourceInfo.class, id);
+	}
+
+	public List<ResourceInfo> findList(ResourceInfoQuery resourceInfoQuery) {
+		Map map = ConverterUtil.toHashMap(resourceInfoQuery);
+		int begin = (resourceInfoQuery.getPage().intValue()-1)*resourceInfoQuery.getRows().intValue();
+		List<ResourceInfo> resourceList = findList(ResourceInfo.class, map, begin, resourceInfoQuery.getRows().intValue());
+		for (ResourceInfo resourceInfo : resourceList) {
+			ResourceInfoQuery query = new ResourceInfoQuery();
+			query.setParentId(resourceInfo.getId());
+			List <ResourceInfo> children = findList(query);
+			resourceInfo.setChildren(children);
+		}
+		return resourceList;
+	}
+
+	public Long getTotalCount(ResourceInfoQuery resourceInfoQuery) {
+		Map map = ConverterUtil.toHashMap(resourceInfoQuery);
+		return getTotalCount(ResourceInfo.class, map);
 	}
 }

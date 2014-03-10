@@ -3,47 +3,21 @@
  * Since 2008 - 2014
  */
 
-package com.neusoft.security.domain;
+package com.neusoft.security.query;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-@Entity
-@Table(name = "TB_RESOURCE_INFO")
-public class ResourceInfo  implements java.io.Serializable{
+import com.neusoft.base.model.SearchModel;
+import com.neusoft.security.domain.ResourceInfo;
+
+public class ResourceInfoQuery extends SearchModel<ResourceInfo> implements java.io.Serializable{
 	private static final long serialVersionUID = 5454155825314635342L;
 	
-	//alias
-	public static final String TABLE_ALIAS = "RESOURCE_INFO";
-	public static final String ALIAS_ID = "id";
-	public static final String ALIAS_NAME = "name";
-	public static final String ALIAS_DESCRIPTION = "description";
-	public static final String ALIAS_URL = "url";
-	public static final String ALIAS_TYPE = "0 URL  1 组件 2 待办";
-	public static final String ALIAS_STATUS = "0  不可见  1 可见";
-	public static final String ALIAS_CODE = "code";
-	public static final String ALIAS_CONFIGURATION = "configuration";
-	public static final String ALIAS_MODULE_NAME = "moduleName";
-	public static final String ALIAS_GMT_CREATE = "gmtCreate";
-	public static final String ALIAS_GMT_MODIFIED = "gmtModified";
-	public static final String ALIAS_CREATE_BY = "createBy";
-	public static final String ALIAS_LAST_MODIFIED_BY = "lastModifiedBy";
-	public static final String ALIAS_ORDER_INDEX = "orderIndex";
-	public static final String ALIAS_PARENT_ID = "parentId";
-	public static final String ALIAS_NAME_EN = "nameEn";
-	public static final String ALIAS_ICON_URL = "图标地址";
-	public static final String ALIAS_WIDTH = "桌面打开应用窗口宽度";
-	public static final String ALIAS_HEIGHT = "桌面打开应用窗口高度";
 	
     /**
      * id       db_column: ID 
@@ -125,7 +99,7 @@ public class ResourceInfo  implements java.io.Serializable{
 	private Long memberId;
 	//辅助字段 国家化
 	private String localName;
-	private List<ResourceInfo> children = new ArrayList<ResourceInfo>();
+	private Set<ResourceInfoQuery> children = new HashSet<ResourceInfoQuery>();
 	public Long gotMemberId() {
 		return memberId;
 	}
@@ -134,14 +108,20 @@ public class ResourceInfo  implements java.io.Serializable{
 		this.memberId = memberId;
 	}
 	
-	
-
-	public List<ResourceInfo> gotChildren() {
+	public Set<ResourceInfoQuery> getChildren() {
 		return children;
 	}
 
-	public void setChildren(List<ResourceInfo> children) {
+	public void setChildren(Set<ResourceInfoQuery> children) {
 		this.children = children;
+	}
+
+	public Long getMemberId() {
+		return memberId;
+	}
+
+	public String getLocalName() {
+		return localName;
 	}
 
 	public String gotLocalName() {
@@ -152,10 +132,10 @@ public class ResourceInfo  implements java.io.Serializable{
 		this.localName = localName;
 	}
 
-	public ResourceInfo(){
+	public ResourceInfoQuery(){
 	}
 
-	public ResourceInfo(
+	public ResourceInfoQuery(
 		Long id
 	){
 		this.id = id;
@@ -165,9 +145,6 @@ public class ResourceInfo  implements java.io.Serializable{
 	     * id
 	     * @return id
 	     */
-		@Id  
-	    @GeneratedValue
-		@Column(name="ID")
 		public Long getId() {
 			return this.id;
 		}
@@ -182,7 +159,6 @@ public class ResourceInfo  implements java.io.Serializable{
 	     * name
 	     * @return name
 	     */
-		@Column(name="NAME")
 		public java.lang.String getName() {
 			return this.name;
 		}
@@ -197,7 +173,6 @@ public class ResourceInfo  implements java.io.Serializable{
 	     * description
 	     * @return description
 	     */
-		@Column(name="DESCRIPTION")
 		public java.lang.String getDescription() {
 			return this.description;
 		}
@@ -212,7 +187,6 @@ public class ResourceInfo  implements java.io.Serializable{
 	     * url
 	     * @return url
 	     */
-		@Column(name="URL")
 		public java.lang.String getUrl() {
 			return this.url;
 		}
@@ -227,7 +201,6 @@ public class ResourceInfo  implements java.io.Serializable{
 	     * 0 URL  1 组件 2 待办
 	     * @return 0 URL  1 组件 2 待办
 	     */
-		@Column(name="TYPE")
 		public java.lang.Integer getType() {
 			return this.type;
 		}
@@ -242,7 +215,6 @@ public class ResourceInfo  implements java.io.Serializable{
 	     * 0  不可见  1 可见
 	     * @return 0  不可见  1 可见
 	     */
-		@Column(name="STATUS")
 		public java.lang.Integer getStatus() {
 			return this.status;
 		}
@@ -257,7 +229,6 @@ public class ResourceInfo  implements java.io.Serializable{
 	     * code
 	     * @return code
 	     */
-		@Column(name="CODE")
 		public java.lang.String getCode() {
 			return this.code;
 		}
@@ -272,7 +243,6 @@ public class ResourceInfo  implements java.io.Serializable{
 	     * configuration
 	     * @return configuration
 	     */
-		@Column(name="CONFIGURATION")
 		public java.lang.String getConfiguration() {
 			return this.configuration;
 		}
@@ -287,7 +257,6 @@ public class ResourceInfo  implements java.io.Serializable{
 	     * moduleName
 	     * @return moduleName
 	     */
-		@Column(name="MODULE_NAME")
 		public java.lang.String getModuleName() {
 			return this.moduleName;
 		}
@@ -303,7 +272,6 @@ public class ResourceInfo  implements java.io.Serializable{
 	     * gmtCreate
 	     * @return gmtCreate
 	     */
-		@Column(name="GMT_CREATE")
 		public java.util.Date getGmtCreate() {
 			return this.gmtCreate;
 		}
@@ -319,7 +287,6 @@ public class ResourceInfo  implements java.io.Serializable{
 	     * gmtModified
 	     * @return gmtModified
 	     */
-		@Column(name="GMT_MODIFIED")
 		public java.util.Date getGmtModified() {
 			return this.gmtModified;
 		}
@@ -334,7 +301,6 @@ public class ResourceInfo  implements java.io.Serializable{
 	     * createBy
 	     * @return createBy
 	     */
-		@Column(name="CREATE_BY")
 		public java.lang.String getCreateBy() {
 			return this.createBy;
 		}
@@ -349,7 +315,6 @@ public class ResourceInfo  implements java.io.Serializable{
 	     * lastModifiedBy
 	     * @return lastModifiedBy
 	     */
-		@Column(name="LAST_MODIFIED_BY")
 		public java.lang.String getLastModifiedBy() {
 			return this.lastModifiedBy;
 		}
@@ -364,7 +329,6 @@ public class ResourceInfo  implements java.io.Serializable{
 	     * orderIndex
 	     * @return orderIndex
 	     */
-		@Column(name="ORDER_INDEX")
 		public java.lang.Long getOrderIndex() {
 			return this.orderIndex;
 		}
@@ -379,7 +343,6 @@ public class ResourceInfo  implements java.io.Serializable{
 	     * parentId
 	     * @return parentId
 	     */
-		@Column(name="PARENT_ID")
 		public Long getParentId() {
 			return this.parentId;
 		}
@@ -394,7 +357,6 @@ public class ResourceInfo  implements java.io.Serializable{
 	     * nameEn
 	     * @return nameEn
 	     */
-		@Column(name="NAME_EN")
 		public java.lang.String getNameEn() {
 			return this.nameEn;
 		}
@@ -409,7 +371,6 @@ public class ResourceInfo  implements java.io.Serializable{
 	     * 图标地址
 	     * @return 图标地址
 	     */
-		@Column(name="ICON_URL")
 		public java.lang.String getIconUrl() {
 			return this.iconUrl;
 		}
@@ -424,7 +385,6 @@ public class ResourceInfo  implements java.io.Serializable{
 	     * 桌面打开应用窗口宽度
 	     * @return 桌面打开应用窗口宽度
 	     */
-		@Column(name="WIDTH")
 		public Integer getWidth() {
 			return this.width;
 		}
@@ -439,7 +399,6 @@ public class ResourceInfo  implements java.io.Serializable{
 	     * 桌面打开应用窗口高度
 	     * @return 桌面打开应用窗口高度
 	     */
-		@Column(name="HEIGHT")
 		public Integer getHeight() {
 			return this.height;
 		}
@@ -462,9 +421,9 @@ public class ResourceInfo  implements java.io.Serializable{
 	}
 	
 	public boolean equals(Object obj) {
-		if(obj instanceof ResourceInfo == false) return false;
+		if(obj instanceof ResourceInfoQuery == false) return false;
 		if(this == obj) return true;
-		ResourceInfo other = (ResourceInfo)obj;
+		ResourceInfoQuery other = (ResourceInfoQuery)obj;
 		return new EqualsBuilder()
 			.append(getId(),other.getId())
 			.isEquals();
