@@ -130,13 +130,17 @@
 		
 	}
 	function removeIt(){
-		
-	}
-	function collapse(){
-		
-	}
-	function expand(){
-		
+		if (editId != undefined){
+			$('#treegrid').treegrid('select', editId);
+			return;
+		}
+		var node = $('#treegrid').treegrid('getSelected');
+		$.ajax({  
+            url:"resourceInfo!delete.do" ,  
+            data: [{
+           	 id:node.id
+            }], 
+        });
 	}
 </script>
 </head>
@@ -147,9 +151,7 @@
 	<div id="menu" class="easyui-menu" style="width:120px;">
 		<div onclick="append()" data-options="iconCls:'icon-add'">添加</div>
 		<div onclick="removeIt()" data-options="iconCls:'icon-remove'">删除</div>
-		<div class="menu-sep"></div>
-		<div onclick="collapse()">收起</div>
-		<div onclick="expand()">展开</div>
+		
 	</div>
 </body>
 </html>
