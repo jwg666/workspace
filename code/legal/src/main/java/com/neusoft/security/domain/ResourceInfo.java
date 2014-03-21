@@ -5,18 +5,23 @@
 
 package com.neusoft.security.domain;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 @Table(name = "TB_RESOURCE_INFO")
@@ -125,7 +130,7 @@ public class ResourceInfo  implements java.io.Serializable{
 	private Long memberId;
 	//辅助字段 国家化
 	private String localName;
-	private List<ResourceInfo> children = new ArrayList<ResourceInfo>();
+	private Set<ResourceInfo> children = new HashSet<ResourceInfo>();
 	public Long gotMemberId() {
 		return memberId;
 	}
@@ -134,13 +139,15 @@ public class ResourceInfo  implements java.io.Serializable{
 		this.memberId = memberId;
 	}
 	
-	
-
-	public List<ResourceInfo> gotChildren() {
+	@OneToMany(targetEntity=ResourceInfo.class,cascade=CascadeType.ALL)
+	@Fetch(FetchMode.JOIN)
+	//updatable=false很关键，如果没有它，在级联删除的时候就会报错(反转的问题)
+	@JoinColumn(name="PARENT_ID",updatable=false)
+	public Set<ResourceInfo> getChildren() {
 		return children;
 	}
 
-	public void setChildren(List<ResourceInfo> children) {
+	public void setChildren(Set<ResourceInfo> children) {
 		this.children = children;
 	}
 

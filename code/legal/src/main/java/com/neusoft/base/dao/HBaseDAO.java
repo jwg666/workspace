@@ -99,7 +99,10 @@ public class HBaseDAO<T> {
 			while (it.hasNext()) {
 				Entry<String,Object> e = it.next();
 				if(e.getValue() instanceof List){
-					c.add(Restrictions.in(e.getKey(), (List)e.getValue()));
+					List list = (List)e.getValue();
+					if(list!=null&&list.size()>0){
+						c.add(Restrictions.in(e.getKey(),list));
+					}
 				}else{
 					c.add(Restrictions.eq(e.getKey(), e.getValue()));
 				}
@@ -117,7 +120,10 @@ public class HBaseDAO<T> {
 			while (it.hasNext()) {
 				Entry<String,Object> e = it.next();
 				if(e.getValue() instanceof List){
-					c.add(Restrictions.in(e.getKey(), (List)e.getValue()));
+					List list = (List)e.getValue();
+					if(list!=null&&list.size()>0){
+						c.add(Restrictions.in(e.getKey(),list));
+					}					
 				}else{
 					c.add(Restrictions.eq(e.getKey(), e.getValue()));
 				}				
@@ -143,7 +149,10 @@ public class HBaseDAO<T> {
 			while (it.hasNext()) {
 				Entry<String,Object> e = it.next();
 				if(e.getValue() instanceof List){
-					c.add(Restrictions.in(e.getKey(), (List)e.getValue()));
+					List list = (List)e.getValue();
+					if(list!=null&&list.size()>0){
+						c.add(Restrictions.in(e.getKey(),list));
+					}
 				}else{
 					c.add(Restrictions.eq(e.getKey(), e.getValue()));
 				}
@@ -160,7 +169,10 @@ public class HBaseDAO<T> {
 			while (it.hasNext()) {
 				Entry<String,Object> e = it.next();
 				if(e.getValue() instanceof List){
-					c.add(Restrictions.in(e.getKey(), (List)e.getValue()));
+					List list = (List)e.getValue();
+					if(list!=null&&list.size()>0){
+						c.add(Restrictions.in(e.getKey(),list));
+					}
 				}else{
 					c.add(Restrictions.eq(e.getKey(), e.getValue()));
 				}

@@ -1,5 +1,6 @@
 package com.neusoft.security.service.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedHashMap;
@@ -9,10 +10,14 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.neusoft.base.common.CopySpecialProperties;
 import com.neusoft.base.common.ExecuteResult;
 import com.neusoft.base.common.LoginContextHolder;
 import com.neusoft.base.common.Pager;
@@ -28,6 +33,7 @@ import com.neusoft.security.service.ResourceInfoService;
 @Service("resourceInfoService")
 @Transactional
 public class ResourceInfoServiceImpl implements ResourceInfoService {
+	private Logger logger = LoggerFactory.getLogger(getClass());
 	@Resource
 	private ResourceInfoDAO resourceInfoDAO;   
 	@Override
@@ -300,5 +306,39 @@ public class ResourceInfoServiceImpl implements ResourceInfoService {
 				initLocalMsg(ResourceInfo);
 			}
 		}
+	}
+
+	@Override
+	public Long saveOrUpdate(ResourceInfoQuery resourceInfoQuery) {
+		if(resourceInfoQuery.getId()!=null){
+			ResourceInfo resourceInfo = resourceInfoDAO.get(resourceInfoQuery.getId());
+			if(resourceInfo!=null){
+				try {
+					CopySpecialProperties.copyBeanToBean(resourceInfoQuery, resourceInfo, true);
+				} catch (Exception e) {
+					logger.error("CopySpecialProperties.copyBeanToBean got exception",e);
+				}
+				resourceInfoDAO.update(resourceInfo);
+			}else{
+				try {
+					resourceInfo = new ResourceInfo();
+					CopySpecialProperties.copyBeanToBean(resourceInfoQuery, resourceInfo, true);
+				} catch (Exception e) {
+					logger.error("CopySpecialProperties.copyBeanToBean got exception",e);
+				}
+				resourceInfoDAO.save(resourceInfo);
+			}
+			
+			return resourceInfoQuery.getId();
+		}else{
+			ResourceInfo info = new ResourceInfo();
+			try {
+				CopySpecialProperties.copyBeanToBean(resourceInfoQuery, info, true);
+			} catch (Exception e) {
+				logger.error("CopySpecialProperties.copyBeanToBean got exception",e);
+			}
+			return resourceInfoDAO.save(info);
+		}
+		
 	}
 }

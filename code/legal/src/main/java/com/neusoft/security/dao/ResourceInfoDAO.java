@@ -178,12 +178,12 @@ public class ResourceInfoDAO extends HBaseDAO<ResourceInfo>{
 		Map map = ConverterUtil.toHashMap(resourceInfoQuery);
 		int begin = (resourceInfoQuery.getPage().intValue()-1)*resourceInfoQuery.getRows().intValue();
 		List<ResourceInfo> resourceList = findList(ResourceInfo.class, map, begin, resourceInfoQuery.getRows().intValue());
-		for (ResourceInfo resourceInfo : resourceList) {
-			ResourceInfoQuery query = new ResourceInfoQuery();
-			query.setParentId(resourceInfo.getId());
-			List <ResourceInfo> children = findList(query);
-			resourceInfo.setChildren(children);
-		}
+//		for (ResourceInfo resourceInfo : resourceList) {
+//			ResourceInfoQuery query = new ResourceInfoQuery();
+//			query.setParentId(resourceInfo.getId());
+//			List <ResourceInfo> children = findList(query);
+//			resourceInfo.setChildren(children);
+//		}
 		return resourceList;
 	}
 

@@ -2,6 +2,7 @@ package com.neusoft.base.common;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,7 +23,12 @@ public class ConverterUtil {
 				Object value = field.get(o);
 				if (mod==Modifier.PRIVATE&&!(null==value)) {
 //					logger.debug("{} value is: {}",field.getName(),value);
-					map.put(field.getName(),field.get(o));
+					if(value instanceof Collection){
+						//TODO  如果是集合暂时不处理
+					}else{
+						map.put(field.getName(),field.get(o));
+					}
+					
 				}				
 			} catch (IllegalArgumentException e) {
 				logger.error("----------------",e);
