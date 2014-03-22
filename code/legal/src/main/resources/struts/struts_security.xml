@@ -34,6 +34,84 @@
 				<param name="excludeProperties"></param> 
 			</result>
 		</action>
-		
+		<action name="userInfoAction!*" class="userInfoAction" method="{1}">
+	<result name="userInfo">/WEB-INF/pages/security/userInfo.jsp</result>
+	<result type="json">
+		<param name="root">json</param>
+		<param name="excludeProperties"></param> 
+	</result>
+	<result type="json" name="datagrid">
+		<param name="root">datagrid</param>
+		<param name="excludeProperties"></param> 
+	</result>
+	<result type="json" name="userInfoList">
+		<param name="root">userInfoList</param>
+		<param name="excludeProperties"></param> 
+	</result>
+	<result type="json" name="showDesc">
+		<param name="root">userInfoQuery</param>
+		<param name="excludeProperties"></param> 
+	</result>
+</action>
+<action name="userRoleAction!*" class="userRoleAction" method="{1}">
+	<result name="userRole">/WEB-INF/pages/security/userRole.jsp</result>
+	<result type="json">
+		<param name="root">json</param>
+		<param name="excludeProperties"></param> 
+	</result>
+	<result type="json" name="datagrid">
+		<param name="root">datagrid</param>
+		<param name="excludeProperties"></param> 
+	</result>
+	<result type="json" name="userRoleList">
+		<param name="root">userRoleList</param>
+		<param name="excludeProperties"></param> 
+	</result>
+	<result type="json" name="showDesc">
+		<param name="root">userRoleQuery</param>
+		<param name="excludeProperties"></param> 
+	</result>
+</action>
+
+<action name="roleResourceAction!*" class="roleResourceAction" method="{1}">
+	<result name="roleResource">/WEB-INF/pages/security/roleResource.jsp</result>
+	<result type="json">
+		<param name="root">json</param>
+		<param name="excludeProperties"></param> 
+	</result>
+	<result type="json" name="datagrid">
+		<param name="root">datagrid</param>
+		<param name="excludeProperties"></param> 
+	</result>
+	<result type="json" name="roleResourceList">
+		<param name="root">roleResourceList</param>
+		<param name="excludeProperties"></param> 
+	</result>
+	<result type="json" name="showDesc">
+		<param name="root">roleResourceQuery</param>
+		<param name="excludeProperties"></param> 
+	</result>
+</action>
+
+
+<action name="roleAction!*" class="roleAction" method="{1}">
+	<result name="role">/WEB-INF/pages/security/role.jsp</result>
+	<result type="json">
+		<param name="root">json</param>
+		<param name="excludeProperties"></param> 
+	</result>
+	<result type="json" name="datagrid">
+		<param name="root">datagrid</param>
+		<param name="excludeProperties"></param> 
+	</result>
+	<result type="json" name="roleList">
+		<param name="root">roleList</param>
+		<param name="excludeProperties"></param> 
+	</result>
+	<result type="json" name="showDesc">
+		<param name="root">roleQuery</param>
+		<param name="excludeProperties"></param> 
+	</result>
+</action>
 	</package>
 </struts>
