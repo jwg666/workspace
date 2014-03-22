@@ -6,6 +6,8 @@ import java.util.Map;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
+import com.neusoft.base.common.ConverterUtil;
+import com.neusoft.base.common.Pager;
 import com.neusoft.base.dao.HBaseDAO;
 import com.neusoft.security.domain.UserInfo;
 import com.neusoft.security.query.UserInfoQuery;
@@ -94,5 +96,32 @@ public class UserInfoDAO extends HBaseDAO<UserInfo>{
 	public List<UserInfo> getAll() {		
 		return findList(UserInfo.class);
 	}
+	public void saveOrUpdate(UserInfo entity) {
+		if(entity.getId() == null) 
+			save(entity);
+		else 
+			update(entity);
+	}
 	
+	public UserInfo getById(Long id) {
+		
+		return (UserInfo)getById(UserInfo.class, id);
+	}
+	
+	 
+	@SuppressWarnings("unchecked")
+	public List<UserInfo> findList(UserInfoQuery query) {		
+		return findList(UserInfo.class, ConverterUtil.toHashMap(query));
+	}
+	
+	public Pager<UserInfo> findPage(UserInfoQuery query) {
+		Pager<UserInfo> pager = new Pager<UserInfo>();
+		Map map = ConverterUtil.toHashMap(query);
+		List<UserInfo> appList = findList(UserInfo.class, map, query.getPage().intValue(), query.getRows().intValue());
+		pager.setTotalRecords(getTotalCount(UserInfo.class, map));
+		pager.setCurrentPage(query.getPage());
+		pager.setPageSize(query.getRows());
+		pager.setRecords(appList);
+		return pager;
+	}
 }

@@ -1,5 +1,6 @@
 package com.neusoft.security.service.impl;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -11,6 +12,7 @@ import javax.annotation.Resource;
 import org.activiti.engine.IdentityService;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.time.DateUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,6 +21,7 @@ import com.neusoft.base.common.LoginContext;
 import com.neusoft.base.common.LoginContextHolder;
 import com.neusoft.base.common.Pager;
 import com.neusoft.base.common.PasswordUtil;
+import com.neusoft.base.model.DataGrid;
 import com.neusoft.security.dao.UserInfoDAO;
 import com.neusoft.security.domain.UserInfo;
 import com.neusoft.security.query.UserInfoQuery;
@@ -596,7 +599,75 @@ public class UserInfoServiceImpl implements UserInfoService {
 //		return Pager.cloneFromPager(UserInfoSearchModel.getPager(), size, UserInfos);
 		return null;
 	}
+	@Override
+	public DataGrid datagrid(UserInfoQuery userInfoQuery) {
+		DataGrid j = new DataGrid();
+		Pager<UserInfo> pager  = userInfoDAO.findPage(userInfoQuery);
+		j.setRows(getQuerysFromEntitys(pager.getRecords()));
+		j.setTotal(pager.getTotalRecords());
+		return j;
+	}
 
+	private List<UserInfoQuery> getQuerysFromEntitys(List<UserInfo> userInfos) {
+		List<UserInfoQuery> userInfoQuerys = new ArrayList<UserInfoQuery>();
+		if (userInfos != null && userInfos.size() > 0) {
+			for (UserInfo tb : userInfos) {
+				UserInfoQuery b = new UserInfoQuery();
+				BeanUtils.copyProperties(tb, b);
+				userInfoQuerys.add(b);
+			}
+		}
+		return userInfoQuerys;
+	}
+
+	
+
+
+	@Override
+	public void add(UserInfoQuery userInfoQuery) {
+		UserInfo t = new UserInfo();
+		BeanUtils.copyProperties(userInfoQuery, t);
+		userInfoDAO.save(t);
+	}
+
+	@Override
+	public void update(UserInfoQuery userInfoQuery) {
+		UserInfo t = userInfoDAO.getById(userInfoQuery.getId());
+	    if(t != null) {
+	    	BeanUtils.copyProperties(userInfoQuery, t);
+		}
+	    userInfoDAO.update(t);
+	}
+
+	@Override
+	public void delete(java.lang.Long[] ids) {
+		if (ids != null) {
+			for(java.lang.Long id : ids){
+				UserInfo t = userInfoDAO.getById(id);
+				if (t != null) {
+					userInfoDAO.delete(t);
+				}
+			}
+		}
+	}
+
+	@Override
+	public UserInfo get(UserInfoQuery userInfoQuery) {
+		return userInfoDAO.getById(userInfoQuery.getId());
+	}
+
+	@Override
+	public UserInfo get(String id) {
+		return userInfoDAO.getById(Long.parseLong(id));
+	}
+
+	
+	@Override
+	public List<UserInfoQuery> listAll(UserInfoQuery userInfoQuery) {
+	    List<UserInfo> list = userInfoDAO.findList(userInfoQuery);
+		List<UserInfoQuery> listQuery =getQuerysFromEntitys(list) ;
+		return listQuery;
+	}
 
 	
 }

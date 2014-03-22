@@ -4,8 +4,10 @@ import java.util.List;
 
 import com.neusoft.base.common.ExecuteResult;
 import com.neusoft.base.common.Pager;
+import com.neusoft.base.model.DataGrid;
 import com.neusoft.base.model.SearchModel;
 import com.neusoft.security.domain.Role;
+import com.neusoft.security.query.RoleQuery;
 
 
 /**
@@ -13,32 +15,6 @@ import com.neusoft.security.domain.Role;
  *
  */
 public interface RoleService {
-	/**
-	 * 创建角色
-	 * @param role
-	 * @return
-	 */
-	public ExecuteResult<Role> createRole(Role role);
-	/**
-	 * 更新角色
-	 * @param role
-	 * @return
-	 */
-	public ExecuteResult<Role> updateRole(Role role);
-	
-	/**
-	 * 删除角色信息
-	 * @param roleId
-	 * @return
-	 */
-	public ExecuteResult<Role> deleteRole(Long roleId);
-	
-	/**
-	 * 查询角色信息
-	 * @param searchModel
-	 * @return
-	 */
-	public Pager<Role> searchRoles(SearchModel searchModel);
 	
 	/**
 	 * 通过角色id获取角色信息
@@ -52,6 +28,57 @@ public interface RoleService {
 	 * @return
 	 */
 	public List<Role> getRoles();
+	/**
+	 * 获得数据表格
+	 * 
+	 * @param bug
+	 * @return
+	 */
+	public DataGrid datagrid(RoleQuery roleQuery);
+
+	/**
+	 * 添加
+	 * 
+	 * @param roleQuery
+	 */
+	public void add(RoleQuery roleQuery);
+
+	/**
+	 * 修改
+	 * 
+	 * @param roleQuery
+	 */
+	public void update(RoleQuery roleQuery) ;
 	
-	public Pager<Role> getRolesByGroupId(SearchModel model);
+
+	/**
+	 * 删除
+	 * 
+	 * @param ids
+	 */
+	public void delete(java.lang.Long[] ids);
+
+	/**
+	 * 获得
+	 * 
+	 * @param Role
+	 * @return
+	 */
+	public Role get(RoleQuery roleQuery);
+	
+	
+	/**
+	 * 获得
+	 * 
+	 * @param obid
+	 * @return
+	 */
+	public Role get(String id);
+	
+	/**
+	 * 获取所有数据
+	 */
+	public List<RoleQuery> listAll(RoleQuery roleQuery);
+
+	
 }

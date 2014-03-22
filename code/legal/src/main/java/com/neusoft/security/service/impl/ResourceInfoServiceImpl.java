@@ -126,35 +126,35 @@ public class ResourceInfoServiceImpl implements ResourceInfoService {
 	}
 
 	@Override
-	public ExecuteResult<ResourceInfo> deleteResourceInfo(Long ResourceInfoId) {
+	public ExecuteResult<ResourceInfo> deleteResourceInfo(Long resourceInfoId) {
 		ExecuteResult<ResourceInfo> executeResult = new ExecuteResult<ResourceInfo>();
-		ResourceInfo ResourceInfo = resourceInfoDAO.get(ResourceInfoId);
-		if(ResourceInfo == null){
+		ResourceInfo resourceInfo = resourceInfoDAO.get(resourceInfoId);
+		if(resourceInfo == null){
 			executeResult.addWarningMessage("该资源不存在.");
 			return executeResult;
 		}
 		//无子资源
-		List<ResourceInfo> children = resourceInfoDAO.getChildren(ResourceInfoId);
+		List<ResourceInfo> children = resourceInfoDAO.getChildren(resourceInfoId);
 		if(!children.isEmpty()){
 			executeResult.addErrorMessage("该资源下有"+children.size()+"个子资源，不能删除。");
 			return executeResult;
 		}
-		resourceInfoDAO.delete(ResourceInfoId);
+		resourceInfoDAO.delete(resourceInfo);
 		return executeResult;
 	}
 
 	@Override
-	public ResourceInfo getResourceInfoById(Long ResourceInfoId) {
-		ResourceInfo ResourceInfo = resourceInfoDAO.get(ResourceInfoId);
-		initLocalMsg(ResourceInfo);
-		return ResourceInfo;
+	public ResourceInfo getResourceInfoById(Long resourceInfoId) {
+		ResourceInfo resourceInfo = resourceInfoDAO.get(resourceInfoId);
+		initLocalMsg(resourceInfo);
+		return resourceInfo;
 	}
 
 	@Override
-	public List<ResourceInfo> getChilden(Long ResourceInfoId) {
-		List<ResourceInfo> ResourceInfos = resourceInfoDAO.getChildren(ResourceInfoId);
-		initLocalMsg(ResourceInfos);
-		return ResourceInfos;
+	public List<ResourceInfo> getChilden(Long resourceInfoId) {
+		List<ResourceInfo> resourceInfos = resourceInfoDAO.getChildren(resourceInfoId);
+		initLocalMsg(resourceInfos);
+		return resourceInfos;
 	}
 
 	@Override

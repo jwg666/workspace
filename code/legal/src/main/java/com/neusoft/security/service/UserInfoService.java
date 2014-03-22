@@ -6,6 +6,7 @@ import java.util.Map;
 import com.neusoft.base.common.ExecuteResult;
 import com.neusoft.base.common.LoginContext;
 import com.neusoft.base.common.Pager;
+import com.neusoft.base.model.DataGrid;
 import com.neusoft.base.model.SearchModel;
 import com.neusoft.security.domain.UserInfo;
 import com.neusoft.security.query.UserInfoQuery;
@@ -157,4 +158,55 @@ public interface UserInfoService {
 	public List<UserInfo> getUserInfoByEmpCodes(List<String> UserInfoEmpCodeList);
 
 	public Pager<Map<String,Object>> getUserInfosAndGroupByGroupId(UserInfoQuery userInfoQuery);
+	/**
+	 * 获得数据表格
+	 * 
+	 * @param bug
+	 * @return
+	 */
+	public DataGrid datagrid(UserInfoQuery userInfoQuery);
+
+	/**
+	 * 添加
+	 * 
+	 * @param userInfoQuery
+	 */
+	public void add(UserInfoQuery userInfoQuery);
+
+	/**
+	 * 修改
+	 * 
+	 * @param userInfoQuery
+	 */
+	public void update(UserInfoQuery userInfoQuery) ;
+	
+
+	/**
+	 * 删除
+	 * 
+	 * @param ids
+	 */
+	public void delete(java.lang.Long[] ids);
+
+	/**
+	 * 获得
+	 * 
+	 * @param UserInfo
+	 * @return
+	 */
+	public UserInfo get(UserInfoQuery userInfoQuery);
+	
+	
+	/**
+	 * 获得
+	 * 
+	 * @param obid
+	 * @return
+	 */
+	public UserInfo get(String id);
+	
+	/**
+	 * 获取所有数据
+	 */
+	public List<UserInfoQuery> listAll(UserInfoQuery userInfoQuery);
 }

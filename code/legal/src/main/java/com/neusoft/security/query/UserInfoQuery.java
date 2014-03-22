@@ -12,7 +12,7 @@ import com.neusoft.security.domain.UserInfo;
 public class UserInfoQuery extends SearchModel<UserInfo>  implements java.io.Serializable{
 	private static final long serialVersionUID = 5454155825314635342L;
 	
-	
+	private Long[] ids;
     /**
      * 自增主键ID       db_column: ID 
      */	
@@ -284,6 +284,12 @@ public class UserInfoQuery extends SearchModel<UserInfo>  implements java.io.Ser
 	}
 	public void setMemberId(Long memberId) {
 		this.memberId = memberId;
+	}
+	public Long[] getIds() {
+		return ids;
+	}
+	public void setIds(Long[] ids) {
+		this.ids = ids;
 	}
 	
 }
