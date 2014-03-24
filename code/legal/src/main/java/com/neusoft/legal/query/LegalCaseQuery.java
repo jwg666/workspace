@@ -75,7 +75,11 @@ public class LegalCaseQuery extends  SearchModel<LegalCase> implements Serializa
      * applyTypeProcess       db_column: apply_type_process 
      */	
 	private java.lang.Long applyTypeProcess;
-	private Long legalId;
+	private Long legalId;//律师事务所
+	//（$legalWord）援审字（$legalCode）第（$legalNo）号
+	private String legalCode;
+	private String legalNo;
+	private String legalWord;
 	 /**
      * id
      * @return id
@@ -273,6 +277,24 @@ public class LegalCaseQuery extends  SearchModel<LegalCase> implements Serializa
 	}
 	public void setLegalId(Long legalId) {
 		this.legalId = legalId;
+	}
+	public String getLegalCode() {
+		return legalCode;
+	}
+	public void setLegalCode(String legalCode) {
+		this.legalCode = legalCode;
+	}
+	public String getLegalNo() {
+		return legalNo;
+	}
+	public void setLegalNo(String legalNo) {
+		this.legalNo = legalNo;
+	}
+	public String getLegalWord() {
+		return legalWord;
+	}
+	public void setLegalWord(String legalWord) {
+		this.legalWord = legalWord;
 	}
 	
 }
