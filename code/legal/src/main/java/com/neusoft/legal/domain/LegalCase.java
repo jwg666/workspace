@@ -85,7 +85,12 @@ public class LegalCase  implements java.io.Serializable{
      */	
 	private java.lang.Long applyTypeProcess;
 	//columns END
-	private Long legalId;
+	private Long legalId;//律师事务所
+	
+	//（$legalWord）援审字（$legalCode）第（$legalNo）号
+	private String legalCode;
+	private String legalNo;
+	private String legalWord;
 	public LegalCase(){
 	}
 
@@ -284,10 +289,34 @@ public class LegalCase  implements java.io.Serializable{
 				return legalId;
 			}
 	
-			public void setLegalId(Long legalId) {
-				this.legalId = legalId;
-			}
-	
+		public void setLegalId(Long legalId) {
+			this.legalId = legalId;
+		}
+		@Column(name="legal_code")	
+		public String getLegalCode() {
+			return legalCode;
+		}
+
+		public void setLegalCode(String legalCode) {
+			this.legalCode = legalCode;
+		}
+		@Column(name="legal_no")
+		public String getLegalNo() {
+			return legalNo;
+		}
+
+		public void setLegalNo(String legalNo) {
+			this.legalNo = legalNo;
+		}
+		@Column(name="legal_word")
+		public String getLegalWord() {
+			return legalWord;
+		}
+
+		public void setLegalWord(String legalWord) {
+			this.legalWord = legalWord;
+		}
+
 		public String toString() {
 			return ToStringBuilder.reflectionToString(this);
 		}
