@@ -15,7 +15,7 @@ public class SpringInit implements ServletContextListener {
 	private Logger logger = LoggerFactory.getLogger(getClass());
 	@Override
 	public void contextDestroyed(ServletContextEvent event) {
-		
+		logger.debug("----------------------");
 	}
 
 	
