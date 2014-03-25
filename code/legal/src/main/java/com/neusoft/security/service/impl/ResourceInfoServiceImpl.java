@@ -318,6 +318,7 @@ public class ResourceInfoServiceImpl implements ResourceInfoService {
 				} catch (Exception e) {
 					logger.error("CopySpecialProperties.copyBeanToBean got exception",e);
 				}
+				resourceInfo.setGmtModified(new Date());
 				resourceInfoDAO.update(resourceInfo);
 			}else{
 				try {
@@ -326,6 +327,9 @@ public class ResourceInfoServiceImpl implements ResourceInfoService {
 				} catch (Exception e) {
 					logger.error("CopySpecialProperties.copyBeanToBean got exception",e);
 				}
+				resourceInfo.setGmtCreate(new Date());
+				resourceInfo.setGmtModified(new Date());
+				resourceInfo.setCreateBy(LoginContextHolder.get().getUserName());
 				resourceInfoDAO.save(resourceInfo);
 			}
 			
