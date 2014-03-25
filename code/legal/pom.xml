@@ -680,12 +680,12 @@
 			<version>2.6.12</version>
 		</dependency>
         <!-- oracle -->
-        <dependency>
+     <!--    <dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc14</artifactId>
 			<version>10.2.0.2</version>
 			<scope>provided</scope>
-		</dependency>
+		</dependency> -->
                 
 		<!-- Test -->
 		<dependency>
