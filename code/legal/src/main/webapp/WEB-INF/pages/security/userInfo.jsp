@@ -19,7 +19,7 @@
 	    searchForm = $('#searchForm').form();
 		datagrid = $('#datagrid').datagrid({
 			url : 'userInfoAction!datagrid.do',
-			title : 'UserInfo列表',
+			title : '用户列表',
 			iconCls : 'icon-save',
 			pagination : true,
 			pagePosition : 'bottom',
@@ -39,171 +39,54 @@
 							return row.id;
 						}
 					},
-			   {field:'id',title:'id',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.id;
-					}
-				},				
-			   {field:'createBy',title:'createBy',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.createBy;
-					}
-				},				
-			   {field:'currentLoginIp',title:'currentLoginIp',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.currentLoginIp;
-					}
-				},				
-			   {field:'deletedFlag',title:'deletedFlag',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.deletedFlag;
-					}
-				},				
-			   {field:'email',title:'email',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.email;
-					}
-				},				
-			   {field:'empCode',title:'empCode',align:'center',sortable:true,
+				{field:'empCode',title:'用户编码',align:'center',sortable:true,
 					formatter:function(value,row,index){
 						return row.empCode;
 					}
-				},				
-			   {field:'encode',title:'encode',align:'center',sortable:true,
+				},
+				{field:'name',title:'用户姓名',align:'center',sortable:true,
 					formatter:function(value,row,index){
-						return row.encode;
+						return row.name;
+					}
+				},	
+			   {field:'email',title:'邮件地址',align:'center',sortable:true,
+					formatter:function(value,row,index){
+						return row.email;
+					}
+				},
+				{field:'status',title:'状态',align:'center',sortable:true,
+					formatter:function(value,row,index){
+						if("0"==row.status){
+							return "禁用";
+						}else{
+							return "启用";
+						}
 					}
 				},				
-			   {field:'expiredTime',title:'expiredTime',align:'center',sortable:true,
+				{field:'type',title:'类型',align:'center',sortable:true,
+					formatter:function(value,row,index){
+						if("0"==row.type){
+							return "普通账号";
+						}else{
+							return "域账号";
+						}
+					}
+				},
+			   {field:'expiredTime',title:'过期时间',align:'center',sortable:true,
 					formatter:function(value,row,index){
 						return dateFormatYMD(row.expiredTime);
 					}
 				},				
-			   {field:'gmtCreate',title:'gmtCreate',align:'center',sortable:true,
+			   {field:'gmtCreate',title:'创建时间',align:'center',sortable:true,
 					formatter:function(value,row,index){
 						return dateFormatYMD(row.gmtCreate);
 					}
 				},				
-			   {field:'gmtModified',title:'gmtModified',align:'center',sortable:true,
+			   {field:'gmtModified',title:'最后修改时间',align:'center',sortable:true,
 					formatter:function(value,row,index){
 						return dateFormatYMD(row.gmtModified);
 					}
-				},				
-			   {field:'languageCode',title:'languageCode',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.languageCode;
-					}
-				},				
-			   {field:'languageId',title:'languageId',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.languageId;
-					}
-				},				
-			   {field:'lastLoginIp',title:'lastLoginIp',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.lastLoginIp;
-					}
-				},				
-			   {field:'lastLoginTime',title:'lastLoginTime',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return dateFormatYMD(row.lastLoginTime);
-					}
-				},				
-			   {field:'lastModifiedBy',title:'lastModifiedBy',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.lastModifiedBy;
-					}
-				},				
-			   {field:'loginAttemptTimes',title:'loginAttemptTimes',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.loginAttemptTimes;
-					}
-				},				
-			   {field:'loginFaildTime',title:'loginFaildTime',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return dateFormatYMD(row.loginFaildTime);
-					}
-				},				
-			   {field:'memberId',title:'memberId',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.memberId;
-					}
-				},				
-			   {field:'name',title:'name',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.name;
-					}
-				},				
-			   {field:'password',title:'password',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.password;
-					}
-				},				
-			   {field:'passwordExpireTime',title:'passwordExpireTime',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return dateFormatYMD(row.passwordExpireTime);
-					}
-				},				
-			   {field:'passwordFirstModifiedFlag',title:'passwordFirstModifiedFlag',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.passwordFirstModifiedFlag;
-					}
-				},				
-			   {field:'status',title:'status',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.status;
-					}
-				},				
-			   {field:'timezoneCode',title:'timezoneCode',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.timezoneCode;
-					}
-				},				
-			   {field:'timezoneId',title:'timezoneId',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.timezoneId;
-					}
-				},				
-			   {field:'type',title:'type',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.type;
-					}
-				},				
-			   {field:'usingFlag',title:'usingFlag',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.usingFlag;
-					}
-				},				
-			   {field:'expiredTimeString',title:'expiredTimeString',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.expiredTimeString;
-					}
-				},				
-			   {field:'gmtCreateString',title:'gmtCreateString',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.gmtCreateString;
-					}
-				},				
-			   {field:'gmtModifiedString',title:'gmtModifiedString',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.gmtModifiedString;
-					}
-				},				
-			   {field:'lastLoginTimeString',title:'lastLoginTimeString',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.lastLoginTimeString;
-					}
-				},				
-			   {field:'loginFaildTimeString',title:'loginFaildTimeString',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.loginFaildTimeString;
-					}
-				},				
-			   {field:'passwordExpireTimeString',title:'passwordExpireTimeString',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.passwordExpireTimeString;
-					}
-				}				
+				}			
 			 ] ],
 			toolbar : [ {
 				text : '增加',
@@ -262,7 +145,7 @@
 		});
 
 		userInfoAddDialog = $('#userInfoAddDialog').show().dialog({
-			title : '添加UserInfo',
+			title : '添加用户',
 			modal : true,
 			closed : true,
 			maximizable : true,
@@ -298,7 +181,7 @@
 		});
 
 		userInfoEditDialog = $('#userInfoEditDialog').show().dialog({
-			title : '编辑UserInfo',
+			title : '编辑用户',
 			modal : true,
 			closed : true,
 			maximizable : true,
@@ -422,23 +305,38 @@
 	}
 </script>
 </head>
-<body class="easyui-layout">
-	<div region="north" border="false" title="过滤条件" collapsed="true"  style="height: 110px;overflow: hidden;" align="left">
+<body class="easyui-layout zoc">
+	<div region="north" border="false" class="zoc" collapsed="false"
+		style="height: 100px; overflow: auto;" align="left">
 		<form id="searchForm">
-			<table class="tableForm datagrid-toolbar" style="width: 100%;height: 100%;">
-				<tr>
-					<th>查询字段需要手工修改</th>
-					<td><input name="hotelid" style="width:155px;" /></td>
-				</tr>
-				<tr>
-					<th>创建时间</th>
-					<td><input name="ccreatedatetimeStart" class="easyui-datebox" editable="false" style="width: 155px;" />至<input name="ccreatedatetimeEnd" class="easyui-datebox" editable="false" style="width: 155px;" /></td>
-				</tr>
-				<tr>
-					<th>最后修改时间</th>
-					<td><input name="cmodifydatetimeStart" class="easyui-datebox" editable="false" style="width: 155px;" />至<input name="cmodifydatetimeEnd" class="easyui-datebox" editable="false" style="width: 155px;" /><a href="javascript:void(0);" class="easyui-linkbutton" onclick="_search();">过滤</a><a href="javascript:void(0);" class="easyui-linkbutton" onclick="cleanSearch();">取消</a></td>
-				</tr>
-			</table>
+			<div class="navhead_zoc">
+				<span>用户信息维护</span>
+			</div>
+			<div class="part_zoc">
+				<div class="partnavi_zoc">
+					<span>查询与操作：</span>
+				</div>
+				<div class="oneline">
+					<div class="item25">
+						<div class="itemleft60">用户编号：</div>
+						<div class="righttext_easyui">
+							<input type="text" name="empCode"  />
+						</div>
+					</div>
+					<div class="item25">
+						<div class="itemleft60">用户姓名：</div>
+						<div class="righttext">
+						<input type="text" name="name"/>
+						</div>
+					</div>
+					<div class="item25">
+						<div class="oprationbutt">
+							<input type="button" value="查  询" onclick="_search();" />
+							<input type="button" value="重  置" onclick="cleanSearch();" />
+						</div>
+					</div>
+				</div>
+			</div>
 		</form>
 	</div>
 	
@@ -446,217 +344,46 @@
 		<table id="datagrid"></table>
 	</div>
 
-	<div id="menu" class="easyui-menu" style="width:120px;display: none;">
-		<div onclick="add();" iconCls="icon-add">增加</div>
-		<div onclick="del();" iconCls="icon-remove">删除</div>
-		<div onclick="edit();" iconCls="icon-edit">编辑</div>
-	</div>
-
-	<div id="userInfoAddDialog" style="display: none;width: 500px;height: 300px;" align="center">
+	<div id="userInfoAddDialog" style="display: none;width: 500px;height: 300px;">
 		<form id="userInfoAddForm" method="post">
-			<table class="tableForm">
+		<div style="width: 800px; height: 230px; margin-left: 20px;">
+			<table class="tableForm"
+					style="margin-top: 20px; margin-left: 27px; width: 550px;">
 						<tr>
-							<th>id</th>
-							<td>
-								<input name="id" type="text" class="easyui-validatebox" data-options="required:true" missingMessage="请填写id"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-							<th>createBy</th>
-							<td>
-								<input name="createBy" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写createBy"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>currentLoginIp</th>
-							<td>
-								<input name="currentLoginIp" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写currentLoginIp"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>deletedFlag</th>
-							<td>
-								<input name="deletedFlag" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写deletedFlag"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>email</th>
-							<td>
-								<input name="email" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写email"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>empCode</th>
+							<th>用户编码：</th>
 							<td>
 								<input name="empCode" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写empCode"  style="width: 155px;"/>						
 							</td>
-						</tr>
-						<tr>
-							<th>encode</th>
-							<td>
-								<input name="encode" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写encode"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>expiredTime</th>
-							<td>
-								<input name="expiredTime" type="text" class="easyui-datetimebox" data-options="" missingMessage="请填写expiredTime"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>gmtCreate</th>
-							<td>
-								<input name="gmtCreate" type="text" class="easyui-datetimebox" data-options="" missingMessage="请填写gmtCreate"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>gmtModified</th>
-							<td>
-								<input name="gmtModified" type="text" class="easyui-datetimebox" data-options="" missingMessage="请填写gmtModified"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>languageCode</th>
-							<td>
-								<input name="languageCode" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写languageCode"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>languageId</th>
-							<td>
-								<input name="languageId" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写languageId"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>lastLoginIp</th>
-							<td>
-								<input name="lastLoginIp" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写lastLoginIp"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>lastLoginTime</th>
-							<td>
-								<input name="lastLoginTime" type="text" class="easyui-datetimebox" data-options="" missingMessage="请填写lastLoginTime"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>lastModifiedBy</th>
-							<td>
-								<input name="lastModifiedBy" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写lastModifiedBy"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>loginAttemptTimes</th>
-							<td>
-								<input name="loginAttemptTimes" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写loginAttemptTimes"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>loginFaildTime</th>
-							<td>
-								<input name="loginFaildTime" type="text" class="easyui-datetimebox" data-options="" missingMessage="请填写loginFaildTime"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>memberId</th>
-							<td>
-								<input name="memberId" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写memberId"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>name</th>
+							<th>用户姓名：</th>
 							<td>
 								<input name="name" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写name"  style="width: 155px;"/>						
 							</td>
 						</tr>
 						<tr>
-							<th>password</th>
+							<th>密码：</th>
 							<td>
 								<input name="password" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写password"  style="width: 155px;"/>						
 							</td>
-						</tr>
-						<tr>
-							<th>passwordExpireTime</th>
+							<th>邮箱：</th>
 							<td>
-								<input name="passwordExpireTime" type="text" class="easyui-datetimebox" data-options="" missingMessage="请填写passwordExpireTime"  style="width: 155px;"/>						
+								<input name="email" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写email"  style="width: 155px;"/>						
 							</td>
 						</tr>
 						<tr>
-							<th>passwordFirstModifiedFlag</th>
+							<th>类型：</th>
 							<td>
-								<input name="passwordFirstModifiedFlag" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写passwordFirstModifiedFlag"  style="width: 155px;"/>						
+								<select name="type">
+									<option value="0" selected="selected">普通账号</option>
+									<option value="1">域账号</option>
+								</select>
 							</td>
-						</tr>
-						<tr>
-							<th>status</th>
-							<td>
-								<input name="status" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写status"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>timezoneCode</th>
-							<td>
-								<input name="timezoneCode" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写timezoneCode"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>timezoneId</th>
-							<td>
-								<input name="timezoneId" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写timezoneId"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>type</th>
-							<td>
-								<input name="type" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写type"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>usingFlag</th>
-							<td>
-								<input name="usingFlag" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写usingFlag"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>expiredTimeString</th>
-							<td>
-								<input name="expiredTimeString" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写expiredTimeString"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>gmtCreateString</th>
-							<td>
-								<input name="gmtCreateString" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写gmtCreateString"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>gmtModifiedString</th>
-							<td>
-								<input name="gmtModifiedString" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写gmtModifiedString"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>lastLoginTimeString</th>
-							<td>
-								<input name="lastLoginTimeString" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写lastLoginTimeString"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>loginFaildTimeString</th>
-							<td>
-								<input name="loginFaildTimeString" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写loginFaildTimeString"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>passwordExpireTimeString</th>
+							<th>过期时间：</th>
 							<td>
 								<input name="passwordExpireTimeString" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写passwordExpireTimeString"  style="width: 155px;"/>						
 							</td>
 						</tr>
-					
-					
-					
 			</table>
+			</div>
 		</form>
 	</div>
 

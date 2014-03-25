@@ -30,6 +30,8 @@ import com.opensymphony.xwork2.ModelDriven;
 @Scope("prototype")
 public class UserInfoAction extends BaseAction implements ModelDriven<UserInfoQuery>{
 	
+	private static final long serialVersionUID = -7832065476280264197L;
+
 	@Resource
 	private UserInfoService userInfoService;
 	
