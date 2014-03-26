@@ -11,6 +11,7 @@
 	    	<result name="goAccessCase">/WEB-INF/pages/legal/accessCaseTaskDetail.jsp</result>
 	    	<result name="endCaseTaskList">/WEB-INF/pages/legal/endCaseTaskList.jsp</result>
 	    	<result name="goEndCase">/WEB-INF/pages/legal/endCaseTaskDetail.jsp</result>
+	    	<result name="shenqingstart">/WEB-INF/pages/legal/shenqingshenpi/shenqingstart.jsp</result>
 	    	<result type="json" name="json">
 				<param name="excludeProperties"></param>
 				<param name="root">json</param>
