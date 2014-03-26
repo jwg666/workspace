@@ -118,7 +118,7 @@ public class UserInfoDAO extends HBaseDAO<UserInfo>{
 		Pager<UserInfo> pager = new Pager<UserInfo>();
 		Map map = ConverterUtil.toHashMap(query);
 		List<UserInfo> appList = findList(UserInfo.class, map, query.getPage().intValue(), query.getRows().intValue());
-		pager.setTotalRecords(getTotalCount(UserInfo.class, map));
+		pager.setTotalRecords(getTotalCount(UserInfo.class, map)-1);
 		pager.setCurrentPage(query.getPage());
 		pager.setPageSize(query.getRows());
 		pager.setRecords(appList);

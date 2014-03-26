@@ -627,6 +627,10 @@ public class UserInfoServiceImpl implements UserInfoService {
 	public void add(UserInfoQuery userInfoQuery) {
 		UserInfo t = new UserInfo();
 		BeanUtils.copyProperties(userInfoQuery, t);
+		t.setCreateBy(LoginContextHolder.get().getEmpCode());
+		t.setLastModifiedBy(LoginContextHolder.get().getEmpCode());
+		t.setGmtCreate(new Date());
+		t.setGmtModified(new Date());
 		userInfoDAO.save(t);
 	}
 

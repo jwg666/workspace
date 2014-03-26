@@ -30,9 +30,6 @@
 			fitColumns : true,
 			nowrap : false,
 			border : false,
-			idField : 'id',
-			sortName : 'createDt',
-			sortOrder : 'desc',
 			columns : [ [ 
 			{field:'ck',checkbox:true,
 						formatter:function(value,row,index){
@@ -344,251 +341,88 @@
 		<table id="datagrid"></table>
 	</div>
 
-	<div id="userInfoAddDialog" style="display: none;width: 500px;height: 300px;">
+	<div id="userInfoAddDialog" style="display: none;width: 600px;height: 300px;">
 		<form id="userInfoAddForm" method="post">
-		<div style="width: 800px; height: 230px; margin-left: 20px;">
-			<table class="tableForm"
-					style="margin-top: 20px; margin-left: 27px; width: 550px;">
-						<tr>
-							<th>用户编码：</th>
-							<td>
+		<div style="width: 500px; height: 230px; margin-left: 20px;">
+			<div class="part_popover_zoc" style="width: 500px;">
+						<div class="oneline">
+							<div class="itemleft60">用户编码：</div>
+							<div class="righttext">
 								<input name="empCode" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写empCode"  style="width: 155px;"/>						
-							</td>
-							<th>用户姓名：</th>
-							<td>
+							</div>
+							<div class="itemleft60">用户姓名：</div>
+							<div class="righttext">
 								<input name="name" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写name"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>密码：</th>
-							<td>
+							</div>
+						</div>
+						<div class="oneline">
+							<div class="itemleft60">密码：</div>
+							<div class="righttext">
 								<input name="password" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写password"  style="width: 155px;"/>						
-							</td>
-							<th>邮箱：</th>
-							<td>
+							</div>
+							<div class="itemleft60">邮箱：</div>
+							<div class="righttext">
 								<input name="email" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写email"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>类型：</th>
-							<td>
-								<select name="type">
+							</div>
+						</div>
+						<div class="oneline">
+							<div class="itemleft60">类型：</div>
+							<div class="righttext" style="width: 160px">
+								<select  name="type" >
 									<option value="0" selected="selected">普通账号</option>
 									<option value="1">域账号</option>
 								</select>
-							</td>
-							<th>过期时间：</th>
-							<td>
-								<input name="passwordExpireTimeString" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写passwordExpireTimeString"  style="width: 155px;"/>						
-							</td>
-						</tr>
-			</table>
+							</div>
+							<div class="itemleft60">过期时间：</div>
+							<div class="righttext">
+								<input name="expiredTime" type="text" class="easyui-datetimebox" data-options="" missingMessage="请填写passwordExpireTimeString"  style="width: 155px;"/>						
+							</div>
+						</div>
+			</div>
 			</div>
 		</form>
 	</div>
 
-	<div id="userInfoEditDialog" style="display: none;width: 500px;height: 300px;" align="center">
+	<div id="userInfoEditDialog" style="display: none;width: 600px;height: 300px;" align="center">
 		<form id="userInfoEditForm" method="post">
-			<table class="tableForm">
-						<tr>
-						<th>id</th>
-							<td>
-								<input name="id" type="text" class="easyui-validatebox" data-options="required:true" missingMessage="请填写id"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>createBy</th>
-							<td>
-								<input name="createBy" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写createBy"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>currentLoginIp</th>
-							<td>
-								<input name="currentLoginIp" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写currentLoginIp"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>deletedFlag</th>
-							<td>
-								<input name="deletedFlag" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写deletedFlag"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>email</th>
-							<td>
-								<input name="email" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写email"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>empCode</th>
-							<td>
-								<input name="empCode" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写empCode"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>encode</th>
-							<td>
-								<input name="encode" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写encode"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>expiredTime</th>
-							<td>
-								<input name="expiredTime" type="text" class="easyui-datetimebox" data-options="" missingMessage="请填写expiredTime"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>gmtCreate</th>
-							<td>
-								<input name="gmtCreate" type="text" class="easyui-datetimebox" data-options="" missingMessage="请填写gmtCreate"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>gmtModified</th>
-							<td>
-								<input name="gmtModified" type="text" class="easyui-datetimebox" data-options="" missingMessage="请填写gmtModified"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>languageCode</th>
-							<td>
-								<input name="languageCode" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写languageCode"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>languageId</th>
-							<td>
-								<input name="languageId" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写languageId"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>lastLoginIp</th>
-							<td>
-								<input name="lastLoginIp" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写lastLoginIp"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>lastLoginTime</th>
-							<td>
-								<input name="lastLoginTime" type="text" class="easyui-datetimebox" data-options="" missingMessage="请填写lastLoginTime"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>lastModifiedBy</th>
-							<td>
-								<input name="lastModifiedBy" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写lastModifiedBy"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>loginAttemptTimes</th>
-							<td>
-								<input name="loginAttemptTimes" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写loginAttemptTimes"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>loginFaildTime</th>
-							<td>
-								<input name="loginFaildTime" type="text" class="easyui-datetimebox" data-options="" missingMessage="请填写loginFaildTime"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>memberId</th>
-							<td>
-								<input name="memberId" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写memberId"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>name</th>
-							<td>
-								<input name="name" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写name"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>password</th>
-							<td>
-								<input name="password" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写password"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>passwordExpireTime</th>
-							<td>
-								<input name="passwordExpireTime" type="text" class="easyui-datetimebox" data-options="" missingMessage="请填写passwordExpireTime"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>passwordFirstModifiedFlag</th>
-							<td>
-								<input name="passwordFirstModifiedFlag" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写passwordFirstModifiedFlag"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>status</th>
-							<td>
-								<input name="status" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写status"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>timezoneCode</th>
-							<td>
-								<input name="timezoneCode" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写timezoneCode"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>timezoneId</th>
-							<td>
-								<input name="timezoneId" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写timezoneId"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>type</th>
-							<td>
-								<input name="type" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写type"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>usingFlag</th>
-							<td>
-								<input name="usingFlag" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写usingFlag"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>expiredTimeString</th>
-							<td>
-								<input name="expiredTimeString" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写expiredTimeString"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>gmtCreateString</th>
-							<td>
-								<input name="gmtCreateString" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写gmtCreateString"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>gmtModifiedString</th>
-							<td>
-								<input name="gmtModifiedString" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写gmtModifiedString"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>lastLoginTimeString</th>
-							<td>
-								<input name="lastLoginTimeString" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写lastLoginTimeString"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>loginFaildTimeString</th>
-							<td>
-								<input name="loginFaildTimeString" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写loginFaildTimeString"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>passwordExpireTimeString</th>
-							<td>
-								<input name="passwordExpireTimeString" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写passwordExpireTimeString"  style="width: 155px;"/>
-							</td>
-						</tr>
-			</table>
+		<input type="hidden" name="id"/>
+			<div style="width: 500px; height: 230px; margin-left: 20px;">
+			<div class="part_popover_zoc" style="width: 500px;">
+						<div class="oneline">
+							<div class="itemleft60">用户编码：</div>
+							<div class="righttext">
+								<input name="empCode" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写empCode"  style="width: 155px;"/>						
+							</div>
+							<div class="itemleft60">用户姓名：</div>
+							<div class="righttext">
+								<input name="name" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写name"  style="width: 155px;"/>						
+							</div>
+						</div>
+						<div class="oneline">
+							<div class="itemleft60">密码：</div>
+							<div class="righttext">
+								<input name="password" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写password"  style="width: 155px;"/>						
+							</div>
+							<div class="itemleft60">邮箱：</div>
+							<div class="righttext">
+								<input name="email" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写email"  style="width: 155px;"/>						
+							</div>
+						</div>
+						<div class="oneline">
+							<div class="itemleft60">类型：</div>
+							<div class="righttext" style="width: 160px">
+								<select  name="type">
+									<option value="0" selected="selected">普通账号</option>
+									<option value="1">域账号</option>
+								</select>
+							</div>
+							<div class="itemleft60">过期时间：</div>
+							<div class="righttext">
+								<input name="passwordExpireTimeString" type="text" class="easyui-datetimebox" data-options="" missingMessage="请填写passwordExpireTimeString"  style="width: 155px;"/>						
+							</div>
+						</div>
+			</div>
+			</div>
 		</form>
 	</div>
 

@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.activiti.engine.impl.util.json.JSONObject;
+import org.apache.commons.lang.ObjectUtils;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,7 +23,7 @@ public class ConverterUtil {
 				int mod = field.getModifiers();
 //				logger.debug(mod+":"+field.getName());
 				Object value = field.get(o);
-				if (mod==Modifier.PRIVATE&&!(null==value)) {
+				if (mod==Modifier.PRIVATE&&StringUtils.isNotBlank(ObjectUtils.toString(value))) {
 //					logger.debug("{} value is: {}",field.getName(),value);
 					if(value instanceof Collection){
 						//TODO  如果是集合暂时不处理
