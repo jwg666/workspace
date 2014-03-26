@@ -80,13 +80,20 @@ public class LegalApplicantAction extends BaseAction implements ModelDriven<Lega
 	 * 添加一个LegalApplicant
 	 */
 	public String add() {
-		legalApplicantQuery.setCreateTime(new Date());
-		Long id = legalApplicantService.add(legalApplicantQuery);
-		legalApplicantQuery.setId(id);
-		json.setSuccess(true);
-		json.setObj(legalApplicantQuery);
-		json.setMsg("添加成功！");
-		json.toString();
+		try{
+			legalApplicantQuery.setCreateTime(new Date());
+			Long id = legalApplicantService.add(legalApplicantQuery);
+			legalApplicantQuery.setId(id);
+			json.setSuccess(true);
+			json.setObj(legalApplicantQuery);
+			json.setMsg("添加成功！");
+			//json.toString();
+		}catch(Exception e){
+			json.setSuccess(false);
+			json.setObj(legalApplicantQuery);
+			json.setMsg("录入申请人信息时出现异常！");
+		}
+
 		return SUCCESS;
 	}
 

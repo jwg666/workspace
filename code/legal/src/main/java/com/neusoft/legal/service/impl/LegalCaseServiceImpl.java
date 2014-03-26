@@ -6,6 +6,7 @@
 
 package com.neusoft.legal.service.impl;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -117,7 +118,20 @@ public class LegalCaseServiceImpl implements LegalCaseService{
 		List<LegalCaseQuery> listQuery =getQuerysFromEntitys(list) ;
 		return listQuery;
 	}
-
+	
+    /**
+     * @param 添加信息并启动工作流
+     */
+    public void addAndStart(LegalCaseQuery legalCaseQuery){
+    	legalCaseQuery.setCreateTime(new Date());
+		Long id =add(legalCaseQuery);
+		legalCaseQuery.setId(id);
+		if(null!=id&&!id.equals(0)){
+			//FIXME 启动工作流
+			startWorkFlow(legalCaseQuery);
+			logger.debug("工作流启动成功");
+		}
+    }
 	@Override
 	public void startWorkFlow(LegalCaseQuery legalCaseQuery) {
 		Map<String, Object> variables = new HashMap<String, Object>();

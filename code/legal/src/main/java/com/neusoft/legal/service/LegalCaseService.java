@@ -71,5 +71,8 @@ public interface LegalCaseService{
 	public LegalCaseQuery getQuery(Long id);
 
 	public String completTask(LegalCaseQuery legalCaseQuery);
-	
+    /**
+     * @param 添加信息并启动工作流
+     */
+    public void addAndStart(LegalCaseQuery legalCaseQuery);
 }

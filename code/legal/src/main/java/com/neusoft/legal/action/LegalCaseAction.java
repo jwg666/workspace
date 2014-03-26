@@ -97,7 +97,21 @@ public class LegalCaseAction extends BaseAction implements ModelDriven<LegalCase
 		}
 		return SUCCESS;
 	}
-
+    /**
+     * @return  保存并启动工作流
+     */
+    public String addAndStart(){
+    	try{
+    		legalCaseService.addAndStart(legalCaseQuery);
+    		json.setSuccess(true);
+    		json.setMsg("保存成功");
+    		json.setObj(legalCaseQuery);
+    	}catch(Exception e){
+    		json.setSuccess(false);
+    		json.setMsg("存储信息或启动审批流程失败");
+    	}
+    	return SUCCESS;
+    }
 	/**
 	 * 编辑LegalCase
 	 */

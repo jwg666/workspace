@@ -49,6 +49,11 @@ public class LegalAction extends BaseAction{
 		
 		return "asignLegalOfficeTaskList";
 	}
+	
+	public String goShenqingStart(){
+		return "shenqingstart";
+	}
+	
 	public String goAsignLegalOffice(){
 		legalCaseQuery = legalCaseService.getQuery(legalCaseQuery.getId());
 		legalApplicantQuery = legalApplicantService.getQuery(legalCaseQuery.getApplicantId());
