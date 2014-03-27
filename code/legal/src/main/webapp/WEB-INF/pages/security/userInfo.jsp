@@ -183,7 +183,7 @@
 			closed : true,
 			maximizable : true,
 			buttons : [ {
-				text : '编辑',
+				text : '保存',
 				handler : function() {
 					userInfoEditForm.submit();
 				}
@@ -341,9 +341,9 @@
 		<table id="datagrid"></table>
 	</div>
 
-	<div id="userInfoAddDialog" style="display: none;width: 600px;height: 300px;">
+	<div id="userInfoAddDialog" style="display: none;width: 600px;height: 160px;">
 		<form id="userInfoAddForm" method="post">
-		<div style="width: 500px; height: 230px; margin-left: 20px;">
+		<div style="width: 500px; height: 160px; margin-left: 20px;">
 			<div class="part_popover_zoc" style="width: 500px;">
 						<div class="oneline">
 							<div class="itemleft60">用户编码：</div>
@@ -383,10 +383,10 @@
 		</form>
 	</div>
 
-	<div id="userInfoEditDialog" style="display: none;width: 600px;height: 300px;" align="center">
+	<div id="userInfoEditDialog" style="display: none;width: 600px;height: 160px;" align="center">
 		<form id="userInfoEditForm" method="post">
 		<input type="hidden" name="id"/>
-			<div style="width: 500px; height: 230px; margin-left: 20px;">
+			<div style="width: 500px; height: 160px; margin-left: 20px;">
 			<div class="part_popover_zoc" style="width: 500px;">
 						<div class="oneline">
 							<div class="itemleft60">用户编码：</div>

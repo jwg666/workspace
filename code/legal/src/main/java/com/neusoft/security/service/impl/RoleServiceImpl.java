@@ -1,6 +1,7 @@
 package com.neusoft.security.service.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -9,6 +10,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.neusoft.base.common.LoginContextHolder;
 import com.neusoft.base.common.Pager;
 import com.neusoft.base.model.DataGrid;
 import com.neusoft.security.dao.ResourceInfoDAO;
@@ -63,6 +65,10 @@ public class RoleServiceImpl implements RoleService {
 	public void add(RoleQuery roleQuery) {
 		Role t = new Role();
 		BeanUtils.copyProperties(roleQuery, t);
+		t.setCreateBy(LoginContextHolder.get().getEmpCode());
+		t.setGmtCreate(new Date());
+		t.setLastModifiedBy(LoginContextHolder.get().getEmpCode());
+		t.setGmtModified(new Date());
 		roleDAO.save(t);
 	}
 
@@ -70,7 +76,10 @@ public class RoleServiceImpl implements RoleService {
 	public void update(RoleQuery roleQuery) {
 		Role t = roleDAO.getById(roleQuery.getId());
 	    if(t != null) {
-	    	BeanUtils.copyProperties(roleQuery, t);
+	    	t.setName(roleQuery.getName());
+	    	t.setDescription(roleQuery.getDescription());
+	    	t.setLastModifiedBy(LoginContextHolder.get().getEmpCode());
+			t.setGmtModified(new Date());
 		}
 	    roleDAO.update(t);
 	}

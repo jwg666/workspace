@@ -639,6 +639,12 @@ public class UserInfoServiceImpl implements UserInfoService {
 		UserInfo t = userInfoDAO.getById(userInfoQuery.getId());
 	    if(t != null) {
 	    	BeanUtils.copyProperties(userInfoQuery, t);
+	    	t.setName(userInfoQuery.getName());
+	    	t.setEmpCode(userInfoQuery.getEmpCode());
+	    	t.setEmail(userInfoQuery.getEmail());
+	    	t.setType(userInfoQuery.getType());
+	    	t.setExpiredTime(userInfoQuery.getExpiredTime());
+	    	t.setGmtModified(new Date());
 		}
 	    userInfoDAO.update(t);
 	}

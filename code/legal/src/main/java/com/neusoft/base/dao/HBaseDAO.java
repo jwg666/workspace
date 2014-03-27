@@ -129,7 +129,40 @@ public class HBaseDAO<T> {
 				}				
 			}
 		}
-		c.setFirstResult(begin);
+		c.setFirstResult(begin-1);
+		c.setMaxResults(pageSize);
+		return c.list();
+	}
+	/**
+	 * 选择where方法的分页查询
+	 * @author lupeng
+	 * @param claz
+	 * @param map
+	 * @param begin
+	 * @param pageSize
+	 * @param type 对比方式 
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public List<T> findList(Class<T> claz,Map<String,Object> map,int begin,int pageSize,String type){
+		Criteria c = getSession().createCriteria(claz);
+		if(map!=null&&map.size()>0){
+			Iterator<Entry<String,Object>> it = map.entrySet().iterator();
+			while (it.hasNext()) {
+				Entry<String,Object> e = it.next();
+				if(e.getValue() instanceof List){
+					List list = (List)e.getValue();
+					if(list!=null&&list.size()>0){
+						c.add(Restrictions.in(e.getKey(),list));
+					}					
+				}else if("like".equals(type)){
+					c.add(Restrictions.like(e.getKey(), "%"+e.getValue()+"%"));
+				}else{
+					c.add(Restrictions.eq(e.getKey(), e.getValue()));
+				}			
+			}
+		}
+		c.setFirstResult(begin-1);
 		c.setMaxResults(pageSize);
 		return c.list();
 	}

@@ -19,7 +19,7 @@
 	    searchForm = $('#searchForm').form();
 		datagrid = $('#datagrid').datagrid({
 			url : 'roleAction!datagrid.do',
-			title : 'Role列表',
+			title : '角色列表',
 			iconCls : 'icon-save',
 			pagination : true,
 			pagePosition : 'bottom',
@@ -30,70 +30,33 @@
 			fitColumns : true,
 			nowrap : false,
 			border : false,
-			idField : 'id',
-			sortName : 'createDt',
-			sortOrder : 'desc',
 			columns : [ [ 
 			{field:'ck',checkbox:true,
 						formatter:function(value,row,index){
 							return row.id;
 						}
 					},
-			   {field:'id',title:'id',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.id;
-					}
-				},				
-			   {field:'createBy',title:'createBy',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.createBy;
-					}
-				},				
-			   {field:'deletedFlag',title:'deletedFlag',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.deletedFlag;
-					}
-				},				
-			   {field:'description',title:'description',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.description;
-					}
-				},				
-			   {field:'gmtCreate',title:'gmtCreate',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return dateFormatYMD(row.gmtCreate);
-					}
-				},				
-			   {field:'gmtCreateString',title:'gmtCreateString',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.gmtCreateString;
-					}
-				},				
-			   {field:'gmtModified',title:'gmtModified',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return dateFormatYMD(row.gmtModified);
-					}
-				},				
-			   {field:'gmtModifiedString',title:'gmtModifiedString',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.gmtModifiedString;
-					}
-				},				
-			   {field:'lastModifiedBy',title:'lastModifiedBy',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.lastModifiedBy;
-					}
-				},				
-			   {field:'name',title:'name',align:'center',sortable:true,
+				{field:'name',title:'角色名称',align:'center',sortable:true,
 					formatter:function(value,row,index){
 						return row.name;
 					}
-				},				
-			   {field:'usingFlag',title:'usingFlag',align:'center',sortable:true,
+				},
+			   {field:'description',title:'角色描述',align:'center',sortable:true,
 					formatter:function(value,row,index){
-						return row.usingFlag;
+						return row.description;
 					}
-				}				
+				},	
+				{field:'createBy',title:'创建人',align:'center',sortable:true,
+					formatter:function(value,row,index){
+						return row.createBy;
+					}
+				},	
+			   {field:'gmtCreate',title:'创建时间',align:'center',sortable:true,
+					formatter:function(value,row,index){
+						return dateFormatYMD(row.gmtCreate);
+					}
+			   },
+			   
 			 ] ],
 			toolbar : [ {
 				text : '增加',
@@ -152,7 +115,7 @@
 		});
 
 		roleAddDialog = $('#roleAddDialog').show().dialog({
-			title : '添加Role',
+			title : '添加角色',
 			modal : true,
 			closed : true,
 			maximizable : true,
@@ -188,7 +151,7 @@
 		});
 
 		roleEditDialog = $('#roleEditDialog').show().dialog({
-			title : '编辑Role',
+			title : '编辑角色',
 			modal : true,
 			closed : true,
 			maximizable : true,
@@ -202,7 +165,7 @@
 
 
 		showCdescDialog = $('#showCdescDialog').show().dialog({
-			title : 'Role描述',
+			title : '角色描述',
 			modal : true,
 			closed : true,
 			maximizable : true
@@ -313,22 +276,31 @@
 </script>
 </head>
 <body class="easyui-layout">
-	<div region="north" border="false" title="过滤条件" collapsed="true"  style="height: 110px;overflow: hidden;" align="left">
+		<div region="north" border="false" class="zoc" collapsed="false"
+		style="height: 100px; overflow: auto;" align="left">
 		<form id="searchForm">
-			<table class="tableForm datagrid-toolbar" style="width: 100%;height: 100%;">
-				<tr>
-					<th>查询字段需要手工修改</th>
-					<td><input name="hotelid" style="width:155px;" /></td>
-				</tr>
-				<tr>
-					<th>创建时间</th>
-					<td><input name="ccreatedatetimeStart" class="easyui-datebox" editable="false" style="width: 155px;" />至<input name="ccreatedatetimeEnd" class="easyui-datebox" editable="false" style="width: 155px;" /></td>
-				</tr>
-				<tr>
-					<th>最后修改时间</th>
-					<td><input name="cmodifydatetimeStart" class="easyui-datebox" editable="false" style="width: 155px;" />至<input name="cmodifydatetimeEnd" class="easyui-datebox" editable="false" style="width: 155px;" /><a href="javascript:void(0);" class="easyui-linkbutton" onclick="_search();">过滤</a><a href="javascript:void(0);" class="easyui-linkbutton" onclick="cleanSearch();">取消</a></td>
-				</tr>
-			</table>
+			<div class="navhead_zoc">
+				<span>角色信息维护</span>
+			</div>
+			<div class="part_zoc">
+				<div class="partnavi_zoc">
+					<span>查询与操作：</span>
+				</div>
+				<div class="oneline">
+					<div class="item25">
+						<div class="itemleft60">角色名称：</div>
+						<div class="righttext_easyui">
+							<input type="text" name="empCode"  />
+						</div>
+					</div>
+					<div class="item25">
+						<div class="oprationbutt">
+							<input type="button" value="查  询" onclick="_search();" />
+							<input type="button" value="重  置" onclick="cleanSearch();" />
+						</div>
+					</div>
+				</div>
+			</div>
 		</form>
 	</div>
 	
@@ -336,85 +308,24 @@
 		<table id="datagrid"></table>
 	</div>
 
-	<div id="menu" class="easyui-menu" style="width:120px;display: none;">
-		<div onclick="add();" iconCls="icon-add">增加</div>
-		<div onclick="del();" iconCls="icon-remove">删除</div>
-		<div onclick="edit();" iconCls="icon-edit">编辑</div>
-	</div>
-
-	<div id="roleAddDialog" style="display: none;width: 500px;height: 300px;" align="center">
+	<div id="roleAddDialog" style="display: none;width: 600px;height: 300px;" align="center">
 		<form id="roleAddForm" method="post">
-			<table class="tableForm">
-						<tr>
-							<th>id</th>
-							<td>
-								<input name="id" type="text" class="easyui-validatebox" data-options="required:true" missingMessage="请填写id"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-							<th>createBy</th>
-							<td>
-								<input name="createBy" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写createBy"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>deletedFlag</th>
-							<td>
-								<input name="deletedFlag" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写deletedFlag"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>description</th>
-							<td>
-								<input name="description" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写description"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>gmtCreate</th>
-							<td>
-								<input name="gmtCreate" type="text" class="easyui-datetimebox" data-options="" missingMessage="请填写gmtCreate"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>gmtCreateString</th>
-							<td>
-								<input name="gmtCreateString" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写gmtCreateString"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>gmtModified</th>
-							<td>
-								<input name="gmtModified" type="text" class="easyui-datetimebox" data-options="" missingMessage="请填写gmtModified"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>gmtModifiedString</th>
-							<td>
-								<input name="gmtModifiedString" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写gmtModifiedString"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>lastModifiedBy</th>
-							<td>
-								<input name="lastModifiedBy" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写lastModifiedBy"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>name</th>
-							<td>
-								<input name="name" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写name"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>usingFlag</th>
-							<td>
-								<input name="usingFlag" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写usingFlag"  style="width: 155px;"/>						
-							</td>
-						</tr>
-					
-					
-					
-			</table>
+			<div style="width: 500px; height: 160px; margin-left: 20px;">
+				<div class="part_popover_zoc" style="width: 500px;">
+						<div class="oneline">
+							<div class="itemleft60">资源名称：</div>
+							<div class="righttext">
+								<input name="name" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写资源名称"  style="width: 155px;"/>						
+							</div>
+						</div>
+						<div class="oneline">
+							<div class="itemleft60" style="vertical-align: top;">资源描述：</div>
+							<div align="left" style="display: inline-block;width: 300px">
+									<textarea name="description" rows="5"  cols="200" data-options="" missingMessage="请填写资源描述"  style="width: 155px;"/>						
+							</div>
+						</div>
+				</div>
+			</div>
 		</form>
 	</div>
 
