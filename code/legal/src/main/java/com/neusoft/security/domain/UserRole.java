@@ -12,6 +12,9 @@ public class UserRole {
 	public Long id;
 	public Long userId;
 	public Long roleId;
+	public String name;
+	public String code;
+	
 	@Id  
     @GeneratedValue
 	@Column(name="tbid")
@@ -34,6 +37,18 @@ public class UserRole {
 	}
 	public void setRoleId(Long roleId) {
 		this.roleId = roleId;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
 	}
 	
 }

@@ -30,18 +30,15 @@
 			fitColumns : true,
 			nowrap : false,
 			border : false,
-			idField : 'tbid',
-			sortName : 'createDt',
-			sortOrder : 'desc',
 			columns : [ [ 
 			{field:'ck',checkbox:true,
 						formatter:function(value,row,index){
 							return row.tbid;
 						}
 					},
-			   {field:'tbid',title:'tbid',align:'center',sortable:true,
+			   {field:'name',title:'名称',align:'center',sortable:true,
 					formatter:function(value,row,index){
-						return row.tbid;
+						return row.name;
 					}
 				},				
 			   {field:'roleId',title:'roleId',align:'center',sortable:true,
@@ -49,9 +46,9 @@
 						return row.roleId;
 					}
 				},				
-			   {field:'userId',title:'userId',align:'center',sortable:true,
+			   {field:'code',title:'编码',align:'center',sortable:true,
 					formatter:function(value,row,index){
-						return row.userId;
+						return row.code;
 					}
 				}				
 			 ] ],
