@@ -70,7 +70,10 @@ public class LegalCaseAction extends BaseAction implements ModelDriven<LegalCase
 		datagrid = legalCaseService.taskgrid(legalCaseQuery);
 		return "datagrid";
 	}
-	
+	public String getyiban(){
+		datagrid=legalCaseService.getyiban(legalCaseQuery);
+		return "datagrid";
+	}
 	/**
 	 * 获得无分页的所有数据
 	 */

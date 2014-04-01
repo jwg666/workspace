@@ -54,7 +54,7 @@ public class LegalApproveAction extends BaseAction implements ModelDriven<LegalA
 	private LegalApplicantQuery legalApplicantQuery;
 	private LegalAgentQuery legalAgentQuery;
 	private String ifPass;
-	
+	private Long id;
 	public String getIfPass() {
 		return ifPass;
 	}
@@ -101,13 +101,18 @@ public class LegalApproveAction extends BaseAction implements ModelDriven<LegalA
 	 * 添加一个LegalApprove
 	 */
 	public String add() {
-		legalApproveQuery.setCreateTime(new Date());
-		legalApproveQuery.setApproveId(LoginContextHolder.get().getUserId());
-		Long id = legalApproveService.add(legalApproveQuery);
-		legalApproveQuery.setId(id);
-		json.setSuccess(true);
-		json.setObj(legalApproveQuery);
-		json.setMsg("添加成功！");
+		try{
+			legalApproveQuery.setCreateTime(new Date());
+			legalApproveQuery.setApproveId(LoginContextHolder.get().getUserId());
+			Long id = legalApproveService.add(legalApproveQuery);
+			legalApproveQuery.setId(id);
+			json.setSuccess(true);
+			json.setObj(legalApproveQuery);
+			json.setMsg("审核成功！");
+		}catch(Exception e){
+			json.setMsg("审核失败");
+			json.setSuccess(false);
+		}
 		
 		return SUCCESS;
 	}
@@ -139,7 +144,40 @@ public class LegalApproveAction extends BaseAction implements ModelDriven<LegalA
 		legalCaseQuery = legalCaseService.getQuery(legalApproveQuery.getCaseId());
 		legalApplicantQuery = legalApplicantService.getQuery(legalCaseQuery.getApplicantId());
 		legalAgentQuery = legalAgentService.getQuery(legalCaseQuery.getAgentId());
+		legalApproveQuery.setLegalWord(legalCaseQuery.getLegalWord());
+		legalApproveQuery.setLegalCode(legalCaseQuery.getLegalCode());
+		legalApproveQuery.setLegalNo(legalCaseQuery.getLegalNo());
+		legalApproveQuery.setName(legalApplicantQuery.getName());
+		legalApproveQuery.setCaseId(legalCaseQuery.getId());
 		return "taskDetail";
+	}
+	/**
+	 * 根据订单修改订单
+	 */
+	public String taskDetailWanCheng(){
+		legalApproveQuery=legalApproveService.getQuery(legalApproveQuery.getId());
+		legalCaseQuery = legalCaseService.getQuery(legalApproveQuery.getCaseId());
+		legalApplicantQuery = legalApplicantService.getQuery(legalCaseQuery.getApplicantId());
+		legalAgentQuery = legalAgentService.getQuery(legalCaseQuery.getAgentId());
+		legalApproveQuery.setLegalWord(legalCaseQuery.getLegalWord());
+		legalApproveQuery.setLegalCode(legalCaseQuery.getLegalCode());
+		legalApproveQuery.setLegalNo(legalCaseQuery.getLegalNo());
+		legalApproveQuery.setName(legalApplicantQuery.getName());
+		legalApproveQuery.setCaseId(legalCaseQuery.getId());
+		return "taskDetailWanCheng";
+	}
+	
+	public String getApproveDetail(){
+		try{
+			legalApproveQuery=legalApproveService.getQuery(legalApproveQuery.getId());
+			json.setObj(legalApproveQuery);
+			json.setSuccess(true);
+			json.setMsg("查询成功");
+		}catch(Exception e){
+			json.setSuccess(false);
+			json.setMsg("查询数据出错");
+		}
+		return SUCCESS;
 	}
 	@Override
 	public LegalApproveQuery getModel() {
@@ -181,6 +219,12 @@ public class LegalApproveAction extends BaseAction implements ModelDriven<LegalA
 	}
 	public void setLegalApplicantQuery(LegalApplicantQuery legalApplicantQuery) {
 		this.legalApplicantQuery = legalApplicantQuery;
+	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
 	}
 	
 }
