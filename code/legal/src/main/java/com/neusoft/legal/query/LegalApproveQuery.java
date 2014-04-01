@@ -59,6 +59,29 @@ public class LegalApproveQuery extends  SearchModel<LegalApprove> implements Ser
      * createTime       db_column: CREATE_TIME 
      */	
 	private java.util.Date createTime;
+	
+	private java.lang.String applicantReason;
+	private java.util.Date applicantTime;
+	private java.lang.String educationalBackground;
+	private java.lang.String economyLeval;
+	private java.lang.String ifLeval;
+	private java.lang.String ifHave;
+	private java.lang.String kindOfCrowd;
+	private java.lang.String casesSource;
+	private java.lang.String application;
+	private java.lang.String aidMethods;
+	private java.lang.String applyStage;
+	private java.lang.String caseSurvey;
+	private java.lang.String examinationOpinion;
+	private java.lang.String examinationOpinionTime;
+	private java.lang.String trialOpinion;
+	private java.lang.String trialOpinionTime;
+	
+	
+	private java.lang.String legalWord;
+	private java.lang.String legalCode;
+	private java.lang.String legalNo;
+	private java.lang.String name;
 
 	 /**
      * id
@@ -189,6 +212,130 @@ public class LegalApproveQuery extends  SearchModel<LegalApprove> implements Ser
 		this.ids = ids;
 	}
 
+	public java.lang.String getApplicantReason() {
+		return applicantReason;
+	}
+	public void setApplicantReason(java.lang.String applicantReason) {
+		this.applicantReason = applicantReason;
+	}
+	public java.util.Date getApplicantTime() {
+		return applicantTime;
+	}
+	public void setApplicantTime(java.util.Date applicantTime) {
+		this.applicantTime = applicantTime;
+	}
+	public java.lang.String getEducationalBackground() {
+		return educationalBackground;
+	}
+	public void setEducationalBackground(java.lang.String educationalBackground) {
+		this.educationalBackground = educationalBackground;
+	}
+	public java.lang.String getEconomyLeval() {
+		return economyLeval;
+	}
+	public void setEconomyLeval(java.lang.String economyLeval) {
+		this.economyLeval = economyLeval;
+	}
+	public java.lang.String getKindOfCrowd() {
+		return kindOfCrowd;
+	}
+	public void setKindOfCrowd(java.lang.String kindOfCrowd) {
+		this.kindOfCrowd = kindOfCrowd;
+	}
+	public java.lang.String getCasesSource() {
+		return casesSource;
+	}
+	public void setCasesSource(java.lang.String casesSource) {
+		this.casesSource = casesSource;
+	}
+	public java.lang.String getApplication() {
+		return application;
+	}
+	public void setApplication(java.lang.String application) {
+		this.application = application;
+	}
+	public java.lang.String getAidMethods() {
+		return aidMethods;
+	}
+	public void setAidMethods(java.lang.String aidMethods) {
+		this.aidMethods = aidMethods;
+	}
+	public java.lang.String getApplyStage() {
+		return applyStage;
+	}
+	public void setApplyStage(java.lang.String applyStage) {
+		this.applyStage = applyStage;
+	}
+	public java.lang.String getExaminationOpinion() {
+		return examinationOpinion;
+	}
+	public void setExaminationOpinion(java.lang.String examinationOpinion) {
+		this.examinationOpinion = examinationOpinion;
+	}
+	public java.lang.String getExaminationOpinionTime() {
+		return examinationOpinionTime;
+	}
+	public void setExaminationOpinionTime(java.lang.String examinationOpinionTime) {
+		this.examinationOpinionTime = examinationOpinionTime;
+	}
+	public java.lang.String getTrialOpinion() {
+		return trialOpinion;
+	}
+	public void setTrialOpinion(java.lang.String trialOpinion) {
+		this.trialOpinion = trialOpinion;
+	}
+	public java.lang.String getTrialOpinionTime() {
+		return trialOpinionTime;
+	}
+	public void setTrialOpinionTime(java.lang.String trialOpinionTime) {
+		this.trialOpinionTime = trialOpinionTime;
+	}
+	
+	public java.lang.String getIfLeval() {
+		return ifLeval;
+	}
+	public void setIfLeval(java.lang.String ifLeval) {
+		this.ifLeval = ifLeval;
+	}
+	public java.lang.String getIfHave() {
+		return ifHave;
+	}
+	public void setIfHave(java.lang.String ifHave) {
+		this.ifHave = ifHave;
+	}
+	
+	public java.lang.String getCaseSurvey() {
+		return caseSurvey;
+	}
+	public void setCaseSurvey(java.lang.String caseSurvey) {
+		this.caseSurvey = caseSurvey;
+	}
+	
+	
+	public java.lang.String getLegalWord() {
+		return legalWord;
+	}
+	public void setLegalWord(java.lang.String legalWord) {
+		this.legalWord = legalWord;
+	}
+	public java.lang.String getLegalCode() {
+		return legalCode;
+	}
+	public void setLegalCode(java.lang.String legalCode) {
+		this.legalCode = legalCode;
+	}
+	public java.lang.String getLegalNo() {
+		return legalNo;
+	}
+	public void setLegalNo(java.lang.String legalNo) {
+		this.legalNo = legalNo;
+	}
+	public java.lang.String getName() {
+		return name;
+	}
+	public void setName(java.lang.String name) {
+		this.name = name;
+	}
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this,ToStringStyle.MULTI_LINE_STYLE);
 	}
