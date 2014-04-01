@@ -91,6 +91,7 @@ function submitLegalAgent(){
 	}
 	$.ajax({
 		url : 'legalAgentAction!add.do',
+		dataType:'json',
 		data:{
 			name:name,
 			identifyid:identifyid,
@@ -119,6 +120,7 @@ function submitLegalCase(){
 	var legalNo=$('#legalNo').val();
 	$.ajax({
 		url : 'legalCaseAction!addAndStart.do',
+		dataType:'json',
 		data:{
 			applicantId:applicantId,
 			agentId:agentId,
