@@ -75,4 +75,9 @@ public interface LegalCaseService{
      * @param 添加信息并启动工作流
      */
     public void addAndStart(LegalCaseQuery legalCaseQuery);
+	/**
+	 * @param query
+	 * @return 查询审核已办理任务
+	 */
+	public  DataGrid getyiban(LegalCaseQuery query);
 }

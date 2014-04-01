@@ -31,6 +31,7 @@ import com.neusoft.base.model.DataGrid;
 import com.neusoft.legal.dao.LegalCaseDao;
 import com.neusoft.legal.domain.LegalCase;
 import com.neusoft.legal.query.LegalCaseQuery;
+import com.neusoft.legal.query.LegalCaseTaskQuery;
 import com.neusoft.legal.service.LegalCaseService;
 /**
  * 
@@ -157,6 +158,17 @@ public class LegalCaseServiceImpl implements LegalCaseService{
 		j.setRows(getQuerysFromEntitys(pager.getRecords()));
 		j.setTotal(pager.getTotalRecords());
 		return j;
+	}
+	/**
+	 * @param query
+	 * @return 查询审核已办理任务
+	 */
+	public  DataGrid getyiban(LegalCaseQuery query){
+		DataGrid datagrid=new DataGrid();
+		List<LegalCaseTaskQuery> list=legalCaseDao.findpageY(query);
+		datagrid.setRows(list);
+		datagrid.setTotal(new Long(list.size()));
+		return datagrid;
 	}
 	@Override
 	public LegalCaseQuery getQuery(Long id) {

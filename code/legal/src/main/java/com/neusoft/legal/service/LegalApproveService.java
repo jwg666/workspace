@@ -65,6 +65,6 @@ public interface LegalApproveService{
 	public List<LegalApproveQuery> listAll(LegalApproveQuery legalApproveQuery);
 
 	public List<LegalApproveQuery> getQueryList(Long caseId);
-
+	public LegalApproveQuery getQuery(Long id);
 	
 }

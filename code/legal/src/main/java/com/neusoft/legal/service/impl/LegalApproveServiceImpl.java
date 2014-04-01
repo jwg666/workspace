@@ -23,7 +23,9 @@ import com.neusoft.base.common.Pager;
 import com.neusoft.base.model.DataGrid;
 import com.neusoft.legal.dao.LegalApproveDao;
 import com.neusoft.legal.domain.LegalApprove;
+import com.neusoft.legal.domain.LegalCase;
 import com.neusoft.legal.query.LegalApproveQuery;
+import com.neusoft.legal.query.LegalCaseQuery;
 import com.neusoft.legal.service.LegalApproveService;
 /**
  * 
@@ -47,7 +49,13 @@ public class LegalApproveServiceImpl implements LegalApproveService{
 		j.setTotal(pager.getTotalRecords());
 		return j;
 	}
-
+	@Override
+	public LegalApproveQuery getQuery(Long id) {
+		LegalApprove legalApprove = legalApproveDao.getById(id);
+		LegalApproveQuery query = new LegalApproveQuery();
+		BeanUtils.copyProperties(legalApprove, query);
+		return query;
+	}
 	private List<LegalApproveQuery> getQuerysFromEntitys(List<LegalApprove> legalApproves) {
 		List<LegalApproveQuery> legalApproveQuerys = new ArrayList<LegalApproveQuery>();
 		if (legalApproves != null && legalApproves.size() > 0) {
