@@ -8,7 +8,35 @@
 <jsp:include page="/common/common_js.jsp"></jsp:include>
 <script type="text/javascript" charset="utf-8">
 	var legalApproveAddForm;	
+	var apid='${legalApproveQuery.id}';
 	$(function() {
+		$.ajax({
+			url:'legalApproveAction!getApproveDetail.do',
+			dataType:'json',
+			data:{
+				id:apid
+			},
+			success:function(data){
+				if(data.success){
+					setzhi('educationalBackground',data.obj.educationalBackground);
+					setzhi('kindOfCrowd',data.obj.kindOfCrowd);
+					setzhi('economyLeval',data.obj.economyLeval);
+					setzhi('casesSource',data.obj.casesSource);
+					setzhi('application',data.obj.application);
+					setzhi('aidMethods',data.obj.aidMethods);
+					setzhi('applyStage',data.obj.applyStage);
+					settime('examinationOpinionTime',data.obj.examinationOpinionTime);
+					settime('trialOpinionTime',data.obj.trialOpinionTime);
+					setradio('ifHave',data.obj.ifHave);
+					setradio('ifLeval',data.obj.ifLeval);
+					
+					
+				}else{
+					$.messager.alert('提示',data.msg,'error');
+				}
+			}
+		});
+		
 		legalApproveAddForm = $('#legalApproveAddForm').form({
 			url : 'legalApproveAction!add.do',
 			success : function(data) {
@@ -30,6 +58,60 @@
 			}
 		});
 	});
+	//解析单选框
+	function setradio(radioname,radiovalue){
+		var radio=document.getElementsByName(radioname);
+		if(radio.length>0){
+			for(var i=0;radio.length;i++){
+					if(radio[i].value==radiovalue){
+						radio[i].checked=true;
+					}
+				
+			}
+		}
+	}
+	//解析签名处的时间
+ 	function settime(timename,timestring){
+		var armys1=new Array();
+		armys1=timestring.split(',');
+		if(armys1.length>0){
+			for(var i=0;i<armys1.length;i++){
+				$('#'+timename+i).val(armys1[i]);
+			}
+		}
+	} 
+	//拆分多选框
+	function setzhi(checkname,checkvalue){
+		var check=document.getElementsByName(checkname);
+		if(check.length>0){
+			var armys1=new Array();
+			armys1=checkvalue.split(';');
+			if(armys1.length>0){
+				for(var i=0;i<armys1.length;i++){
+					if(armys1[i]!=null&&armys1[i]!=''){
+						var as=armys1[i].split(',');
+						if(as.length==1){
+							for(var j=0;j<check.length;j++){
+								if(check[j].value==as[0]){
+									check[j].checked=true;
+								}
+							}
+						}else if(as.length==2){
+							for(var j=0;j<check.length;j++){
+								if(check[j].value==as[0]){
+									check[j].checked=true;
+									var other=$('#'+checkname+as[0]);
+									if(other.length>0){
+										other.val(as[1]);
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 	function submitApprove(){
 		legalApproveAddForm.submit();
 	}
@@ -116,6 +198,7 @@
 			}
 		});
 	}
+
 	function getstring(thisname){
 		var application='';
 		var applicationobj=document.getElementsByName(thisname);
@@ -147,11 +230,11 @@
 <div class="title">法律援助审批表</div>
 <div class="soufan" style="width: 80%">
 <div class="soufan">
-<s:textfield id="legalWord" name="legalWord" type="text" style="border:none;width:50px;" ></s:textfield>
+<s:textfield id="legalWord" name="legalApproveQuery.legalWord" type="text" style="border:none;width:50px;" ></s:textfield>
 援审字[
-<s:textfield id="legalCode" name="legalCode" type="text" style="border:none;width:50px;" ></s:textfield>
+<s:textfield id="legalCode" name="legalApproveQuery.legalCode" type="text" style="border:none;width:50px;" ></s:textfield>
 ]第
-<s:textfield id="legalNo" name="legalNo" type="text" style="border:none;width:50px;"></s:textfield>
+<s:textfield id="legalNo" name="legalApproveQuery.legalNo" type="text" style="border:none;width:50px;" ></s:textfield>
 号</div>
 </div>
 <table width="80%" border="0" cellspacing="0" cellpadding="0" align="center" class="sq_box">
@@ -161,15 +244,15 @@
   <tr>
     <td class="sq_left" width="68">姓名：</td>
     <td class="sq_right" width="88">
-       <s:textfield type="text" id="applicantname" name="name" style="border:0;background:transparent; width: 60px" ></s:textfield>
+       <s:textfield type="text" id="applicantname" name="legalApproveQuery.name" style="border:0;background:transparent; width: 60px" ></s:textfield>
     </td>
     <td width="66" class="sq_left">案由：</td>
     <td width="423" class="sq_right">
-       <input type="text" id="applicantReason" name="applicantReason" style="border:0;background:transparent; width: 60px"/>
+       <s:textfield type="text" id="applicantReason" name="legalApproveQuery.applicantReason" style="border:0;background:transparent; width: 60px"></s:textfield>
     </td>
     <td width="89" class="sq_left">申请日期：</td>
     <td width="484" class="sq_right">
-       <input id="applicantTime" name="applicantTime" type="text" class="easyui-datebox" style="border:0;background:transparent;"/>
+       <s:textfield id="applicantTime" name="legalApproveQuery.applicantTime" type="text" class="easyui-datebox" style="border:0;background:transparent;" ></s:textfield>
     </td>
   </tr>
   <tr>
@@ -360,7 +443,8 @@
   </tr>
   <tr>
     <td colspan="6" class="sq_nei h200">
-       <textarea id="caseSurvey" name="caseSurvey" rows="13" cols="140"></textarea>
+       <!-- <textarea id="caseSurvey" name="caseSurvey" rows="13" cols="140"></textarea> -->
+       <s:textarea id="caseSurvey" name="legalApproveQuery.caseSurvey" rows="13" cols="140"></s:textarea>
    </td>
   </tr>
   <tr>
@@ -368,7 +452,8 @@
   </tr>
   <tr>
     <td colspan="6" class="sq_nei h200">
-         <textarea id="examinationOpinion" name="examinationOpinion" rows="13" cols="140"></textarea>
+         <!-- <textarea id="examinationOpinion" name="examinationOpinion" rows="13" cols="140"></textarea> -->
+         <s:textarea id="examinationOpinion" name="legalApproveQuery.examinationOpinion" rows="13" cols="140"></s:textarea>
    </td>
   </tr>
   <tr>
@@ -378,11 +463,11 @@
   <tr>
     <td colspan="5" class="sq_nei"></td>
     <td colspan="1" class="sq_nei">
-    <input id="examinationOpinionTime1" type="text" class="gh_input2" size="5"/>
+    <input id="examinationOpinionTime0" type="text" class="gh_input2" size="5"/>
       年
-      <input id="examinationOpinionTime2" type="text" class="gh_input2" size="5"/>
+      <input id="examinationOpinionTime1" type="text" class="gh_input2" size="5"/>
       月
-      <input id="examinationOpinionTime3" type="text" class="gh_input2" size="5"/>
+      <input id="examinationOpinionTime2" type="text" class="gh_input2" size="5"/>
       日 </td>
   </tr>
   <tr>
@@ -390,7 +475,8 @@
   </tr>
   <tr>
     <td colspan="6" class="sq_nei h200">
-        <textarea id="trialOpinion" name="trialOpinion" rows="13" cols="140"></textarea>
+       <!--  <textarea id="trialOpinion" name="trialOpinion" rows="13" cols="140"></textarea> -->
+        <s:textarea id="trialOpinion" name="legalApproveQuery.trialOpinion" rows="13" cols="140"></s:textarea>
     </td>
   </tr>
   <tr>
@@ -399,19 +485,12 @@
   </tr>
   <tr>
     <td colspan="5" class="sq_nei"></td>
-    <td colspan="1" class="sq_nei"><input id="trialOpinionTime1" type="text" class="gh_input2" size="5"/>
+    <td colspan="1" class="sq_nei"><input id="trialOpinionTime0" type="text" class="gh_input2" size="5"/>
       年
-      <input id="trialOpinionTime2" type="text" class="gh_input2" size="5"/>
+      <input id="trialOpinionTime1" type="text" class="gh_input2" size="5"/>
       月
-      <input id="trialOpinionTime3" type="text" class="gh_input2" size="5"/>
+      <input id="trialOpinionTime2" type="text" class="gh_input2" size="5"/>
       日 </td>
-  </tr>
-    <tr>
-    <td colspan="2" class="sq_nei"></td>
-    <td colspan="2" class="sq_nei">
-    <input type="button" value="保存" style="width: 60px;" onclick="completetask()" />
-    </td>
-    <td colspan="2" class="sq_nei"></td>
   </tr>
 </table>
 <div class="mt20 sq_nei">注：1.审判意见由对法律援助申请进行初审的工作人员出具。<br />
