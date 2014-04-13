@@ -24,6 +24,7 @@ public class LegalAgent  implements java.io.Serializable{
 	//alias
 	public static final String TABLE_ALIAS = "代理人";
 	public static final String ALIAS_ID = "id";
+	public static final String APPLICANT_ID ="applicantId";
 	public static final String ALIAS_NAME = "name";
 	public static final String ALIAS_IDENTIFYID = "identifyid";
 	public static final String ALIAS_AGENT_TYPE = "agentType";
@@ -33,6 +34,10 @@ public class LegalAgent  implements java.io.Serializable{
      * id       db_column: ID 
      */	
 	private java.lang.Long id;
+	/**
+	 * applicantId db_column:applicant_id
+	 */
+	private java.lang.Long applicantId;
     /**
      * name       db_column: name 
      */	
@@ -137,6 +142,19 @@ public class LegalAgent  implements java.io.Serializable{
 	     */
 		public void setCreateTime(java.util.Date createTime) {
 			this.createTime = createTime;
+		}
+		
+		 /**
+	     * createTime
+	     * @return createTime
+	     */
+		@Column(name="applicant_id")
+	   public java.lang.Long getApplicantId() {
+			return applicantId;
+		}
+
+		public void setApplicantId(java.lang.Long applicantId) {
+			this.applicantId = applicantId;
 		}
 
 	public String toString() {

@@ -91,6 +91,9 @@ public class LegalCase  implements java.io.Serializable{
 	private String legalCode;
 	private String legalNo;
 	private String legalWord;
+	private String year;
+	private String month;
+	private String day;
 	public LegalCase(){
 	}
 
@@ -315,6 +318,30 @@ public class LegalCase  implements java.io.Serializable{
 
 		public void setLegalWord(String legalWord) {
 			this.legalWord = legalWord;
+		}
+		@Column(name="_year")
+		public String getYear() {
+			return year;
+		}
+
+		public void setYear(String year) {
+			this.year = year;
+		}
+		@Column(name="_month")
+		public String getMonth() {
+			return month;
+		}
+
+		public void setMonth(String month) {
+			this.month = month;
+		}
+		@Column(name="_day")
+		public String getDay() {
+			return day;
+		}
+
+		public void setDay(String day) {
+			this.day = day;
 		}
 
 		public String toString() {

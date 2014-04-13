@@ -57,7 +57,18 @@ public class LegalAgentAction extends BaseAction implements ModelDriven<LegalAge
 		BeanUtils.copyProperties(legalAgent, legalAgentQuery);
 		return "showDesc";
 	}
-
+    public String getDesc(){
+    	try{
+    		legalAgent = legalAgentService.get(legalAgentQuery);
+    		BeanUtils.copyProperties(legalAgent, legalAgentQuery);
+    		json.setSuccess(true);
+    		json.setObj(legalAgentQuery);
+    	}catch(Exception e){
+    		json.setMsg("加载代理人信息失败");
+    		json.setSuccess(false);
+    	}
+		return SUCCESS;
+    }
 	/**
 	 * 获得pageHotel数据表格
 	 * 
@@ -94,7 +105,27 @@ public class LegalAgentAction extends BaseAction implements ModelDriven<LegalAge
 
 		return SUCCESS;
 	}
-
+	/**
+	 * 添加或修改一个LegalAgent
+	 */
+	public String addorupdate() {
+		try{
+			if(legalAgentQuery.getId()!=null){
+				legalAgentService.update(legalAgentQuery);
+			}else{
+				legalAgentQuery.setCreateTime(new Date());
+				Long id = legalAgentService.add(legalAgentQuery);
+				legalAgentQuery.setId(id);
+			}
+			json.setSuccess(true);
+			json.setObj(legalAgentQuery);
+			json.setMsg("保存成功！");
+		}catch(Exception e){
+			json.setMsg("保存代理人信息出错");
+			json.setSuccess(false);
+		}
+		return SUCCESS;
+	}
 	/**
 	 * 编辑LegalAgent
 	 */

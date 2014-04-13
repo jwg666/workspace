@@ -8,17 +8,18 @@ package com.neusoft.legal.dao;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.hibernate.SQLQuery;
-import org.hibernate.type.Type;
 import org.springframework.stereotype.Repository;
 
 import com.neusoft.base.common.ConverterUtil;
 import com.neusoft.base.common.Pager;
 import com.neusoft.base.common.PropertyUtils;
 import com.neusoft.base.dao.HBaseDAO;
+import com.neusoft.base.model.DataGrid;
 import com.neusoft.legal.domain.LegalCase;
 import com.neusoft.legal.query.LegalCaseQuery;
 import com.neusoft.legal.query.LegalCaseTaskQuery;
@@ -70,6 +71,51 @@ public class LegalCaseDao extends HBaseDAO<LegalCase>{
 		pager.setRecords(appList);
 		return pager;
 	}
+	public DataGrid applicantDatagrid(LegalCaseQuery query){
+		SQLQuery obj=getSession().createSQLQuery("SELECT AL.* FROM ("+
+			    " select APP.id applicantId,APP.name applicantName,AGE.name agentName,AGE.ID agentId,CAS.ID caseId,WF.process_instance_id instId,APP.create_time,APP.identifyid,APP.phone"+
+			    " from LE_LEGAL_APPLICANT APP"+
+			    " LEFT JOIN LE_LEGAL_AGENT AGE ON APP.id=AGE.applicant_id"+
+			    " LEFT JOIN LE_LEGAL_CASE CAS ON CAS.applicant_id=APP.id"+
+			    " LEFT JOIN WF_PROCINSTANCE WF ON WF.businform_id=CAS.ID"+
+				" ORDER BY APP.id DESC) AL"+
+			    " limit :begin,:end");
+	    //Object o=obj.list();
+		Long begin=query.getRows()*(query.getPage().longValue()-1);
+		Long end =query.getRows()*(query.getPage().longValue());
+		obj.setParameter("begin", begin);
+		obj.setParameter("end", end);
+		SQLQuery objtotal=getSession().createSQLQuery(" select count(0)"+
+			    " from LE_LEGAL_APPLICANT APP"+
+			    " LEFT JOIN LE_LEGAL_AGENT AGE ON APP.id=AGE.applicant_id"+
+			    " LEFT JOIN LE_LEGAL_CASE CAS ON CAS.applicant_id=APP.id"+
+			    " LEFT JOIN WF_PROCINSTANCE WF ON WF.businform_id=CAS.ID");
+		List<Object[]> listob=obj.list();
+		//objtotal.setParameter("begin", begin);
+		//objtotal.setParameter("end", end);
+		BigInteger tatal =(BigInteger)objtotal.list().get(0);
+		List<Map<String,Object>> list=new ArrayList<Map<String,Object>>();
+		if(listob!=null&&listob.size()>0){
+			for(Object[] objs:listob){
+				Map<String,Object> map=new HashMap<String,Object>();
+				map.put("applicantId", objs[0]);
+				map.put("applicantName", objs[1]);
+				map.put("agentName", objs[2]);
+				map.put("agentId", objs[3]);
+				map.put("caseId", objs[4]);
+				map.put("instId", objs[5]);
+				map.put("createTime", objs[6]);
+				map.put("identifyid", objs[7]);
+				map.put("phone", objs[8]);
+				list.add(map);
+			}
+		}
+		DataGrid dagatrid=new DataGrid();
+		dagatrid.setRows(list);
+		dagatrid.setTotal(tatal.longValue());
+		return dagatrid;
+	}
+	
 	public List<LegalCaseTaskQuery> findpageY(LegalCaseQuery query){
 		SQLQuery obj=getSession().createSQLQuery("select leap.name applicantname,lea.name agentname,la.CREATE_TIME createTime,la.APPLICANT_TIME applicantTime,la.ID id" +
 				" from LE_LEGAL_CASE lc" +
@@ -104,4 +150,6 @@ public class LegalCaseDao extends HBaseDAO<LegalCase>{
 		}
 		return list;
 	}
+	
+	
 }

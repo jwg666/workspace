@@ -38,12 +38,20 @@ public class LegalAction extends BaseAction{
 	private LegalApplicantQuery legalApplicantQuery;
 	private LegalAgentQuery legalAgentQuery;
 	private List<LegalApproveQuery> legalApproveList;
+	//备注信息id
+	private Long caseId;
+	//申请人信息id
+	private Long applicantId;
+	//代理人信息id
+	private Long agentId;
 	@Resource
 	private TaskService taskService;
 	
 	public String stepOne(){
-		
 		return "legal";
+	}
+	public String stepTwo(){
+		return "legalTwo";
 	}
 	public String asignLegalOfficeTaskList(){
 		
@@ -119,6 +127,24 @@ public class LegalAction extends BaseAction{
 	}
 	public void setLegalApproveList(List<LegalApproveQuery> legalApproveList) {
 		this.legalApproveList = legalApproveList;
+	}
+	public Long getCaseId() {
+		return caseId;
+	}
+	public void setCaseId(Long caseId) {
+		this.caseId = caseId;
+	}
+	public Long getApplicantId() {
+		return applicantId;
+	}
+	public void setApplicantId(Long applicantId) {
+		this.applicantId = applicantId;
+	}
+	public Long getAgentId() {
+		return agentId;
+	}
+	public void setAgentId(Long agentId) {
+		this.agentId = agentId;
 	}
 	
 }

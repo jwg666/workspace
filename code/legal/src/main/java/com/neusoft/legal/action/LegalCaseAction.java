@@ -16,6 +16,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.neusoft.base.action.BaseAction;
+import com.neusoft.base.model.DataGrid;
 import com.neusoft.legal.domain.LegalCase;
 import com.neusoft.legal.query.LegalCaseQuery;
 import com.neusoft.legal.service.LegalCaseService;
@@ -57,7 +58,18 @@ public class LegalCaseAction extends BaseAction implements ModelDriven<LegalCase
 		BeanUtils.copyProperties(legalCase, legalCaseQuery);
 		return "showDesc";
 	}
-
+    public String getDesc(){
+    	try{
+    		legalCase = legalCaseService.get(legalCaseQuery);
+    		BeanUtils.copyProperties(legalCase, legalCaseQuery);
+    		json.setSuccess(true);
+    		json.setObj(legalCaseQuery);
+    	}catch(Exception e){
+    		json.setMsg("加载申请描述信息出现错误");
+    		json.setSuccess(false);
+    	}
+    	return SUCCESS;
+    }
 	/**
 	 * 获得pageHotel数据表格
 	 */
@@ -72,6 +84,15 @@ public class LegalCaseAction extends BaseAction implements ModelDriven<LegalCase
 	}
 	public String getyiban(){
 		datagrid=legalCaseService.getyiban(legalCaseQuery);
+		return "datagrid";
+	}
+	
+	/**
+	 * @param query
+	 * @return 案件申请维护界面查询
+	 */
+	public String applicantDatagrid(){
+		datagrid=legalCaseService.applicantDatagrid(legalCaseQuery);
 		return "datagrid";
 	}
 	/**

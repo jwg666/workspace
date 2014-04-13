@@ -47,6 +47,14 @@ public class LegalApplicantAction extends BaseAction implements ModelDriven<Lega
 		return "legalApplicant";
 	}
 	/**
+	 * 跳转到legalTable页面
+	 * 
+	 * @return
+	 */
+	public String goLegaltable() {
+		return "legaltable";
+	}
+	/**
 	 * 跳转到查看desc页面
 	 * 
 	 * @return
@@ -56,7 +64,18 @@ public class LegalApplicantAction extends BaseAction implements ModelDriven<Lega
 		BeanUtils.copyProperties(legalApplicant, legalApplicantQuery);
 		return "showDesc";
 	}
-
+    public String getdesc(){
+    	try{
+    		legalApplicant = legalApplicantService.get(legalApplicantQuery);
+    		BeanUtils.copyProperties(legalApplicant, legalApplicantQuery);
+    		json.setObj(legalApplicantQuery);
+    		json.setSuccess(true);
+    	}catch(Exception e){
+    		json.setSuccess(false);
+    		json.setMsg("加载申请人信息出现错误");
+    	}
+		return SUCCESS;
+    }
 	/**
 	 * 获得pageHotel数据表格
 	 */
@@ -96,7 +115,29 @@ public class LegalApplicantAction extends BaseAction implements ModelDriven<Lega
 
 		return SUCCESS;
 	}
-
+    /** 暂存，修改，提交
+     * @return 
+     */
+    public String addorupdate(){
+		try{
+			if(legalApplicantQuery.getId()!=null){
+				legalApplicantService.update(legalApplicantQuery);
+			}else{
+				legalApplicantQuery.setCreateTime(new Date());
+				Long id = legalApplicantService.add(legalApplicantQuery);
+				legalApplicantQuery.setId(id);
+			}
+			json.setSuccess(true);
+			json.setObj(legalApplicantQuery);
+			json.setMsg("保存成功！");
+			//json.toString();
+		}catch(Exception e){
+			json.setSuccess(false);
+			json.setObj(legalApplicantQuery);
+			json.setMsg("录入申请人信息时出现异常！");
+		}
+		return SUCCESS;
+    }
 	/**
 	 * 编辑LegalApplicant
 	 */
