@@ -344,11 +344,20 @@ function setkey2(str){
 	var str2='#'+str1;
 	$(str2).val('');
 }
+function dayin(){
+ 	var printObj = $("#printBody").clone(true);
+	printObj.width(1220);
+	printObj.find("#optBnts").remove();
+	printObj = gridToTable(printObj);
+	printObj.find("#datagridDiv table").addClass("table2").width("100%").parent().addClass("part_zoc").width("100%");
+	lodopPrintAutoWidth(printObj); 
+}
 </script>
 <title>法律援助申请表</title>
 </head>
 
 <body id="body">
+<div  style="overflow: auto;min-width: 1220px" align="center"  id="printBody" >
 <div class="title">法律援助申请表</div>
 <div class="soufan" style="width: 80%">
 [<input id="legalWord" name="legalWord" type="text" style="border:none"/>]
@@ -435,12 +444,6 @@ function setkey2(str){
     </td>
   </tr>
   <tr>
-    <td colspan="4" class="sq_nei"></td>
-    <td colspan="4" class="sq_nei">
-        <input type="button" value="保存" style="width: 60px;" onclick="legalApplicantAddForm()" />
-    </td>
-  </tr>
-  <tr>
     <td colspan="8" class="sq_title">代理人基本情况</td>
   </tr>
   <tr>
@@ -475,12 +478,6 @@ function setkey2(str){
 		  <td></td>          
         </tr>
       </table></td>
-  </tr>
-      <tr>
-    <td colspan="4" class="sq_nei"></td>
-    <td colspan="4" class="sq_nei">
-        <input type="button" value="保存" style="width: 60px;" onclick="submitLegalAgent()" />
-    </td>
   </tr>
   <tr>
     <td colspan="8" class="sq_title">案情及申请理由概述</td>
@@ -518,10 +515,10 @@ function setkey2(str){
     <tr>
     <td colspan="4" class="sq_nei"></td>
     <td colspan="4" class="sq_nei">
-        <input type="button" value="保存" style="width: 60px;" onclick="submitLegalCase()" />
-        <input type="button" value="提交" style="width: 60px;" onclick="submitLegalCaseqidong()" />
+        <input type="button" value="打印" style="width: 60px;" onclick="dayin()" />
     </td>
   </tr>
 </table>
+</div>
 </body>
 </html>
