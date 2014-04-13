@@ -80,6 +80,11 @@ public class LegalCaseQuery extends  SearchModel<LegalCase> implements Serializa
 	private String legalCode;
 	private String legalNo;
 	private String legalWord;
+	
+	private String ifqiDong;
+	private String year;
+	private String month;
+	private String day;
 	 /**
      * id
      * @return id
@@ -295,6 +300,30 @@ public class LegalCaseQuery extends  SearchModel<LegalCase> implements Serializa
 	}
 	public void setLegalWord(String legalWord) {
 		this.legalWord = legalWord;
+	}
+	public String getIfqiDong() {
+		return ifqiDong;
+	}
+	public void setIfqiDong(String ifqiDong) {
+		this.ifqiDong = ifqiDong;
+	}
+	public String getYear() {
+		return year;
+	}
+	public void setYear(String year) {
+		this.year = year;
+	}
+	public String getMonth() {
+		return month;
+	}
+	public void setMonth(String month) {
+		this.month = month;
+	}
+	public String getDay() {
+		return day;
+	}
+	public void setDay(String day) {
+		this.day = day;
 	}
 	
 }

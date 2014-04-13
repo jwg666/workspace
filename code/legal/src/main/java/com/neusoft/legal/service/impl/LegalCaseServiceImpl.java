@@ -121,17 +121,24 @@ public class LegalCaseServiceImpl implements LegalCaseService{
 	}
 	
     /**
-     * @param 添加信息并启动工作流
+     * @param 添加或修改信息并启动工作流
      */
     public void addAndStart(LegalCaseQuery legalCaseQuery){
-    	legalCaseQuery.setCreateTime(new Date());
-		Long id =add(legalCaseQuery);
-		legalCaseQuery.setId(id);
-		if(null!=id&&!id.equals(0)){
-			//FIXME 启动工作流
-			startWorkFlow(legalCaseQuery);
-			logger.debug("工作流启动成功");
-		}
+    	if(legalCaseQuery.getId()!=null){
+    		update(legalCaseQuery);
+    	}else{
+        	legalCaseQuery.setCreateTime(new Date());
+    		Long id =add(legalCaseQuery);
+    		legalCaseQuery.setId(id);
+    	}
+    	if(legalCaseQuery.getIfqiDong()!=null&&"yes".equals(legalCaseQuery.getIfqiDong().trim())){
+        	Long id=legalCaseQuery.getId();
+    		if(null!=id&&!id.equals(0)){
+    			//FIXME 启动工作流
+    			startWorkFlow(legalCaseQuery);
+    			logger.debug("工作流启动成功");
+    		}
+    	}
     }
 	@Override
 	public void startWorkFlow(LegalCaseQuery legalCaseQuery) {
@@ -168,6 +175,14 @@ public class LegalCaseServiceImpl implements LegalCaseService{
 		List<LegalCaseTaskQuery> list=legalCaseDao.findpageY(query);
 		datagrid.setRows(list);
 		datagrid.setTotal(new Long(list.size()));
+		return datagrid;
+	}
+	/**
+	 * @param query
+	 * @return 案件申请维护界面查询
+	 */
+	public DataGrid applicantDatagrid(LegalCaseQuery query){
+		DataGrid datagrid=legalCaseDao.applicantDatagrid(query);
 		return datagrid;
 	}
 	@Override

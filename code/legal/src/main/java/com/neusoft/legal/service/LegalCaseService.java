@@ -80,4 +80,9 @@ public interface LegalCaseService{
 	 * @return 查询审核已办理任务
 	 */
 	public  DataGrid getyiban(LegalCaseQuery query);
+	/**
+	 * @param query
+	 * @return 案件申请维护界面查询
+	 */
+	public DataGrid applicantDatagrid(LegalCaseQuery query);
 }

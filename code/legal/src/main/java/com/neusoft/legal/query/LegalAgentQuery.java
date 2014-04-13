@@ -31,6 +31,10 @@ public class LegalAgentQuery extends  SearchModel<LegalAgent> implements Seriali
      * id       db_column: ID 
      */	
 	private java.lang.Long id;
+	/**
+	 * applicantId db_column:applicant_id
+	 */
+	private java.lang.Long applicantId;
 	  /**
      * name       db_column: name 
      */	
@@ -132,6 +136,12 @@ public class LegalAgentQuery extends  SearchModel<LegalAgent> implements Seriali
 		this.ids = ids;
 	}
 
+	public java.lang.Long getApplicantId() {
+		return applicantId;
+	}
+	public void setApplicantId(java.lang.Long applicantId) {
+		this.applicantId = applicantId;
+	}
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this,ToStringStyle.MULTI_LINE_STYLE);
 	}
