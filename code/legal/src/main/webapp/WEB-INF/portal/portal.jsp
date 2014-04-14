@@ -84,7 +84,7 @@
 	               <div class="b-button b-button-03">
 	                   <div class="button-left">&nbsp;</div>
 	                   <div class="button-right">&nbsp;</div>
-	                   <a href="${dynamicURL}/security/logout.action"><div class="button-bg">
+	                   <a href="${dynamicURL}/security/logout.do"><div class="button-bg">
 	                         <span class="bg-03">退出</span>
 	                   </div></a>
 	               </div>
