@@ -8,11 +8,11 @@
 		<div style="float: left;margin-left:300px;width:55%;margin-right: 30px;font-weight: bolder;display:inline;">
 			<marquee onMouseover="this.stop()" onMouseout="this.start()" scrolldelay="251"><span style="color: red;"><s:property value="#session['expiredDate']"/></span></marquee>
 		</div> 
-			 <b><a href="${dynamicURL}/security/updatePasswordInit.action">[修改密码]</a></b>&nbsp|&nbsp
-			 <b><a href="${dynamicURL}/security/logout.action" >[注销]</a></b> 
+			 <b><a href="${dynamicURL}/security/updatePasswordInit.do">[修改密码]</a></b>&nbsp|&nbsp
+			 <b><a href="${dynamicURL}/security/logout.do" >[注销]</a></b> 
 			 <div>
 				<span>
-					您好，<a href="${dynamicURL}/security/viewUser.action" title="我的信息"><strong style="color: red;"><s:property value="#session['_user_name']"/></strong></a>欢迎来到海尔信息门户   &nbsp; 您上次登录IP：<strong style="color: red;"><s:property value="#session['_user_last_login_ip']"/></strong>
+					您好，<a href="${dynamicURL}/security/viewUser.do" title="我的信息"><strong style="color: red;"><s:property value="#session['_user_name']"/></strong></a>欢迎来到海尔信息门户   &nbsp; 您上次登录IP：<strong style="color: red;"><s:property value="#session['_user_last_login_ip']"/></strong>
 				</span> 
 			</div>
 </div>  

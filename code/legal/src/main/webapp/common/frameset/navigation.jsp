@@ -1,4 +1,4 @@
-<%@page import="com.opensymphony.xwork2.ActionContext"%>
+<%@page import="com.opensymphony.xwork2.doContext"%>
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <div class="col-1 pa"><strong id="mytime"></strong></div>
