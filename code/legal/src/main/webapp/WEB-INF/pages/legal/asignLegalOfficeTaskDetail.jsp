@@ -29,7 +29,7 @@
 		});
 		
 		$("#legalId").combobox({
-		    url:'../basic/departmentAction!combox',
+		    url:'../basic/departmentAction!combox.do',
 		    valueField:'id',
 		    textField:'name'
 		});

@@ -92,7 +92,7 @@
 		if (rows.length == 1) {
 			currentappid = parent.window.HROS.window.createTemp({
 				title : '指派律师事务所',
-				url : '../legal/legalAction!goAsignLegalOffice?legalCaseQuery.id='+caseId,
+				url : '../legal/legalAction!goAsignLegalOffice.do?legalCaseQuery.id='+caseId,
 				width : 900,
 				height : 500,
 				isresize : true,

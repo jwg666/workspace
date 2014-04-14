@@ -92,7 +92,7 @@
 		if (rows.length == 1) {
 			currentappid = parent.window.HROS.window.createTemp({
 				title : '律师事务所接收',
-				url : '../legal/legalAction!goAccessCase?legalCaseQuery.id='+caseId,
+				url : '../legal/legalAction!goAccessCase.do?legalCaseQuery.id='+caseId,
 				width : 900,
 				height : 500,
 				isresize : true,

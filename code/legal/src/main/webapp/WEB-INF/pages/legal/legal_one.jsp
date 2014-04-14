@@ -37,17 +37,17 @@
 				  }
 				});			
 				$("#category").combobox({
-				    url:'../basic/dictionaryAction!combox?parentCode=4',
+				    url:'../basic/dictionaryAction!combox.do?parentCode=4',
 				    valueField:'id',
 				    textField:'dicValue'
 				});
 				$("#nationId").combobox({
-				    url:'../basic/dictionaryAction!combox?parentCode=3',
+				    url:'../basic/dictionaryAction!combox.do?parentCode=3',
 				    valueField:'id',
 				    textField:'dicValue'
 				});
 				$("#eduLevelId").combobox({
-				    url:'../basic/dictionaryAction!combox?parentCode=7',
+				    url:'../basic/dictionaryAction!combox.do?parentCode=7',
 				    valueField:'id',
 				    textField:'dicValue'
 				});
@@ -101,12 +101,12 @@
 				    missingMessage:"案件描述不能为空"
 				});
 				$("#applyTypeId").combobox({
-				    url:'../basic/dictionaryAction!combox?parentCode=5',
+				    url:'../basic/dictionaryAction!combox.do?parentCode=5',
 				    valueField:'id',
 				    textField:'dicValue'
 				});
 				$("#caseFrom").combobox({
-				    url:'../basic/dictionaryAction!combox?parentCode=9',
+				    url:'../basic/dictionaryAction!combox.do?parentCode=9',
 				    valueField:'id',
 				    textField:'dicValue'
 				});

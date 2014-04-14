@@ -11,7 +11,7 @@
 
 		searchForm = $('#searchForm').form();
 		datagrid = $('#datagrid').datagrid({
-			url : 'legalApplicantAction!datagrid.action',
+			url : 'legalApplicantAction!datagrid.do',
 			title : 'LegalApplicant列表',
 			iconCls : 'icon-save',
 			pagination : true,
@@ -241,10 +241,10 @@
 
 				var url = '';
 				if (inserted.length > 0) {
-					url = 'legalApplicantAction!add.action';
+					url = 'legalApplicantAction!add.do';
 				}
 				if (updated.length > 0) {
-					url = 'legalApplicantAction!edit.action';
+					url = 'legalApplicantAction!edit.do';
 				}
 
 				$.ajax({
@@ -328,7 +328,7 @@
 						ids.push(rows[i].obid);
 					}
 					$.ajax({
-						url : 'legalApplicantAction!delete.action',
+						url : 'legalApplicantAction!delete.do',
 						data : {
 							ids : ids.join(',')
 						},

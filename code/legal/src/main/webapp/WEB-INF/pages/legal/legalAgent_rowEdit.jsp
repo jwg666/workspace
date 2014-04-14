@@ -11,7 +11,7 @@
 
 		searchForm = $('#searchForm').form();
 		datagrid = $('#datagrid').datagrid({
-			url : 'legalAgentAction!datagrid.action',
+			url : 'legalAgentAction!datagrid.do',
 			title : 'LegalAgent列表',
 			iconCls : 'icon-save',
 			pagination : true,
@@ -142,10 +142,10 @@
 
 				var url = '';
 				if (inserted.length > 0) {
-					url = 'legalAgentAction!add.action';
+					url = 'legalAgentAction!add.do';
 				}
 				if (updated.length > 0) {
-					url = 'legalAgentAction!edit.action';
+					url = 'legalAgentAction!edit.do';
 				}
 
 				$.ajax({
@@ -229,7 +229,7 @@
 						ids.push(rows[i].obid);
 					}
 					$.ajax({
-						url : 'legalAgentAction!delete.action',
+						url : 'legalAgentAction!delete.do',
 						data : {
 							ids : ids.join(',')
 						},

@@ -11,7 +11,7 @@
 
 		searchForm = $('#searchForm').form();
 		datagrid = $('#datagrid').datagrid({
-			url : 'legalCaseAction!datagrid.action',
+			url : 'legalCaseAction!datagrid.do',
 			title : 'LegalCase列表',
 			iconCls : 'icon-save',
 			pagination : true,
@@ -205,10 +205,10 @@
 
 				var url = '';
 				if (inserted.length > 0) {
-					url = 'legalCaseAction!add.action';
+					url = 'legalCaseAction!add.do';
 				}
 				if (updated.length > 0) {
-					url = 'legalCaseAction!edit.action';
+					url = 'legalCaseAction!edit.do';
 				}
 
 				$.ajax({
@@ -292,7 +292,7 @@
 						ids.push(rows[i].obid);
 					}
 					$.ajax({
-						url : 'legalCaseAction!delete.action',
+						url : 'legalCaseAction!delete.do',
 						data : {
 							ids : ids.join(',')
 						},

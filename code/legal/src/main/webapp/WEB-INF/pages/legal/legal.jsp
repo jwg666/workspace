@@ -19,7 +19,7 @@ var agentid='${agentId}';
 var caseId='${caseId}';
 $(function(){
 	$("#applicantnationId").combobox({
-	    url:'../basic/dictionaryAction!combox?parentCode=3',
+	    url:'../basic/dictionaryAction!combox.do?parentCode=3',
 	    valueField:'id',
 	    textField:'dicValue'
 	});

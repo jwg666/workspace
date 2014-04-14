@@ -11,7 +11,7 @@
 
 		searchForm = $('#searchForm').form();
 		datagrid = $('#datagrid').datagrid({
-			url : 'legalApproveAction!datagrid.action',
+			url : 'legalApproveAction!datagrid.do',
 			title : 'LegalApprove列表',
 			iconCls : 'icon-save',
 			pagination : true,
@@ -169,10 +169,10 @@
 
 				var url = '';
 				if (inserted.length > 0) {
-					url = 'legalApproveAction!add.action';
+					url = 'legalApproveAction!add.do';
 				}
 				if (updated.length > 0) {
-					url = 'legalApproveAction!edit.action';
+					url = 'legalApproveAction!edit.do';
 				}
 
 				$.ajax({
@@ -256,7 +256,7 @@
 						ids.push(rows[i].obid);
 					}
 					$.ajax({
-						url : 'legalApproveAction!delete.action',
+						url : 'legalApproveAction!delete.do',
 						data : {
 							ids : ids.join(',')
 						},
