@@ -258,10 +258,9 @@ function submitLegalCase(){
 				},
 				success:function(data){
 					if(data.success){
-						$.messager.alert('提示',data.msg,'info',function(r){
-							if(r){
+						caseId=data.obj.id
+						$.messager.alert('提示',data.msg,'info',function(){
 								parent.clasedialog();
-							}
 						});
 					}else{
 						$.messager.alert('提示',data.msg,'error');
@@ -305,10 +304,8 @@ function submitLegalCaseqidong(){
 				},
 				success:function(data){
 					if(data.success){
-						$.messager.alert('提示',data.msg,'info',function(r){
-							if(r){
+						$.messager.alert('提示',data.msg,'info',function(){
 								parent.clasedialog();
-							}
 						});
 					}else{
 						$.messager.alert('提示',data.msg,'error');
