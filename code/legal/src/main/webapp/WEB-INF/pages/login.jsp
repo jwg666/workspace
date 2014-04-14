@@ -98,7 +98,7 @@
 		        	<input type="text" name="checkCode" class="verif" />
 		        	<span class="img"> 
 		        	<!--
-		        	<img id="checkCodeImg" src="${dynamicURL}/checkCode.action"
+		        	<img id="checkCodeImg" src="${dynamicURL}/checkCode.do"
 							onclick="changeValidateCode()" style="cursor: pointer;" />
 							  -->
 					</span>
@@ -171,7 +171,7 @@
 	function changeValidateCode() {
 		var timenow = new Date().getTime();
 		var obj = document.getElementById("checkCodeImg");
-		obj.src = "${dynamicURL}/checkCode.action?d=" + timenow;
+		obj.src = "${dynamicURL}/checkCode.do?d=" + timenow;
 	}
 </script>
 <!--标示是登陆页面  请不要删除！  -->
