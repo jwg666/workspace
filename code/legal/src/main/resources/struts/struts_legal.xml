@@ -9,6 +9,7 @@
 	    	
 	    	<result name="asignLegalOfficeTaskList">/WEB-INF/pages/legal/asignLegalOfficeTaskList.jsp</result>
 	    	<result name="goAsignLegalOffice">/WEB-INF/pages/legal/asignLegalOfficeTaskDetail.jsp</result>
+	    	<result name="showdetail">/WEB-INF/pages/legal/asignLegalOfficeTaskshowDetail.jsp</result>
 	    	<result name="accessCaseTaskList">/WEB-INF/pages/legal/accessCaseTaskList.jsp</result>
 	    	<result name="goAccessCase">/WEB-INF/pages/legal/accessCaseTaskDetail.jsp</result>
 	    	<result name="endCaseTaskList">/WEB-INF/pages/legal/endCaseTaskList.jsp</result>
