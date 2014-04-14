@@ -111,7 +111,7 @@ HROS.base = (function(){
 					location.href = HROS.CONFIG.basicDynamicUrl+'/index.jsp';
 				}
 			});*/
-			location.href = HROS.CONFIG.basicDynamicUrl+'/security/logout.action';
+			location.href = HROS.CONFIG.basicDynamicUrl+'/security/logout.do';
 		},
 		resize : function(){
 			$(window).on('resize', function(){
