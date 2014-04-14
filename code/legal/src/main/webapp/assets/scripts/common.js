@@ -5,8 +5,8 @@ function removeErrors(){
 function handleErrors(event,data,handler) {
 	removeErrors();
 	var json = $.parseJSON(event.originalEvent.request.responseText);  
-    if(json.actionErrors && json.actionErrors.length>0){//判断有没有actionErrors  
-        $.each(json.actionErrors,function(index,data){  
+    if(json.doErrors && json.doErrors.length>0){//判断有没有actionErrors  
+        $.each(json.doErrors,function(index,data){  
             $("#_error_message_box").append(data+"<br/>");  
         });  
         $('#_error_message_box').addClass('errorMessage');
@@ -341,7 +341,7 @@ function cutString(str, len) {
 	function dictCombox(paramLevel,name,callback,id){
 	  if(id!=null){
 	  	$("#"+id+"").combobox({
-				url : 'dictParamAction!dictCombobox.action?paramLevel='+paramLevel,
+				url : 'dictParamAction!dictCombobox.do?paramLevel='+paramLevel,
 				valueField:'paramValue',
 				textField:'paramName',
 				mode : 'remote',
@@ -356,7 +356,7 @@ function cutString(str, len) {
 	  }
 	 if(name!=null){
 	 	$("input[name='"+name+"']").combobox({
-				url : 'dictParamAction!dictCombobox.action?paramLevel='+paramLevel,
+				url : 'dictParamAction!dictCombobox.do?paramLevel='+paramLevel,
 				valueField:'paramValue',
 				textField:'paramName',
 				mode : 'remote',
@@ -380,7 +380,7 @@ function cutString(str, len) {
 	function dictGetName(paramLevel,paramValue){
 	    var name = '';
 		$.ajax({
-			url : 'dictParamAction!dictGetComboboxName.action',
+			url : 'dictParamAction!dictGetComboboxName.do',
 			data : {
 				paramLevel : paramLevel,
 				paramValue : paramValue

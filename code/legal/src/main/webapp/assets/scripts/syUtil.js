@@ -926,7 +926,7 @@ function datagridParse(datagrid,checked){
 }
 function exportExcel(data){
 	$("form.hiddenDataGridForm").remove();
-	var form = $("<form style='dispaly:none' calss='hiddenDataGridForm' action='"+dynamicURL+"/basic/exportDataGridAction/export.action'  enctype='multipart/form-data' method='post' target='_blank'><input type='hidden' name='data' /></form>"); 
+	var form = $("<form style='dispaly:none' calss='hiddenDataGridForm' action='"+dynamicURL+"/basic/exportDataGridAction/export.do'  enctype='multipart/form-data' method='post' target='_blank'><input type='hidden' name='data' /></form>"); 
 	form.find("input").val(data);
 	$("body").append(form);
 	form.submit();

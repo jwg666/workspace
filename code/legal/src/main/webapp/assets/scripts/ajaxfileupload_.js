@@ -546,7 +546,7 @@ AjaxUpload.prototype = {
 		// because changing this attr on the fly is not allowed in IE 6/7		
 		var form = toElement('<form method="post" enctype="multipart/form-data"></form>');
 		form.style.display = 'none';
-		form.action = settings.action;
+		form.do = settings.do;
 		form.target = iframe.name;
 		d.body.appendChild(form);
 		
