@@ -350,7 +350,7 @@ function dayin(){
 	printObj.find("#optBnts").remove();
 	printObj = gridToTable(printObj);
 	printObj.find("#datagridDiv table").addClass("table2").width("100%").parent().addClass("part_zoc").width("100%");
-	lodopPrintAutoWidth(printObj); 
+	lodopPrintAutoWidth(printObj);
 }
 </script>
 <title>法律援助申请表</title>
