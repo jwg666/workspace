@@ -16,6 +16,7 @@ import org.hibernate.SQLQuery;
 import org.springframework.stereotype.Repository;
 
 import com.neusoft.base.common.ConverterUtil;
+import com.neusoft.base.common.LoginContextHolder;
 import com.neusoft.base.common.Pager;
 import com.neusoft.base.common.PropertyUtils;
 import com.neusoft.base.dao.HBaseDAO;
@@ -71,6 +72,11 @@ public class LegalCaseDao extends HBaseDAO<LegalCase>{
 		pager.setRecords(appList);
 		return pager;
 	}
+	/**
+	 * @param query
+	 * @return
+	 * 案件上报维护页面查询
+	 */
 	public DataGrid applicantDatagrid(LegalCaseQuery query){
 		SQLQuery obj=getSession().createSQLQuery("SELECT AL.* FROM ("+
 			    " select APP.id applicantId,APP.name applicantName,AGE.name agentName,AGE.ID agentId,CAS.ID caseId,WF.process_instance_id instId,APP.create_time,APP.identifyid,APP.phone"+
@@ -116,16 +122,44 @@ public class LegalCaseDao extends HBaseDAO<LegalCase>{
 		return dagatrid;
 	}
 	
-	public List<LegalCaseTaskQuery> findpageY(LegalCaseQuery query){
-		SQLQuery obj=getSession().createSQLQuery("select leap.name applicantname,lea.name agentname,la.CREATE_TIME createTime,la.APPLICANT_TIME applicantTime,la.ID id" +
+	/** 
+	 * @param query
+	 * @return
+	 * 案件审批已办理,指派律师事务所已办理,事务所受理案件已办理,结果公示已办理,确认结案已办理(根据task的key值来区分已办理的任务)
+	 */
+	public DataGrid findpageY(LegalCaseQuery query){
+		Long userId=LoginContextHolder.get().getUserId();
+		SQLQuery obj=getSession().createSQLQuery("SELECT AL.* FROM (" +
+				" select leap.name applicantname,lea.name agentname,la.CREATE_TIME createTime,la.APPLICANT_TIME applicantTime,la.ID id,ata.END_TIME_ endTime,DP.NAME dpName,lc.ID caseId" +
 				" from LE_LEGAL_CASE lc" +
 				" join WF_PROCINSTANCE wf on wf.businform_id=lc.ID" +
-				" join (select at.* from ACT_HI_ACTINST at where at.ACT_ID_='caseApprove') ata on ata.PROC_INST_ID_=wf.process_instance_id" +
+				" join (select at.* from ACT_HI_ACTINST at where at.ACT_ID_=:taskKey  and at.END_TIME_ is not null and at.ASSIGNEE_ =:userid) ata on ata.PROC_INST_ID_=wf.process_instance_id" +
 				" left join LE_LEGAL_APPLICANT  leap on leap.id=lc.applicant_id " +
 				" left join LE_LEGAL_AGENT lea on lea.ID=lc.agent_id" +
-				" left join LE_LEGAL_APPROVE  la on la.CASE_ID=lc.ID");
+				" left join LE_LEGAL_APPROVE  la on la.CASE_ID=lc.ID" +
+				" left join TB_USER_INFO DP ON DP.ID=lc.legal_id"+
+				" ORDER BY la.id DESC) AL" +
+				" limit :begin,:end");
 	    //Object o=obj.list();
+		Long begin=query.getRows()*(query.getPage().longValue()-1);
+		Long end =query.getRows()*(query.getPage().longValue());
+		obj.setParameter("begin", begin);
+		obj.setParameter("end", end);
+		obj.setParameter("userid", userId.toString());
+		obj.setParameter("taskKey", query.getDefinitionKey());
 		List<Object[]> listob=obj.list();
+		SQLQuery objcount=getSession().createSQLQuery(
+				" select count(0)" +
+				" from LE_LEGAL_CASE lc" +
+				" join WF_PROCINSTANCE wf on wf.businform_id=lc.ID" +
+				" join (select at.* from ACT_HI_ACTINST at where at.ACT_ID_=:taskKey and at.END_TIME_ is not null and at.ASSIGNEE_ =:userid) ata on ata.PROC_INST_ID_=wf.process_instance_id" +
+				" left join LE_LEGAL_APPLICANT  leap on leap.id=lc.applicant_id " +
+				" left join LE_LEGAL_AGENT lea on lea.ID=lc.agent_id" +
+				" left join LE_LEGAL_APPROVE  la on la.CASE_ID=lc.ID" +
+				" left join TB_USER_INFO DP ON DP.ID=lc.legal_id ");
+		objcount.setParameter("userid", userId.toString());
+		objcount.setParameter("taskKey", query.getDefinitionKey());
+		BigInteger tatal =(BigInteger)objcount.list().get(0);
 		List<LegalCaseTaskQuery> list=new ArrayList<LegalCaseTaskQuery>();
 		if(listob!=null&&listob.size()>0){
 			for(Object[] objs:listob){
@@ -145,11 +179,24 @@ public class LegalCaseDao extends HBaseDAO<LegalCase>{
 				if(objs[4]!=null){
 					casq.setId(((BigInteger)objs[4]).longValue());
 				}
+				//节点完成时间
+				if(objs[5]!=null){
+					casq.setEndTime((Date)objs[5]);
+				}
+				//律师事务所的名字
+				if(objs[6]!=null){
+					casq.setDpName((String)objs[6]);
+				}
+				//caseid
+				if(objs[7]!=null){
+					casq.setCaseId(((BigInteger)objs[7]).longValue());
+				}
 				list.add(casq);
 			}
 		}
-		return list;
+		DataGrid datagrid=new DataGrid();
+		datagrid.setRows(list);
+		datagrid.setTotal(tatal.longValue());
+		return datagrid;
 	}
-	
-	
 }

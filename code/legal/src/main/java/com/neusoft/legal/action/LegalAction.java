@@ -69,6 +69,13 @@ public class LegalAction extends BaseAction{
 		legalApproveList = legalApproveService.getQueryList(legalCaseQuery.getId());
 		return "goAsignLegalOffice";
 	}
+	public String showdetail(){
+		legalCaseQuery = legalCaseService.getQuery(legalCaseQuery.getId());
+		legalApplicantQuery = legalApplicantService.getQuery(legalCaseQuery.getApplicantId());
+		legalAgentQuery = legalAgentService.getQuery(legalCaseQuery.getAgentId());
+		legalApproveList = legalApproveService.getQueryList(legalCaseQuery.getId());
+		return "showdetail";
+	}
 	public String asignLegalOffice(){
 		legalCaseQuery.setDefinitionKey("asignLegalOffice");
 		legalCaseService.completTask(legalCaseQuery);	
@@ -76,6 +83,23 @@ public class LegalAction extends BaseAction{
 		json.setSuccess(true);
 		return "json";
 	}
+	
+	/**
+	 * @return
+	 * 分配事务所并将律师事务所的id放到case表中
+	 */
+	public String completeTaskAndPutlegalIdToCase(){
+		try{
+			legalCaseService.completeTaskAndPutlegalIdToCase(legalCaseQuery);
+			json.setSuccess(true);
+			json.setMsg("分配成功");
+		}catch(Exception e){
+			json.setSuccess(false);
+			json.setMsg("分配律师事务所失败，请联系管理员");
+		}
+		return "json";
+	}
+	
 	public String accessCaseTaskList(){
 		return "accessCaseTaskList";
 	}
