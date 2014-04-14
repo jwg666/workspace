@@ -32,7 +32,7 @@ function refresh(page1,rows2){
 	page=page1;
 	rows1=rows2;
 	$.ajax({
-		url:'${dynamicURL}/message/messageAction!showMyMessage.action',
+		url:'${dynamicURL}/message/messageAction!showMyMessage.do',
 		type:'post',
 		data:{
 			page:page,
