@@ -11,7 +11,7 @@
 
 		searchForm = $('#searchForm').form();
 		datagrid = $('#datagrid').datagrid({
-			url : 'roleResourceAction!datagrid.action',
+			url : 'roleResourceAction!datagrid.do',
 			title : 'RoleResource列表',
 			iconCls : 'icon-save',
 			pagination : true,
@@ -124,10 +124,10 @@
 
 				var url = '';
 				if (inserted.length > 0) {
-					url = 'roleResourceAction!add.action';
+					url = 'roleResourceAction!add.do';
 				}
 				if (updated.length > 0) {
-					url = 'roleResourceAction!edit.action';
+					url = 'roleResourceAction!edit.do';
 				}
 
 				$.ajax({
@@ -211,7 +211,7 @@
 						ids.push(rows[i].obid);
 					}
 					$.ajax({
-						url : 'roleResourceAction!delete.action',
+						url : 'roleResourceAction!delete.do',
 						data : {
 							ids : ids.join(',')
 						},
