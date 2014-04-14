@@ -127,7 +127,7 @@
             type:"post",
             async:false,
             dataType:"json",
-            url:dynamicURL+"/system/searchDataDictAction.action",
+            url:dynamicURL+"/system/searchDataDictAction.do",
             data:param,
             error: function(){                         
                alert('Error!');    
