@@ -11,7 +11,7 @@
 
 		searchForm = $('#searchForm').form();
 		datagrid = $('#datagrid').datagrid({
-			url : 'dictionaryAction!datagrid.action',
+			url : 'dictionaryAction!datagrid.do',
 			title : 'Dictionary列表',
 			iconCls : 'icon-save',
 			pagination : true,
@@ -169,10 +169,10 @@
 
 				var url = '';
 				if (inserted.length > 0) {
-					url = 'dictionaryAction!add.action';
+					url = 'dictionaryAction!add.do';
 				}
 				if (updated.length > 0) {
-					url = 'dictionaryAction!edit.action';
+					url = 'dictionaryAction!edit.do';
 				}
 
 				$.ajax({
@@ -256,7 +256,7 @@
 						ids.push(rows[i].obid);
 					}
 					$.ajax({
-						url : 'dictionaryAction!delete.action',
+						url : 'dictionaryAction!delete.do',
 						data : {
 							ids : ids.join(',')
 						},

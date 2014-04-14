@@ -11,7 +11,7 @@
 
 		searchForm = $('#searchForm').form();
 		datagrid = $('#datagrid').datagrid({
-			url : 'departmentAction!datagrid.action',
+			url : 'departmentAction!datagrid.do',
 			title : 'Department列表',
 			iconCls : 'icon-save',
 			pagination : true,
@@ -205,10 +205,10 @@
 
 				var url = '';
 				if (inserted.length > 0) {
-					url = 'departmentAction!add.action';
+					url = 'departmentAction!add.do';
 				}
 				if (updated.length > 0) {
-					url = 'departmentAction!edit.action';
+					url = 'departmentAction!edit.do';
 				}
 
 				$.ajax({
@@ -292,7 +292,7 @@
 						ids.push(rows[i].obid);
 					}
 					$.ajax({
-						url : 'departmentAction!delete.action',
+						url : 'departmentAction!delete.do',
 						data : {
 							ids : ids.join(',')
 						},
