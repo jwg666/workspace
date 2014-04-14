@@ -81,7 +81,7 @@
     function changeValidateCode() {  
         var timenow = new Date().getTime();  
         var obj = document.getElementById("checkCodeImg");
-        obj.src="${dynamicURL}/checkCode.action?d="+timenow;  
+        obj.src="${dynamicURL}/checkCode.do?d="+timenow;  
     }  
 	-->
 </script>
