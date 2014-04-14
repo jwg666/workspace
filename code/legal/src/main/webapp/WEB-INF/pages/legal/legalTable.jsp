@@ -93,13 +93,13 @@
 				handler : function() {
 					addtemp();
 				}
-			}, '-', {
+			}/* , '-', {
 				text : '删除',
 				iconCls : 'icon-remove',
 				handler : function() {
 					del();
 				}
-			}, '-', {
+			} */, '-', {
 				text : '修改',
 				iconCls : 'icon-edit',
 				handler : function() {
@@ -568,7 +568,7 @@
 		<div name="cdesc"></div>
 	</div>
 	
-	<div id="iframeDialog" style="display: none;overflow: auto;width: 1200px;height: 600px;">
+	<div id="iframeDialog" style="display: none;overflow: auto;width: 1200px;height: 530px;">
 	<iframe name="iframe" id="iframe" src="#"  scrolling="auto" frameborder="0" style="width:99%;height:99%;">
     </iframe>
 </div>
