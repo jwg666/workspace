@@ -6,6 +6,8 @@
 <jsp:include page="/common/common_js.jsp"></jsp:include>
 <script type="text/javascript" charset="utf-8">
 	var asignLegalOfficeForm;	
+	var lvs;
+	var legal='${legalCaseQuery.legalId}';
 	$(function() {
 		asignLegalOfficeForm = $('#asignLegalOfficeForm').form({
 			url : 'legalAction!completeTaskAndPutlegalIdToCase.do',
@@ -29,11 +31,15 @@
 			}
 		});
 		
-		$("#legalId").combobox({
+		lvs=$("#legalId").combobox({
 		    url:'../basic/departmentAction!combox.do',
 		    valueField:'id',
 		    textField:'name'
 		});
+		if(legal!=null&&legal!=''){
+			lvs.combobox('setValue',legal);
+		}
+
 	});
 	function submitCase(){
 		asignLegalOfficeForm.submit();
@@ -240,12 +246,12 @@
 						</div>
 				    </div>
 		    </div>
-			<div class="item100">
+			<!-- <div class="item100">
 		        <div class="oprationbutt">
 			        <input type="button" value="确定" onclick="submitCase()"/>
 			        <input type="button" value="重置"  onclick="resetInfo(this)"/>
 		       </div>
-	        </div>
+	        </div> -->
 	        </form>
 	        <!-- 审核结束 -->
 		</div>
