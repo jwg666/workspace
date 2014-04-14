@@ -85,4 +85,9 @@ public interface LegalCaseService{
 	 * @return 案件申请维护界面查询
 	 */
 	public DataGrid applicantDatagrid(LegalCaseQuery query);
+	/**
+	 * @param legalCaseQuery
+	 * 将指派的律师事务所放到case表并将律师事务所的id存到工作流中
+	 */
+	public void completeTaskAndPutlegalIdToCase(LegalCaseQuery legalCaseQuery);
 }

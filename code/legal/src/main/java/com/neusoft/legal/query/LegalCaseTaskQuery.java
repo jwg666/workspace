@@ -8,6 +8,9 @@ public class LegalCaseTaskQuery {
     private Date createTime;
     private Date applicantTime;
     private Long id;
+    private Date endTime;
+    private String dpName;
+    private Long caseId;
 	public String getApplicantname() {
 		return applicantname;
 	}
@@ -37,6 +40,24 @@ public class LegalCaseTaskQuery {
 	}
 	public void setId(Long id) {
 		this.id = id;
+	}
+	public Date getEndTime() {
+		return endTime;
+	}
+	public void setEndTime(Date endTime) {
+		this.endTime = endTime;
+	}
+	public String getDpName() {
+		return dpName;
+	}
+	public void setDpName(String dpName) {
+		this.dpName = dpName;
+	}
+	public Long getCaseId() {
+		return caseId;
+	}
+	public void setCaseId(Long caseId) {
+		this.caseId = caseId;
 	}
     
 }

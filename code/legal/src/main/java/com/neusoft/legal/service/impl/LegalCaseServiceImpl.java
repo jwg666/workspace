@@ -171,10 +171,7 @@ public class LegalCaseServiceImpl implements LegalCaseService{
 	 * @return 查询审核已办理任务
 	 */
 	public  DataGrid getyiban(LegalCaseQuery query){
-		DataGrid datagrid=new DataGrid();
-		List<LegalCaseTaskQuery> list=legalCaseDao.findpageY(query);
-		datagrid.setRows(list);
-		datagrid.setTotal(new Long(list.size()));
+		DataGrid datagrid=legalCaseDao.findpageY(query);
 		return datagrid;
 	}
 	/**
@@ -216,5 +213,31 @@ public class LegalCaseServiceImpl implements LegalCaseService{
 		}
 		
 		return null;
+	}
+	/**
+	 * @param legalCaseQuery
+	 * 将指派的律师事务所放到case表并将律师事务所的id存到工作流中
+	 */
+	public void completeTaskAndPutlegalIdToCase(LegalCaseQuery legalCaseQuery){
+		WfProcinstanceQuery wfQuery = new WfProcinstanceQuery();
+		wfQuery.setBusinformId(legalCaseQuery.getId().toString());
+		WfProcinstance wf =  wfProcinstanceDao.finUnique(wfQuery);
+		String processInstanceId = wf.getProcessinstanceId();
+		//获取指派律师事务所的节点
+		Task task = taskService.createTaskQuery().taskDefinitionKey("asignLegalOffice").processInstanceId(processInstanceId).singleResult();
+		Long userId = LoginContextHolder.get().getUserId();
+		//将从前台获取的律师事务所id放到工作流中
+		taskService.setVariable(task.getId(),"LegalOfficer",legalCaseQuery.getLegalId().toString());
+		//抢占并完成任务
+		taskService.claim(task.getId(), userId.toString());
+		taskService.complete(task.getId());
+		LegalCaseQuery query=new LegalCaseQuery();
+		query.setId(legalCaseQuery.getId());
+		LegalCase legc= get(query);
+		legc.setId(legalCaseQuery.getId());
+		BeanUtils.copyProperties(legc, query);
+		query.setLegalId(legalCaseQuery.getLegalId());
+		//将律师事务所放到legalcase表中
+		update(query);
 	}
 }
