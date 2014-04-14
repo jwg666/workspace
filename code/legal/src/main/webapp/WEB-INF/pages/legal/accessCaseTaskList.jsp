@@ -85,6 +85,76 @@
 				});
 			}
 		});
+		
+		datagridyiBan = $('#datagridyiBan').datagrid({
+			url : 'legalCaseAction!getyiban.do',
+			queryParams: {definitionKey:'accessCase'},
+			title : '律师事务所已办列表',
+			iconCls : 'icon-save',
+			pagination : true,
+			pagePosition : 'bottom',
+			rownumbers : true,
+			pageSize : 10,
+			pageList : [ 10, 20, 30, 40 ],
+			fit : true,
+			fitColumns : true,
+			nowrap : false,
+			border : false,
+			//idField : 'id',
+			//sortName : 'id',
+			//sortOrder : 'desc',
+			columns : [ [ 
+			{field:'id',checkbox:true,
+						formatter:function(value,row,index){
+							return row.id;
+						}
+					},
+			   {field:'applicantname',title:'申请人',align:'center',sortable:true,width:100,
+					formatter:function(value,row,index){
+						return row.applicantname;
+					}
+				},				
+			   {field:'agentname',title:'代理人',align:'center',sortable:true,width:100,
+					formatter:function(value,row,index){
+						return row.agentname;
+					}
+				},				
+			   {field:'applicantTime',title:'申请日期',align:'center',sortable:true,width:100,
+					formatter:function(value,row,index){
+						return dateFormatYMD(row.applicantTime);
+					}
+				},				
+			   {field:'createTime',title:'审批时间',align:'center',sortable:true,width:100,
+					formatter:function(value,row,index){
+						return dateFormatYMD(row.createTime);
+					}
+				},				
+			   {field:'endTime',title:'分配时间',align:'center',sortable:true,width:100,
+					formatter:function(value,row,index){
+						return dateFormatYMD(row.endTime);
+					}
+				},				
+			   {field:'dpName',title:'被指派的律师事务所',align:'center',sortable:true,width:100,
+					formatter:function(value,row,index){
+						return row.dpName;
+					}
+				}			
+			 ] ],
+			toolbar : [ {
+				text : '查看明细',
+				iconCls : 'icon-add',
+				handler : function() {
+					showDetali();
+				}
+			}, '-', {
+				text : '取消选中',
+				iconCls : 'icon-undo',
+				handler : function() {
+					datagridyiBan.datagrid('unselectAll');
+				}
+			}, '-' ]
+		});
+		
 	});
 	function goAccess(){
 		var rows = datagrid.datagrid('getSelections');
@@ -104,13 +174,45 @@
 			$.messager.alert('提示', '请选择一条提单记录', 'warning');
 		}
 	}
+	
+	function showDetali(){
+		var rows = datagridyiBan.datagrid('getSelections');
+		var caseId = rows[0].caseId;
+		if (rows.length == 1) {
+			currentappid = parent.window.HROS.window.createTemp({
+				title : '指派律师事务所',
+				url : '../legal/legalAction!showdetail.do?legalCaseQuery.id='+caseId,
+				width : 900,
+				height : 500,
+				isresize : true,
+				isopenmax : true,
+				isflash : false,
+				customWindow : window
+			});
+		}else{
+			$.messager.alert('提示', '请选择一条提单记录', 'warning');
+		}
+	}
 </script>
 </head>
 <body class="easyui-layout">
 	
+<div id="tabs_id" class="easyui-tabs" data-options="fit:true">
+	<div title="待接收">
+	<div id="checkSearch" class="easyui-layout" fit="true">
 	<div region="center" border="false">
 		<table id="datagrid"></table>
 	</div>
+	</div>
+    </div>
+    <div title="已接收">
+         <div id="checkSearchyiban" class="easyui-layout" fit="true">
+			<div region="center" border="false">
+				<table id="datagridyiBan"></table>
+		    </div>
+		 </div>
+	</div>
+    </div>
 
 	
 </body>
