@@ -8,6 +8,6 @@
 <title>系统登录!</title>
 </head>
 <script type="text/javascript">
-	window.location.href='${dynamicURL}/security/login.action';
+	window.location.href='${dynamicURL}/security/login.do';
 </script>
 </html>
