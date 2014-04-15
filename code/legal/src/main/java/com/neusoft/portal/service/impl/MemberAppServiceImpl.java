@@ -152,7 +152,7 @@ public class MemberAppServiceImpl implements MemberAppService{
 			memberAppQuery.setIcon(StringUtils.isEmpty(icon)?"917":icon);
 			String url = resource.getUrl();
 			if(url!=null){
-				url = url.replaceAll("\\.action", ".do");
+				url = url.replaceAll("\\.do", ".do");
 			}
 			memberAppQuery.setUrl(url);
 			memberAppQuery.setIsflash(0);
