@@ -10,17 +10,16 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
 import javax.annotation.Resource;
-
-import net.sf.json.JSONObject;
+import javax.servlet.ServletInputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.neusoft.base.common.ExecuteResult;
-import com.neusoft.base.common.FileConstants;
-import com.neusoft.base.common.Pager;
-import com.neusoft.base.common.ValidateUtil;
+import com.neusoft.base.common.SpringApplicationContextHolder;
 import com.neusoft.base.model.Json;
 import com.neusoft.security.domain.UploadFile;
 import com.neusoft.security.query.UploadFileQuery;
@@ -209,19 +208,38 @@ public class FileUploadAction extends BaseAction implements ModelDriven<UploadFi
 		}
 		return SUCCESS;
 	}
-	
-	private Pager<UploadFile> initPage(){
-		Pager<UploadFile> pager=new Pager<UploadFile>();
-		if(!ValidateUtil.isValid(page)){
-			page=1;
+    public String remoteUpload(){
+    	logger.debug("++++++++++++++++++++++++++");
+    	try {
+    		HttpServletRequest request = getRequest();
+    		HttpServletResponse response = getResponse();
+    		request.setCharacterEncoding("UTF-8");   
+            response.setCharacterEncoding("UTF-8"); 
+        	ServletInputStream sis = request.getInputStream();
+    		int i = sis.read();
+    		if(i!=-1){
+    			FileUploadService fileUploadService = (FileUploadService)SpringApplicationContextHolder.getBean("fileUploadService");
+    			String uuid = fileUploadService.fileUpload((InputStream)sis, request.getParameter("filename"));
+    			logger.debug("-----------------"+uuid);
+    		}
+		} catch (Exception e) {
+			logger.error("-----------------",e);
 		}
-		if(!ValidateUtil.isValid(rows)){
-			rows=10;
-		}
-		pager.setCurrentPage(page);
-		pager.setPageSize(rows);
-		return pager;
-	}
+    	
+    	return null;
+    }
+//	private Pager<UploadFile> initPage(){
+//		Pager<UploadFile> pager=new Pager<UploadFile>();
+//		if(!ValidateUtil.isValid(page)){
+//			page=1;
+//		}
+//		if(!ValidateUtil.isValid(rows)){
+//			rows=10;
+//		}
+//		pager.setCurrentPage(page);
+//		pager.setPageSize(rows);
+//		return pager;
+//	}
 
 	public Long getFileId() {
 		return fileId;
