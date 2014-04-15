@@ -202,7 +202,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 		// 组装对应的更改密码地址
 		// 增加发送邮件方法后使用到的链接
 //		String updatePwdUrl = retirevepasswordurl
-//				+ "/security/toRetrieveUpdatePassword.action?encode=" + encode;
+//				+ "/security/toRetrieveUpdatePassword.do?encode=" + encode;
 		// 调用发送邮件方法将地址发送给用户
 //		Email email = new Email();
 //		Recipient recipient = new Recipient();
