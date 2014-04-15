@@ -40,5 +40,7 @@ public interface FileUploadService {
 	public  InputStream getFileInputStream(String realPath,Long id) ;
 
 	DataGrid datagrid(UploadFileQuery query);
+
+	String fileUpload(InputStream ins, String fileName);
 	
 }

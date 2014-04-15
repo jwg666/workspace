@@ -3,6 +3,7 @@ package com.neusoft.security.service.impl;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -483,5 +484,52 @@ public class FileUploadServiceImpl implements FileUploadService {
 			}
 			return UploadFileQuerys;
 	}
-
+	@Override
+	public String fileUpload(InputStream ins, String fileName) {
+		MongoDBFile file = new MongoDBFile();
+		file.setId(UUID.randomUUID().toString());
+		file.setCreateTime(DateUtils.format(DateUtils.FORMAT5, new Date()));
+		file.setFileName(fileName);
+		file.setDescription(fileName);
+		try {
+//			byte[] b = new byte[1024];
+			ByteArrayOutputStream swapStream = new ByteArrayOutputStream(); 
+			byte[] buff = new byte[100]; //buff用于存放循环读取的临时数据 
+			int rc = 0; 
+			while ((rc = ins.read(buff, 0, 100)) > 0) { 
+				swapStream.write(buff, 0, rc); 
+			} 
+			file.setContent(swapStream.toByteArray());
+			mongoOperations.save(file);
+			
+			Date curDate = new Date();
+			UploadFile uploadFile=new UploadFile();
+			uploadFile.setFileName(fileName);
+			uploadFile.setSaveFileName(file.getId());
+//			uploadFile.setFilePath1(fileConstants.getFileSavePath());
+			uploadFile.setFilePath1("/");
+			uploadFile.setStatus(FileStatusEnum.VALID.getStatus());
+			uploadFile.setLastModifiedBy("remote");
+			uploadFile.setLastModifiedDt(curDate);
+			uploadFile.setCreateBy("legal");
+			uploadFile.setCreateDt(curDate);
+			uploadFile.setContentType("image/png");
+			uploadFile.setType(FileTypeEnum.MONGODB.getType());
+			Long id = fileUploadDAO.save(uploadFile);
+			return id.toString();
+		} catch (FileNotFoundException e) {
+			logger.error(e.getMessage(),e);
+		} catch (IOException e) {
+			logger.error(e.getMessage(),e);
+		}finally{
+			if(ins!=null){
+				try {
+					ins.close();
+				} catch (IOException e) {
+					logger.error(e.getMessage(),e);
+				}
+			}
+		}
+		return null;
+	}
 }
