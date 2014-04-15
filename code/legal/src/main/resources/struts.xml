@@ -15,7 +15,7 @@
 	<constant name="struts.xwork.chaining.copyErrors" value="true" />
 	<constant name="struts.xwork.chaining.copyFieldErrors" value="true" />
 	<constant name="struts.xwork.chaining.copyMessages" value="true" />
-	<constant name="struts.action.extension" value="do,action,," />
+	<constant name="struts.action.extension" value="do,action" />
 	<constant name="struts.multipart.maxSize" value="8192000" />
 	
 	<package name="base" extends="json-default" namespace="/">
@@ -62,9 +62,9 @@
 		</interceptors>
 		<default-interceptor-ref name="crudStack" />
 		<global-results>
-			<result name="login" type="redirect">/security/login.action</result>
+			<result name="login" type="redirect">/security/login.do</result>
 	<!-- 		<result name="noAuth">/noAuth.jsp</result>
-			<result name="updatePassword" type="redirect">/security/updatePasswordInit.action
+			<result name="updatePassword" type="redirect">/security/updatePasswordInit.do
 			</result> -->
 		</global-results>
 		
