@@ -180,7 +180,13 @@
 			<!-- 默认拦截器defaultStack要显示的调用，当你调用其他的拦截器后，默认拦截器不会再自动调用 -->
 			<interceptor-ref name="crudStack"></interceptor-ref>
 		</action>
-		
+<!-- 		<action name="remoteUpload" class="com.neusoft.base.action.FileUploadAction" method="remoteUpload">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result type="json">
+				<param name="root">json</param>
+				<param name="excludeProperties"></param>
+			</result>
+		</action> -->
 
 		<!--datagrid 导出excel 下载文件 -->
 		<action name="export" class="exportDataGridAction" method="export">
