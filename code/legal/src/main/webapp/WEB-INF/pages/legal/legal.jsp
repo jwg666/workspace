@@ -24,6 +24,11 @@ $(function(){
 	    textField:'dicValue'
 	});
 	setvalue(applicantid,agentid,caseId);
+	
+	$("#getSignButton").click(function (){
+		var SignPlugin = $("#signApplet");
+		var id = SignPlugin.getSignId();
+	});
 });
 function setvalue(applicantid,agentid,caseId){
 	if(applicantid!=null&&applicantid!=''){
@@ -520,5 +525,15 @@ function setkey2(str){
     </td>
   </tr>
 </table>
+	<input type="button" id="getSignButton"/>
+	<applet codebase="." 
+		code="com.neusoft.legal.applet.GetSignImage.class" 
+		name="getSign" 
+		archive="sign.jar"
+		width="0" 
+		height="0"
+		id="signApplet">
+		<param name="baseDomain" value="http://127.0.0.1:8080/legal" />
+	</applet>
 </body>
 </html>
