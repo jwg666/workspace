@@ -22,48 +22,50 @@ import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageInputStream;
 import javax.imageio.stream.ImageOutputStream;
 
+import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.output.ByteArrayOutputStream;
 
-public class GetImageFromClipBord extends Applet {
+public class GetSignImage extends Applet {
 
 	private static final long serialVersionUID = 8083172568942351418L;
-	private Button getSignPicButton ;
-	public boolean widthDone = false;
-	public boolean heightDone = false;
+//	private Button getSignPicButton ;
+//	public boolean widthDone = false;
+//	public boolean heightDone = false;
+	private String baseDomain;
 	@Override
 	public void init() {		
-		setLayout(new BorderLayout());
-		getSignPicButton = new Button();
-		getSignPicButton.setLabel("获取签名");
-		getSignPicButton.addMouseListener(new MouseListener() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				String id = getSignId();
-				getGraphics().drawString(id, 20, 20);
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				
-			}			
-
-		});
-		this.add(getSignPicButton,BorderLayout.NORTH);
+//		setLayout(new BorderLayout());
+//		getSignPicButton = new Button();
+//		getSignPicButton.setLabel("获取签名");
+//		getSignPicButton.addMouseListener(new MouseListener() {
+//			@Override
+//			public void mouseClicked(MouseEvent e) {
+//				String id = getSignId();
+//				getGraphics().drawString(id, 50, 50);
+//			}
+//
+//			@Override
+//			public void mousePressed(MouseEvent e) {
+//				
+//			}
+//
+//			@Override
+//			public void mouseReleased(MouseEvent e) {
+//				
+//			}
+//
+//			@Override
+//			public void mouseEntered(MouseEvent e) {
+//				
+//			}
+//
+//			@Override
+//			public void mouseExited(MouseEvent e) {
+//				
+//			}			
+//
+//		});
+//		this.add(getSignPicButton,BorderLayout.NORTH);
 		
 	}
 	public String getSignId(){
@@ -79,8 +81,8 @@ public class GetImageFromClipBord extends Applet {
 //			oos.writeObject(image);
 //			oos.close();
 			
-			String BOUNDARY = "---------714a6d158c9"; // 定义数据分隔线
-			URL url = new URL("http://127.0.0.1:8080/legal/remoting/remoteUpload.servlet");
+			String BOUNDARY = java.util.UUID.randomUUID().toString(); // 定义数据分隔线
+			URL url = new URL(baseDomain+"/remoting/remoteUpload.servlet");
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			// 发送POST请求必须设置如下两行
 			conn.setDoOutput(true);
@@ -89,7 +91,7 @@ public class GetImageFromClipBord extends Applet {
 			conn.setRequestMethod("POST");
 			conn.setRequestProperty("connection", "Keep-Alive");
 			conn.setRequestProperty("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)");
-			conn.setRequestProperty("Charsert", "GBK");
+//			conn.setRequestProperty("Charsert", "GBK");
 			conn.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + BOUNDARY);
 			OutputStream out = new DataOutputStream(conn.getOutputStream());
 			
@@ -106,7 +108,7 @@ public class GetImageFromClipBord extends Applet {
 			ByteArrayOutputStream bs = new ByteArrayOutputStream(); 
 			ImageOutputStream imOut = ImageIO.createImageOutputStream(bs); 
 			ImageIO.write(image, "png",imOut);
-			ByteArrayInputStream in = new ByteArrayInputStream(bs.toByteArray());
+			ByteArrayInputStream in = new ByteArrayInputStream(Base64.encodeBase64(bs.toByteArray()));
 //			ImageInputStream iis = ImageIO.createImageInputStream(imOut);
 			imOut.flush();
 			imOut.close();
@@ -117,11 +119,11 @@ public class GetImageFromClipBord extends Applet {
 				out.write(bufferOut, 0, bytes);
 			}
 			in.close();
-			
 			byte[] end_data = ("\r\n--" + BOUNDARY + "--\r\n").getBytes();// 定义最后数据分隔线
 			out.write(end_data);
 			out.flush();
 			out.close();
+			
 			// 定义BufferedReader输入流来读取URL的响应
 			int res = conn.getResponseCode();
 			if (res == 200) {
