@@ -55,7 +55,8 @@ function getapplicant(applicant){
 				var identifyid=data.obj.identifyid;
 				if(identifyid!=null&&identifyid!=''){
 					for(var i=0;i<identifyid.length;i++){
-						var stringid='#applicantstring'+i;
+						var j=i+1;
+						var stringid='#applicantstring'+j;
 						$(stringid).val(identifyid.charAt(i));
 					}
 				}
@@ -98,7 +99,8 @@ function getagent(agentid){
 				var identifyid=data.obj.identifyid;
 				if(identifyid!=null&&identifyid!=''){
 					for(var i=0;i<identifyid.length;i++){
-						var stringid='#agentstring'+i;
+						var j=i+1;
+						var stringid='#agentstring'+j;
 						$(stringid).val(identifyid.charAt(i));
 					}
 				}

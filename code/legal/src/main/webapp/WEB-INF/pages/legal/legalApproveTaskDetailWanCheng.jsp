@@ -224,9 +224,18 @@
 		}
 		return application;
 	}
+	function dayin(){
+	 	var printObj = $("#printBody").clone(true);
+		printObj.width(1220);
+		printObj.find("#optBnts").remove();
+		printObj = gridToTable(printObj);
+		printObj.find("#datagridDiv table").addClass("table2").width("100%").parent().addClass("part_zoc").width("100%");
+		lodopPrintAutoWidth(printObj);
+	}
 </script>
 </head>
 <body id="body">
+<div  style="overflow: auto;min-width: 1220px" align="center"  id="printBody" >
 <div class="title">法律援助审批表</div>
 <div class="soufan" style="width: 80%">
 <div class="soufan">
@@ -495,5 +504,15 @@
 </table>
 <div class="mt20 sq_nei">注：1.审判意见由对法律援助申请进行初审的工作人员出具。<br />
 &nbsp;&nbsp;&nbsp;&nbsp;2.审判意见由法律援助机构负责人或者其他有权签署意见的人员出具。</div>
+</div>
+<table width="80%" border="0" cellspacing="0" cellpadding="0" align="center" class="sq_box">
+<tr>
+    <td colspan="2" class="sq_nei"></td>
+    <td colspan="2" class="sq_nei">
+    <input type="button" value="打印" style="width: 60px;" onclick="dayin()" />
+    </td>
+    <td colspan="2" class="sq_nei"></td>
+  </tr>
+</table>
 </body>
 </html>

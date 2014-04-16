@@ -152,10 +152,39 @@
 				handler : function() {
 					datagridyiBan.datagrid('unselectAll');
 				}
-			}, '-' ]
+			}, '-' ],
+			onDblClickRow : function(rowIndex, rowData) {
+				showdetail1(rowData);
+			}
 		});
 		
 	});
+	//弹出打印列表
+	 function showdetail1(row){
+		
+		var caseId =row.caseId;
+		var id =row.id;
+		var url = '../legal/legalApproveAction!showzhipaitongzhi.do?approveId=1';
+		if(id!=null&&id!=''){
+			url=url+'&id='+id;
+		}
+		if(caseId!=null&&caseId!=''){
+			url=url+'&caseId='+caseId;
+		}
+		//var url = "../legal/legalAction!stepOne.do?applicantId="+applicantId;
+		//alert(url);
+		currentappid = parent.window.HROS.window.createTemp({
+			title : '指派通知书打印',
+			url : url,
+			width : 900,
+			height : 500,
+			isresize : true,
+			isopenmax : true,
+			isflash : false,
+			customWindow : window
+		});
+} 
+	
 	function goAsign(){
 		var rows = datagrid.datagrid('getSelections');
 		var caseId = rows[0].id;
@@ -216,6 +245,9 @@
 		 </div>
 	</div>
     </div>
-	
+	<div id="iframeDialog" style="display: none;overflow: auto;width: 1200px;height: 530px;">
+	<iframe name="iframe" id="iframe" src="#"  scrolling="auto" frameborder="0" style="width:99%;height:99%;">
+    </iframe>
+</div>
 </body>
 </html>
