@@ -215,8 +215,10 @@ public class LegalCaseServiceImpl implements LegalCaseService{
 		return null;
 	}
 	/**
-	 * @param legalCaseQuery
-	 * 将指派的律师事务所放到case表并将律师事务所的id存到工作流中
+	 * @time 2014-4-16 下午10:54:07
+	 * @return
+	 * @author 门光耀
+	 * @description 将指派的律师事务所放到case表并将律师事务所的id存到工作流中
 	 */
 	public void completeTaskAndPutlegalIdToCase(LegalCaseQuery legalCaseQuery){
 		WfProcinstanceQuery wfQuery = new WfProcinstanceQuery();

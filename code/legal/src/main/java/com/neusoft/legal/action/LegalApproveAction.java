@@ -18,6 +18,8 @@ import org.springframework.stereotype.Controller;
 import com.neusoft.base.action.BaseAction;
 import com.neusoft.base.common.LoginContext;
 import com.neusoft.base.common.LoginContextHolder;
+import com.neusoft.base.query.DepartmentQuery;
+import com.neusoft.base.service.DepartmentService;
 import com.neusoft.legal.domain.LegalApprove;
 import com.neusoft.legal.query.LegalAgentQuery;
 import com.neusoft.legal.query.LegalApplicantQuery;
@@ -47,6 +49,8 @@ public class LegalApproveAction extends BaseAction implements ModelDriven<LegalA
 	private LegalApplicantService legalApplicantService;
 	@Resource
 	private LegalAgentService legalAgentService;
+	@Resource
+	private DepartmentService departmentService;
 	private LegalApproveQuery legalApproveQuery = new LegalApproveQuery();
 	private LegalApprove legalApprove;
 	private List<LegalApproveQuery>  legalApproveList = new ArrayList<LegalApproveQuery>();
@@ -55,6 +59,7 @@ public class LegalApproveAction extends BaseAction implements ModelDriven<LegalA
 	private LegalAgentQuery legalAgentQuery;
 	private String ifPass;
 	private Long id;
+	private DepartmentQuery departmentQuery=new DepartmentQuery();
 	public String getIfPass() {
 		return ifPass;
 	}
@@ -151,6 +156,28 @@ public class LegalApproveAction extends BaseAction implements ModelDriven<LegalA
 		legalApproveQuery.setCaseId(legalCaseQuery.getId());
 		return "taskDetail";
 	}
+	
+	/**
+	 * @time 2014-4-16 下午10:27:29
+	 * @return
+	 * @author 门光耀
+	 * @description 弹出指派律师事务所的通制单打印页面
+	 */
+	public String showzhipaitongzhi(){
+		if(legalApproveQuery.getCaseId()!=null&&!"".equals(legalApproveQuery.getCaseId().toString())){
+			legalCaseQuery = legalCaseService.getQuery(legalApproveQuery.getCaseId());
+			legalApplicantQuery=legalApplicantService.getQuery(legalCaseQuery.getApplicantId());
+			legalAgentQuery=legalAgentService.getQuery(legalCaseQuery.getAgentId());
+			if(legalCaseQuery.getLegalId()!=null&&!"".equals(legalCaseQuery.getLegalId().toString())){
+				departmentQuery=departmentService.getQuery(legalCaseQuery.getLegalId());
+			}
+		}
+		if(legalApproveQuery.getId()!=null&&!"".equals(legalApproveQuery.getId().toString())){
+			legalApproveQuery = legalApproveService.getQuery(legalApproveQuery.getId());
+		}
+		return "zhipaitongzhi";
+	}
+	
 	/**
 	 * 根据订单修改订单
 	 */
@@ -219,6 +246,10 @@ public class LegalApproveAction extends BaseAction implements ModelDriven<LegalA
 	}
 	public void setLegalApplicantQuery(LegalApplicantQuery legalApplicantQuery) {
 		this.legalApplicantQuery = legalApplicantQuery;
+	}
+	
+	public DepartmentQuery getDepartmentQuery() {
+		return departmentQuery;
 	}
 	public Long getId() {
 		return id;

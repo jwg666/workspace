@@ -85,8 +85,10 @@ public class LegalAction extends BaseAction{
 	}
 	
 	/**
+	 * @time 2014-4-16 下午10:54:07
 	 * @return
-	 * 分配事务所并将律师事务所的id放到case表中
+	 * @author 门光耀
+	 * @description 分配事务所并将律师事务所的id放到case表中
 	 */
 	public String completeTaskAndPutlegalIdToCase(){
 		try{

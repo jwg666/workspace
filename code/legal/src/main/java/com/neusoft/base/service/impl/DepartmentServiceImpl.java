@@ -20,6 +20,8 @@ import com.neusoft.base.domain.Department;
 import com.neusoft.base.model.DataGrid;
 import com.neusoft.base.query.DepartmentQuery;
 import com.neusoft.base.service.DepartmentService;
+import com.neusoft.legal.domain.LegalAgent;
+import com.neusoft.legal.query.LegalAgentQuery;
 /**
  * 
  * @author jiawg-贾伟光
@@ -101,6 +103,11 @@ public class DepartmentServiceImpl implements DepartmentService{
 		List<DepartmentQuery> listQuery =getQuerysFromEntitys(list) ;
 		return listQuery;
 	}
-	
+	public DepartmentQuery getQuery(Long id){
+		Department department = departmentDao.getById(id);
+		DepartmentQuery query = new DepartmentQuery();
+		BeanUtils.copyProperties(department, query);
+		return query;
+	}
 	
 }

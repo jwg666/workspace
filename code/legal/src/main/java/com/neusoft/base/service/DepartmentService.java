@@ -65,5 +65,5 @@ public interface DepartmentService{
 	public List<DepartmentQuery> listAll(DepartmentQuery departmentQuery);
 
 	
-	
+	public DepartmentQuery getQuery(Long id);
 }
