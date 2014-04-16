@@ -106,7 +106,7 @@
 							
 							<ul id="todotasks">
 							<!-- 待办列表demo start-->
-							    <li  src="../legal/legalApproveAction!goTaskList" resName="案件审核" resIcon="" resH="20"  resW="20" resid="1"  id="resource_1">
+							    <li  src="../legal/legalApproveAction!goTaskList.do" resName="案件审核" resIcon="" resH="20"  resW="20" resid="1"  id="resource_1">
 								 <div class="main-content-navi-icon">
 								 <img width="35px" height="35px" src="${staticURL}/portal/img/images/content-icon1.png" />
 										<div class="live-tip no-background-image"></div>
@@ -114,14 +114,14 @@
 									<div class="main-content-navi-icontext">案件审核</div>
 									<div class="navi-selected-icon"></div>
 								</li>
-								<li  src="../legal/legalAction!asignLegalOfficeTaskList" resName="指派律师事务所" resIcon="" resH="20"  resW="20" resid="2"  id="resource_2">
+								<li  src="../legal/legalAction!asignLegalOfficeTaskList.do" resName="指派律师事务所" resIcon="" resH="20"  resW="20" resid="2"  id="resource_2">
 								 <div class="main-content-navi-icon"><img width="35px" height="35px" src="${staticURL}/portal/img/images/content-icon8.png" />
 										<div class="live-tip no-background-image"></div>
 									</div>
 									<div class="main-content-navi-icontext">指派律师事务所</div>
 									<div class="navi-selected-icon"></div>
 								</li>
-								<li  src="../legal/legalAction!accessCaseTaskList" resName="事务所受理案件" resIcon="" resH="20"  resW="20" resid="3"  id="resource_3">
+								<li  src="../legal/legalAction!accessCaseTaskList.do" resName="事务所受理案件" resIcon="" resH="20"  resW="20" resid="3"  id="resource_3">
 								 <div class="main-content-navi-icon"><img width="35px" height="35px" src="${staticURL}/portal/img/images/content-icon7.png" />
 										<div class="live-tip no-background-image"></div>
 									</div>
@@ -129,7 +129,7 @@
 									<div class="navi-selected-icon"></div>
 								</li>
 								
-								<li class="last-li"  src="../legal/legalAction!endCaseTaskList" resName="结案" resIcon="" resH="20"  resW="20" resid="5"  id="resource_5">
+								<li class="last-li"  src="../legal/legalAction!endCaseTaskList.do" resName="结案" resIcon="" resH="20"  resW="20" resid="5"  id="resource_5">
 								 <div class="main-content-navi-icon"><img width="35px" height="35px" src="${staticURL}/portal/img/images/content-icon5.png" />
 										<div class="live-tip no-background-image"></div>
 									</div>
