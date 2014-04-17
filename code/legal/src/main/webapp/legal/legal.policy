@@ -1,0 +1,13 @@
+keystore"file:legal1.store","JKS"; 
+grant signedBy "legal1" 
+{ 
+  permission java.awt.AWTPermission "accessClipboard";
+  permission java.awt.AWTPermission "accessEventQueue";
+  permission java.awt.AWTPermission "showWindowWithoutWarningBanner";
+  permission java.lang.RuntimePermission "exitVM";
+  permission java.lang.RuntimePermission "loadLibrary";
+  permission java.lang.RuntimePermission "queuePrintJob";
+  permission java.net.SocketPermission "*", "connect";
+  permission java.io.FilePermission "*", "read,write";
+  permission java.util.PropertyPermission "*", "read";
+}; 
