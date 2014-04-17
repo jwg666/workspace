@@ -42,5 +42,7 @@ public interface FileUploadService {
 	DataGrid datagrid(UploadFileQuery query);
 
 	String fileUpload(InputStream ins, String fileName);
+
+	String fileUpload(byte[] bytes, String fileInputFileName);
 	
 }

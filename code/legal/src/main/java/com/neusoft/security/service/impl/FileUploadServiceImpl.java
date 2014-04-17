@@ -18,6 +18,7 @@ import java.util.UUID;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -486,6 +487,26 @@ public class FileUploadServiceImpl implements FileUploadService {
 	}
 	@Override
 	public String fileUpload(InputStream ins, String fileName) {
+		
+//		try {
+//			File file = new File("E:/1.png");
+//			FileOutputStream fos = new FileOutputStream(file);
+//			byte[] b = new byte[1024];
+//			while (ins.read(b)!=-1) {
+////				ins.read(b);
+//				fos.write(b);				
+//			}
+//			fos.flush();
+//			fos.close();
+//			ins.close();
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
 		MongoDBFile file = new MongoDBFile();
 		file.setId(UUID.randomUUID().toString());
 		file.setCreateTime(DateUtils.format(DateUtils.FORMAT5, new Date()));
@@ -499,7 +520,7 @@ public class FileUploadServiceImpl implements FileUploadService {
 			while ((rc = ins.read(buff, 0, 100)) > 0) { 
 				swapStream.write(buff, 0, rc); 
 			} 
-			file.setContent(swapStream.toByteArray());
+			file.setContent(Base64.decodeBase64(swapStream.toByteArray()));
 			mongoOperations.save(file);
 			
 			Date curDate = new Date();
@@ -530,6 +551,37 @@ public class FileUploadServiceImpl implements FileUploadService {
 				}
 			}
 		}
+		return null;
+	}
+	@Override
+	public String fileUpload(byte[] bytes, String fileInputFileName) {
+		MongoDBFile file = new MongoDBFile();
+		file.setId(UUID.randomUUID().toString());
+		file.setCreateTime(DateUtils.format(DateUtils.FORMAT5, new Date()));
+		file.setFileName(fileInputFileName);
+		file.setDescription(fileInputFileName);
+		try {
+			file.setContent(bytes);
+			mongoOperations.save(file);
+			
+			Date curDate = new Date();
+			UploadFile uploadFile=new UploadFile();
+			uploadFile.setFileName(fileInputFileName);
+			uploadFile.setSaveFileName(file.getId());
+//			uploadFile.setFilePath1(fileConstants.getFileSavePath());
+			uploadFile.setFilePath1("/");
+			uploadFile.setStatus(FileStatusEnum.VALID.getStatus());
+			uploadFile.setLastModifiedBy("remote");
+			uploadFile.setLastModifiedDt(curDate);
+			uploadFile.setCreateBy("legal");
+			uploadFile.setCreateDt(curDate);
+			uploadFile.setContentType("image/png");
+			uploadFile.setType(FileTypeEnum.MONGODB.getType());
+			Long id = fileUploadDAO.save(uploadFile);
+			return id.toString();
+		} catch (Exception e) {
+			logger.error(e.getMessage(),e);
+		} 
 		return null;
 	}
 }
