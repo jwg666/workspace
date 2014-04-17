@@ -114,6 +114,7 @@ public class LegalAction extends BaseAction{
 	public String accessCase(){
 		legalCaseQuery.setDefinitionKey("accessCase");
 		legalCaseService.completTask(legalCaseQuery);	
+		json.setSuccess(true);
 		return "json";
 	}
 	public String endCaseTaskList(){
@@ -127,7 +128,8 @@ public class LegalAction extends BaseAction{
 	}
 	public String endCase(){
 		legalCaseQuery.setDefinitionKey("endCase");
-		legalCaseService.completTask(legalCaseQuery);	
+		legalCaseService.completTask(legalCaseQuery);
+		json.setSuccess(true);
 		return "json";
 	}
 	public LegalCaseQuery getLegalCaseQuery() {
