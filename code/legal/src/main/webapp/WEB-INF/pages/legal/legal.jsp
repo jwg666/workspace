@@ -523,7 +523,7 @@ function setkey2(str){
 		code="com.neusoft.legal.applet.GetSignImage.class" 
 		name="signApplet" 
 		archive="sign.jar"
-		width="100" 
+		width="200" 
 		height="100"
 		id="signApplet" MAYSCRIPT>		
 	</applet>
