@@ -37,7 +37,7 @@ public class LoginContextInterceptor extends AbstractInterceptor{
 	@Override
 	public String intercept(ActionInvocation invocation) throws Exception {
 		
-		logger.debug("==============================");
+//		logger.debug("==============================");
 		HttpServletRequest httpServletRequest = ServletActionContext.getRequest();
 		HttpSession httpSession = httpServletRequest.getSession();
 		Long userId = (Long)httpSession.getAttribute(keyUserId);
