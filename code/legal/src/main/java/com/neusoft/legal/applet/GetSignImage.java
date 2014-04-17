@@ -3,6 +3,7 @@ package com.neusoft.legal.applet;
 import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.Button;
+import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.datatransfer.DataFlavor;
@@ -29,7 +30,7 @@ public class GetSignImage extends Applet {
 	private Button getSignPicButton ;
 //	public boolean widthDone = false;
 //	public boolean heightDone = false;
-	private String baseDomain = "http://127.0.0.1:8080/legal";
+	private String baseDomain = "http://115.28.33.228:8080/legal";
 	@Override
 	public void init() {		
 		setLayout(new BorderLayout());
@@ -40,7 +41,8 @@ public class GetSignImage extends Applet {
 			public void mouseClicked(MouseEvent e) {
 //				String id = getSignId();
 				Image image = getImageClipboard();
-				getGraphics().drawImage(image,30,30,100,100,null);
+//				getGraphics().
+				getGraphics().drawImage(image,30,30,150,80,null);
 			}
 
 			@Override
@@ -67,6 +69,16 @@ public class GetSignImage extends Applet {
 		this.add(getSignPicButton,BorderLayout.NORTH);
 		
 	}
+    
+	@Override
+	public void paint(Graphics g) {
+		Image image = getImageClipboard();
+		if (image!=null) {
+			g.drawImage(image,30,30,150,80,null);
+		}
+		
+	}
+
 	public String getSignId(){
 		BufferedImage image = getImageClipboard();
 		try {
