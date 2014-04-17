@@ -91,13 +91,12 @@ function getagent(agentid){
 				//submitLegalCase();
 				$('#agentName').val(data.obj.name);
 				
-				var agentType=data.obj.name;
+				var agentType=data.obj.agentType;
 				if(agentType!=null&&agentType!=''){
 					var agents=document.getElementsByName('agentType');
 					for(var i=0;i<agents.length;i++){
-						
 						if(agents[i].value==agentType){
-							agents[i].checked;
+							agents[i].checked=true;
 						}
 					}
 				}
@@ -248,7 +247,9 @@ function submitLegalCase(){
 	var legalCode=$('#legalCode').val();
 	var legalWord=$('#legalWord').val();
 	var legalNo=$('#legalNo').val();
-	
+	var year=$('#year').val();
+	var month=$('#month').val();
+	var day=$('#day').val();
 	if(applicantId!=null&&applicantId!=''){
 		if(agentId!=null&&agentId!=''){
 			$.ajax({
@@ -262,7 +263,10 @@ function submitLegalCase(){
 					description:description,
 					legalCode:legalCode,
 					legalWord:legalWord,
-					legalNo:legalNo
+					legalNo:legalNo,
+					year:year,
+					month:month,
+					day:day
 				},
 				success:function(data){
 					if(data.success){
@@ -295,6 +299,9 @@ function submitLegalCaseqidong(){
 	var legalCode=$('#legalCode').val();
 	var legalWord=$('#legalWord').val();
 	var legalNo=$('#legalNo').val();
+	var year=$('#year').val();
+	var month=$('#month').val();
+	var day=$('#day').val();
 	if(applicantId!=null&&applicantId!=''){
 		if(agentId!=null&&agentId!=''){
 			$.ajax({
@@ -308,7 +315,10 @@ function submitLegalCaseqidong(){
 					description:description,
 					legalCode:legalCode,
 					legalWord:legalWord,
-					legalNo:legalNo
+					legalNo:legalNo,
+					year:year,
+					month:month,
+					day:day
 				},
 				success:function(data){
 					if(data.success){

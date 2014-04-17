@@ -12,13 +12,15 @@
 			success : function(data) {
 				var json = $.parseJSON(data);
 				if (json && json.success) {
-					$.messager.show({
+					/* $.messager.show({
 						title : '成功',
 						msg : json.msg
+					}); */
+					$.messager.alert('提示','操作成功','info',function(){
+						customWindow.reloaddata();
+						parent.window.HROS.window.close(currentappid);
+						top.window.showTaskCount();
 					});
-					customWindow.reloaddata();
-					parent.window.HROS.window.close(currentappid);
-					top.window.showTaskCount();
 				} else {
 					$.messager.show({
 						title : '失败',

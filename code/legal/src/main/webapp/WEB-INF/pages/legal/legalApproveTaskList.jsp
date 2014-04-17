@@ -157,7 +157,7 @@
 			currentappid = parent.window.HROS.window.createTemp({
 				appid:currentappid,
 				title : '案件审核',
-				url : '../legal/legalApproveAction!taskDetail?caseId='+caseId,
+				url : '../legal/legalApproveAction!taskDetail.do?caseId='+caseId,
 				width : 900,
 				height : 500,
 				isresize : true,
@@ -176,7 +176,7 @@
 			currentappid = parent.window.HROS.window.createTemp({
 				appid:currentappid,
 				title : '案件审核',
-				url : '../legal/legalApproveAction!taskDetailWanCheng?id='+id,
+				url : '../legal/legalApproveAction!taskDetailWanCheng.do?id='+id,
 				width : 900,
 				height : 500,
 				isresize : true,

@@ -193,6 +193,9 @@
 			$.messager.alert('提示', '请选择一条提单记录', 'warning');
 		}
 	}
+	function reloaddata(){
+		$('#datagrid').datagrid('reload');
+	}
 </script>
 </head>
 <body class="easyui-layout">
