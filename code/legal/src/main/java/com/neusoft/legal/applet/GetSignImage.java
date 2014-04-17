@@ -3,6 +3,7 @@ package com.neusoft.legal.applet;
 import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.Button;
+import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
@@ -11,6 +12,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,67 +21,55 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageInputStream;
 import javax.imageio.stream.ImageOutputStream;
-
-import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.io.output.ByteArrayOutputStream;
 
 public class GetSignImage extends Applet {
 
 	private static final long serialVersionUID = 8083172568942351418L;
-//	private Button getSignPicButton ;
+	private Button getSignPicButton ;
 //	public boolean widthDone = false;
 //	public boolean heightDone = false;
-	private String baseDomain;
+	private String baseDomain = "http://127.0.0.1:8080/legal";
 	@Override
 	public void init() {		
-//		setLayout(new BorderLayout());
-//		getSignPicButton = new Button();
-//		getSignPicButton.setLabel("获取签名");
-//		getSignPicButton.addMouseListener(new MouseListener() {
-//			@Override
-//			public void mouseClicked(MouseEvent e) {
+		setLayout(new BorderLayout());
+		getSignPicButton = new Button();
+		getSignPicButton.setLabel("获取签名");
+		getSignPicButton.addMouseListener(new MouseListener() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
 //				String id = getSignId();
-//				getGraphics().drawString(id, 50, 50);
-//			}
-//
-//			@Override
-//			public void mousePressed(MouseEvent e) {
-//				
-//			}
-//
-//			@Override
-//			public void mouseReleased(MouseEvent e) {
-//				
-//			}
-//
-//			@Override
-//			public void mouseEntered(MouseEvent e) {
-//				
-//			}
-//
-//			@Override
-//			public void mouseExited(MouseEvent e) {
-//				
-//			}			
-//
-//		});
-//		this.add(getSignPicButton,BorderLayout.NORTH);
+				Image image = getImageClipboard();
+				getGraphics().drawImage(image,30,30,100,100,null);
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				
+			}			
+
+		});
+		this.add(getSignPicButton,BorderLayout.NORTH);
 		
 	}
 	public String getSignId(){
 		BufferedImage image = getImageClipboard();
-//		BufferedImage bufferedImage = new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_RGB);
-//		Graphics2D g = bufferedImage.createGraphics();
-//		g.drawImage(image, null, null);
-//		waitForImage(bufferedImage);
 		try {
-//			File file = File.createTempFile("temp_sign", "jpeg");
-//			fis = new FileOutputStream(file);
-//			oos = new ObjectOutputStream(fis);
-//			oos.writeObject(image);
-//			oos.close();
 			
 			String BOUNDARY = java.util.UUID.randomUUID().toString(); // 定义数据分隔线
 			URL url = new URL(baseDomain+"/remoting/remoteUpload.servlet");
@@ -108,7 +98,7 @@ public class GetSignImage extends Applet {
 			ByteArrayOutputStream bs = new ByteArrayOutputStream(); 
 			ImageOutputStream imOut = ImageIO.createImageOutputStream(bs); 
 			ImageIO.write(image, "png",imOut);
-			ByteArrayInputStream in = new ByteArrayInputStream(Base64.encodeBase64(bs.toByteArray()));
+			ByteArrayInputStream in = new ByteArrayInputStream(bs.toByteArray());
 //			ImageInputStream iis = ImageIO.createImageInputStream(imOut);
 			imOut.flush();
 			imOut.close();
