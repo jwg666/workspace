@@ -24,12 +24,20 @@ $(function(){
 	    textField:'dicValue'
 	});
 	setvalue(applicantid,agentid,caseId);
-	
-	$("#getSignButton").click(function (){
-		var SignPlugin = $("#signApplet");
-		var id = SignPlugin.getSignId();
+	/**
+	$("#getSignButton").click(function (){		
+		var id = document.applets[0].getSignId();
+		if(id==null||id==''){
+			alert("没有获取到签名");
+		}else{
+			alert(id);
+		}
 	});
+	**/
 });
+function setSignImage(id){
+	
+}
 function setvalue(applicantid,agentid,caseId){
 	if(applicantid!=null&&applicantid!=''){
 		getapplicant(applicantid);
@@ -510,7 +518,16 @@ function setkey2(str){
   </tr>
   <tr>
     <td colspan="4" class="sq_nei"></td>
-    <td colspan="4" class="sq_nei">申请人（签字）：</td>
+    <td colspan="4" class="sq_nei">申请人（签字）：
+    	<applet codebase="." 
+		code="com.neusoft.legal.applet.GetSignImage.class" 
+		name="signApplet" 
+		archive="sign.jar"
+		width="100" 
+		height="100"
+		id="signApplet" MAYSCRIPT>		
+	</applet>
+    </td>
   </tr>
   <tr>
     <td colspan="4" class="sq_nei"></td>
@@ -538,15 +555,7 @@ function setkey2(str){
     </td>
   </tr>
 </table>
-	<input type="button" id="getSignButton"/>
-	<applet codebase="." 
-		code="com.neusoft.legal.applet.GetSignImage.class" 
-		name="getSign" 
-		archive="sign.jar"
-		width="0" 
-		height="0"
-		id="signApplet">
-		<param name="baseDomain" value="http://127.0.0.1:8080/legal" />
-	</applet>
+	
+	   
 </body>
 </html>
