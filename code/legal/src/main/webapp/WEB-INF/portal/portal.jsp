@@ -106,6 +106,14 @@
 							
 							<ul id="todotasks">
 							<!-- 待办列表demo start-->
+                                <li  src="../legal/legalAction!stepOne.do" resName="法律援助申请" resIcon="" resH="20"  resW="20" resid="0"  id="resource_0">
+                                    <div class="main-content-navi-icon">
+                                        <img width="35px" height="35px" src="${staticURL}/portal/img/images/content-icon8.png" />
+                                        <div class="live-tip no-background-image"></div>
+                                    </div>
+                                    <div class="main-content-navi-icontext">法律援助申请</div>
+                                    <div class="navi-selected-icon"></div>
+                                </li>
 							    <li  src="../legal/legalApproveAction!goTaskList.do" resName="案件审核" resIcon="" resH="20"  resW="20" resid="1"  id="resource_1">
 								 <div class="main-content-navi-icon">
 								 <img width="35px" height="35px" src="${staticURL}/portal/img/images/content-icon1.png" />
@@ -115,7 +123,7 @@
 									<div class="navi-selected-icon"></div>
 								</li>
 								<li  src="../legal/legalAction!asignLegalOfficeTaskList.do" resName="指派律师事务所" resIcon="" resH="20"  resW="20" resid="2"  id="resource_2">
-								 <div class="main-content-navi-icon"><img width="35px" height="35px" src="${staticURL}/portal/img/images/content-icon8.png" />
+								 <div class="main-content-navi-icon"><img width="35px" height="35px" src="${staticURL}/portal/img/images/content-icon9.png" />
 										<div class="live-tip no-background-image"></div>
 									</div>
 									<div class="main-content-navi-icontext">指派律师事务所</div>
