@@ -1,0 +1,72 @@
+@charset utf-8;
+body, div, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, p, span, em, strong, img, form, fieldset, input, textarea, button, pre, table, tr, th, td, blockquote, code, label, cite, i { padding: 0; margin: 0 }
+:focus { outline: 0 }
+h1, h2, h3, h4, h5, h6 { font-size: 100% }
+fieldset, img { border: 0 }
+ul, ol, li { list-style-type: none }
+table { border-collapse: collapse; border-spacing: 0 }
+caption, th, tr, td { text-align: left }
+u, del, ins { text-decoration: none }
+label { cursor: pointer }
+address, caption, cite, code, dfn, em, th, var, i { font-style: normal; }
+q:before, q:after { content: '' }
+sup { vertical-align: text-top }
+sub { vertical-align: text-bottom }
+abbr, acronym { border: 0; font-variant: normal }
+select, input, img { vertical-align: middle }
+input, textarea, select { font-family: inherit; font-size: inherit; font-weight: inherit; *font-size:100%
+}
+a:link { color: #000; text-decoration: none; }
+a:visited { text-decoration: none; color: #000; }
+a:hover { text-decoration: none; color: #F00; }
+a:active { text-decoration: none; color: #000; }
+#body .tableFix { table-layout: fixed }
+#body .alpha { filter: alpha(style=0, opacity=0); opacity: 0 }
+#body .alpha100 { filter: alpha(style=0, opacity=100); opacity: 1 }
+#body .db { display: block }
+#body .dn { display: none }
+#body .di { display: inline }
+#body .dib { display: inline-block }
+#body .clear { clear: both; font-size: 0px; line-height: 0px; height: 0px; overflow: hidden }
+#body .clearfix { display: block; zoom: 1 }
+#body .clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden }
+.banshi{ border-top:1px solid #dedede; border-left:1px solid #dedede; border-right:1px solid #dedede;}
+.table_left{border-right:1px solid #eee; line-height:24px; font-size:12px; border-bottom:1px solid #eee; padding-left:10px; width:90px;}
+.table_right{line-height:24px; font-size:12px; border-bottom:1px solid #eee; padding-left:10px;}
+.fujian a:link { color: #009; }
+.fujian a:visited { color: #009; }
+.fujian a:hover { color: #F00; }
+.fujian a:active { color: #009; }
+.cungen{ height:25px; line-height:25px; padding-top:10px; padding-left:15px; font-size:12px;}
+.title{ line-height:60px; height:60px; font-family:"微软雅黑"; font-size:24px; font-weight:bold; text-align:center;}
+.soufan{ line-height:25px; height:25px; margin-top:10px; font-size:12px; text-align:right; padding-right:15px;}
+.gh_box{ margin-top:10px;}
+.gh_left{ width:100px; overflow:hidden; font-size:12px; text-align:left; line-height:25px; padding-left:15px;}
+.gh_right{ font-size:12px; padding-left:15px; line-height:25px;}
+.pd_bottom{ border-bottom:1px solid #999;  padding-bottom:10px}
+.mt20{ margin-top:20px;}
+.gh_zw{ width:98%; margin-left:auto; margin-right:auto; overflow:hidden; margin-top:10px; }
+.gh_title{ width:200px; overflow:hidden; height:30px; line-height:30px;}
+.gh_input{ height:28px; border-bottom:1px solid #333; font-size:14px; line-height:28px; border-top:none; border-left:none; border-bottom:none; border-right:none; background:url(../images/input_x.jpg) left bottom repeat-x;  text-align:center; }
+.gh_nei{ line-height:30px; font-size:14px; margin-top:20px;}
+.gh_nei2{ line-height:30px; font-size:14px; margin-top:20px;}
+.gh_nei3{ line-height:30px; font-size:14px;}
+
+.gh_input2{ height:30px; border-bottom:1px solid #333; font-size:14px; line-height:30px; border:none; text-align:center;}
+.sq_box{  margin-top:10px; margin-left:auto; margin-right:auto;}
+.sq_title{  font-family:"微软雅黑"; font-size:16px; font-weight:bold; line-height:30px;}
+.sq_box td{ overflow:hidden; font-size:12px; text-align:left; line-height:25px; padding-left:15px;}
+.sq_bd{ border-bottom:1px solid #999;}
+.sq_right{ font-size:12px; padding-left:15px; line-height:25px;}
+.shenfenzheng{ overflow:hidden; border:1px solid #999;}
+.shenfenzheng td{  border-right:1px solid #999;}
+.sq_nei{ padding-left:15px; font-size:12px; line-height:25px; overflow:hidden;}
+.h350{ height:350px;}
+.ct{ text-align:center;}
+.b_top{ border-top:1px solid #666}
+.h200{ height:250px;}
+.mt50{ margin-top:50px;}
+.sq_input{ height:23px; border-bottom:1px solid #333; font-size:12px; line-height:23px; border-top:none; border-left:none; border-bottom:none; border-right:none; text-align:left; }
+.sfz_input{ height:23px;  font-size:12px; line-height:23px; text-align:center;  border:1px solid #333; margin-left:3px; width:17px;}
+.p10{ padding-bottom:10px;}
+.pt10{ padding-top:10px;}
