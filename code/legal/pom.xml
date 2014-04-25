@@ -64,13 +64,22 @@
 			<id>dev</id>
 			<properties>
 				<env>dev</env>
-				<dwr-version>3.0.0-rc3-20130424.090803-1</dwr-version>
+				<!--<dwr-version>3.0.0-rc3-20130424.090803-1</dwr-version>-->
+                <dwr-version>3.0.0-rc3-SNAPSHOT</dwr-version>
+
 				<dwr-scope>compile</dwr-scope>
 			</properties>
 			<activation>
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<repositories>
+                <repository>
+                    <id>oss-sonatype-snapshots</id>
+                    <name>OSS Sonatype Snapshots Repository</name>
+                    <url>http://oss.sonatype.org/content/repositories/snapshots</url>
+                    <releases><enabled>false</enabled></releases>
+                    <snapshots><enabled>true</enabled></snapshots>
+                </repository>
 				<repository>
 					<id>Codehaus</id>
 					<url>http://repository.codehaus.org</url>
@@ -179,11 +188,6 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-			<version>${org.springframework-version}</version>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
