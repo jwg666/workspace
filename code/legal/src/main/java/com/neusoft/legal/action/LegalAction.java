@@ -46,7 +46,9 @@ public class LegalAction extends BaseAction{
 	private Long agentId;
 	@Resource
 	private TaskService taskService;
-	
+
+    public String noteType;
+
 	public String stepOne(){
 		return "legal";
 	}
@@ -132,6 +134,15 @@ public class LegalAction extends BaseAction{
 		json.setSuccess(true);
 		return "json";
 	}
+
+    /**
+     * 法律援助公函
+     * @return
+     */
+    public String showPublicNote(){
+
+        return "publicNote";
+    }
 	public LegalCaseQuery getLegalCaseQuery() {
 		return legalCaseQuery;
 	}
@@ -174,5 +185,12 @@ public class LegalAction extends BaseAction{
 	public void setAgentId(Long agentId) {
 		this.agentId = agentId;
 	}
-	
+
+    public String getNoteType() {
+        return noteType;
+    }
+
+    public void setNoteType(String noteType) {
+        this.noteType = noteType;
+    }
 }
