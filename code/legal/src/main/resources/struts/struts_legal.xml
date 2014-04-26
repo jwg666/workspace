@@ -19,6 +19,9 @@
 				<param name="excludeProperties"></param>
 				<param name="root">json</param>
 			</result>
+            <result name="publicNote">
+                /WEB-INF/pages/legal/public_note.jsp
+            </result>
 	    </action>
 		<action name="legalAgentAction!*" class="legalAgentAction" method="{1}">
 			<result name="legalAgent">/WEB-INF/pages/legal/legalAgent.jsp</result>
