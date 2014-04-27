@@ -51,7 +51,10 @@ public class LegalAgentQuery extends  SearchModel<LegalAgent> implements Seriali
      * createTime       db_column: create_time 
      */	
 	private java.util.Date createTime;
-
+    /**
+     * 手工输入的人的名字
+     */
+    private String agentWrite;
 	 /**
      * id
      * @return id
@@ -141,6 +144,13 @@ public class LegalAgentQuery extends  SearchModel<LegalAgent> implements Seriali
 	}
 	public void setApplicantId(java.lang.Long applicantId) {
 		this.applicantId = applicantId;
+	}
+	
+	public String getAgentWrite() {
+		return agentWrite;
+	}
+	public void setAgentWrite(String agentWrite) {
+		this.agentWrite = agentWrite;
 	}
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this,ToStringStyle.MULTI_LINE_STYLE);

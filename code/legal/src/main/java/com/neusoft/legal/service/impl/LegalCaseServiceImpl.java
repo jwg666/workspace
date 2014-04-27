@@ -211,7 +211,11 @@ public class LegalCaseServiceImpl implements LegalCaseService{
 			legalCase.setLegalId(legalCaseQuery.getLegalId());
 			legalCaseDao.update(legalCase);
 		}
-		
+		if("accessCase".equals(legalCaseQuery.getDefinitionKey())){
+			LegalCase legalCase = legalCaseDao.getById(legalCaseQuery.getId());
+			legalCase.setAgentWriteName(legalCaseQuery.getAgentWriteName());
+			legalCaseDao.update(legalCase);
+		}
 		return null;
 	}
 	/**
@@ -241,5 +245,15 @@ public class LegalCaseServiceImpl implements LegalCaseService{
 		query.setLegalId(legalCaseQuery.getLegalId());
 		//将律师事务所放到legalcase表中
 		update(query);
+	}
+	
+	/** 
+	 * @param query
+	 * @return
+	 * 申报查询
+	 */
+	public DataGrid querydatagrid(LegalCaseQuery query){
+		DataGrid datagrid=legalCaseDao.querydatagrid(query);
+		return datagrid;
 	}
 }
