@@ -15,6 +15,13 @@
 	    	<result name="endCaseTaskList">/WEB-INF/pages/legal/endCaseTaskList.jsp</result>
 	    	<result name="goEndCase">/WEB-INF/pages/legal/endCaseTaskDetail.jsp</result>
 	    	<result name="shenqingstart">/WEB-INF/pages/legal/shenqingshenpi/shenqingstart.jsp</result>
+	    	<result name="dayin1">/WEB-INF/pages/legal/dayin/dayin1.jsp</result>
+	    	<result name="dayin2">/WEB-INF/pages/legal/dayin/dayin2.jsp</result>
+	    	<result name="dayin3">/WEB-INF/pages/legal/dayin/dayin3.jsp</result>
+	    	<result name="dayin4">/WEB-INF/pages/legal/dayin/dayin4.jsp</result>
+	    	<result name="dayin5">/WEB-INF/pages/legal/dayin/dayin5.jsp</result>
+	    	<result name="dayin6">/WEB-INF/pages/legal/dayin/dayin6.jsp</result>
+	    	<result name="dayin7">/WEB-INF/pages/legal/dayin/dayin7.jsp</result>
 	    	<result type="json" name="json">
 				<param name="excludeProperties"></param>
 				<param name="root">json</param>
