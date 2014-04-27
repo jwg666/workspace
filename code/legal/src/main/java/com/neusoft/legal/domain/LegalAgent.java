@@ -55,7 +55,10 @@ public class LegalAgent  implements java.io.Serializable{
      */	
 	private java.util.Date createTime;
 	//columns END
-
+    /**
+     * 手工输入的人的名字
+     */
+    private String agentWrite;
 	public LegalAgent(){
 	}
 
@@ -155,6 +158,20 @@ public class LegalAgent  implements java.io.Serializable{
 
 		public void setApplicantId(java.lang.Long applicantId) {
 			this.applicantId = applicantId;
+		}
+		/**
+		 * @time 2014-4-28 上午2:46:30
+		 * @return
+		 * @author 门光耀
+		 * @description 手动输入的律师名字
+		 */
+		@Column(name="agent_write")
+	    public String getAgentWrite() {
+			return agentWrite;
+		}
+
+		public void setAgentWrite(String agentWrite) {
+			this.agentWrite = agentWrite;
 		}
 
 	public String toString() {

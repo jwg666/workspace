@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.neusoft.base.action.BaseAction;
+import com.neusoft.base.query.DepartmentQuery;
+import com.neusoft.base.service.DepartmentService;
 import com.neusoft.legal.query.LegalAgentQuery;
 import com.neusoft.legal.query.LegalApplicantQuery;
 import com.neusoft.legal.query.LegalApproveQuery;
@@ -34,6 +36,8 @@ public class LegalAction extends BaseAction{
 	private LegalCaseService legalCaseService;
 	@Resource
 	private LegalApproveService legalApproveService;
+	@Resource
+	private DepartmentService departmentService;
 	private LegalCaseQuery legalCaseQuery;
 	private LegalApplicantQuery legalApplicantQuery;
 	private LegalAgentQuery legalAgentQuery;
@@ -46,7 +50,7 @@ public class LegalAction extends BaseAction{
 	private Long agentId;
 	@Resource
 	private TaskService taskService;
-
+    private DepartmentQuery departmentQuery;
     public String noteType;
 
 	public String stepOne(){
@@ -113,6 +117,142 @@ public class LegalAction extends BaseAction{
 		legalAgentQuery = legalAgentService.getQuery(legalCaseQuery.getAgentId());
 		return "goAccessCase";
 	}
+	
+	/**
+	 * @time 2014-4-28 上午3:53:12
+	 * @return
+	 * @author 门光耀
+	 * @description 会见犯罪嫌疑人，被告人公函
+	 */
+	public String dayin1(){
+		legalCaseQuery = legalCaseService.getQuery(legalCaseQuery.getId());
+		if(legalCaseQuery.getApplicantId()!=null){
+			legalApplicantQuery = legalApplicantService.getQuery(legalCaseQuery.getApplicantId());
+		}
+		if(legalCaseQuery.getAgentId()!=null){			
+			legalAgentQuery = legalAgentService.getQuery(legalCaseQuery.getAgentId());
+		}
+		if(legalCaseQuery.getLegalId()!=null&&legalCaseQuery.getLegalId()>0){
+			departmentQuery=departmentService.getQuery(legalCaseQuery.getLegalId());
+		}
+		return "dayin1";
+	}
+	/**
+	 * @time 2014-4-28 上午3:53:12
+	 * @return
+	 * @author 门光耀
+	 * @description 指派通知书
+	 */
+	public String dayin2(){
+		legalCaseQuery = legalCaseService.getQuery(legalCaseQuery.getId());
+		if(legalCaseQuery.getApplicantId()!=null){
+			legalApplicantQuery = legalApplicantService.getQuery(legalCaseQuery.getApplicantId());
+		}
+		if(legalCaseQuery.getAgentId()!=null){			
+			legalAgentQuery = legalAgentService.getQuery(legalCaseQuery.getAgentId());
+		}
+		if(legalCaseQuery.getLegalId()!=null&&legalCaseQuery.getLegalId()>0){
+			departmentQuery=departmentService.getQuery(legalCaseQuery.getLegalId());
+		}
+		return "dayin2";
+	}
+	
+	/**
+	 * @time 2014-4-28 上午3:53:12
+	 * @return
+	 * @author 门光耀
+	 * @description 司法鉴定指派通知书
+	 */
+	public String dayin3(){
+		legalCaseQuery = legalCaseService.getQuery(legalCaseQuery.getId());
+		if(legalCaseQuery.getApplicantId()!=null){
+			legalApplicantQuery = legalApplicantService.getQuery(legalCaseQuery.getApplicantId());
+		}
+		if(legalCaseQuery.getAgentId()!=null){			
+			legalAgentQuery = legalAgentService.getQuery(legalCaseQuery.getAgentId());
+		}
+		if(legalCaseQuery.getLegalId()!=null&&legalCaseQuery.getLegalId()>0){
+			departmentQuery=departmentService.getQuery(legalCaseQuery.getLegalId());
+		}
+		return "dayin3";
+	}
+	/**
+	 * @time 2014-4-28 上午3:53:12
+	 * @return
+	 * @author 门光耀
+	 * @description 给予法律援助决定书
+	 */
+	public String dayin4(){
+		legalCaseQuery = legalCaseService.getQuery(legalCaseQuery.getId());
+		if(legalCaseQuery.getApplicantId()!=null){
+			legalApplicantQuery = legalApplicantService.getQuery(legalCaseQuery.getApplicantId());
+		}
+		if(legalCaseQuery.getAgentId()!=null){			
+			legalAgentQuery = legalAgentService.getQuery(legalCaseQuery.getAgentId());
+		}
+		if(legalCaseQuery.getLegalId()!=null&&legalCaseQuery.getLegalId()>0){
+			departmentQuery=departmentService.getQuery(legalCaseQuery.getLegalId());
+		}
+		return "dayin4";
+	}
+	/**
+	 * @time 2014-4-28 上午3:53:12
+	 * @return
+	 * @author 门光耀
+	 * @description 民事法律援助公函
+	 */
+	public String dayin5(){
+		legalCaseQuery = legalCaseService.getQuery(legalCaseQuery.getId());
+		if(legalCaseQuery.getApplicantId()!=null){
+			legalApplicantQuery = legalApplicantService.getQuery(legalCaseQuery.getApplicantId());
+		}
+		if(legalCaseQuery.getAgentId()!=null){			
+			legalAgentQuery = legalAgentService.getQuery(legalCaseQuery.getAgentId());
+		}
+		if(legalCaseQuery.getLegalId()!=null&&legalCaseQuery.getLegalId()>0){
+			departmentQuery=departmentService.getQuery(legalCaseQuery.getLegalId());
+		}
+		return "dayin5";
+	}
+	/**
+	 * @time 2014-4-28 上午3:53:12
+	 * @return
+	 * @author 门光耀
+	 * @description 刑事法律援助公函
+	 */
+	public String dayin6(){
+		legalCaseQuery = legalCaseService.getQuery(legalCaseQuery.getId());
+		if(legalCaseQuery.getApplicantId()!=null){
+			legalApplicantQuery = legalApplicantService.getQuery(legalCaseQuery.getApplicantId());
+		}
+		if(legalCaseQuery.getAgentId()!=null){			
+			legalAgentQuery = legalAgentService.getQuery(legalCaseQuery.getAgentId());
+		}
+		if(legalCaseQuery.getLegalId()!=null&&legalCaseQuery.getLegalId()>0){
+			departmentQuery=departmentService.getQuery(legalCaseQuery.getLegalId());
+		}
+		return "dayin6";
+	}
+	/**
+	 * @time 2014-4-28 上午3:53:12
+	 * @return
+	 * @author 门光耀
+	 * @description 终止法律援助公函
+	 */
+	public String dayin7(){
+		legalCaseQuery = legalCaseService.getQuery(legalCaseQuery.getId());
+		if(legalCaseQuery.getApplicantId()!=null){
+			legalApplicantQuery = legalApplicantService.getQuery(legalCaseQuery.getApplicantId());
+		}
+		if(legalCaseQuery.getAgentId()!=null){			
+			legalAgentQuery = legalAgentService.getQuery(legalCaseQuery.getAgentId());
+		}
+		if(legalCaseQuery.getLegalId()!=null&&legalCaseQuery.getLegalId()>0){
+			departmentQuery=departmentService.getQuery(legalCaseQuery.getLegalId());
+		}
+		return "dayin7";
+	}
+	
 	public String accessCase(){
 		legalCaseQuery.setDefinitionKey("accessCase");
 		legalCaseService.completTask(legalCaseQuery);	
@@ -193,4 +333,8 @@ public class LegalAction extends BaseAction{
     public void setNoteType(String noteType) {
         this.noteType = noteType;
     }
+	public DepartmentQuery getDepartmentQuery() {
+		return departmentQuery;
+	}
+    
 }

@@ -94,6 +94,7 @@ public class LegalCase  implements java.io.Serializable{
 	private String year;
 	private String month;
 	private String day;
+	private String agentWriteName;
 	public LegalCase(){
 	}
 
@@ -342,6 +343,14 @@ public class LegalCase  implements java.io.Serializable{
 
 		public void setDay(String day) {
 			this.day = day;
+		}
+		@Column(name="agent_write_name")
+		public String getAgentWriteName() {
+			return agentWriteName;
+		}
+
+		public void setAgentWriteName(String agentWriteName) {
+			this.agentWriteName = agentWriteName;
 		}
 
 		public String toString() {

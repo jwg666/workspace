@@ -199,4 +199,82 @@ public class LegalCaseDao extends HBaseDAO<LegalCase>{
 		datagrid.setTotal(tatal.longValue());
 		return datagrid;
 	}
+	
+	/** 
+	 * @param query
+	 * @return
+	 * 申报查询
+	 */
+	public DataGrid querydatagrid(LegalCaseQuery query){
+		Long userId=LoginContextHolder.get().getUserId();
+		SQLQuery obj=getSession().createSQLQuery("SELECT AL.* FROM (" +
+				" select leap.name applicantname,lea.name agentname,la.CREATE_TIME createTime,la.APPLICANT_TIME applicantTime,la.ID id,ata.END_TIME_ endTime,DP.NAME dpName,lc.ID caseId" +
+				" from LE_LEGAL_CASE lc" +
+				" join WF_PROCINSTANCE wf on wf.businform_id=lc.ID" +
+				" left join (select at.* from ACT_HI_ACTINST at where at.ACT_ID_=:taskKey  and at.END_TIME_ is not null and at.ASSIGNEE_ =:userid) ata on ata.PROC_INST_ID_=wf.process_instance_id" +
+				" left join LE_LEGAL_APPLICANT  leap on leap.id=lc.applicant_id " +
+				" left join LE_LEGAL_AGENT lea on lea.ID=lc.agent_id" +
+				" left join LE_LEGAL_APPROVE  la on la.CASE_ID=lc.ID" +
+				" left join TB_USER_INFO DP ON DP.ID=lc.legal_id"+
+				" ORDER BY la.id DESC) AL" +
+				" limit :begin,:end");
+	    //Object o=obj.list();
+		Long begin=query.getRows()*(query.getPage().longValue()-1);
+		Long end =query.getRows()*(query.getPage().longValue());
+		obj.setParameter("begin", begin);
+		obj.setParameter("end", end);
+		obj.setParameter("userid", userId.toString());
+		obj.setParameter("taskKey", query.getDefinitionKey());
+		List<Object[]> listob=obj.list();
+		SQLQuery objcount=getSession().createSQLQuery(
+				" select count(0)" +
+				" from LE_LEGAL_CASE lc" +
+				" join WF_PROCINSTANCE wf on wf.businform_id=lc.ID" +
+				" left join (select at.* from ACT_HI_ACTINST at where at.ACT_ID_=:taskKey and at.END_TIME_ is not null and at.ASSIGNEE_ =:userid) ata on ata.PROC_INST_ID_=wf.process_instance_id" +
+				" left join LE_LEGAL_APPLICANT  leap on leap.id=lc.applicant_id " +
+				" left join LE_LEGAL_AGENT lea on lea.ID=lc.agent_id" +
+				" left join LE_LEGAL_APPROVE  la on la.CASE_ID=lc.ID" +
+				" left join TB_USER_INFO DP ON DP.ID=lc.legal_id ");
+		objcount.setParameter("userid", userId.toString());
+		objcount.setParameter("taskKey", query.getDefinitionKey());
+		BigInteger tatal =(BigInteger)objcount.list().get(0);
+		List<LegalCaseTaskQuery> list=new ArrayList<LegalCaseTaskQuery>();
+		if(listob!=null&&listob.size()>0){
+			for(Object[] objs:listob){
+				LegalCaseTaskQuery casq=new LegalCaseTaskQuery();
+				if(objs[0]!=null){
+					casq.setApplicantname((String)objs[0]);
+				}
+				if(objs[1]!=null){
+					casq.setAgentname((String)objs[1]);
+				}
+				if(objs[2]!=null){
+					casq.setCreateTime((Date)objs[2]);
+				}
+				if(objs[3]!=null){
+					casq.setApplicantTime((Date)objs[3]);
+				}
+				if(objs[4]!=null){
+					casq.setId(((BigInteger)objs[4]).longValue());
+				}
+				//节点完成时间
+				if(objs[5]!=null){
+					casq.setEndTime((Date)objs[5]);
+				}
+				//律师事务所的名字
+				if(objs[6]!=null){
+					casq.setDpName((String)objs[6]);
+				}
+				//caseid
+				if(objs[7]!=null){
+					casq.setCaseId(((BigInteger)objs[7]).longValue());
+				}
+				list.add(casq);
+			}
+		}
+		DataGrid datagrid=new DataGrid();
+		datagrid.setRows(list);
+		datagrid.setTotal(tatal.longValue());
+		return datagrid;
+	}
 }

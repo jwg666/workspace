@@ -78,6 +78,17 @@ public class LegalCaseAction extends BaseAction implements ModelDriven<LegalCase
 		logger.debug(">>>datagrid:"+datagrid.getRows().size());
 		return "datagrid";
 	}
+	/**
+	 * @time 2014-4-28 上午3:36:18
+	 * @return
+	 * @author 门光耀
+	 * @description 代办列表
+	 */
+	public String querydatagrid(){
+		legalCaseQuery.setDefinitionKey("quxiao");
+		datagrid = legalCaseService.querydatagrid(legalCaseQuery);
+		return "datagrid";
+	}
 	public String taskgrid() {
 		datagrid = legalCaseService.taskgrid(legalCaseQuery);
 		return "datagrid";
@@ -159,6 +170,7 @@ public class LegalCaseAction extends BaseAction implements ModelDriven<LegalCase
 		
 		return "dock";
 	}
+	
 	@Override
 	public LegalCaseQuery getModel() {
 		return legalCaseQuery;
