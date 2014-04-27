@@ -269,23 +269,38 @@
 	}
 </script>
 </head>
-<body class="easyui-layout">
-	<div region="north" border="false" title="过滤条件" collapsed="true"  style="height: 110px;overflow: hidden;" align="left">
+<body class="easyui-layout zoc">
+		<div region="north" border="false" class="zoc" collapsed="false"
+		style="height: 100px; overflow: auto;" align="left">
 		<form id="searchForm">
-			<table class="tableForm datagrid-toolbar" style="width: 100%;height: 100%;">
-				<tr>
-					<th>查询字段需要手工修改</th>
-					<td><input name="hotelid" style="width:155px;" /></td>
-				</tr>
-				<tr>
-					<th>创建时间</th>
-					<td><input name="ccreatedatetimeStart" class="easyui-datebox" editable="false" style="width: 155px;" />至<input name="ccreatedatetimeEnd" class="easyui-datebox" editable="false" style="width: 155px;" /></td>
-				</tr>
-				<tr>
-					<th>最后修改时间</th>
-					<td><input name="cmodifydatetimeStart" class="easyui-datebox" editable="false" style="width: 155px;" />至<input name="cmodifydatetimeEnd" class="easyui-datebox" editable="false" style="width: 155px;" /><a href="javascript:void(0);" class="easyui-linkbutton" onclick="_search();">过滤</a><a href="javascript:void(0);" class="easyui-linkbutton" onclick="cleanSearch();">取消</a></td>
-				</tr>
-			</table>
+			<div class="navhead_zoc">
+				<span>用户信息维护</span>
+			</div>
+			<div class="part_zoc">
+				<div class="partnavi_zoc">
+					<span>查询与操作：</span>
+				</div>
+				<div class="oneline">
+					<div class="item25">
+						<div class="itemleft60">用户编号：</div>
+						<div class="righttext_easyui">
+							<input type="text" name="empCode"  />
+						</div>
+					</div>
+					<div class="item25">
+						<div class="itemleft60">用户姓名：</div>
+						<div class="righttext">
+						<input type="text" name="name"/>
+						</div>
+					</div>
+					<div class="item25">
+						<div class="oprationbutt">
+							<input type="button" value="查  询" onclick="_search();" />
+							<input type="button" value="重  置" onclick="cleanSearch();" />
+						</div>
+					</div>
+				</div>
+			</div>
 		</form>
 	</div>
 	

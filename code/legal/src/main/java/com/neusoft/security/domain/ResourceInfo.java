@@ -127,18 +127,18 @@ public class ResourceInfo  implements java.io.Serializable{
      */	
 	private Integer height;
 	//columns END
-	private Long memberId;
+	//private Long memberId;
 	//辅助字段 国家化
-	private String localName;
+	//private String localName;
 	private Set<ResourceInfo> children = new HashSet<ResourceInfo>();
-	public Long gotMemberId() {
+	/*public Long gotMemberId() {
 		return memberId;
 	}
 
 	public void setMemberId(Long memberId) {
 		this.memberId = memberId;
 	}
-	
+	*/
 	@OneToMany(targetEntity=ResourceInfo.class,cascade=CascadeType.ALL)
 	@Fetch(FetchMode.JOIN)
 	//updatable=false很关键，如果没有它，在级联删除的时候就会报错(反转的问题)
@@ -151,13 +151,13 @@ public class ResourceInfo  implements java.io.Serializable{
 		this.children = children;
 	}
 
-	public String gotLocalName() {
+	/*public String gotLocalName() {
 		return localName;
 	}
 
 	public void setLocalName(String localName) {
 		this.localName = localName;
-	}
+	}*/
 
 	public ResourceInfo(){
 	}

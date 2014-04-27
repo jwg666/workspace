@@ -19,8 +19,9 @@ public class ResourceInfoAction extends BaseSecurityAction implements ModelDrive
 	private ResourceInfoService resourceInfoService;
 	private String state;
 	private ResourceInfoQuery resourceInfoQuery = new ResourceInfoQuery();
+	
+	
 	public String goResourceInfo(){
-		
 		return "goResourceInfo";
 	}
 	public String treegrid(){

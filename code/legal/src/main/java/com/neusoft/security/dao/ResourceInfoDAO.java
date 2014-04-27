@@ -1,5 +1,6 @@
 package com.neusoft.security.dao;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -175,16 +176,25 @@ public class ResourceInfoDAO extends HBaseDAO<ResourceInfo>{
 	}
 
 	public List<ResourceInfo> findList(ResourceInfoQuery resourceInfoQuery) {
-		Map map = ConverterUtil.toHashMap(resourceInfoQuery);
-		int begin = (resourceInfoQuery.getPage().intValue()-1)*resourceInfoQuery.getRows().intValue();
-		List<ResourceInfo> resourceList = findList(ResourceInfo.class, map, begin, resourceInfoQuery.getRows().intValue());
+		String hql = " from ResourceInfo r1 where exists( from  RoleResource r2 where r1.id=r2.resourceId and  exists( from UserRole u where r2.roleId=u.roleId and u.userId=?))";
+		List<Object> list=new ArrayList<Object>();
+		list.add(resourceInfoQuery.getMemberId());
+		if(0!=resourceInfoQuery.getId()){
+			hql+=" AND r1.id=?";
+			list.add(resourceInfoQuery.getId());
+		}
+		Object[] obj=list.toArray();
+		return findList(hql, obj);
+//		Map map = ConverterUtil.toHashMap(resourceInfoQuery);
+//		int begin = (resourceInfoQuery.getPage().intValue()-1)*resourceInfoQuery.getRows().intValue();
+//		List<ResourceInfo> resourceList = findList(ResourceInfo.class, map, begin, resourceInfoQuery.getRows().intValue());
 //		for (ResourceInfo resourceInfo : resourceList) {
 //			ResourceInfoQuery query = new ResourceInfoQuery();
 //			query.setParentId(resourceInfo.getId());
 //			List <ResourceInfo> children = findList(query);
 //			resourceInfo.setChildren(children);
 //		}
-		return resourceList;
+//		return resourceList;
 	}
 
 	public Long getTotalCount(ResourceInfoQuery resourceInfoQuery) {

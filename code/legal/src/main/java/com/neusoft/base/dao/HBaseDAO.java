@@ -81,7 +81,7 @@ public class HBaseDAO<T> {
 				q.setParameter(e.getKey(), e.getValue());
 			}
 		}
-		q.setFirstResult(begin);
+		q.setFirstResult(begin-1);
 		q.setMaxResults(pageSize);
 		return q.list();
 	}	

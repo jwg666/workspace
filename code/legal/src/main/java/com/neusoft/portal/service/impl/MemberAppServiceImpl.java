@@ -149,7 +149,7 @@ public class MemberAppServiceImpl implements MemberAppService{
 			}
 			//PropertyUtils.copyProperties(memberAppQuery, app);
 			String icon = resource.getIconUrl();
-			memberAppQuery.setIcon(StringUtils.isEmpty(icon)?"917":icon);
+			memberAppQuery.setIcon(StringUtils.isEmpty(icon)?"2067":icon);
 			String url = resource.getUrl();
 			if(url!=null){
 				url = url.replaceAll("\\.action", ".do");

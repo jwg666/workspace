@@ -224,7 +224,7 @@ public class ResourceInfoServiceImpl implements ResourceInfoService {
 	public DataGrid datagrid(ResourceInfoQuery resourceInfoQuery) {
 		DataGrid j = new DataGrid();
 		List<ResourceInfo> resourceInfos = resourceInfoDAO.findList(resourceInfoQuery);
-		Long count = resourceInfoDAO.getTotalCount(resourceInfoQuery);
+		Long count =(long) resourceInfos.size(); //resourceInfoDAO.getTotalCount(resourceInfoQuery);
 		initLocalMsg(resourceInfos);
 		j.setRows(resourceInfos);
 		j.setTotal(count);

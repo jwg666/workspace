@@ -6,7 +6,9 @@
 package com.neusoft.security.action;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.annotation.Resource;
 
@@ -90,12 +92,12 @@ public class RoleAction extends BaseAction implements ModelDriven<RoleQuery>{
 	/**
 	 * 编辑Role
 	 */
-	public String edit() {
-		roleService.update(roleQuery);
-		json.setSuccess(true);
-		json.setObj(roleQuery);
-		json.setMsg("编辑成功！");
-		return SUCCESS;
+	public String updateRole() {
+/*		role = roleService.get(roleQuery);
+		List<Resource> resources = resourceService.getResourceByRole(new Long[]{roleQuery.getId()});
+		Set<Resource> resourceSet = new HashSet<Resource>(resources);
+		role.setResources(resourceSet);*/
+		return "updateRole";
 	}
 
 	/**

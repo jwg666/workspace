@@ -96,6 +96,7 @@
 
 <action name="roleAction!*" class="roleAction" method="{1}">
 	<result name="role">/WEB-INF/pages/security/role.jsp</result>
+	<result name="updateRole">/WEB-INF/pages/security/role_rowEdit.jsp</result>
 	<result type="json">
 		<param name="root">json</param>
 		<param name="excludeProperties"></param> 

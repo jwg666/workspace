@@ -38,7 +38,7 @@
 					},
 				{field:'name',title:'角色名称',align:'center',sortable:true,
 					formatter:function(value,row,index){
-						return row.name;
+						return '<a style="color: blue;" href="${dynamicURL}/security/roleAction!updateRole.do?roleId='+row.id+'">'+row.name+'</a>';
 					}
 				},
 			   {field:'description',title:'角色描述',align:'center',sortable:true,
@@ -58,25 +58,13 @@
 			   },
 			   
 			 ] ],
-			toolbar : [ {
-				text : '增加',
-				iconCls : 'icon-add',
-				handler : function() {
-					add();
-				}
-			}, '-', {
+			toolbar : [  {
 				text : '删除',
 				iconCls : 'icon-remove',
 				handler : function() {
 					del();
 				}
-			}, '-', {
-				text : '修改',
-				iconCls : 'icon-edit',
-				handler : function() {
-					edit();
-				}
-			}, '-', {
+			},'-', {
 				text : '取消选中',
 				iconCls : 'icon-undo',
 				handler : function() {
@@ -293,9 +281,10 @@
 							<input type="text" name="empCode"  />
 						</div>
 					</div>
-					<div class="item25">
+					<div class="item33">
 						<div class="oprationbutt">
 							<input type="button" value="查  询" onclick="_search();" />
+							<input type="button" value="新建" onclick="" />
 							<input type="button" value="重  置" onclick="cleanSearch();" />
 						</div>
 					</div>
@@ -313,13 +302,13 @@
 			<div style="width: 500px; height: 160px; margin-left: 20px;">
 				<div class="part_popover_zoc" style="width: 500px;">
 						<div class="oneline">
-							<div class="itemleft60">资源名称：</div>
+							<div class="itemleft60">角色名称：</div>
 							<div class="righttext">
 								<input name="name" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写资源名称"  style="width: 155px;"/>						
 							</div>
 						</div>
 						<div class="oneline">
-							<div class="itemleft60" style="vertical-align: top;">资源描述：</div>
+							<div class="itemleft60" style="vertical-align: top;">角色描述：</div>
 							<div align="left" style="display: inline-block;width: 300px">
 									<textarea name="description" rows="5"  cols="200" data-options="" missingMessage="请填写资源描述"  style="width: 155px;"/>						
 							</div>

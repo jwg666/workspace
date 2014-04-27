@@ -102,7 +102,7 @@ $(document).ready(function(){
       					var val = '<div style="height:36px;line-height:36px;width:99%;"><div style="float:left">';
       					
       					if( row.iconUrl == null || row.iconUrl == "" ){
-      						val += "<img style='vertical-align:middle; margin-right:5px;width:24px;height:24px;' src='"+parent.window.HROS.CONFIG.downloadImage+ "917" +"'/>";
+      						val += "<img style='vertical-align:middle; margin-right:5px;width:24px;height:24px;' src='"+parent.window.HROS.CONFIG.downloadImage+ "2067" +"'/>";
       					}else{
       						val += "<img style='vertical-align:middle; margin-right:5px;width:22px;height:22px;' src='"+ parent.window.HROS.CONFIG.downloadImage + row.iconUrl+"' />";
       					}
