@@ -245,6 +245,12 @@
 							<input id="legalId" name="legalCaseQuery.legalId" style="width:100px"/>
 						</div>
 				    </div>
+				    <div class="item25">
+						<div class="itemleft100">接收律师名字：</div>
+						<div class="righttext">
+							<input id="agentWriteNameid" name="agentWriteName"  style="width:100px" value="${legalCaseQuery.agentWriteName}" readonly="readonly"/>
+						</div>
+				    </div>
 		    </div>
 			<!-- <div class="item100">
 		        <div class="oprationbutt">

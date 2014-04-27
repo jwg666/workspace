@@ -225,7 +225,14 @@
 			</div>
 			<form id="accessCaseForm">
 			<input type="hidden" id="caseId" name="legalCaseQuery.id" value="${legalCaseQuery.id}"/>
-						
+			<div class="oneline">
+				    <div class="item25">
+						<div class="itemleft100">接收律师名字：</div>
+						<div class="righttext">
+							<input id="agentWriteNameid" name="legalCaseQuery.agentWriteName"  style="width:100px" value="${legalCaseQuery.agentWriteName}" />
+						</div>
+				    </div>
+		    </div>			
 			<div class="item100">
 		        <div class="oprationbutt">
 			        <input type="button" value="确定" onclick="submitCase()"/>
