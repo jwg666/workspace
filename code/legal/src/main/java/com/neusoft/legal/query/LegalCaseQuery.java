@@ -85,6 +85,9 @@ public class LegalCaseQuery extends  SearchModel<LegalCase> implements Serializa
 	private String year;
 	private String month;
 	private String day;
+	private String year1;
+	private String month1;
+	private String day1;
 	private String agentWriteName;
 	 /**
      * id
@@ -331,6 +334,24 @@ public class LegalCaseQuery extends  SearchModel<LegalCase> implements Serializa
 	}
 	public void setAgentWriteName(String agentWriteName) {
 		this.agentWriteName = agentWriteName;
+	}
+	public String getYear1() {
+		return year1;
+	}
+	public void setYear1(String year1) {
+		this.year1 = year1;
+	}
+	public String getMonth1() {
+		return month1;
+	}
+	public void setMonth1(String month1) {
+		this.month1 = month1;
+	}
+	public String getDay1() {
+		return day1;
+	}
+	public void setDay1(String day1) {
+		this.day1 = day1;
 	}
 	
 }

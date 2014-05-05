@@ -1,5 +1,6 @@
 package com.neusoft.legal.action;
 
+import java.util.Calendar;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -135,6 +136,13 @@ public class LegalAction extends BaseAction{
 		if(legalCaseQuery.getLegalId()!=null&&legalCaseQuery.getLegalId()>0){
 			departmentQuery=departmentService.getQuery(legalCaseQuery.getLegalId());
 		}
+		Calendar cal = Calendar.getInstance();
+		int year=cal.get(Calendar.YEAR);
+		int month=cal.get(Calendar.MONTH);
+		int day=cal.get(Calendar.DATE);
+		legalCaseQuery.setYear(new Long(year).toString());
+		legalCaseQuery.setMonth(new Long(month).toString());
+		legalCaseQuery.setDay(new Long(day).toString());
 		return "dayin1";
 	}
 	/**
@@ -154,6 +162,13 @@ public class LegalAction extends BaseAction{
 		if(legalCaseQuery.getLegalId()!=null&&legalCaseQuery.getLegalId()>0){
 			departmentQuery=departmentService.getQuery(legalCaseQuery.getLegalId());
 		}
+		Calendar cal = Calendar.getInstance();
+		int year=cal.get(Calendar.YEAR);
+		int month=cal.get(Calendar.MONTH);
+		int day=cal.get(Calendar.DATE);
+		legalCaseQuery.setYear(new Long(year).toString());
+		legalCaseQuery.setMonth(new Long(month).toString());
+		legalCaseQuery.setDay(new Long(day).toString());
 		return "dayin2";
 	}
 	
@@ -174,6 +189,13 @@ public class LegalAction extends BaseAction{
 		if(legalCaseQuery.getLegalId()!=null&&legalCaseQuery.getLegalId()>0){
 			departmentQuery=departmentService.getQuery(legalCaseQuery.getLegalId());
 		}
+		Calendar cal = Calendar.getInstance();
+		int year=cal.get(Calendar.YEAR);
+		int month=cal.get(Calendar.MONTH);
+		int day=cal.get(Calendar.DATE);
+		legalCaseQuery.setYear(new Long(year).toString());
+		legalCaseQuery.setMonth(new Long(month).toString());
+		legalCaseQuery.setDay(new Long(day).toString());
 		return "dayin3";
 	}
 	/**
@@ -193,6 +215,13 @@ public class LegalAction extends BaseAction{
 		if(legalCaseQuery.getLegalId()!=null&&legalCaseQuery.getLegalId()>0){
 			departmentQuery=departmentService.getQuery(legalCaseQuery.getLegalId());
 		}
+		Calendar cal = Calendar.getInstance();
+		int year=cal.get(Calendar.YEAR);
+		int month=cal.get(Calendar.MONTH);
+		int day=cal.get(Calendar.DATE);
+		legalCaseQuery.setYear1(new Long(year).toString());
+		legalCaseQuery.setMonth1(new Long(month).toString());
+		legalCaseQuery.setDay1(new Long(day).toString());
 		return "dayin4";
 	}
 	/**
@@ -212,6 +241,13 @@ public class LegalAction extends BaseAction{
 		if(legalCaseQuery.getLegalId()!=null&&legalCaseQuery.getLegalId()>0){
 			departmentQuery=departmentService.getQuery(legalCaseQuery.getLegalId());
 		}
+		Calendar cal = Calendar.getInstance();
+		int year=cal.get(Calendar.YEAR);
+		int month=cal.get(Calendar.MONTH);
+		int day=cal.get(Calendar.DATE);
+		legalCaseQuery.setYear(new Long(year).toString());
+		legalCaseQuery.setMonth(new Long(month).toString());
+		legalCaseQuery.setDay(new Long(day).toString());
 		return "dayin5";
 	}
 	/**
@@ -231,6 +267,13 @@ public class LegalAction extends BaseAction{
 		if(legalCaseQuery.getLegalId()!=null&&legalCaseQuery.getLegalId()>0){
 			departmentQuery=departmentService.getQuery(legalCaseQuery.getLegalId());
 		}
+		Calendar cal = Calendar.getInstance();
+		int year=cal.get(Calendar.YEAR);
+		int month=cal.get(Calendar.MONTH);
+		int day=cal.get(Calendar.DATE);
+		legalCaseQuery.setYear(new Long(year).toString());
+		legalCaseQuery.setMonth(new Long(month).toString());
+		legalCaseQuery.setDay(new Long(day).toString());
 		return "dayin6";
 	}
 	/**
@@ -250,6 +293,13 @@ public class LegalAction extends BaseAction{
 		if(legalCaseQuery.getLegalId()!=null&&legalCaseQuery.getLegalId()>0){
 			departmentQuery=departmentService.getQuery(legalCaseQuery.getLegalId());
 		}
+		Calendar cal = Calendar.getInstance();
+		int year=cal.get(Calendar.YEAR);
+		int month=cal.get(Calendar.MONTH);
+		int day=cal.get(Calendar.DATE);
+		legalCaseQuery.setYear(new Long(year).toString());
+		legalCaseQuery.setMonth(new Long(month).toString());
+		legalCaseQuery.setDay(new Long(day).toString());
 		return "dayin7";
 	}
 	
