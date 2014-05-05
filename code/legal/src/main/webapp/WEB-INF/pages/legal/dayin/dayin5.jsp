@@ -42,27 +42,27 @@ function dayin() {
     &nbsp;： </div>
   <div class="gh_nei">&nbsp;&nbsp;&nbsp;&nbsp;本中心对
   <span class="bbf" style="width: 140px;display：inline;">
-  <input name="" type="text" class="gh_input" size="15"/></span>（受援人）
+  <s:textfield name="legalApplicantQuery.name" type="text" cssClass="gh_input" size="15"/></span>（受援人）
   <span class="bbf" style="width: 140px;display：inline;">
-  <input name="" type="text" class="gh_input" size="30"/></span>一案，已指派
+  <s:textfield name="legalCaseQuery.description" type="text" cssClass="gh_input" size="30"/></span>一案，已指派
   <span class="bbf" style="width: 140px;display：inline;">
-  <input name="" type="text" class="gh_input" size="20"/> </span>(承办机构)
+  <s:textfield name="departmentQuery.name" type="text" cssClass="gh_input" size="20"/> </span>(承办机构)
   <span class="bbf" style="width: 140px;display：inline;">
-  <input name="" type="text" class="gh_input" size="15"/></span>(承办人)担任其代理人。</div>
+  <s:textfield name="legalCaseQuery.agentWriteName" type="text" cssClass="gh_input" size="15"/></span>(承办人)担任其代理人。</div>
   <div class="gh_nei3 mt20">&nbsp;&nbsp;&nbsp;&nbsp;特此函告</div>
   <div class="gh_nei3">&nbsp;&nbsp;&nbsp;&nbsp;承办人联系方式：${departmentQuery.officePhone}</div>
 </div>
 <div class="soufan mt50">(公章)</div>
 <div class="soufan">
 <span class="bbf" style="width: 60px;display：inline;">
-<input name="" type="text" class="gh_input2" size="5"/>
+<s:textfield name="legalCaseQuery.year" type="text" cssClass="gh_input2" size="5"/>
 </span>年
 <span class="bbf" style="width: 60px;display：inline;">
-<input name="" type="text" class="gh_input2" size="5"/>
+<s:textfield name="legalCaseQuery.month" type="text" cssClass="gh_input2" size="5"/>
 </span>
 月
 <span class="bbf" style="width: 60px;display：inline;">
-<input name="" type="text" class="gh_input2" size="5"/>
+<s:textfield name="legalCaseQuery.day" type="text" cssClass="gh_input2" size="5"/>
 </span>日</div>
 </body>
 </html>

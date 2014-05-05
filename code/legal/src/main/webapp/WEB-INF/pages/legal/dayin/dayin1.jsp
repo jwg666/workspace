@@ -42,9 +42,9 @@ function dayin() {
   </div>
   <div class="gh_nei">
   &nbsp;&nbsp;&nbsp;&nbsp;根据《中华人民共和国刑事诉讼法》及《中华人民共和国律师法》关于法律援助的规定，现指派承担法律援助义务的
-  <span class="bbf" style="width: 140px;display：inline;"><input name="" type="text" class="gh_input" size="20"/></span>
+  <span class="bbf" style="width: 140px;display：inline;"><s:textfield name="departmentQuery.name" type="text" cssClass="gh_input" size="20"/></span>
    律师事务所律师
-   <span class="bbf" style="width: 140px;display：inline;"><input name="" type="text" class="gh_input" size="20"/></span>
+   <span class="bbf" style="width: 140px;display：inline;"><s:textfield name="legalCaseQuery.agentWriteName" type="text" cssClass="gh_input" size="20"/></span>
    
    前往你处会见
    <span class="bbf" style="width: 140px;display：inline;"><input name="" type="text" class="gh_input" size="20"/></span>
@@ -57,14 +57,14 @@ function dayin() {
 <div class="soufan mt50">(公章)</div>
 <div class="soufan">
 <span class="bbf" style="width: 60px;display：inline;">
-<input name="" type="text" class="gh_input2" size="5"/>
+<s:textfield name="legalCaseQuery.year" type="text" cssClass="gh_input2" size="5"/>
 </span>年
 <span class="bbf" style="width: 60px;display：inline;">
-<input name="" type="text" class="gh_input2" size="5"/>
+<s:textfield name="legalCaseQuery.month" type="text" cssClass="gh_input2" size="5"/>
 </span>
 月
 <span class="bbf" style="width: 60px;display：inline;">
-<input name="" type="text" class="gh_input2" size="5"/>
+<s:textfield name="legalCaseQuery.day" type="text" cssClass="gh_input2" size="5"/>
 </span>日</div>
 </body>
 </html>
