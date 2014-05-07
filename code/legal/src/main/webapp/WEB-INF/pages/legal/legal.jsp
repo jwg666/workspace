@@ -14,139 +14,23 @@
         }
         </style>
 <script type="text/javascript" charset="utf-8">
-var applicantid='${applicantId}';
-var agentid='${agentId}';
-var caseId='${caseId}';
 $(function(){
 	$("#applicantnationId").combobox({
-	    url:'../basic/dictionaryAction!combox.do?parentCode=3',
+	    url:'../basic/dictionaryAction!combox?parentCode=3',
 	    valueField:'id',
 	    textField:'dicValue'
 	});
-	setvalue(applicantid,agentid,caseId);
-	/**
-	$("#getSignButton").click(function (){		
-		var id = document.applets[0].getSignId();
-		if(id==null||id==''){
-			alert("没有获取到签名");
-		}else{
-			alert(id);
-		}
-	});
-	**/
+    $("#getSignButton").click(function (){
+        var id = document.applets[0].getSignId();
+        if(id==null||id==''){
+            alert("没有获取到签名");
+        }else{
+            alert(id);
+        }
+    });
 });
-function setSignImage(id){
-	
-}
-function setvalue(applicantid,agentid,caseId){
-	if(applicantid!=null&&applicantid!=''){
-		getapplicant(applicantid);
-	}
-	if(agentid!=null&&agentid!=''){
-		getagent(agentid);
-	}
-	if(caseId!=null&&caseId!=''){
-		getcase(caseId);
-	}
-}
-//加载申请人信息
-function getapplicant(applicant){
-	$.ajax({
-		url:'legalApplicantAction!getdesc.do',
-		dataType:'json',
-		data:{
-			id:applicantid
-		},
-		success:function(data){
-			if(data.success){
-				//applicantid=data.obj.id;
-				//submitLegalAgent();
-				$('#applicantname').val(data.obj.name);
-				$('#applicantgender').val(data.obj.gender);
-				$('#applicantbirthday').datebox('setValue',data.obj.birthday);
-				$('#applicantnationId').combobox('setValue',data.obj.nationId);
-				var identifyid=data.obj.identifyid;
-				if(identifyid!=null&&identifyid!=''){
-					for(var i=0;i<identifyid.length;i++){
-						var j=i+1;
-						var stringid='#applicantstring'+j;
-						$(stringid).val(identifyid.charAt(i));
-					}
-				}
-				
-				$('#applicntbirthPlace').val(data.obj.birthPlace);
-				$('#applicantlivePlace').val(data.obj.livePlace);
-				$('#applicantpostCode').val(data.obj.postCode);
-				$('#applicantphone').val(data.obj.phone);
-				$('#applicantcompany').val(data.obj.company);
-			}else{
-				$.messager.alert('提示',data.msg,'info');
-			}
-		}
-	});
-}
-//加载代理人信息
-function getagent(agentid){
-	$.ajax({
-		url : 'legalAgentAction!getDesc.do',
-		dataType:'json',
-		data:{
-			id:agentid
-		},
-		success:function(data){
-			if(data.success){
-				//agentid=data.obj.id;
-				//submitLegalCase();
-				$('#agentName').val(data.obj.name);
-				
-				var agentType=data.obj.agentType;
-				if(agentType!=null&&agentType!=''){
-					var agents=document.getElementsByName('agentType');
-					for(var i=0;i<agents.length;i++){
-						if(agents[i].value==agentType){
-							agents[i].checked=true;
-						}
-					}
-				}
-				//代理人身份证号码
-				var identifyid=data.obj.identifyid;
-				if(identifyid!=null&&identifyid!=''){
-					for(var i=0;i<identifyid.length;i++){
-						var j=i+1;
-						var stringid='#agentstring'+j;
-						$(stringid).val(identifyid.charAt(i));
-					}
-				}
-
-			}else{
-				$.messager.alert('提示',data.msg,'info');
-			}
-		}
-	});
-}
-function getcase(caseId){
-	$.ajax({
-		url : 'legalCaseAction!getDesc.do',
-		dataType:'json',
-		data:{
-			id:caseId
-		},
-		success:function(data){
-			if(data.success){
-				$('#description').val(data.obj.description);
-				$('#year').val(data.obj.year);
-				$('#month').val(data.obj.month);
-				$('#day').val(data.obj.day);
-				$('#legalCode').val(data.obj.legalCode);
-				$('#legalWord').val(data.obj.legalWord);
-				$('#legalNo').val(data.obj.legalNo);
-				
-			}else{
-				$.messager.alert('提示',data.msg,'error');
-			}
-		}
-	});
-}
+var applicantid='';
+var agentid='';
 function legalApplicantAddForm(){
 	//获得姓名
 	var name=$('#applicantname').val();
@@ -159,8 +43,8 @@ function legalApplicantAddForm(){
 	//生份证号
 	var identifyid='';
 	for(var i=1;i<19;i++){
-		var stringid='#applicantstring'+i;
-		identifyid=identifyid+$(stringid).val();
+		var stringid='#applicantstring1'+i;
+		applicantstring1=applicantstring1+$(stringid).val();
 	}
 	//户籍所在地
 	var birthPlace=$('#applicntbirthPlace').val();
@@ -173,10 +57,9 @@ function legalApplicantAddForm(){
 	//工作单位
 	var company=$('#applicantcompany').val();
 	$.ajax({
-		url:'legalApplicantAction!addorupdate.do',
+		url:'legalApplicantAction!add.do',
 		dataType:'json',
 		data:{
-			id:applicantid,
 			name:name,
 			gender:gender,
 			birthday:birthday,
@@ -191,8 +74,7 @@ function legalApplicantAddForm(){
 		success:function(data){
 			if(data.success){
 				applicantid=data.obj.id;
-				$.messager.alert('提示',data.msg,'info');
-				//submitLegalAgent();
+				submitLegalAgent();
 			}else{
 				$.messager.alert('提示',data.msg,'info');
 			}
@@ -213,34 +95,25 @@ function submitLegalAgent(){
 	var identifyid='';
 	for(var i=1;i<19;i++){
 		var stringid='#agentstring'+i;
-		identifyid=identifyid+$(stringid).val();
+		identifyid=$(stringid).val();
 	}
-
-	if(applicantid!=null&&applicantid!=''){
-		$.ajax({
-			url : 'legalAgentAction!addorupdate.do',
-			dataType:'json',
-			data:{
-				id:agentid,
-				applicantId:applicantid,
-				name:name,
-				identifyid:identifyid,
-				agentType:agentType
-			},
-			success:function(data){
-				if(data.success){
-					agentid=data.obj.id;
-					$.messager.alert('提示',data.msg,'info');
-					//submitLegalCase();
-				}else{
-					$.messager.alert('提示',data.msg,'info');
-				}
+	$.ajax({
+		url : 'legalAgentAction!add.do',
+		dataType:'json',
+		data:{
+			name:name,
+			identifyid:identifyid,
+			agentType:agentType
+		},
+		success:function(data){
+			if(data.success){
+				agentid=data.obj.id;
+				submitLegalCase();
+			}else{
+				$.messager.alert('提示',data.msg,'info');
 			}
-		});
-	}else{
-		$.messager.alert('提示','请先保存申请人信息','warring');
-	}
-	
+		}
+	});
 	
 }
 function submitLegalCase(){
@@ -249,102 +122,29 @@ function submitLegalCase(){
 	//代理人信息id
 	var agentId=agentid;
 	//描述
-		//yes代表启动工作流
-	var ifqiDong='no';
 	var description=$('#description').val();
 	var legalCode=$('#legalCode').val();
 	var legalWord=$('#legalWord').val();
 	var legalNo=$('#legalNo').val();
-	var year=$('#year').val();
-	var month=$('#month').val();
-	var day=$('#day').val();
-	if(applicantId!=null&&applicantId!=''){
-		if(agentId!=null&&agentId!=''){
-			$.ajax({
-				url : 'legalCaseAction!addAndStart.do',
-				dataType:'json',
-				data:{
-					id:caseId,
-					ifqiDong:ifqiDong,
-					applicantId:applicantId,
-					agentId:agentId,
-					description:description,
-					legalCode:legalCode,
-					legalWord:legalWord,
-					legalNo:legalNo,
-					year:year,
-					month:month,
-					day:day
-				},
-				success:function(data){
-					if(data.success){
-						caseId=data.obj.id
-						$.messager.alert('提示',data.msg,'info',function(){
-								parent.clasedialog();
-						});
-					}else{
-						$.messager.alert('提示',data.msg,'error');
-					}
-				}
-			});
-		}else{
-			$.messager.alert('提示','请先保存代理人信息','warring');
+	$.ajax({
+		url : 'legalCaseAction!addAndStart.do',
+		dataType:'json',
+		data:{
+			applicantId:applicantId,
+			agentId:agentId,
+			description:description,
+			legalCode:legalCode,
+			legalWord:legalWord,
+			legalNo:legalNo
+		},
+		success:function(data){
+			if(data.success){
+				$.messager.alert('提示',data.msg,'info');
+			}else{
+				$.messager.alert('提示',data.msg,'error');
+			}
 		}
-	}else{
-		$.messager.alert('提示','请先保存申请人信息和代理人信息','warring');
-	}
-	
-}
-function submitLegalCaseqidong(){
-	//申请人信息id
-	var applicantId=applicantid;
-	//代理人信息id
-	var agentId=agentid;
-	//yes代表启动工作流
-	var ifqiDong='yes';
-	//描述
-	var description=$('#description').val();
-	var legalCode=$('#legalCode').val();
-	var legalWord=$('#legalWord').val();
-	var legalNo=$('#legalNo').val();
-	var year=$('#year').val();
-	var month=$('#month').val();
-	var day=$('#day').val();
-	if(applicantId!=null&&applicantId!=''){
-		if(agentId!=null&&agentId!=''){
-			$.ajax({
-				url : 'legalCaseAction!addAndStart.do',
-				dataType:'json',
-				data:{
-					id:caseId,
-					ifqiDong:ifqiDong,
-					applicantId:applicantId,
-					agentId:agentId,
-					description:description,
-					legalCode:legalCode,
-					legalWord:legalWord,
-					legalNo:legalNo,
-					year:year,
-					month:month,
-					day:day
-				},
-				success:function(data){
-					if(data.success){
-						$.messager.alert('提示',data.msg,'info',function(){
-								parent.clasedialog();
-						});
-					}else{
-						$.messager.alert('提示',data.msg,'error');
-					}
-				}
-			});
-		}else{
-			$.messager.alert('提示','请先保存代理人信息','warring');
-		}
-	}else{
-		$.messager.alert('提示','请先保存申请人信息和代理人','warring');
-	}
-	
+	});
 	
 }
 function selectonlyone(obj){
@@ -376,6 +176,77 @@ function setkey2(str){
 <div class="soufan" style="width: 80%">
 [<input id="legalWord" name="legalWord" type="text" style="border:none"/>]
 援申字[<input id="legalCode" name="legalCode" type="text" style="border:none"/>]第<input id="legalNo" name="legalNo" type="text" style="border:none"/>号</div>
+<%-- <form id="applicantform">
+  <table width="98%" border="0" cellspacing="0" cellpadding="0" align="center" class="sq_box">
+      <tr>
+    <td colspan="20" class="sq_title">申请人基本情况</td>
+  </tr>
+  <tr>
+    <td class="sq_left" width="70" >姓名：</td>
+    <td class="sq_right" width="80">
+        <input type="text" id="applicantname" name="name" style="border:0;background:transparent;"/>
+    </td>
+    <td colspan="2" class="sq_left">性别：   </td>
+    <td colspan="3" class="sq_right">
+    	<select id="applicantgender" name="gender">
+    		<option value="m">男</option>
+			<option value="f">女</option>
+    	</select>
+    </td>
+    <td colspan="4" class="sq_left">出生年月：</td>
+    <td colspan="4" class="sq_right">
+    	<input id="applicantbirthday" name="birthday" type="text" class="easyui-datebox" style="border:0;background:transparent;"/>
+    </td>
+    <td colspan="2" class="sq_left">民族：</td>
+    <td colspan="3" class="sq_right">
+    	<input id="applicantnationId" name="nationId" type="text"  style="border:0;background:transparent;"/>
+    </td>
+  </tr>
+  <tr>
+    <td class="sq_left" colspan="2" >身份证号：</td>
+    <td style="width:10px;border:1px;" class="td_line"><input id="applicantstring1"  type="text"  style="border:0;background:transparent;"/></td>
+    <td style="width:10px;"><input id="applicantstring1"  type="text"  style="border:0;background:transparent;"/></td>
+    <td style="width:10px;"><input id="applicantstring1"  type="text"  style="border:0;background:transparent;"/></td>
+    <td style="width:10px;"><input id="applicantstring1"  type="text"  style="border:0;background:transparent;"/></td>
+    <td style="width:10px;"><input id="applicantstring1"  type="text"  style="border:0;background:transparent;"/></td>
+    <td style="width:10px;"><input id="applicantstring1"  type="text"  style="border:0;background:transparent;"/></td>
+    <td style="width:10px;"><input id="applicantstring1"  type="text"  style="border:0;background:transparent;"/></td>
+    <td style="width:10px;"><input id="applicantstring1"  type="text"  style="border:0;background:transparent;"/></td>
+    <td style="width:10px;"><input id="applicantstring1"  type="text"  style="border:0;background:transparent;"/></td>
+    <td style="width:10px;"><input id="applicantstring1"  type="text"  style="border:0;background:transparent;"/></td>
+    <td style="width:10px;"><input id="applicantstring1"  type="text"  style="border:0;background:transparent;"/></td>
+    <td style="width:10px;"><input id="applicantstring1"  type="text"  style="border:0;background:transparent;"/></td>
+    <td style="width:10px;"><input id="applicantstring1"  type="text"  style="border:0;background:transparent;"/></td>
+    <td style="width:10px;"><input id="applicantstring1"  type="text"  style="border:0;background:transparent;"/></td>
+    <td style="width:10px;"><input id="applicantstring1"  type="text"  style="border:0;background:transparent;"/></td>
+    <td style="width:10px;"><input id="applicantstring1"  type="text"  style="border:0;background:transparent;"/></td>
+    <td style="width:10px;"><input id="applicantstring1"  type="text"  style="border:0;background:transparent;"/></td>
+    <td style="width:10px;"><input id="applicantstring1"  type="text"  style="border:0;background:transparent;"/></td>
+  </tr>
+  <tr>
+    <td class="sq_left" colspan="2" >户籍所在地：</td>
+    <td class="sq_right" colspan="18">
+    	<input type="text"/>
+    </td>
+  </tr>
+  <tr>
+    <td class="sq_left" colspan="2" >住所地（经常居住地）：</td>
+    <td class="sq_right" colspan="18">
+    	<input type="text"/>
+    </td>
+  </tr>
+  <tr>
+    <td class="sq_left" colspan="2" >邮政编码：</td>
+    <td class="sq_right" colspan="5">
+    	<input type="text"/>
+    </td>
+    <td class="sq_left" colspan="5" >联系电话：</td>
+    <td class="sq_right" colspan="8">
+    	<input type="text"/>
+    </td>
+  </tr>
+  </table>
+</form> --%>
 
  <table width="70%" border="0" cellspacing="0" cellpadding="0" align="center" class="sq_box">
   <tr>
@@ -458,12 +329,6 @@ function setkey2(str){
     </td>
   </tr>
   <tr>
-    <td colspan="4" class="sq_nei"></td>
-    <td colspan="4" class="sq_nei">
-        <input type="button" value="保存" style="width: 60px;" onclick="legalApplicantAddForm()" />
-    </td>
-  </tr>
-  <tr>
     <td colspan="8" class="sq_title">代理人基本情况</td>
   </tr>
   <tr>
@@ -499,12 +364,6 @@ function setkey2(str){
         </tr>
       </table></td>
   </tr>
-      <tr>
-    <td colspan="4" class="sq_nei"></td>
-    <td colspan="4" class="sq_nei">
-        <input type="button" value="保存" style="width: 60px;" onclick="submitLegalAgent()" />
-    </td>
-  </tr>
   <tr>
     <td colspan="8" class="sq_title">案情及申请理由概述</td>
   </tr>
@@ -519,14 +378,14 @@ function setkey2(str){
   <tr>
     <td colspan="4" class="sq_nei"></td>
     <td colspan="4" class="sq_nei">申请人（签字）：
-    	<applet codebase="." 
-		code="com.neusoft.legal.applet.GetSignImage.class" 
-		name="signApplet" 
-		archive="sign.jar"
-		width="200" 
-		height="100"
-		id="signApplet" MAYSCRIPT>		
-	</applet>
+        <applet codebase="."
+                code="com.neusoft.legal.applet.GetSignImage.class"
+                name="signApplet"
+                archive="sign.jar"
+                width="200"
+                height="100"
+                id="signApplet" MAYSCRIPT>
+        </applet>
     </td>
   </tr>
   <tr>
@@ -542,20 +401,18 @@ function setkey2(str){
     <td colspan="4" class="sq_nei"></td>
     <td colspan="4" class="sq_nei">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input id="year" type="text" class="gh_input2" size="5"/>年
-    <input id="month" type="text" class="gh_input2" size="5"/>月
-    <input id="day" type="text" class="gh_input2" size="5"/>日
+    <input name="" type="text" class="gh_input2" size="5"/>年
+    <input name="" type="text" class="gh_input2" size="5"/>月
+    <input name="" type="text" class="gh_input2" size="5"/>日
 </td>
   </tr>
     <tr>
     <td colspan="4" class="sq_nei"></td>
     <td colspan="4" class="sq_nei">
-        <input type="button" value="保存" style="width: 60px;" onclick="submitLegalCase()" />
-        <input type="button" value="提交" style="width: 60px;" onclick="submitLegalCaseqidong()" />
+        <input type="button" value="保存" style="width: 60px;" onclick="legalApplicantAddForm()" />
     </td>
   </tr>
 </table>
-	
-	   
+<input type="button" name="" id="getSignButton" value="获取签名ID"/>
 </body>
 </html>
