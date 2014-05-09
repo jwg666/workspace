@@ -23,6 +23,7 @@ function dayin() {
 	    border-bottom: 1px dotted black;
 	}
 </style>
+<title>终止法律援助公函</title>
 </head>
 <body class="easyui-layout">
     <div class="buttons" style="text-align: right;">
@@ -53,7 +54,7 @@ function dayin() {
   <input name="" type="text" class="gh_input" size="30"/></span>的规定，决定终止法律援助。</div>
   <div class="gh_nei3 mt20">&nbsp;&nbsp;&nbsp;&nbsp;特此函告</div>
 </div>
-<div class="soufan mt50">(公章)</div>
+<div class="soufan mt50"><img alt="公章" src="../legal/images/yinzhang.gif" width="100px" height="100px"></div>
 <div class="soufan">
 <span class="bbf" style="width: 60px;display：inline;">
 <s:textfield name="legalCaseQuery.year" type="text" cssClass="gh_input2" size="5"/>

@@ -23,6 +23,7 @@ function dayin() {
 	    border-bottom: 1px dotted black;
 	}
 </style>
+<title>法律援助律师会见在押犯罪嫌疑人、被告人公函</title>
 </head>
 <body class="easyui-layout">
     <div class="buttons" style="text-align: right;">
@@ -54,7 +55,9 @@ function dayin() {
   <div class="gh_nei3 mt20">&nbsp;&nbsp;&nbsp;&nbsp;特此函告</div>
   <div class="gh_nei3">&nbsp;&nbsp;&nbsp;&nbsp;承办人联系方式：${departmentQuery.officePhone}</div>
 </div>
-<div class="soufan mt50">(公章)</div>
+<div class="soufan mt50">
+	<img alt="公章" src="../legal/images/yinzhang.gif" width="100px" height="100px">
+</div>
 <div class="soufan">
 <span class="bbf" style="width: 60px;display：inline;">
 <s:textfield name="legalCaseQuery.year" type="text" cssClass="gh_input2" size="5"/>

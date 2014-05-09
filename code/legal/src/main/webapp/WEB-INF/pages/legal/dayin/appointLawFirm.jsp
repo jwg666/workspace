@@ -133,8 +133,7 @@ function dayin(){
      <tr style="height:30px;">
         <td width="30%" ></td>
         <td width="70%" style="text-align:right;" >
-        <nobr><font size=4>(公章)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></nobr>
+        	<img alt="公章" src="../legal/images/yinzhang.gif" width="100px" height="100px">
         </td>
   </tr>
        <tr style="height:30px;">
