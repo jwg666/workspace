@@ -94,13 +94,14 @@ td_line {
 					//agentid=data.obj.id;
 					//submitLegalCase();
 					$('#agentName').html(data.obj.name);
-
-					var agentType = data.obj.name;
+                   
+					var agentType = data.obj.agentType;
+					 
 					if (agentType != null && agentType != '') {
 						var agents = document.getElementsByName('agentType');
 						for ( var i = 0; i < agents.length; i++) {
 							if (agents[i].value == agentType) {
-								agents[i].checked;
+								agents[i].checked=true;
 							}
 						}
 					}
@@ -129,7 +130,7 @@ td_line {
 			},
 			success : function(data) {
 				if (data.success) {
-					$('#description').val(data.obj.description);
+					$('#description').html(data.obj.description);
 					$('#year').val(data.obj.year);
 					$('#month').val(data.obj.month);
 					$('#day').val(data.obj.day);

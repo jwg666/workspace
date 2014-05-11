@@ -14,12 +14,16 @@
         }
         </style>
 <script type="text/javascript" charset="utf-8">
+var applicantid='${applicantId}';
+var agentid='${agentId}';
+var caseId='${caseId}';
 $(function(){
 	$("#applicantnationId").combobox({
-	    url:'../basic/dictionaryAction!combox?parentCode=3',
+	    url:'../basic/dictionaryAction!combox.do?parentCode=3',
 	    valueField:'id',
 	    textField:'dicValue'
 	});
+	setvalue(applicantid,agentid,caseId);
     $("#getSignButton").click(function (){
         var id = document.applets[0].getSignId();
         if(id==null||id==''){
@@ -29,8 +33,117 @@ $(function(){
         }
     });
 });
-var applicantid='';
-var agentid='';
+//var applicantid='';
+//var agentid='';
+function setvalue(applicantid,agentid,caseId){
+	if(applicantid!=null&&applicantid!=''){
+		getapplicant(applicantid);
+	}
+	if(agentid!=null&&agentid!=''){
+		getagent(agentid);
+	}
+	if(caseId!=null&&caseId!=''){
+		getcase(caseId);
+	}
+}
+//加载申请人信息
+function getapplicant(applicant){
+	$.ajax({
+		url:'legalApplicantAction!getdesc.do',
+		dataType:'json',
+		data:{
+			id:applicantid
+		},
+		success:function(data){
+			if(data.success){
+				//applicantid=data.obj.id;
+				//submitLegalAgent();
+				$('#applicantname').val(data.obj.name);
+				$('#applicantgender').val(data.obj.gender);
+				$('#applicantbirthday').datebox('setValue',data.obj.birthday);
+				$('#applicantnationId').combobox('setValue',data.obj.nationId);
+				var identifyid=data.obj.identifyid;
+				if(identifyid!=null&&identifyid!=''){
+					for(var i=0;i<identifyid.length;i++){
+						var j=i+1;
+						var stringid='#applicantstring'+j;
+						$(stringid).val(identifyid.charAt(i));
+					}
+				}
+				
+				$('#applicntbirthPlace').val(data.obj.birthPlace);
+				$('#applicantlivePlace').val(data.obj.livePlace);
+				$('#applicantpostCode').val(data.obj.postCode);
+				$('#applicantphone').val(data.obj.phone);
+				$('#applicantcompany').val(data.obj.company);
+			}else{
+				$.messager.alert('提示',data.msg,'info');
+			}
+		}
+	});
+}
+//加载代理人信息
+function getagent(agentid){
+	$.ajax({
+		url : 'legalAgentAction!getDesc.do',
+		dataType:'json',
+		data:{
+			id:agentid
+		},
+		success:function(data){
+			if(data.success){
+				//agentid=data.obj.id;
+				//submitLegalCase();
+				$('#agentName').val(data.obj.name);
+				
+				var agentType=data.obj.agentType;
+				if(agentType!=null&&agentType!=''){
+					var agents=document.getElementsByName('agentType');
+					for(var i=0;i<agents.length;i++){
+						if(agents[i].value==agentType){
+							agents[i].checked=true;
+						}
+					}
+				}
+				//代理人身份证号码
+				var identifyid=data.obj.identifyid;
+				if(identifyid!=null&&identifyid!=''){
+					for(var i=0;i<identifyid.length;i++){
+						var j=i+1;
+						var stringid='#agentstring'+j;
+						$(stringid).val(identifyid.charAt(i));
+					}
+				}
+
+			}else{
+				$.messager.alert('提示',data.msg,'info');
+			}
+		}
+	});
+}
+function getcase(caseId){
+	$.ajax({
+		url : 'legalCaseAction!getDesc.do',
+		dataType:'json',
+		data:{
+			id:caseId
+		},
+		success:function(data){
+			if(data.success){
+				$('#description').val(data.obj.description);
+				$('#year').val(data.obj.year);
+				$('#month').val(data.obj.month);
+				$('#day').val(data.obj.day);
+				$('#legalCode').val(data.obj.legalCode);
+				$('#legalWord').val(data.obj.legalWord);
+				$('#legalNo').val(data.obj.legalNo);
+				
+			}else{
+				$.messager.alert('提示',data.msg,'error');
+			}
+		}
+	});
+}
 function legalApplicantAddForm(){
 	//获得姓名
 	var name=$('#applicantname').val();
@@ -43,8 +156,8 @@ function legalApplicantAddForm(){
 	//生份证号
 	var identifyid='';
 	for(var i=1;i<19;i++){
-		var stringid='#applicantstring1'+i;
-		applicantstring1=applicantstring1+$(stringid).val();
+		var stringid='#applicantstring'+i;
+		identifyid=identifyid+$(stringid).val();
 	}
 	//户籍所在地
 	var birthPlace=$('#applicntbirthPlace').val();
@@ -57,9 +170,10 @@ function legalApplicantAddForm(){
 	//工作单位
 	var company=$('#applicantcompany').val();
 	$.ajax({
-		url:'legalApplicantAction!add.do',
+		url:'legalApplicantAction!addorupdate.do',
 		dataType:'json',
 		data:{
+			id:applicantid,
 			name:name,
 			gender:gender,
 			birthday:birthday,
@@ -74,7 +188,60 @@ function legalApplicantAddForm(){
 		success:function(data){
 			if(data.success){
 				applicantid=data.obj.id;
+				$.messager.alert('提示',data.msg,'info');
 				submitLegalAgent();
+			}else{
+				$.messager.alert('提示',data.msg,'info');
+			}
+		}
+	});
+}
+function legalApplicantAddFormqidong(){
+	//获得姓名
+	var name=$('#applicantname').val();
+	//性别
+	var gender=$('#applicantgender').val();
+	//出生日期
+	var birthday = $('#applicantbirthday').datebox('getValue');
+	//民族
+	var nationId = $('#applicantnationId').combobox('getValue');
+	//生份证号
+	var identifyid='';
+	for(var i=1;i<19;i++){
+		var stringid='#applicantstring'+i;
+		identifyid=identifyid+$(stringid).val();
+	}
+	//户籍所在地
+	var birthPlace=$('#applicntbirthPlace').val();
+	//常住地
+	var livePlace=$('#applicantlivePlace').val();
+	//邮政编码
+	var postCode=$('#applicantpostCode').val();
+	//联系电话
+	var phone=$('#applicantphone').val();
+	//工作单位
+	var company=$('#applicantcompany').val();
+	$.ajax({
+		url:'legalApplicantAction!addorupdate.do',
+		dataType:'json',
+		data:{
+			id:applicantid,
+			name:name,
+			gender:gender,
+			birthday:birthday,
+			nationId:nationId,
+			identifyid:identifyid,
+			birthPlace:birthPlace,
+			livePlace:livePlace,
+			postCode:postCode,
+			phone:phone,
+			company:company
+		},
+		success:function(data){
+			if(data.success){
+				applicantid=data.obj.id;
+				$.messager.alert('提示',data.msg,'info');
+				submitLegalAgentqidong();
 			}else{
 				$.messager.alert('提示',data.msg,'info');
 			}
@@ -95,26 +262,75 @@ function submitLegalAgent(){
 	var identifyid='';
 	for(var i=1;i<19;i++){
 		var stringid='#agentstring'+i;
-		identifyid=$(stringid).val();
+		identifyid=identifyid+$(stringid).val();
 	}
-	$.ajax({
-		url : 'legalAgentAction!add.do',
-		dataType:'json',
-		data:{
-			name:name,
-			identifyid:identifyid,
-			agentType:agentType
-		},
-		success:function(data){
-			if(data.success){
-				agentid=data.obj.id;
-				submitLegalCase();
-			}else{
-				$.messager.alert('提示',data.msg,'info');
+
+	if(applicantid!=null&&applicantid!=''){
+		$.ajax({
+			url : 'legalAgentAction!addorupdate.do',
+			dataType:'json',
+			data:{
+				id:agentid,
+				applicantId:applicantid,
+				name:name,
+				identifyid:identifyid,
+				agentType:agentType
+			},
+			success:function(data){
+				if(data.success){
+					agentid=data.obj.id;
+					$.messager.alert('提示',data.msg,'info');
+					submitLegalCase();
+				}else{
+					$.messager.alert('提示',data.msg,'info');
+				}
 			}
+		});
+	}else{
+		$.messager.alert('提示','请先保存申请人信息','warring');
+	}
+}
+function submitLegalAgentqidong(){
+	//代理人姓名
+	var name=$('#agentName').val();
+	var agentType=''; 
+	var agents=document.getElementsByName('agentType');
+	for(var i=0;i<agents.length;i++){
+		if(agents[i].checked){
+			agentType=agents[i].value;
 		}
-	});
-	
+	}
+	//代理人身份证号码
+	var identifyid='';
+	for(var i=1;i<19;i++){
+		var stringid='#agentstring'+i;
+		identifyid=identifyid+$(stringid).val();
+	}
+
+	if(applicantid!=null&&applicantid!=''){
+		$.ajax({
+			url : 'legalAgentAction!addorupdate.do',
+			dataType:'json',
+			data:{
+				id:agentid,
+				applicantId:applicantid,
+				name:name,
+				identifyid:identifyid,
+				agentType:agentType
+			},
+			success:function(data){
+				if(data.success){
+					agentid=data.obj.id;
+					$.messager.alert('提示',data.msg,'info');
+					submitLegalCaseqidong();
+				}else{
+					$.messager.alert('提示',data.msg,'info');
+				}
+			}
+		});
+	}else{
+		$.messager.alert('提示','请先保存申请人信息','warring');
+	}
 }
 function submitLegalCase(){
 	//申请人信息id
@@ -122,29 +338,91 @@ function submitLegalCase(){
 	//代理人信息id
 	var agentId=agentid;
 	//描述
+		//yes代表启动工作流
+	var ifqiDong='no';
 	var description=$('#description').val();
 	var legalCode=$('#legalCode').val();
 	var legalWord=$('#legalWord').val();
 	var legalNo=$('#legalNo').val();
-	$.ajax({
-		url : 'legalCaseAction!addAndStart.do',
-		dataType:'json',
-		data:{
-			applicantId:applicantId,
-			agentId:agentId,
-			description:description,
-			legalCode:legalCode,
-			legalWord:legalWord,
-			legalNo:legalNo
-		},
-		success:function(data){
-			if(data.success){
-				$.messager.alert('提示',data.msg,'info');
-			}else{
-				$.messager.alert('提示',data.msg,'error');
-			}
+	
+	if(applicantId!=null&&applicantId!=''){
+		if(agentId!=null&&agentId!=''){
+			$.ajax({
+				url : 'legalCaseAction!addAndStart.do',
+				dataType:'json',
+				data:{
+					id:caseId,
+					ifqiDong:ifqiDong,
+					applicantId:applicantId,
+					agentId:agentId,
+					description:description,
+					legalCode:legalCode,
+					legalWord:legalWord,
+					legalNo:legalNo
+				},
+				success:function(data){
+					if(data.success){
+						caseId=data.obj.id
+						$.messager.alert('提示',data.msg,'info',function(){
+								parent.clasedialog();
+						});
+					}else{
+						$.messager.alert('提示',data.msg,'error');
+					}
+				}
+			});
+		}else{
+			$.messager.alert('提示','请先保存代理人信息','warring');
 		}
-	});
+	}else{
+		$.messager.alert('提示','请先保存申请人信息和代理人信息','warring');
+	}
+	
+}
+function submitLegalCaseqidong(){
+	//申请人信息id
+	var applicantId=applicantid;
+	//代理人信息id
+	var agentId=agentid;
+	//yes代表启动工作流
+	var ifqiDong='yes';
+	//描述
+	var description=$('#description').val();
+	var legalCode=$('#legalCode').val();
+	var legalWord=$('#legalWord').val();
+	var legalNo=$('#legalNo').val();
+	if(applicantId!=null&&applicantId!=''){
+		if(agentId!=null&&agentId!=''){
+			$.ajax({
+				url : 'legalCaseAction!addAndStart.do',
+				dataType:'json',
+				data:{
+					id:caseId,
+					ifqiDong:ifqiDong,
+					applicantId:applicantId,
+					agentId:agentId,
+					description:description,
+					legalCode:legalCode,
+					legalWord:legalWord,
+					legalNo:legalNo
+				},
+				success:function(data){
+					if(data.success){
+						$.messager.alert('提示',data.msg,'info',function(){
+								parent.clasedialog();
+						});
+					}else{
+						$.messager.alert('提示',data.msg,'error');
+					}
+				}
+			});
+		}else{
+			$.messager.alert('提示','请先保存代理人信息','warring');
+		}
+	}else{
+		$.messager.alert('提示','请先保存申请人信息和代理人','warring');
+	}
+	
 	
 }
 function selectonlyone(obj){
@@ -409,7 +687,8 @@ function setkey2(str){
     <tr>
     <td colspan="4" class="sq_nei"></td>
     <td colspan="4" class="sq_nei">
-        <input type="button" value="保存" style="width: 60px;" onclick="legalApplicantAddForm()" />
+        <input type="button" value="暂存" style="width: 60px;" onclick="legalApplicantAddForm()" />
+        <input type="button" value="提交" style="width: 60px;" onclick="legalApplicantAddFormqidong()" />
     </td>
   </tr>
 </table>
