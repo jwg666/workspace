@@ -14,6 +14,139 @@
         }
         </style>
 <script type="text/javascript" charset="utf-8">
+var yinzhangWin;
+var datagrid;
+var legalCaseEditForm;
+$(function(){
+   yinzhangWin=$('#yinzhangWin-window').window({  
+	    href:'',  
+	    title:'选择印章',           
+	    closed: true,  
+	    minimizable:false,  
+	    maximizable:false,    
+	    collapsible:false,  
+	    cache:false,  
+	    shadow:false  
+	});
+   datagrid = $('#datagrid').datagrid({
+		url : '${dynamicURL}/portal/searchUploadFile.do?remarks=sign',
+		title : '图章列表',
+		iconCls : 'icon-save',
+		pagination : true,
+		pagePosition : 'bottom',
+		rownumbers : true,
+		pageSize : 10,
+		pageList : [ 10, 20, 30, 40 ],
+		fit : true,
+		fitColumns : false,
+		nowrap : true,
+		border : false,
+		idField : 'id',
+		
+		frozenColumns:[ [ 
+			{field:'ck',checkbox:true},
+							
+			{field:'download',title:'预览',align:'left',width:40,
+				formatter:function(value,row,index){
+					if(row.status!="1"){
+						return '';
+					}else if(row.contentType != null && row.contentType.indexOf("image")>-1){
+						return '<a href="${dynamicURL}/portal/uploadFileAction/downloadImage.do?fileId=' + row.id + '" target="_blank"  ><img style="height:20px;" src="${dynamicURL}/portal/uploadFileAction/downloadImage.do?fileId='+ row.id +  '"/></a>';
+					}else{
+						return '<a href="${dynamicURL}/portal/fileUploadAction/downloadFile.do?fileId='+row.id+'" target="_blank" >下载 </a>';
+						
+					}
+					var iconUrl = fmtIcon(row.contentType);
+					if(!iconUrl){
+						return row.id;
+					}else{
+						return row.id+'<img style="height:20px;" src="' + staticURL + iconUrl + '" />';
+					}
+				}
+			},				
+			{field:'fileName',title:'图章名',align:'center',width:200,
+				formatter:function(value,row,index){
+					if(row.contentType != null && row.contentType.indexOf("image")>-1){
+						return '<a href="${dynamicURL}/portal/uploadFileAction/downloadImage.do?fileId=' + row.id + '" target="_blank"  >' + row.fileName + '</a>';
+					}else{
+						return row.fileName;
+					}
+				}
+			},
+			
+			{field:'status',title:'状态',align:'center',width:90,
+				formatter:function(value,row,index){
+					if(row.status=="1"){
+						return "有效";
+					}else{
+						return "无效";
+					}
+				}
+			}
+		] ],
+		columns : [ [ 
+           {field:'createBy',title:'创建人',align:'center',width:90,
+				formatter:function(value,row,index){
+					return row.createBy;
+				}
+			},				
+		   {field:'createDate',title:'创建时间',align:'center',width:100,
+				formatter:function(value,row,index){
+					return dateFormatYMD(row.createDate);
+				}
+			}		   
+		 ] ],
+		toolbar : [  {
+			text : '确认选择',
+			iconCls : 'icon-add',
+			handler : function() {
+				setYinz();
+			}
+		}, '-', {
+			text : '取消选中',
+			iconCls : 'icon-undo',
+			handler : function() {
+				datagrid.datagrid('unselectAll');
+			}
+		}, '-' ]
+	});
+   
+   legalCaseEditForm = $('#legalCaseEditForm').form({
+		url : 'legalCaseAction!edit.do',
+		success : function(data) {
+			var json = $.parseJSON(data);
+			if (json && json.success) {
+				$.messager.show({
+					title : '成功',
+					msg : json.msg
+				});
+			} else {
+				$.messager.show({
+					title : '失败',
+					msg : '更新印章失败！'
+				});
+			}
+		}
+	});
+   
+});
+
+
+function selectYinz(){
+	yinzhangWin.window('open');
+}
+function setYinz(){
+	var rows = datagrid.datagrid('getSelections');
+	if(rows.length==1){		
+		$("#imgYinz").attr("src","${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId="+rows[0].id);
+		$("#yinzhId").val(rows[0].id);
+		yinzhangWin.window('close');
+        legalCaseEditForm.submit();
+	}else{
+		$.messager.alert('Warning','请选择一个印章');
+	}
+	
+}
 function dayin(){
  	var printObj = $("#printBody").clone(true);
 	printObj.width(1220);
@@ -133,7 +266,12 @@ function dayin(){
      <tr style="height:30px;">
         <td width="30%" ></td>
         <td width="70%" style="text-align:right;" >
-        	<img alt="公章" src="../legal/images/yinzhang.gif" width="100px" height="100px">
+        	 <s:if test="legalCaseQuery.yinzhId!=null&&legalCaseQuery.yinzhId!=0">
+		        <img id="imgYinz" alt="公章" src="${dynamicURL}/portal/uploadFileAction/downloadImage.do?fileId=${legalCaseQuery.yinzhId}" width="100px" height="100px" onclick="selectYinz();">
+		    </s:if>
+		    <s:else>
+		        <img id="imgYinz" alt="公章" src="../legal/images/yinzhang.gif" width="100px" height="100px" onclick="selectYinz();">
+		    </s:else>
         </td>
   </tr>
        <tr style="height:30px;">
@@ -149,5 +287,12 @@ function dayin(){
   </tr>
 </table>
 </div>
+<div id="yinzhangWin-window" class="earyui-window" title="选择印章" style="width: 550px; height: 350px; padding: 0px; background:#fafafa; "> 
+	<table id="datagrid"></table>
+</div>
+<form action="" id="legalCaseEditForm">
+	<input type="hidden" id="caseId" name="id" value="${legalCaseQuery.id}">
+	<input type="hidden" id='yinzhId' name="yinzhId">
+</form>
 </body>
 </html>

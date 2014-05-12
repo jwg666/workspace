@@ -112,12 +112,10 @@ $(function(){
 					title : '成功',
 					msg : json.msg
 				});
-				datagrid.datagrid('reload');
-				legalCaseEditDialog.dialog('close');
 			} else {
 				$.messager.show({
 					title : '失败',
-					msg : '操作失败！'
+					msg : '更新印章失败！'
 				});
 			}
 		}
@@ -125,13 +123,7 @@ $(function(){
    
 });
 
-function dayin() {
-	var printObj = $("body").clone(true);
-	printObj.find("#optBnts").remove();
-	printObj = gridToTable(printObj);
-	printObj.find("#dayinid input").addClass("gh_input");
-	lodopPrintAutoWidth(printObj);
-}
+
 function selectYinz(){
 	yinzhangWin.window('open');
 }
@@ -139,13 +131,20 @@ function setYinz(){
 	var rows = datagrid.datagrid('getSelections');
 	if(rows.length==1){		
 		$("#imgYinz").attr("src","${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId="+rows[0].id);
-		$("#yinzId").val(rows[0].id);
+		$("#yinzhId").val(rows[0].id);
 		yinzhangWin.window('close');
-		
+        legalCaseEditForm.submit();
 	}else{
 		$.messager.alert('Warning','请选择一个印章');
 	}
 	
+}
+function dayin() {
+	var printObj = $("body").clone(true);
+	printObj.find("#optBnts").remove();
+	printObj = gridToTable(printObj);
+	printObj.find("#dayinid input").addClass("gh_input");
+	lodopPrintAutoWidth(printObj);
 }
 </script>
 <style type="text/css">
@@ -189,7 +188,13 @@ function setYinz(){
   <div class="gh_nei3">&nbsp;&nbsp;&nbsp;&nbsp;承办人联系方式：${departmentQuery.officePhone}</div>
 </div>
 <div class="soufan mt50">
-	<img id="imgYinz" alt="公章" src="../legal/images/yinzhang.gif" width="100px" height="100px" onclick="selectYinz();">
+    <s:if test="legalCaseQuery.yinzhId!=null&&legalCaseQuery.yinzhId!=0">
+        <img id="imgYinz" alt="公章" src="${dynamicURL}/portal/uploadFileAction/downloadImage.do?fileId=${legalCaseQuery.yinzhId}" width="100px" height="100px" onclick="selectYinz();">
+    </s:if>
+    <s:else>
+        <img id="imgYinz" alt="公章" src="../legal/images/yinzhang.gif" width="100px" height="100px" onclick="selectYinz();">
+    </s:else>
+
 </div>
 <div class="soufan">
 <span class="bbf" style="width: 60px;display：inline;">
@@ -207,8 +212,8 @@ function setYinz(){
 	<table id="datagrid"></table>
 </div>
 <form action="" id="legalCaseEditForm">
-	<input type="hidden" id="caseId" name="id">
-	<input type="hidden" id='yinzId' name="yinzhId">
+	<input type="hidden" id="caseId" name="id" value="${legalCaseQuery.id}">
+	<input type="hidden" id='yinzhId' name="yinzhId">
 </form>
 
 </body>

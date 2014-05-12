@@ -693,6 +693,5 @@ function setkey2(str){
   </tr>
 </table>
 <input type="button" name="" id="getSignButton" value="获取签名ID"/>
-<input type="button" name="" id="getYzButton" value="选择印章"/>
 </body>
 </html>
