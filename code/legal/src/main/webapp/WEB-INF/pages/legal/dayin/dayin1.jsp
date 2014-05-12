@@ -6,6 +6,124 @@
 <jsp:include page="/common/common_js.jsp"></jsp:include>
 <link type="text/css" rel="stylesheet" href="../legal/cmsimages/css.css"/>
 <script type="text/javascript" charset="utf-8">
+var yinzhangWin;
+var datagrid;
+var legalCaseEditForm;
+$(function(){
+   yinzhangWin=$('#yinzhangWin-window').window({  
+	    href:'',  
+	    title:'选择印章',           
+	    closed: true,  
+	    minimizable:false,  
+	    maximizable:false,    
+	    collapsible:false,  
+	    cache:false,  
+	    shadow:false  
+	});
+   datagrid = $('#datagrid').datagrid({
+		url : '${dynamicURL}/portal/searchUploadFile.do?remarks=sign',
+		title : '图章列表',
+		iconCls : 'icon-save',
+		pagination : true,
+		pagePosition : 'bottom',
+		rownumbers : true,
+		pageSize : 10,
+		pageList : [ 10, 20, 30, 40 ],
+		fit : true,
+		fitColumns : false,
+		nowrap : true,
+		border : false,
+		idField : 'id',
+		
+		frozenColumns:[ [ 
+			{field:'ck',checkbox:true},
+							
+			{field:'download',title:'预览',align:'left',width:40,
+				formatter:function(value,row,index){
+					if(row.status!="1"){
+						return '';
+					}else if(row.contentType != null && row.contentType.indexOf("image")>-1){
+						return '<a href="${dynamicURL}/portal/uploadFileAction/downloadImage.do?fileId=' + row.id + '" target="_blank"  ><img style="height:20px;" src="${dynamicURL}/portal/uploadFileAction/downloadImage.do?fileId='+ row.id +  '"/></a>';
+					}else{
+						return '<a href="${dynamicURL}/portal/fileUploadAction/downloadFile.do?fileId='+row.id+'" target="_blank" >下载 </a>';
+						
+					}
+					var iconUrl = fmtIcon(row.contentType);
+					if(!iconUrl){
+						return row.id;
+					}else{
+						return row.id+'<img style="height:20px;" src="' + staticURL + iconUrl + '" />';
+					}
+				}
+			},				
+			{field:'fileName',title:'图章名',align:'center',width:200,
+				formatter:function(value,row,index){
+					if(row.contentType != null && row.contentType.indexOf("image")>-1){
+						return '<a href="${dynamicURL}/portal/uploadFileAction/downloadImage.do?fileId=' + row.id + '" target="_blank"  >' + row.fileName + '</a>';
+					}else{
+						return row.fileName;
+					}
+				}
+			},
+			
+			{field:'status',title:'状态',align:'center',width:90,
+				formatter:function(value,row,index){
+					if(row.status=="1"){
+						return "有效";
+					}else{
+						return "无效";
+					}
+				}
+			}
+		] ],
+		columns : [ [ 
+           {field:'createBy',title:'创建人',align:'center',width:90,
+				formatter:function(value,row,index){
+					return row.createBy;
+				}
+			},				
+		   {field:'createDate',title:'创建时间',align:'center',width:100,
+				formatter:function(value,row,index){
+					return dateFormatYMD(row.createDate);
+				}
+			}		   
+		 ] ],
+		toolbar : [  {
+			text : '确认选择',
+			iconCls : 'icon-add',
+			handler : function() {
+				setYinz();
+			}
+		}, '-', {
+			text : '取消选中',
+			iconCls : 'icon-undo',
+			handler : function() {
+				datagrid.datagrid('unselectAll');
+			}
+		}, '-' ]
+	});
+   
+   legalCaseEditForm = $('#legalCaseEditForm').form({
+		url : 'legalCaseAction!edit.do',
+		success : function(data) {
+			var json = $.parseJSON(data);
+			if (json && json.success) {
+				$.messager.show({
+					title : '成功',
+					msg : json.msg
+				});
+				datagrid.datagrid('reload');
+				legalCaseEditDialog.dialog('close');
+			} else {
+				$.messager.show({
+					title : '失败',
+					msg : '操作失败！'
+				});
+			}
+		}
+	});
+   
+});
 
 function dayin() {
 	var printObj = $("body").clone(true);
@@ -13,6 +131,21 @@ function dayin() {
 	printObj = gridToTable(printObj);
 	printObj.find("#dayinid input").addClass("gh_input");
 	lodopPrintAutoWidth(printObj);
+}
+function selectYinz(){
+	yinzhangWin.window('open');
+}
+function setYinz(){
+	var rows = datagrid.datagrid('getSelections');
+	if(rows.length==1){		
+		$("#imgYinz").attr("src","${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId="+rows[0].id);
+		$("#yinzId").val(rows[0].id);
+		yinzhangWin.window('close');
+		
+	}else{
+		$.messager.alert('Warning','请选择一个印章');
+	}
+	
 }
 </script>
 <style type="text/css">
@@ -56,7 +189,7 @@ function dayin() {
   <div class="gh_nei3">&nbsp;&nbsp;&nbsp;&nbsp;承办人联系方式：${departmentQuery.officePhone}</div>
 </div>
 <div class="soufan mt50">
-	<img alt="公章" src="../legal/images/yinzhang.gif" width="100px" height="100px">
+	<img id="imgYinz" alt="公章" src="../legal/images/yinzhang.gif" width="100px" height="100px" onclick="selectYinz();">
 </div>
 <div class="soufan">
 <span class="bbf" style="width: 60px;display：inline;">
@@ -69,5 +202,14 @@ function dayin() {
 <span class="bbf" style="width: 60px;display：inline;">
 <s:textfield name="legalCaseQuery.day" type="text" cssClass="gh_input2" size="5"/>
 </span>日</div>
+
+<div id="yinzhangWin-window" class="earyui-window" title="选择印章" style="width: 550px; height: 350px; padding: 0px; background:#fafafa; "> 
+	<table id="datagrid"></table>
+</div>
+<form action="" id="legalCaseEditForm">
+	<input type="hidden" id="caseId" name="id">
+	<input type="hidden" id='yinzId' name="yinzhId">
+</form>
+
 </body>
 </html>
