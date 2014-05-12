@@ -14,14 +14,14 @@ public class CopySpecialProperties {
 	 * 
 	 *作者：罗琦
 	 *拷贝Bean1到Bean2，只拷贝Bean1中不为空的属性
-	 * @param obj1 拷贝源Bean
-	 * @param obj2 拷贝的目标Bean
+	 * @param source 拷贝源Bean
+	 * @param dest 拷贝的目标Bean
 	 * @return
 	 * @throws Exception
 	 */
-	public static Object copyBeanToBean(Object obj1, Object obj2)
+	public static Object copyBeanToBean(Object source, Object dest)
 			throws Exception {
-		return copyBeanToBean(obj1, obj2,false);
+		return copyBeanToBean(source, dest,false);
 	}
 	/**
 	 * 
