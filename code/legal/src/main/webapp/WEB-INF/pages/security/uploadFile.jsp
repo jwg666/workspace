@@ -7,7 +7,6 @@
 <script type="text/javascript" charset="utf-8">
     var searchForm;
 	var datagrid;
-	var upLoadLocalForm
 	var upLoadLocalForm;
 	var updateForm;
 	var uploadDialog;
@@ -81,7 +80,7 @@
 				},
 				{field:'remarks',title:'备注',align:'center',width:90,
 					formatter:function(value,row,index){
-						return value
+						return value;
 					}
 				},
 				{field:'status',title:'文件状态',align:'center',width:90,
@@ -363,8 +362,14 @@
 	                <div class="item25">
 	                    <div class="itemleft60">备注：</div>
 	                    <div class="righttext">
-	                    	 <input name="remarks" type="text"/>
+	                    	 <select name="remarks">
+	                    	 	<option value="">全部</option>
+						    	<option value="wallpaper">壁纸</option>
+						    	<option value="icon">图标</option>
+						    	<option value="sign">印章</option>
+						     </select>
 	                    </div>
+	                    
 	                </div>
 	                <div class="item25">
 	                    <div class="itemleft60">文件存放位置：</div>
@@ -408,9 +413,19 @@
 					</td>
 				</tr>
 				<tr>
+					<th>文件名称:</th>
+					<td>
+					    <s:textfield  name="fileName"></s:textfield >
+					</td>
+				</tr>
+				<tr>
 					<th>备注:</th>
 					<td>
-					     <s:textarea id="remarks" name="remarks" cssStyle="width:90%;height:40px"></s:textarea>
+						<select name="remarks">
+					    	<option value="wallpaper">壁纸</option>
+					    	<option value="icon">图标</option>
+					    	<option value="sign">印章</option>
+					    </select>
 					</td>
 				</tr>
 			</table>
@@ -426,9 +441,20 @@
 					</td>
 				</tr>
 				<tr>
+					<th>文件名称:</th>
+					<td>
+					    <s:textfield  name="fileName"></s:textfield >
+					</td>
+				</tr>
+				
+				<tr>
 					<th>备注:</th>
 					<td>
-					    <s:textarea id="remarks_local" name="remarks" cssStyle="width:90%;height:50px"></s:textarea>
+						<select name="remarks">
+					    	<option value="wallpaper">壁纸</option>
+					    	<option value="icon">图标</option>
+					    	<option value="sign">印章</option>
+					    </select>
 					</td>
 				</tr>
 			</table>
@@ -445,9 +471,19 @@
 					</td>
 				</tr>
 				<tr>
+					<th>文件名称:</th>
+					<td>
+					    <s:textfield  name="fileName" ></s:textfield >
+					</td>
+				</tr>
+				<tr>
 					<th>备注:</th>
 					<td>
-					    <s:textarea id="remarks_update" name="remarks" cssStyle="width:90%;height:50px"></s:textarea>
+					    <select name="remarks">
+					    	<option value="wallpaper">壁纸</option>
+					    	<option value="icon">图标</option>
+					    	<option value="sign">印章</option>
+					    </select>
 					</td>
 				</tr>
 			</table>
