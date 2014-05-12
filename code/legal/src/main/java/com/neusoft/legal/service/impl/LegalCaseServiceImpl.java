@@ -13,6 +13,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import com.neusoft.base.common.CopySpecialProperties;
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
 import org.activiti.engine.task.Task;
@@ -85,9 +86,14 @@ public class LegalCaseServiceImpl implements LegalCaseService{
 	public void update(LegalCaseQuery legalCaseQuery) {
 		LegalCase t = legalCaseDao.getById(legalCaseQuery.getId());
 	    if(t != null) {
-	    	BeanUtils.copyProperties(legalCaseQuery, t);
+	    	try {
+				CopySpecialProperties.copyBeanToBean(legalCaseQuery, t,true);
+				 legalCaseDao.update(t);
+			} catch (Exception e) {
+				logger.error("-----",e);
+			}
 		}
-	    legalCaseDao.update(t);
+	   
 	}
 
 	@Override
