@@ -46,28 +46,22 @@ a:active { text-decoration: none; color: #000; }
 .pd_bottom{ border-bottom:1px solid #999;  padding-bottom:10px}
 .mt20{ margin-top:20px;}
 .gh_zw{ width:98%; margin-left:auto; margin-right:auto; overflow:hidden; margin-top:10px; }
-.gh_title{ width:200px; overflow:hidden; height:30px; line-height:30px;}
-.gh_input{ height:28px; border-bottom:1px solid #000000; font-size:14px; line-height:28px; border-top:none; border-left:none;  border-right:none;  text-align:center; }
-.gh_inputmen{ height:28px; border-bottom:none; font-size:14px; line-height:28px; border-top:none; border-left:none;  border-right:none;  text-align:center; }
+.gh_title{ width:150px; overflow:hidden; height:30px; line-height:30px;}
+.gh_input{ height:30px; border-bottom:1px solid #333; font-size:14px; line-height:30px; border-top:none; border-left:none; border-bottom:none; border-right:none; background:url(../images/input_x.jpg) left bottom repeat-x;  text-align:center; }
 .gh_nei{ line-height:30px; font-size:14px; margin-top:20px;}
 .gh_nei2{ line-height:30px; font-size:14px; margin-top:20px;}
 .gh_nei3{ line-height:30px; font-size:14px;}
 
 .gh_input2{ height:30px; border-bottom:1px solid #333; font-size:14px; line-height:30px; border:none; text-align:center;}
-.sq_box{  margin-top:10px; margin-left:auto; margin-right:auto;}
-.sq_title{  font-family:"微软雅黑"; font-size:16px; font-weight:bold; line-height:30px;}
-.sq_box td{ overflow:hidden; font-size:12px; text-align:left; line-height:25px; padding-left:15px;}
-.sq_bd{ border-bottom:1px solid #999;}
-.sq_right{ font-size:12px; padding-left:15px; line-height:25px;}
-.shenfenzheng{ overflow:hidden; border:1px solid #999;}
+.sq_box{  margin-top:10px; border:1px solid #999; margin-left:auto; margin-right:auto;}
+.sq_title{ padding-left:15px; font-family:"微软雅黑"; font-size:18px; font-weight:bold; line-height:30px; border-bottom:1px solid #999;}
+.sq_left{ overflow:hidden; font-size:12px; text-align:left; line-height:28px; padding-left:15px;  border-bottom:1px solid #999;}
+.sq_right{ font-size:12px; padding-left:15px; line-height:28px; border-bottom:1px solid #999; border-right:1px solid #999; border-left:1px solid #999;}
+.shenfenzheng{ overflow:hidden;}
 .shenfenzheng td{  border-right:1px solid #999;}
 .sq_nei{ padding-left:15px; font-size:12px; line-height:25px; overflow:hidden;}
 .h350{ height:350px;}
 .ct{ text-align:center;}
+.sq_input{ height:25px; border-bottom:1px solid #333; font-size:14px; line-height:25px; border-top:none; border-left:none; border-bottom:none; border-right:none; background:url(../images/input_x.jpg) left bottom repeat-x;  text-align:center; margin-bottom:5px;}
 .b_top{ border-top:1px solid #666}
 .h200{ height:250px;}
-.mt50{ margin-top:50px;}
-.sq_input{ height:23px; border-bottom:1px solid #333; font-size:12px; line-height:23px; border-top:none; border-left:none; border-bottom:none; border-right:none; text-align:left; }
-.sfz_input{ height:23px;  font-size:12px; line-height:23px; text-align:center;  border:1px solid #333; margin-left:3px; width:17px;}
-.p10{ padding-bottom:10px;}
-.pt10{ padding-top:10px;}
