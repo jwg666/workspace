@@ -60,10 +60,10 @@ public class FileUploadAction extends BaseAction implements ModelDriven<UploadFi
 	private final Json json = new Json();
 	//文件搜索参数
 	private String fileids;
-	private Integer status;
-	private Integer type;
-	private String filename;
-	private String remarks;
+//	private Integer status;
+//	private Integer type;
+//	private String filename;
+//	private String remarks;
 	//分页参数
 	private long page;
 	private long rows;
@@ -153,10 +153,11 @@ public class FileUploadAction extends BaseAction implements ModelDriven<UploadFi
 			UploadFile uploadFile = null;
 			try {
 				ExecuteResult<UploadFile> result = null;
-				if(StringUtils.isBlank(remarks)){
+				if(StringUtils.isBlank(uploadFileQuery.getRemarks())){
 					result = fileUploadService.fileUpload(upload, uploadFileName,uploadContentType);
 				}else{
-					result = fileUploadService.fileUpload(upload, uploadFileName,uploadContentType,remarks);
+					result = fileUploadService.fileUpload(upload, uploadFileName,uploadContentType,uploadFileQuery.getRemarks()
+							);
 				}
 				if(result.isSuccess()){
 					uploadFile = result.getResult();
@@ -178,10 +179,10 @@ public class FileUploadAction extends BaseAction implements ModelDriven<UploadFi
 			try {
 				String path = "download/template";
 				ExecuteResult<UploadFile> result = null;
-				if(StringUtils.isBlank(remarks)){
+				if(StringUtils.isBlank(uploadFileQuery.getRemarks())){
 					 result = fileUploadService.fileUploadToLocal(upload, path, uploadFileName, uploadContentType);
 				}else{
-					 result = fileUploadService.fileUploadToLocal(upload, path, uploadFileName, uploadContentType, remarks);
+					 result = fileUploadService.fileUploadToLocal(upload, path, uploadFileName, uploadContentType, uploadFileQuery.getRemarks());
 				}
 				if(result.isSuccess()){
 					uploadFile = result.getResult();
@@ -200,7 +201,7 @@ public class FileUploadAction extends BaseAction implements ModelDriven<UploadFi
 	public String updateFile(){
 		if(fileId!=null){
 			String path = "download/template";
-			ExecuteResult<UploadFile> result = fileUploadService.updateUplaodFile(fileId,upload, path, uploadFileName, uploadContentType, remarks);
+			ExecuteResult<UploadFile> result = fileUploadService.updateUplaodFile(fileId,upload, path, uploadFileName, uploadContentType, uploadFileQuery.getRemarks());
 			json.setSuccess(result.isSuccess());
 			json.setObj(result.getErrorMessages());
 		}else{
@@ -277,18 +278,18 @@ public class FileUploadAction extends BaseAction implements ModelDriven<UploadFi
 	public void setFileids(String fileids) {
 		this.fileids = fileids;
 	}
-	public Integer getStatus() {
-		return status;
-	}
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
-	public Integer getType() {
-		return type;
-	}
-	public void setType(Integer type) {
-		this.type = type;
-	}
+//	public Integer getStatus() {
+//		return status;
+//	}
+//	public void setStatus(Integer status) {
+//		this.status = status;
+//	}
+//	public Integer getType() {
+//		return type;
+//	}
+//	public void setType(Integer type) {
+//		this.type = type;
+//	}
 	public long getPage() {
 		return page;
 	}
@@ -301,21 +302,21 @@ public class FileUploadAction extends BaseAction implements ModelDriven<UploadFi
 	public void setRows(long rows) {
 		this.rows = rows;
 	}
-	public String getFilename() {
-		return filename;
-	}
-	public void setFilename(String filename) {
-		this.filename = filename;
-	}
+//	public String getFilename() {
+//		return filename;
+//	}
+//	public void setFilename(String filename) {
+//		this.filename = filename;
+//	}
 	public String getItemCode() {
 		return itemCode;
 	}
 	public void setItemCode(String itemCode) {
 		this.itemCode = itemCode;
 	}
-	public void setRemarks(String remarks) {
-		this.remarks = remarks;
-	}
+//	public void setRemarks(String remarks) {
+//		this.remarks = remarks;
+//	}
 	public void setFileIds(Long[] fileIds) {
 		this.fileIds = fileIds;
 	}

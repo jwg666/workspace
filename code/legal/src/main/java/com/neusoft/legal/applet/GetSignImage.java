@@ -35,7 +35,7 @@ public class GetSignImage extends Applet {
 	public void init() {		
 		setLayout(new BorderLayout());
 		getSignPicButton = new Button();
-		getSignPicButton.setLabel("获取签名");
+		getSignPicButton.setLabel("鑾峰彇绛惧悕");
 		getSignPicButton.addMouseListener(new MouseListener() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -83,10 +83,9 @@ public class GetSignImage extends Applet {
 		BufferedImage image = getImageClipboard();
 		try {
 			
-			String BOUNDARY = java.util.UUID.randomUUID().toString(); // 定义数据分隔线
+			String BOUNDARY = java.util.UUID.randomUUID().toString();
 			URL url = new URL(baseDomain+"/remoting/remoteUpload.servlet");
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-			// 发送POST请求必须设置如下两行
 			conn.setDoOutput(true);
 			conn.setDoInput(true);
 			conn.setUseCaches(false);
@@ -106,8 +105,7 @@ public class GetSignImage extends Applet {
 			sb.append("Content-Type:application/octet-stream\r\n\r\n");
 			byte[] begin_data = sb.toString().getBytes();
 			out.write(begin_data);
-			///生成图片流
-			ByteArrayOutputStream bs = new ByteArrayOutputStream(); 
+			ByteArrayOutputStream bs = new ByteArrayOutputStream();
 			ImageOutputStream imOut = ImageIO.createImageOutputStream(bs); 
 			ImageIO.write(image, "png",imOut);
 			ByteArrayInputStream in = new ByteArrayInputStream(bs.toByteArray());
@@ -116,17 +114,15 @@ public class GetSignImage extends Applet {
 			imOut.close();
 			int bytes = 0;
 			byte[] bufferOut = new byte[1024];
-			///写图片流
 			while ((bytes = in.read(bufferOut)) != -1) {
 				out.write(bufferOut, 0, bytes);
 			}
 			in.close();
-			byte[] end_data = ("\r\n--" + BOUNDARY + "--\r\n").getBytes();// 定义最后数据分隔线
+			byte[] end_data = ("\r\n--" + BOUNDARY + "--\r\n").getBytes();// ??????????????
 			out.write(end_data);
 			out.flush();
 			out.close();
 			
-			// 定义BufferedReader输入流来读取URL的响应
 			int res = conn.getResponseCode();
 			if (res == 200) {
 				InputStream in2 = conn.getInputStream();
@@ -140,7 +136,7 @@ public class GetSignImage extends Applet {
 				return sb2.toString();
 			}
 		} catch (Exception e) {
-			System.out.println("发送POST请求出现异常！" + e);
+			System.out.println("????POST???????????" + e);
 			e.printStackTrace();
 		}
 		return "";

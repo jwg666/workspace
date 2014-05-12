@@ -89,6 +89,10 @@ public class LegalCaseQuery extends  SearchModel<LegalCase> implements Serializa
 	private String month1;
 	private String day1;
 	private String agentWriteName;
+	
+	private Long signId;//签名ＩＤ
+	private Long yinzhId;//印章ＩＤ
+	
 	 /**
      * id
      * @return id
@@ -352,6 +356,18 @@ public class LegalCaseQuery extends  SearchModel<LegalCase> implements Serializa
 	}
 	public void setDay1(String day1) {
 		this.day1 = day1;
+	}
+	public Long getSignId() {
+		return signId;
+	}
+	public void setSignId(Long signId) {
+		this.signId = signId;
+	}
+	public Long getYinzhId() {
+		return yinzhId;
+	}
+	public void setYinzhId(Long yinzhId) {
+		this.yinzhId = yinzhId;
 	}
 	
 }
