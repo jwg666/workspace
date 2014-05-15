@@ -65,6 +65,7 @@ public class LegalCaseAction extends BaseAction implements ModelDriven<LegalCase
     		json.setSuccess(true);
     		json.setObj(legalCaseQuery);
     	}catch(Exception e){
+    		logger.error("加载申请描述信息出现错误",e);
     		json.setMsg("加载申请描述信息出现错误");
     		json.setSuccess(false);
     	}
@@ -75,7 +76,7 @@ public class LegalCaseAction extends BaseAction implements ModelDriven<LegalCase
 	 */
 	public String datagrid() {
 		datagrid = legalCaseService.datagrid(legalCaseQuery);
-		logger.debug(">>>datagrid:"+datagrid.getRows().size());
+//		logger.debug(">>>datagrid:"+datagrid.getRows().size());
 		return "datagrid";
 	}
 	/**
@@ -142,6 +143,7 @@ public class LegalCaseAction extends BaseAction implements ModelDriven<LegalCase
     		json.setMsg("保存成功");
     		json.setObj(legalCaseQuery);
     	}catch(Exception e){
+    		logger.error("存储信息或启动审批流程失败",e);
     		json.setSuccess(false);
     		json.setMsg("存储信息或启动审批流程失败");
     	}

@@ -64,6 +64,7 @@ public class LegalAgentAction extends BaseAction implements ModelDriven<LegalAge
     		json.setSuccess(true);
     		json.setObj(legalAgentQuery);
     	}catch(Exception e){
+    		logger.error("加载代理人信息失败",e);
     		json.setMsg("加载代理人信息失败");
     		json.setSuccess(false);
     	}
@@ -99,6 +100,7 @@ public class LegalAgentAction extends BaseAction implements ModelDriven<LegalAge
 			json.setObj(legalAgentQuery);
 			json.setMsg("添加成功！");
 		}catch(Exception e){
+			logger.error("加载代理人信息失败",e);
 			json.setMsg("保存代理人信息出错");
 			json.setSuccess(false);
 		}
@@ -121,6 +123,7 @@ public class LegalAgentAction extends BaseAction implements ModelDriven<LegalAge
 			json.setObj(legalAgentQuery);
 			json.setMsg("保存成功！");
 		}catch(Exception e){
+			logger.error("加载代理人信息失败",e);
 			json.setMsg("保存代理人信息出错");
 			json.setSuccess(false);
 		}

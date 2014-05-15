@@ -115,6 +115,7 @@ public class LegalApproveAction extends BaseAction implements ModelDriven<LegalA
 			json.setObj(legalApproveQuery);
 			json.setMsg("审核成功！");
 		}catch(Exception e){
+			logger.error("加载代理人信息失败",e);
 			json.setMsg("审核失败");
 			json.setSuccess(false);
 		}
@@ -201,6 +202,7 @@ public class LegalApproveAction extends BaseAction implements ModelDriven<LegalA
 			json.setSuccess(true);
 			json.setMsg("查询成功");
 		}catch(Exception e){
+			logger.error("加载代理人信息失败",e);
 			json.setSuccess(false);
 			json.setMsg("查询数据出错");
 		}

@@ -71,6 +71,7 @@ public class LegalApplicantAction extends BaseAction implements ModelDriven<Lega
     		json.setObj(legalApplicantQuery);
     		json.setSuccess(true);
     	}catch(Exception e){
+    		logger.error("录入申请人信息时出现异常",e);
     		json.setSuccess(false);
     		json.setMsg("加载申请人信息出现错误");
     	}
@@ -81,8 +82,8 @@ public class LegalApplicantAction extends BaseAction implements ModelDriven<Lega
 	 */
 	public String datagrid() {
 		datagrid = legalApplicantService.datagrid(legalApplicantQuery);
-		logger.debug(">>>datagrid:"+datagrid.getRows().size());
-		logger.debug(">>>datagrid:"+datagrid.getTotal());
+//		logger.debug(">>>datagrid:"+datagrid.getRows().size());
+//		logger.debug(">>>datagrid:"+datagrid.getTotal());
 		return "datagrid";
 	}
 	
@@ -108,6 +109,7 @@ public class LegalApplicantAction extends BaseAction implements ModelDriven<Lega
 			json.setMsg("添加成功！");
 			//json.toString();
 		}catch(Exception e){
+			logger.error("录入申请人信息时出现异常",e);
 			json.setSuccess(false);
 			json.setObj(legalApplicantQuery);
 			json.setMsg("录入申请人信息时出现异常！");
@@ -132,6 +134,7 @@ public class LegalApplicantAction extends BaseAction implements ModelDriven<Lega
 			json.setMsg("保存成功！");
 			//json.toString();
 		}catch(Exception e){
+			logger.error("录入申请人信息时出现异常",e);
 			json.setSuccess(false);
 			json.setObj(legalApplicantQuery);
 			json.setMsg("录入申请人信息时出现异常！");
