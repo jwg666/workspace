@@ -99,7 +99,7 @@ public class LegalApplicant  implements java.io.Serializable{
     /**
      * categoryId       db_column: category_id 
      */	
-	private java.lang.String category;
+	private java.lang.Long categoryId;
     /**
      * ifFinancialDifficulty       db_column: if_financial_difficulty 
      */	
@@ -333,16 +333,16 @@ public class LegalApplicant  implements java.io.Serializable{
 	     * categoryId
 	     * @return categoryId
 	     */
-		@Column(name="category")
-		public java.lang.String getCategory() {
-			return this.category;
+		@Column(name="category_id")
+		public java.lang.Long getCategoryId() {
+			return this.categoryId;
 		}
 		/**
 	     * categoryId
 	     * @param categoryId categoryId
 	     */
-		public void setCategory(java.lang.String category) {
-			this.category = category;
+		public void setCategoryId(java.lang.Long categoryId) {
+			this.categoryId = categoryId;
 		}
 		 /**
 	     * ifFinancialDifficulty
