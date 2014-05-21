@@ -46,7 +46,7 @@
     </resources>
     <applet-desc 
          name="getsign"
-         main-class="GetSignImage"
+         main-class="com.neusoft.legal.applet.GetSignImage"
          width="200"
          height="100">
      </applet-desc>
