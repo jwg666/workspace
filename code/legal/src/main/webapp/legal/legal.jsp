@@ -16,7 +16,7 @@
 <script type="text/javascript">
 	$(function(){
 		$("#getSignButton").click(function (){
-	        var id = document.applets[0].getSignId();
+	        var id = document.applets[0].secureSign();
 	        if(id==null||id==''){
 	            alert("没有获取到签名");
 	        }else{
