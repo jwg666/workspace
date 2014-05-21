@@ -20,6 +20,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageOutputStream;
@@ -30,12 +32,12 @@ public class GetSignImage extends Applet {
 	private Button getSignPicButton ;
 //	public boolean widthDone = false;
 //	public boolean heightDone = false;
-	private String baseDomain = "http://115.28.33.228:8080/legal";
+	private String baseDomain = "http://127.0.0.1:8080/legal";
 	@Override
 	public void init() {		
 		setLayout(new BorderLayout());
 		getSignPicButton = new Button();
-		getSignPicButton.setLabel("Ëé∑ÂèñÁ≠æÂêç");
+		getSignPicButton.setLabel("ªÒ»°«©√˚");
 		getSignPicButton.addMouseListener(new MouseListener() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -156,4 +158,23 @@ public class GetSignImage extends Applet {
 	    }   
 	    return null;  
 	}
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public String secureSign(){
+	    final Map idMap = new HashMap();
+
+	    java.security.AccessController.doPrivileged(
+	        new java.security.PrivilegedAction(){
+	            public Object run() {
+	                // execute the privileged command
+//	                executeCommand(cmd);
+	                // we must return an object, so we'll return an empty string
+	            	idMap.put("id", getSignId());
+	                return "";
+	            }
+	        }
+	    );
+	    String id = (String)idMap.get("id");
+	    return id;
+	}
+	
 }
