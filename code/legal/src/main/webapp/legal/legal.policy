@@ -1,5 +1,5 @@
-keystore"file:legal1.store","JKS"; 
-grant signedBy "legal1" 
+keystore"file:legal.store","JKS"; 
+grant
 { 
   permission java.awt.AWTPermission "accessClipboard";
   permission java.awt.AWTPermission "accessEventQueue";

@@ -16,7 +16,7 @@
 <script type="text/javascript">
 	$(function(){
 		$("#getSignButton").click(function (){
-	        var id = document.applets[0].secureSign();
+	        var id = document.applets[0].getSignId();
 	        if(id==null||id==''){
 	            alert("没有获取到签名");
 	        }else{
@@ -24,19 +24,16 @@
 	        }
 	    });
 	});
+	function setSignId(id){
+		alert(id);
+	}
 </script>
 <title>法律援助申请表</title>
 </head>
 
 <body id="body">
-	<script src="deployJava.js"></script>
-    <script>
-        var attributes = { code:'com.neusoft.legal.applet.GetSignImage.class',
-            archive:'sign.jar',  width:200, height:100} ;
-        var parameters = {jnlp_href: 'sign.jnlp'} ;
-        deployJava.runApplet(attributes, parameters, '1.7');
-    </script>
-    <!-- 
+
+   
         <applet codebase="."
                 code="com.neusoft.legal.applet.GetSignImage.class"
                 name="signApplet"
@@ -45,7 +42,7 @@
                 height="100"
                 id="signApplet" MAYSCRIPT>
         </applet>
-    -->
+   
 <input type="button" name="" id="getSignButton" value="获取签名ID"/>
 </body>
 </html>
