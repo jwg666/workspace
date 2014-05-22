@@ -97,6 +97,7 @@ public class LegalCase  implements java.io.Serializable{
 	private String agentWriteName;
 	private Long signId;//签名ＩＤ
 	private Long yinzhId;//印章ＩＤ
+	private Long agentSignId;//代理签名ID
 	public LegalCase(){
 	}
 
@@ -371,6 +372,15 @@ public class LegalCase  implements java.io.Serializable{
 
 		public void setYinzhId(Long yinzhId) {
 			this.yinzhId = yinzhId;
+		}
+		
+		@Column(name="agent_sign_id")
+		public Long getAgentSignId() {
+			return agentSignId;
+		}
+
+		public void setAgentSignId(Long agentSignId) {
+			this.agentSignId = agentSignId;
 		}
 
 		public String toString() {
