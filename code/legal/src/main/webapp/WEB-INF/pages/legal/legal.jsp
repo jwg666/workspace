@@ -17,6 +17,8 @@
 var applicantid='${applicantId}';
 var agentid='${agentId}';
 var caseId='${caseId}';
+var signId;
+var agentSignId;
 $(function(){
 	$("#applicantnationId").combobox({
 	    url:'../basic/dictionaryAction!combox.do?parentCode=3',
@@ -29,7 +31,9 @@ $(function(){
         if(id==null||id==''){
             alert("没有获取到签名");
         }else{
-            alert(id);
+        	//$("#signId").val(id);
+            //alert(id);
+        	signId = id;
         }
     });
 });
@@ -358,7 +362,9 @@ function submitLegalCase(){
 					description:description,
 					legalCode:legalCode,
 					legalWord:legalWord,
-					legalNo:legalNo
+					legalNo:legalNo,
+					signId:signId,
+					agentSignId:agentSignId
 				},
 				success:function(data){
 					if(data.success){
@@ -404,7 +410,9 @@ function submitLegalCaseqidong(){
 					description:description,
 					legalCode:legalCode,
 					legalWord:legalWord,
-					legalNo:legalNo
+					legalNo:legalNo,
+					signId:signId,
+					agentSignId:agentSignId
 				},
 				success:function(data){
 					if(data.success){
@@ -654,7 +662,9 @@ function setkey2(str){
     <td colspan="8" class="sq_nei">本人承诺以上所填内容和提交的证件、证明均真实。</td>
   </tr>
   <tr>
-    <td colspan="4" class="sq_nei"></td>
+    <td colspan="4" class="sq_nei">
+    	<input type="button" name="" id="getSignButton" value="确认签名"/>
+    </td>
     <td colspan="4" class="sq_nei">申请人（签字）：
         <applet codebase="."
                 code="com.neusoft.legal.applet.GetSignImage.class"
@@ -664,6 +674,7 @@ function setkey2(str){
                 height="100"
                 id="signApplet" MAYSCRIPT>
         </applet>
+        <img id="applicantSignId" width="0" height="0"></img>
     </td>
   </tr>
   <tr>
@@ -692,6 +703,6 @@ function setkey2(str){
     </td>
   </tr>
 </table>
-<input type="button" name="" id="getSignButton" value="获取签名ID"/>
+
 </body>
 </html>
