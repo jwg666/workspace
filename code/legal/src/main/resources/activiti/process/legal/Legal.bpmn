@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test">
+  <process id="LegalAidProcessNew" name="新法律援助流程" isExecutable="true">
+    <startEvent id="startevent1" name="Start"></startEvent>
+    <userTask id="caseApprove" name="案件审核" activiti:candidateGroups="CaseApprover">
+      <extensionElements>
+        <activiti:taskListener event="create" class="com.neusoft.activiti.listener.legal.CaseApproveListener"></activiti:taskListener>
+      </extensionElements>
+    </userTask>
+    <userTask id="asignLegalOffice" name="指派律师事务所" activiti:candidateGroups="asignLegalOffice">
+      <extensionElements>
+        <activiti:taskListener event="create" class="com.neusoft.activiti.listener.legal.AsignLegalOfficeListener"></activiti:taskListener>
+      </extensionElements>
+    </userTask>
+    <userTask id="accessCase" name="事务所接收案件" activiti:assignee="${LegalOfficer}">
+      <extensionElements>
+        <activiti:taskListener event="create" class="com.neusoft.activiti.listener.legal.AccessCaseListener"></activiti:taskListener>
+      </extensionElements>
+    </userTask>
+    <userTask id="endCase" name="结案" activiti:assignee="${LegalOfficer}">
+      <extensionElements>
+        <activiti:taskListener event="create" class="com.neusoft.activiti.listener.legal.EndCaseListener"></activiti:taskListener>
+      </extensionElements>
+    </userTask>
+    <endEvent id="endevent1" name="End"></endEvent>
+    <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="caseApprove"></sequenceFlow>
+    <sequenceFlow id="flow2" sourceRef="caseApprove" targetRef="asignLegalOffice"></sequenceFlow>
+    <sequenceFlow id="flow3" sourceRef="asignLegalOffice" targetRef="accessCase"></sequenceFlow>
+    <sequenceFlow id="flow4" sourceRef="accessCase" targetRef="endCase"></sequenceFlow>
+    <sequenceFlow id="flow5" sourceRef="endCase" targetRef="endevent1"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_LegalAidProcessNew">
+    <bpmndi:BPMNPlane bpmnElement="LegalAidProcessNew" id="BPMNPlane_LegalAidProcessNew">
+      <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
+        <omgdc:Bounds height="35.0" width="35.0" x="30.0" y="60.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="caseApprove" id="BPMNShape_caseApprove">
+        <omgdc:Bounds height="55.0" width="105.0" x="100.0" y="50.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="asignLegalOffice" id="BPMNShape_asignLegalOffice">
+        <omgdc:Bounds height="55.0" width="105.0" x="250.0" y="50.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="accessCase" id="BPMNShape_accessCase">
+        <omgdc:Bounds height="55.0" width="105.0" x="400.0" y="50.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="endCase" id="BPMNShape_endCase">
+        <omgdc:Bounds height="55.0" width="105.0" x="540.0" y="50.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="endevent1" id="BPMNShape_endevent1">
+        <omgdc:Bounds height="35.0" width="35.0" x="680.0" y="60.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
+        <omgdi:waypoint x="65.0" y="77.0"></omgdi:waypoint>
+        <omgdi:waypoint x="100.0" y="77.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
+        <omgdi:waypoint x="205.0" y="77.0"></omgdi:waypoint>
+        <omgdi:waypoint x="250.0" y="77.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_flow3">
+        <omgdi:waypoint x="355.0" y="77.0"></omgdi:waypoint>
+        <omgdi:waypoint x="400.0" y="77.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow4" id="BPMNEdge_flow4">
+        <omgdi:waypoint x="505.0" y="77.0"></omgdi:waypoint>
+        <omgdi:waypoint x="540.0" y="77.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow5" id="BPMNEdge_flow5">
+        <omgdi:waypoint x="645.0" y="77.0"></omgdi:waypoint>
+        <omgdi:waypoint x="680.0" y="77.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
