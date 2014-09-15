@@ -176,16 +176,20 @@ public class ResourceInfoDAO extends HBaseDAO<ResourceInfo>{
 	}
 
 	public List<ResourceInfo> findList(ResourceInfoQuery resourceInfoQuery) {
-		String hql = " from ResourceInfo r1 where exists( from  RoleResource r2 where r1.id=r2.resourceId and  exists( from UserRole u where r2.roleId=u.roleId and u.userId=?))";
-		List<Object> list=new ArrayList<Object>();
-		list.add(resourceInfoQuery.getMemberId());
-		if(0!=resourceInfoQuery.getId()){
-			hql+=" AND r1.id=?";
-			list.add(resourceInfoQuery.getId());
-		}
-		Object[] obj=list.toArray();
-		return findList(hql, obj);
-//		Map map = ConverterUtil.toHashMap(resourceInfoQuery);
+//		String hql = " from ResourceInfo r1 where exists( from  RoleResource r2 where r1.id=r2.resourceId and  exists( from UserRole u where r2.roleId=u.roleId and u.userId=?))";
+//		String hql = " from ResourceInfo r where r.parentId=?";
+//		List<Object> list=new ArrayList<Object>();
+//		list.add(resourceInfoQuery.getMemberId());
+//		if(null!=resourceInfoQuery.getId()&&0!=resourceInfoQuery.getId()){
+//			hql+=" AND r1.id=?";
+//			list.add(resourceInfoQuery.getId());
+//		}
+//		Object[] obj=list.toArray();
+//		Object[] obj = new Object[1];
+//		obj[0] = 0L;
+		
+		Map map = ConverterUtil.toHashMap(resourceInfoQuery);
+		return findList(ResourceInfo.class, map);
 //		int begin = (resourceInfoQuery.getPage().intValue()-1)*resourceInfoQuery.getRows().intValue();
 //		List<ResourceInfo> resourceList = findList(ResourceInfo.class, map, begin, resourceInfoQuery.getRows().intValue());
 //		for (ResourceInfo resourceInfo : resourceList) {
