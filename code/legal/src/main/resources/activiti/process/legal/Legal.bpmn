@@ -7,7 +7,7 @@
         <activiti:taskListener event="create" class="com.neusoft.activiti.listener.legal.CaseApproveListener"></activiti:taskListener>
       </extensionElements>
     </userTask>
-    <userTask id="asignLegalOffice" name="指派律师事务所" activiti:candidateGroups="asignLegalOffice">
+    <userTask id="asignLegalOffice" name="指派律师事务所" activiti:candidateGroups="LegalOfficeAsigner">
       <extensionElements>
         <activiti:taskListener event="create" class="com.neusoft.activiti.listener.legal.AsignLegalOfficeListener"></activiti:taskListener>
       </extensionElements>
