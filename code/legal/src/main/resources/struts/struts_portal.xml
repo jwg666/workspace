@@ -56,6 +56,10 @@
 				<param name="root">data</param>
 				<param name="excludeProperties"></param>
 			</result>
+			<result type="json" name="list">
+				<param name="root">list</param>
+				<param name="excludeProperties"></param>
+			</result>
 		</action>
 		<!-- 上传 -->
 		<action name="uploadImg" class="com.neusoft.portal.action.PortalAction" method="uploadImg">

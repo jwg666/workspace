@@ -25,6 +25,10 @@
 				<param name="root">datagrid</param>
 				<param name="excludeProperties"></param> 
 			</result>
+			<result type="json" name="list">
+				<param name="root">list</param>
+				<param name="excludeProperties"></param> 
+			</result>
 			<result type="json" name="resourceInfoList">
 				<param name="root">resourceInfoList</param>
 				<param name="excludeProperties"></param> 
