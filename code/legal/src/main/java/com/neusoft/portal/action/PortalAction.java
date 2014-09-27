@@ -372,33 +372,36 @@ public class PortalAction extends BaseAction {
 	}
 	//应用市场
 	public String appmarket(){
-		
+		Long userId= LoginContextHolder.get().getUserId();
 		if("getList".equals(ac)){
-			Pager<ResourceInfo> pager = null;
 			Member member = memberService.getCurMember();
 			MemberAppQuery memberAppQuery = new MemberAppQuery();
 			memberAppQuery.setMemberId(member.getTbid());
-			if(apptype!=null && -1 == apptype.intValue()){//我的应用
-				memberAppQuery.setPage(page);
-				memberAppQuery.setRows(rows);
-				memberAppQuery.setName(keyword);
-				data = memberAppService.datagrid(memberAppQuery);
-			}else{//通过tab加载子应用
-				pager = new Pager<ResourceInfo>();
-				pager.setCurrentPage(page);
-				pager.setPageSize(rows);
-				ResourceInfoQuery res = new ResourceInfoQuery();
-				res.setName(keyword);
-				if(apptype!=null){
-					res.setId(Long.valueOf(apptype));
-				}				
-				res.setMemberId(member.getTbid());
-				data = resourceInfoService.datagrid(res);
+			list = new ArrayList<Map<String,Object>>();
+			if(id.longValue()>-1){
+				resourceInfoList = resourceInfoService.getChilden(id.longValue(),userId);
+				for(ResourceInfo r :resourceInfoList){
+					Map<String,Object> m= new HashMap<String, Object>();
+					m.put("resource", r);
+					memberAppQuery.setRealid(r.getId());
+					List<MemberAppQuery> l = memberAppService.listAll(memberAppQuery);
+					if(l!=null && l.size()>0){
+						m.put("app", l.get(0));
+					}
+					list.add(m);
+				}
+			}else{
+				List<MemberAppQuery> l = memberAppService.listAll(memberAppQuery);
+				for(MemberAppQuery a :l){
+					Map<String,Object> m= new HashMap<String, Object>();
+					m.put("app", a);
+					list.add(m);
+				}
 			}
-			return "json";
+			return "list";
 		}else{
 			List<ResourceInfo> rs = resourceInfoService.getUserDisplayResourceInfo();
-			for(ResourceInfo r:rs){
+			/*for(ResourceInfo r:rs){
 				if(r.getId().compareTo(r.getParentId())==0){
 					r.setParentId(Long.valueOf(0));
 				}
@@ -411,7 +414,10 @@ public class PortalAction extends BaseAction {
 			myRes.setId(Long.valueOf(-1));
 			myRes.setParentId(Long.valueOf(-1));
 			myRes.setName("我的应用");
-			rs.add(myRes);
+			rs.add(myRes);*/
+			for(ResourceInfo resourceInfo:rs){
+				resourceInfo.setChildren(null);
+			}
 			appmarketLeftTree = JSONArray.fromObject(rs);
 			return SUCCESS;
 		}

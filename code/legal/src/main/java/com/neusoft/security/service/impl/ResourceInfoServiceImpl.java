@@ -134,9 +134,9 @@ public class ResourceInfoServiceImpl implements ResourceInfoService {
 			return executeResult;
 		}
 		//无子资源
-		List<ResourceInfo> children = resourceInfoDAO.getChildren(resourceInfoId);
-		if(!children.isEmpty()){
-			executeResult.addErrorMessage("该资源下有"+children.size()+"个子资源，不能删除。");
+		//List<ResourceInfo> children = resourceInfoDAO.getChildren(resourceInfoId);
+		if(!resourceInfo.getChildren().isEmpty()){
+			executeResult.addErrorMessage("该资源下有子资源，不能删除。");
 			return executeResult;
 		}
 		resourceInfoDAO.delete(resourceInfo);
@@ -156,6 +156,13 @@ public class ResourceInfoServiceImpl implements ResourceInfoService {
 		initLocalMsg(resourceInfos);
 		return resourceInfos;
 	}
+	
+	@Override
+	public List<ResourceInfo> getChilden(Long resourceInfoId,Long userId) {
+		String hql = " from ResourceInfo r1 where exists( from  RoleResource r2 where r1.id=r2.resourceId and  exists( from UserRole u where r2.roleId=u.roleId and u.userId=?)) and r1.parentId = ? ";
+		return resourceInfoDAO.findList(hql, new Object[]{userId,resourceInfoId});
+	}
+	
 
 	@Override
 	public LinkedList<ResourceInfo> getParentsChain(Long ResourceInfoId) {
@@ -197,6 +204,12 @@ public class ResourceInfoServiceImpl implements ResourceInfoService {
 		initLocalMsg(ResourceInfos);
 		return ResourceInfos;
 	}
+	@Override
+	public List<ResourceInfo> getAll(ResourceInfoQuery resourceInfoQuery) {
+		List<ResourceInfo> ResourceInfos  = resourceInfoDAO.findList("from ResourceInfo");
+		initLocalMsg(ResourceInfos);
+		return ResourceInfos;
+	}
 
 	@Override
 	public List<ResourceInfo> getUserDisplayedURLResourceInfos(Long userId,String moduleName) {  
@@ -224,7 +237,7 @@ public class ResourceInfoServiceImpl implements ResourceInfoService {
 	public DataGrid datagrid(ResourceInfoQuery resourceInfoQuery) {
 		DataGrid j = new DataGrid();
 		List<ResourceInfo> resourceInfos = resourceInfoDAO.findList(resourceInfoQuery);
-		Long count =(long) resourceInfos.size(); //resourceInfoDAO.getTotalCount(resourceInfoQuery);
+		Long count =(long) resourceInfos.size();
 		initLocalMsg(resourceInfos);
 		j.setRows(resourceInfos);
 		j.setTotal(count);

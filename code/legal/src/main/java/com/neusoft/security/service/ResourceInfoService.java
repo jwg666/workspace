@@ -127,5 +127,9 @@ public interface ResourceInfoService {
 	public List<ResourceInfo> getParentResourceInfoTask(Long userId); 
 	public List<ResourceInfo> getDescendantsTask(Long userId,Long parentId);
 
-	public Long saveOrUpdate(ResourceInfoQuery resourceInfoQuery); 
+	public Long saveOrUpdate(ResourceInfoQuery resourceInfoQuery);
+
+	List<ResourceInfo> getAll(ResourceInfoQuery resourceInfoQuery);
+
+	List<ResourceInfo> getChilden(Long resourceInfoId, Long userId); 
 }

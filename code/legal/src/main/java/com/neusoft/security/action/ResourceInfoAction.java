@@ -1,5 +1,8 @@
 package com.neusoft.security.action;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.context.annotation.Scope;
@@ -19,7 +22,7 @@ public class ResourceInfoAction extends BaseSecurityAction implements ModelDrive
 	private ResourceInfoService resourceInfoService;
 	private String state;
 	private ResourceInfoQuery resourceInfoQuery = new ResourceInfoQuery();
-	
+	private List<ResourceInfo> list  = new ArrayList<ResourceInfo>();
 	
 	public String goResourceInfo(){
 		return "goResourceInfo";
@@ -50,6 +53,13 @@ public class ResourceInfoAction extends BaseSecurityAction implements ModelDrive
 		
 		return "json";
 	}
+	public String findAll(){
+		list = resourceInfoService.getAll(resourceInfoQuery);
+		for(ResourceInfo resourceInfo:list){
+			resourceInfo.setChildren(null);
+		}
+		return "list";
+	}
 	@Override
 	public ResourceInfoQuery getModel() {
 		return resourceInfoQuery;
@@ -60,5 +70,9 @@ public class ResourceInfoAction extends BaseSecurityAction implements ModelDrive
 	public void setState(String state) {
 		this.state = state;
 	}
+	public List<ResourceInfo> getList() {
+		return list;
+	}
+	
 	
 }
