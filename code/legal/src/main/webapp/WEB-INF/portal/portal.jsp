@@ -146,17 +146,17 @@
 								</li>
 							<!-- 待办列表demo end-->
 								<!-- 待办列表start -->
-								<s:iterator value="%{resourceList}" id='res' status='status'> 
+								<s:iterator value="%{resourceInfoList}" id='res' status='status'> 
 								    <s:if test="#status.Last"> 
-								    <li class="last-li"  src="${dynamicURL}<s:property value='url'/>"  resName="<s:property value='localName'/>" resIcon="<s:property value='icon'/>" resH="<s:property value='height'/>"  resW="<s:property value='width'/>" resid="<s:property value='id'/>"  id="resource_<s:property value='id'/>" >
+								    <li class="last-li"  src="${dynamicURL}<s:property value='url'/>"  resName="<s:property value='name'/>" resIcon="<s:property value='icon'/>" resH="<s:property value='height'/>"  resW="<s:property value='width'/>" resid="<s:property value='id'/>"  id="resource_<s:property value='id'/>" >
 								    </s:if> 
 								    <s:else>
-								    <li  src="${dynamicURL}<s:property value='url'/>" resName="<s:property value='localName'/>" resIcon="<s:property value='icon'/>" resH="<s:property value='height'/>"  resW="<s:property value='width'/>" resid="<s:property value='id'/>"  id="resource_<s:property value='id'/>">
+								    <li  src="${dynamicURL}<s:property value='url'/>" resName="<s:property value='name'/>" resIcon="<s:property value='icon'/>" resH="<s:property value='height'/>"  resW="<s:property value='width'/>" resid="<s:property value='id'/>"  id="resource_<s:property value='id'/>">
 								    </s:else>
 								    <div class="main-content-navi-icon"><img width="35px" height="35px" src="${dynamicURL}/portal/fileUploadAction/downloadImage.do?fileId=<s:property value='iconUrl'/>" />
 										<div class="live-tip no-background-image"></div>
 									</div>
-									<div class="main-content-navi-icontext"><s:property value='localName'/></div>
+									<div class="main-content-navi-icontext"><s:property value='name'/></div>
 									<div class="navi-selected-icon"></div>
 									</li>
 								</s:iterator> 
