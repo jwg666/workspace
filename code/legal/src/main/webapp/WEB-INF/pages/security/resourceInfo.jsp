@@ -13,28 +13,24 @@
 	var editId;
 	var types = [  
 	       {typeId:0,typeName:'应用资源'},  
-	       {typeId:1,typeName:'待办任务'},  
-	       {typeId:2,typeName:'其它'}  
+	       {typeId:1,typeName:'桌面组件'},  
+	       {typeId:2,typeName:'待办'}  
 	 ];
 
 
 	$(function(){
 		treegrid = $("#treegrid").treegrid({
-		    url:'resourceInfo!treegrid.do',
-		    queryParams: {parentId:'0'},
+			loadFilter:function(data){
+				return buildTree(data,"parentId","id","name");
+			},
+		    url:'resourceInfo!findAll.do',
 		    idField:'id',
 		    treeField:'name',
 		    rownumbers: true,
 			animate:true,
 			collapsible:true,
 			fitColumns:true,
-			showFooter:true,
-			pagination : true,
-			pagePosition : 'bottom',
-			pageSize : 10,
-			pageList : [ 10, 20, 30, 40 ],			
-			sortName : 'id',
-			sortOrder : 'desc',
+			fit:true,
 		    columns:[[	
 				{field:'ck',checkbox:true,
 					formatter:function(value,row,index){
@@ -42,8 +38,9 @@
 					}
 				},
 				{field:'id',title:'ID',width:20},
-		        {field:'name',title:'名称',width:100,editor:'text'},
+		        {field:'name',title:'名称',width:100,editor:{type:'text',options:{ required:true}}},
 		        {field:'url',title:'URL',width:200,editor:'text'},
+		        {field:'code',title:'CODE',width:200,editor:{type:'text',options:{required:true}}},
 		        {field:'type',title:'类型',width:200,
 		        	editor:{type:'combobox',options:{valueField:'typeId',textField:'typeName',data:types}},
 			        formatter:function(value,row,index){
@@ -51,7 +48,6 @@
 			        	          if (types[i].typeId == value){
 			        	        	  return types[i].typeName; 
 			        	          } 
-			        	        	   
 			        	   }  
 			        	   return types[0].typeName;        
 					},
@@ -85,15 +81,14 @@
 		              beforEditRow(row);//这里是功能实现的主要步骤和代码  
 		    },
 		    onAfterEdit:function(row,changes){  
-		        //var rowId = row.id; 
-		      
-		        $.ajax({  
-		             url:"resourceInfo!save.do" ,  
-		             data: row,  
-		             success: function(text){  
-		            	$.messager.alert('提示信息',text.msg,'info');    
-		             }  
-		        }); 
+		    	  $.ajax({  
+			             url:"resourceInfo!save.do" ,  
+			             data: row,  
+			             success: function(text){  
+			            	$.messager.alert('提示信息',text.msg,'info'); 
+			            	treegrid.treegrid('reload');
+			             }  
+			        }); 
 		    }
 		});
 	});
@@ -105,24 +100,22 @@
 			$('#treegrid').treegrid('select', editId);
 			return;
 		}
+		var node = $('#treegrid').treegrid('getSelected');
 	    $.ajax({  
              url:"resourceInfo!save.do" ,  
-             data: [{
-            	 name:"新建记录"
-             }],  
+             data:{name:"新建记录",parentId:node.id},  
              success: function(response){  
             	 if(response.success){
-            		 var node = $('#treegrid').treegrid('getSelected');
              		 $('#treegrid').treegrid('append',{
-             			parent: node.id,
+             			parent: response.obj.parentId,
              			data: [{	
-             				parentId:node.id,
-             				name:"请填写名称",
-             				id:response.id
+             				parentId:response.obj.parentId,
+             				name:response.obj.name,
+             				id:response.obj.id
              			}]
              		 });
-             		 lastIndex = response.id;
-             		 $('#treegrid').treegrid('beginEdit', response.id);    
+             		 lastIndex = response.obj.id;
+             		 $('#treegrid').treegrid('beginEdit', response.obj.id);    
             	 }else{
             		 $.messager.alert('错误信息',response,'error');
             	 }
@@ -135,19 +128,39 @@
 			$('#treegrid').treegrid('select', editId);
 			return;
 		}
-		var node = $('#treegrid').treegrid('getSelected');
-		$.ajax({  
-            url:"resourceInfo!delete.do" ,  
-            data: [{
-           	 id:node.id
-            }], 
-        });
+		var node = treegrid.treegrid('getSelected');
+		if(node){
+			$.ajax({  
+	            url:"resourceInfo!delete.do" ,  
+	            data: {id:node.id},
+	            success: function(text){  
+	            	treegrid.treegrid('reload');
+	             }  
+	        });	
+		}
 	}
+	function buildTree(data,parentField,idField,textFiled){
+        var i, l, treeData = [], tmpMap = [];
+        for (i = 0, l = data.length; i < l; i++) {
+            tmpMap[data[i][idField]] = data[i];
+            data[i]['text'] = data[i][textFiled];
+        }
+        for (i = 0, l = data.length; i < l; i++) {
+            if (tmpMap[data[i][parentField]] && data[i][idField] != data[i][parentField]) {
+                if (!tmpMap[data[i][parentField]]['children']){
+                    tmpMap[data[i][parentField]]['children'] = [];
+                }
+                tmpMap[data[i][parentField]]['children'].push(data[i]);
+            } else {
+                treeData.push(data[i]);
+            }
+        }
+        return treeData;
+    }
 </script>
 </head>
-<body class="easyui-layout">
-	
-	<div region="center" border="false">
+<body class="easyui-layout"  data-options="fit:true">
+	<div region="center" border="false" >
 		<table id="treegrid"></table>
 	</div>
 	<div id="menu" class="easyui-menu" style="width:120px;">

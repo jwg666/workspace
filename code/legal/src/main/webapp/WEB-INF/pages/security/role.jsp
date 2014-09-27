@@ -36,12 +36,12 @@
 							return row.id;
 						}
 					},
-				{field:'name',title:'角色名称',align:'center',sortable:true,
+				{field:'name',title:'角色名称',align:'center',sortable:true,width:50,
 					formatter:function(value,row,index){
 						return '<a style="color: blue;" href="${dynamicURL}/security/roleAction!updateRole.do?roleId='+row.id+'">'+row.name+'</a>';
 					}
 				},
-			   {field:'description',title:'角色描述',align:'center',sortable:true,
+			   {field:'description',title:'角色描述',align:'center',sortable:true,width:100,
 					formatter:function(value,row,index){
 						return row.description;
 					}
