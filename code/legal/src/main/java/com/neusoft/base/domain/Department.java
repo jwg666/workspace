@@ -5,17 +5,25 @@
 
 package com.neusoft.base.domain;
 
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
-
-import com.neusoft.base.common.DateUtils;
 
 @Entity
 @Table(name = "CD_DEPARTMENT")
@@ -46,9 +54,15 @@ public class Department  implements java.io.Serializable{
      */	
 	private java.lang.String name;
     /**
-     * parentId       db_column: parent_id 
+     * parent       db_column: parent_id 
      */	
-	private java.lang.Long parentId;
+
+	private Department parent;
+//	@OneToMany(targetEntity=Department.class,cascade=CascadeType.ALL)
+//	@Fetch(FetchMode.JOIN)
+//	//updatable=false很关键，如果没有它，在级联删除的时候就会报错(反转的问题)
+//	@JoinColumn(name="parent_id",updatable=false)
+//	private Set<Department> children = new HashSet<Department>();
     /**
      * createTime       db_column: create_time 
      */	
@@ -85,6 +99,10 @@ public class Department  implements java.io.Serializable{
      * email       db_column: email 
      */	
 	private java.lang.String email;
+	
+	private Long lastUpdBy;
+	
+	private Date lastUpdTime;
 	//columns END
 
 	public Department(){
@@ -132,18 +150,18 @@ public class Department  implements java.io.Serializable{
 	     * parentId
 	     * @return parentId
 	     */
-		@Column(name="parent_id")
-		public java.lang.Long getParentId() {
-			return this.parentId;
-		}
-		/**
-	     * parentId
-	     * @param parentId parentId
-	     */
-		public void setParentId(java.lang.Long parentId) {
-			this.parentId = parentId;
-		}
-	
+//		@Column(name="parent_id")
+//		public java.lang.Long getParentId() {
+//			return this.parentId;
+//		}
+//		/**
+//	     * parentId
+//	     * @param parentId parentId
+//	     */
+//		public void setParentId(java.lang.Long parentId) {
+//			this.parentId = parentId;
+//		}
+		
 		 /**
 	     * createTime
 	     * @return createTime
@@ -152,6 +170,17 @@ public class Department  implements java.io.Serializable{
 		public java.util.Date getCreateTime() {
 			return this.createTime;
 		}
+		//多对一，@JoinColumn与@column类似，指定映射的数据库字段
+		@ManyToOne(targetEntity = Department.class)
+		@JoinColumn(name="parent_id",updatable=false)
+		public Department getParent() {
+			return parent;
+		}
+
+		public void setParent(Department parent) {
+			this.parent = parent;
+		}
+
 		/**
 	     * createTime
 	     * @param createTime createTime
@@ -278,6 +307,22 @@ public class Department  implements java.io.Serializable{
 	     */
 		public void setEmail(java.lang.String email) {
 			this.email = email;
+		}
+		@Column(name="last_upd_by")
+		public Long getLastUpdBy() {
+			return lastUpdBy;
+		}
+
+		public void setLastUpdBy(Long lastUpdBy) {
+			this.lastUpdBy = lastUpdBy;
+		}
+		@Column(name="last_upd_time")
+		public Date getLastUpdTime() {
+			return lastUpdTime;
+		}
+
+		public void setLastUpdTime(Date lastUpdTime) {
+			this.lastUpdTime = lastUpdTime;
 		}
 
 	public String toString() {

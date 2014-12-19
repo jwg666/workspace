@@ -151,7 +151,7 @@ public class LegalCaseServiceImpl implements LegalCaseService{
 		Map<String, Object> variables = new HashMap<String, Object>();
 		variables.put("businformId", legalCaseQuery.getId().toString());
 		variables.put("businformType", "LE_LEGAL_CASE");
-		runtimeService.startProcessInstanceByKey("LegalAidProcess", variables);		
+		runtimeService.startProcessInstanceByKey("LegalAidProcessNew", variables);		
 	}
 	
 	@Override

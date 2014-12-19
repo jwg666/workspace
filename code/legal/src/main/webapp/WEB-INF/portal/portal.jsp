@@ -146,6 +146,7 @@
 								</li>
 							<!-- 待办列表demo end-->
 								<!-- 待办列表start -->
+								<!-- 
 								<s:iterator value="%{resourceInfoList}" id='res' status='status'> 
 								    <s:if test="#status.Last"> 
 								    <li class="last-li"  src="${dynamicURL}<s:property value='url'/>"  resName="<s:property value='name'/>" resIcon="<s:property value='icon'/>" resH="<s:property value='height'/>"  resW="<s:property value='width'/>" resid="<s:property value='id'/>"  id="resource_<s:property value='id'/>" >
@@ -160,6 +161,7 @@
 									<div class="navi-selected-icon"></div>
 									</li>
 								</s:iterator> 
+								 -->
 								<!--待办列表end  -->
 							</ul>
 						</div>

@@ -6,6 +6,7 @@
 package com.neusoft.base.query;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
@@ -46,7 +47,8 @@ public class DepartmentQuery extends  SearchModel<Department> implements Seriali
 	  /**
      * parentId       db_column: parent_id 
      */	
-	private java.lang.Long parentId;
+//	private java.lang.Long parentId;
+	private Department parent;
 	  /**
      * createTime       db_column: create_time 
      */	
@@ -83,6 +85,10 @@ public class DepartmentQuery extends  SearchModel<Department> implements Seriali
      * email       db_column: email 
      */	
 	private java.lang.String email;
+	
+	private Long lastUpdBy;
+	
+	private Date lastUpdTime;
 
 	 /**
      * id
@@ -118,16 +124,16 @@ public class DepartmentQuery extends  SearchModel<Department> implements Seriali
      * parentId
      * @return parentId
      */
-	public java.lang.Long getParentId() {
-		return this.parentId;
-	}
+//	public java.lang.Long getParentId() {
+//		return this.parentId;
+//	}
 	 /**
      * parentId
      * @param parentId parentId
      */
-	public void setParentId(java.lang.Long parentId) {
-		this.parentId = parentId;
-	}
+//	public void setParentId(java.lang.Long parentId) {
+//		this.parentId = parentId;
+//	}
 	
 	 /**
      * createTime
@@ -263,8 +269,28 @@ public class DepartmentQuery extends  SearchModel<Department> implements Seriali
 	public void setEmail(java.lang.String email) {
 		this.email = email;
 	}
+
 	
 
+	public Long getLastUpdBy() {
+		return lastUpdBy;
+	}
+	public void setLastUpdBy(Long lastUpdBy) {
+		this.lastUpdBy = lastUpdBy;
+	}
+	public Date getLastUpdTime() {
+		return lastUpdTime;
+	}
+	public void setLastUpdTime(Date lastUpdTime) {
+		this.lastUpdTime = lastUpdTime;
+	}
+	
+	public Department getParent() {
+		return parent;
+	}
+	public void setParent(Department parent) {
+		this.parent = parent;
+	}
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this,ToStringStyle.MULTI_LINE_STYLE);
 	}

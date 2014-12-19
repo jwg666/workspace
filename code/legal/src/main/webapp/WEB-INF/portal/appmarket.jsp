@@ -51,7 +51,7 @@ var setting = {
 		data: {
 			simpleData: {
 				enable: true,
-				pIdKey: "parentId",
+				pIdKey: "parentId"
 			},
 			key: {
 				title:"description"

@@ -24,10 +24,12 @@
     </userTask>
     <endEvent id="endevent1" name="End"></endEvent>
     <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="caseApprove"></sequenceFlow>
-    <sequenceFlow id="flow2" sourceRef="caseApprove" targetRef="asignLegalOffice"></sequenceFlow>
+    <sequenceFlow id="flow2" sourceRef="caseApprove" targetRef="usertask2"></sequenceFlow>
     <sequenceFlow id="flow3" sourceRef="asignLegalOffice" targetRef="accessCase"></sequenceFlow>
     <sequenceFlow id="flow4" sourceRef="accessCase" targetRef="endCase"></sequenceFlow>
     <sequenceFlow id="flow5" sourceRef="endCase" targetRef="endevent1"></sequenceFlow>
+    <userTask id="usertask2" name="案件审批"></userTask>
+    <sequenceFlow id="flow6" sourceRef="usertask2" targetRef="asignLegalOffice"></sequenceFlow>
   </process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_LegalAidProcessNew">
     <bpmndi:BPMNPlane bpmnElement="LegalAidProcessNew" id="BPMNPlane_LegalAidProcessNew">
@@ -38,16 +40,19 @@
         <omgdc:Bounds height="55.0" width="105.0" x="100.0" y="50.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="asignLegalOffice" id="BPMNShape_asignLegalOffice">
-        <omgdc:Bounds height="55.0" width="105.0" x="250.0" y="50.0"></omgdc:Bounds>
+        <omgdc:Bounds height="55.0" width="105.0" x="364.0" y="50.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="accessCase" id="BPMNShape_accessCase">
-        <omgdc:Bounds height="55.0" width="105.0" x="400.0" y="50.0"></omgdc:Bounds>
+        <omgdc:Bounds height="55.0" width="105.0" x="500.0" y="50.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="endCase" id="BPMNShape_endCase">
-        <omgdc:Bounds height="55.0" width="105.0" x="540.0" y="50.0"></omgdc:Bounds>
+        <omgdc:Bounds height="55.0" width="105.0" x="636.0" y="50.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="endevent1" id="BPMNShape_endevent1">
-        <omgdc:Bounds height="35.0" width="35.0" x="680.0" y="60.0"></omgdc:Bounds>
+        <omgdc:Bounds height="35.0" width="35.0" x="760.0" y="60.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="usertask2" id="BPMNShape_usertask2">
+        <omgdc:Bounds height="55.0" width="105.0" x="230.0" y="50.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
         <omgdi:waypoint x="65.0" y="77.0"></omgdi:waypoint>
@@ -55,19 +60,23 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
         <omgdi:waypoint x="205.0" y="77.0"></omgdi:waypoint>
-        <omgdi:waypoint x="250.0" y="77.0"></omgdi:waypoint>
+        <omgdi:waypoint x="230.0" y="77.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_flow3">
-        <omgdi:waypoint x="355.0" y="77.0"></omgdi:waypoint>
-        <omgdi:waypoint x="400.0" y="77.0"></omgdi:waypoint>
+        <omgdi:waypoint x="469.0" y="77.0"></omgdi:waypoint>
+        <omgdi:waypoint x="500.0" y="77.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow4" id="BPMNEdge_flow4">
-        <omgdi:waypoint x="505.0" y="77.0"></omgdi:waypoint>
-        <omgdi:waypoint x="540.0" y="77.0"></omgdi:waypoint>
+        <omgdi:waypoint x="605.0" y="77.0"></omgdi:waypoint>
+        <omgdi:waypoint x="636.0" y="77.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow5" id="BPMNEdge_flow5">
-        <omgdi:waypoint x="645.0" y="77.0"></omgdi:waypoint>
-        <omgdi:waypoint x="680.0" y="77.0"></omgdi:waypoint>
+        <omgdi:waypoint x="741.0" y="77.0"></omgdi:waypoint>
+        <omgdi:waypoint x="760.0" y="77.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow6" id="BPMNEdge_flow6">
+        <omgdi:waypoint x="335.0" y="77.0"></omgdi:waypoint>
+        <omgdi:waypoint x="364.0" y="77.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

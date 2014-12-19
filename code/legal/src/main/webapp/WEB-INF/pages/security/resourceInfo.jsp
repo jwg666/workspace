@@ -8,6 +8,9 @@
 <title>资源管理</title>
 <jsp:include page="/common/common_js.jsp"></jsp:include>
 <script type="text/javascript">
+    var searchForm;
+    var resourceAddDialog;
+    var resourceAddForm;
 	var treegrid;
 	var lastIndex;
 	var editId;
@@ -50,11 +53,23 @@
 			        	          } 
 			        	   }  
 			        	   return types[0].typeName;        
-					},
+					}
 		        }
 		    ]],
-		    
-			onContextMenu : function(e, rowIndex) {
+            toolbar: [{
+                text:'增加',
+                iconCls: 'icon-add',
+                handler: function(){
+                    add();
+                }
+            },'-',{
+                text:'编辑',
+                iconCls: 'icon-edit',
+                handler: function(){
+                    alert('编辑按钮')
+                }
+            }],
+            onContextMenu : function(e, rowIndex) {
 				e.preventDefault();				
 				$(this).treegrid('select', rowIndex.id);
 				$('#menu').menu('show', {
@@ -91,7 +106,21 @@
 			        }); 
 		    }
 		});
-	});
+
+        resourceAddDialog = $('#resourceAddDialog').show().dialog({
+            title : '添加角色',
+            modal : true,
+            closed : true,
+            maximizable : true,
+            buttons : [ {
+                text : '添加',
+                handler : function() {
+                    resourceAddForm.submit();
+                }
+            } ]
+        });
+
+    });
 	function beforEditRow(row){
 		
 	}
@@ -157,6 +186,11 @@
         }
         return treeData;
     }
+    function add(){
+        resourceAddForm.form("clear");
+        $('div.validatebox-tip').remove();
+        resourceAddDialog.dialog('open');
+    }
 </script>
 </head>
 <body class="easyui-layout"  data-options="fit:true">
@@ -168,5 +202,37 @@
 		<div onclick="removeIt()" data-options="iconCls:'icon-remove'">删除</div>
 		
 	</div>
+    <div id="resourceAddDialog" style="display: none;width: 600px;height: 300px;" align="center">
+        <form id="resourceAddForm" method="post">
+            <div style="width: 500px; height: 160px; margin-left: 20px;">
+                <div class="part_popover_zoc" style="width: 500px;">
+                    <div class="oneline">
+                        <div class="itemleft60">资源名称：</div>
+                        <div class="righttext">
+                            <input name="name" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写资源名称"  style="width: 155px;"/>
+                        </div>
+                    </div>
+                    <div class="oneline">
+                        <div class="itemleft60">url：</div>
+                        <div class="righttext">
+                            <input name="url" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写资源URL"  style="width: 155px;"/>
+                        </div>
+                    </div>
+                    <div class="oneline">
+                        <div class="itemleft60">类型：</div>
+                        <div class="righttext">
+                            <input name="type" type="text" class="easyui-validatebox" data-options="" missingMessage="请选择资源类型"  style="width: 155px;"/>
+                        </div>
+                    </div>
+                    <div class="oneline">
+                        <div class="itemleft60" style="vertical-align: top;">资源描述：</div>
+                        <div align="left" style="display: inline-block;width: 300px">
+                            <textarea name="description" rows="5"  cols="200" data-options="" missingMessage="请填写资源描述"  style="width: 155px;"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

@@ -19,7 +19,7 @@
 	    searchForm = $('#searchForm').form();
 		datagrid = $('#datagrid').datagrid({
 			url : 'departmentAction!datagrid.do',
-			title : 'Department列表',
+			title : '部门列表',
 			iconCls : 'icon-save',
 			pagination : true,
 			pagePosition : 'bottom',
@@ -31,7 +31,7 @@
 			nowrap : false,
 			border : false,
 			idField : 'id',
-			sortName : 'createDt',
+			sortName : 'createTime',
 			sortOrder : 'desc',
 			columns : [ [ 
 			{field:'ck',checkbox:true,
@@ -43,53 +43,59 @@
 					formatter:function(value,row,index){
 						return row.id;
 					}
-				},				
-			   {field:'name',title:'name',align:'center',sortable:true,
+				},	
+				 {field:'parentId',title:'上级部门',align:'center',sortable:true,
+					formatter:function(value,row,index){
+						if(row.parent!=null){
+							return row.parent.name;
+						}else{
+							return "无";
+						}
+						
+					}
+				},
+			   {field:'name',title:'部门名称',align:'center',sortable:true,
 					formatter:function(value,row,index){
 						return row.name;
 					}
 				},				
-			   {field:'parentId',title:'parentId',align:'center',sortable:true,
-					formatter:function(value,row,index){
-						return row.parentId;
-					}
-				},				
-			   {field:'createTime',title:'createTime',align:'center',sortable:true,
+			  				
+			   {field:'createTime',title:'创建时间',align:'center',sortable:true,
 					formatter:function(value,row,index){
 						return dateFormatYMD(row.createTime);
 					}
 				},				
-			   {field:'createBy',title:'createBy',align:'center',sortable:true,
+			   {field:'createBy',title:'创建人',align:'center',sortable:true,
 					formatter:function(value,row,index){
 						return row.createBy;
 					}
 				},				
-			   {field:'description',title:'description',align:'center',sortable:true,
+			   {field:'description',title:'描述',align:'center',sortable:true,
 					formatter:function(value,row,index){
 						return row.description;
 					}
 				},				
-			   {field:'officePlace',title:'officePlace',align:'center',sortable:true,
+			   {field:'officePlace',title:'办公地址',align:'center',sortable:true,
 					formatter:function(value,row,index){
 						return row.officePlace;
 					}
 				},				
-			   {field:'officePhone',title:'officePhone',align:'center',sortable:true,
+			   {field:'officePhone',title:'办公电话',align:'center',sortable:true,
 					formatter:function(value,row,index){
 						return row.officePhone;
 					}
 				},				
-			   {field:'officer',title:'officer',align:'center',sortable:true,
+			   {field:'officer',title:'办公室负责人',align:'center',sortable:true,
 					formatter:function(value,row,index){
 						return row.officer;
 					}
 				},				
-			   {field:'officePage',title:'officePage',align:'center',sortable:true,
+			   {field:'officePage',title:'主页地址',align:'center',sortable:true,
 					formatter:function(value,row,index){
 						return row.officePage;
 					}
 				},				
-			   {field:'fax',title:'fax',align:'center',sortable:true,
+			   {field:'fax',title:'传真',align:'center',sortable:true,
 					formatter:function(value,row,index){
 						return row.fax;
 					}
@@ -157,10 +163,13 @@
 		});
 
 		departmentAddDialog = $('#departmentAddDialog').show().dialog({
-			title : '添加Department',
+			title : '添加部门',
 			modal : true,
 			closed : true,
 			maximizable : true,
+			resizable:true,
+			width:500,
+			height:300,
 			buttons : [ {
 				text : '添加',
 				handler : function() {
@@ -193,10 +202,14 @@
 		});
 
 		departmentEditDialog = $('#departmentEditDialog').show().dialog({
-			title : '编辑Department',
+			title : '编辑部门信息',
 			modal : true,
 			closed : true,
 			maximizable : true,
+			maximizable : true,
+			resizable:true,
+			width:500,
+			height:300,
 			buttons : [ {
 				text : '编辑',
 				handler : function() {
@@ -207,7 +220,7 @@
 
 
 		showCdescDialog = $('#showCdescDialog').show().dialog({
-			title : 'Department描述',
+			title : '部门描述',
 			modal : true,
 			closed : true,
 			maximizable : true
@@ -218,6 +231,21 @@
 			modal : true,
 			closed : true,
 			maximizable : true
+		});
+		$("#parentId").combobox({
+			url:'departmentAction!combox.do',
+			valueField:'id',
+			textField:'name'				
+		});
+		$("#parentId2").combobox({
+			url:'departmentAction!combox.do',
+			valueField:'id',
+			textField:'name'				
+		});
+		$("#parentId3").combobox({
+			url:'departmentAction!combox.do',
+			valueField:'id',
+			textField:'name'				
 		});
 	});
 
@@ -317,23 +345,44 @@
 	}
 </script>
 </head>
-<body class="easyui-layout">
-	<div region="north" border="false" title="过滤条件" collapsed="true"  style="height: 110px;overflow: hidden;" align="left">
+<body class="easyui-layout" zoc>
+	<div region="north" border="false" class="zoc" collapsed="false"
+		style="height: 100px; overflow: auto;" align="left">
 		<form id="searchForm">
-			<table class="tableForm datagrid-toolbar" style="width: 100%;height: 100%;">
-				<tr>
-					<th>查询字段需要手工修改</th>
-					<td><input name="hotelid" style="width:155px;" /></td>
-				</tr>
-				<tr>
-					<th>创建时间</th>
-					<td><input name="ccreatedatetimeStart" class="easyui-datebox" editable="false" style="width: 155px;" />至<input name="ccreatedatetimeEnd" class="easyui-datebox" editable="false" style="width: 155px;" /></td>
-				</tr>
-				<tr>
-					<th>最后修改时间</th>
-					<td><input name="cmodifydatetimeStart" class="easyui-datebox" editable="false" style="width: 155px;" />至<input name="cmodifydatetimeEnd" class="easyui-datebox" editable="false" style="width: 155px;" /><a href="javascript:void(0);" class="easyui-linkbutton" onclick="_search();">过滤</a><a href="javascript:void(0);" class="easyui-linkbutton" onclick="cleanSearch();">取消</a></td>
-				</tr>
-			</table>
+			<div class="navhead_zoc">
+				<span>部门信息维护</span>
+			</div>
+			<div class="part_zoc">
+				<div class="partnavi_zoc">
+					<span>查询与操作：</span>
+				</div>
+				<div class="oneline">					
+					<div class="item25">
+						<div class="itemleft100">部门名称：</div>
+						<div class="righttext">
+						<input type="text" name="name" style="width:100px"/>
+						</div>
+					</div>
+					<div class="item25">
+						<div class="itemleft100">上级部门：</div>
+						<div class="rightselect_easyui">
+							<input type="text" name="parent.parentId"  id="parentId" style="width:120px"/>
+						</div>
+					</div>
+					<div class="item25">
+						<div class="itemleft100">地址：</div>
+						<div class="righttext">
+						<input type="text" name="officePlace" style="width:120px"/>
+						</div>
+					</div>
+					<div class="item25 lastitem" >
+						<div class="oprationbutt">
+							<input type="button" value="查  询" onclick="_search();" />
+							<input type="button" value="重  置" onclick="cleanSearch();" />
+						</div>
+					</div>
+				</div>
+			</div>
 		</form>
 	</div>
 	
@@ -347,164 +396,153 @@
 		<div onclick="edit();" iconCls="icon-edit">编辑</div>
 	</div>
 
-	<div id="departmentAddDialog" style="display: none;width: 500px;height: 300px;" align="center">
+	<div id="departmentAddDialog" style="display: none;" align="center">
 		<form id="departmentAddForm" method="post">
-			<table class="tableForm">
-						<tr>
-							<th>id</th>
-							<td>
-								<input name="id" type="text" class="easyui-validatebox" data-options="required:true" missingMessage="请填写id"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-							<th>name</th>
-							<td>
-								<input name="name" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写name"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>parentId</th>
-							<td>
-								<input name="parentId" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写parentId"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>createTime</th>
-							<td>
-								<input name="createTime" type="text" class="easyui-datetimebox" data-options="" missingMessage="请填写createTime"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>createBy</th>
-							<td>
-								<input name="createBy" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写createBy"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>description</th>
-							<td>
-								<input name="description" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写description"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>officePlace</th>
-							<td>
-								<input name="officePlace" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写officePlace"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>officePhone</th>
-							<td>
-								<input name="officePhone" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写officePhone"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>officer</th>
-							<td>
-								<input name="officer" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写officer"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>officePage</th>
-							<td>
-								<input name="officePage" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写officePage"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>fax</th>
-							<td>
-								<input name="fax" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写fax"  style="width: 155px;"/>						
-							</td>
-						</tr>
-						<tr>
-							<th>email</th>
-							<td>
-								<input name="email" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写email"  style="width: 155px;"/>						
-							</td>
-						</tr>
-					
-					
-					
-			</table>
+			<div class="part_zoc" style="min-width:500px">
+				<div class="partnavi_zoc">
+					<span>填写部门信息：</span>
+				</div>
+				<div class="oneline">					
+					<div class="item25">
+						<div class="itemleft100">部门名称：</div>
+						<div class="righttext">
+						<input type="text" name="name" style="width:100px"/>
+						</div>
+					</div>
+					<div class="item25 lastitem" >
+						<div class="itemleft100">上级部门：</div>
+						<div class="rightselect_easyui">
+							<input type="text" name="parent.parentId"  id="parentId2" style="width:100px"/>
+						</div>
+					</div>
+					</div>
+				<div class="oneline">
+					<div class="item25">
+						<div class="itemleft100">描述：</div>
+						<div class="righttext">
+						<input type="text" name="description" style="width:100px"/>
+						</div>
+					</div>
+					<div class="item25 lastitem" >
+						<div class="itemleft100">办公地址：</div>
+						<div class="righttext">
+						<input type="text" name="officePlace" style="width:100px"/>
+						</div>
+					</div>
+				</div>
+				<div class="oneline">					
+					<div class="item25">
+						<div class="itemleft100">办公电话：</div>
+						<div class="righttext">
+						<input type="text" name="officePhone" style="width:100px"/>
+						</div>
+					</div>
+					<div class="item25 lastitem">
+						<div class="itemleft100">负责人：</div>
+						<div class="righttext">
+							<input type="text" name="officer"   style="width:100px"/>
+						</div>
+					</div>
+					</div>
+				<div class="oneline">
+					<div class="item25">
+						<div class="itemleft100">主页：</div>
+						<div class="righttext">
+						<input type="text" name="officePage" style="width:100px"/>
+						</div>
+					</div>
+					<div class="item25 lastitem" >
+						<div class="itemleft100">传真：</div>
+						<div class="righttext">
+						<input type="text" name="officePlace" style="width:100px"/>
+						</div>
+					</div>
+				</div>
+				<div class="oneline">
+					<div class="item25 lastitem">
+						<div class="itemleft100">E-mail：</div>
+						<div class="righttext">
+							<input type="text" name="email"   style="width:100px"/>
+						</div>
+					</div>
+				</div>
+			</div>			
+						
 		</form>
 	</div>
 
 	<div id="departmentEditDialog" style="display: none;width: 500px;height: 300px;" align="center">
 		<form id="departmentEditForm" method="post">
-			<table class="tableForm">
-						<tr>
-						<th>id</th>
-							<td>
-								<input name="id" type="text" class="easyui-validatebox" data-options="required:true" missingMessage="请填写id"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>name</th>
-							<td>
-								<input name="name" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写name"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>parentId</th>
-							<td>
-								<input name="parentId" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写parentId"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>createTime</th>
-							<td>
-								<input name="createTime" type="text" class="easyui-datetimebox" data-options="" missingMessage="请填写createTime"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>createBy</th>
-							<td>
-								<input name="createBy" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写createBy"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>description</th>
-							<td>
-								<input name="description" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写description"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>officePlace</th>
-							<td>
-								<input name="officePlace" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写officePlace"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>officePhone</th>
-							<td>
-								<input name="officePhone" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写officePhone"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>officer</th>
-							<td>
-								<input name="officer" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写officer"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>officePage</th>
-							<td>
-								<input name="officePage" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写officePage"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>fax</th>
-							<td>
-								<input name="fax" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写fax"  style="width: 155px;"/>
-							</td>
-						</tr>
-						<tr>
-						<th>email</th>
-							<td>
-								<input name="email" type="text" class="easyui-validatebox" data-options="" missingMessage="请填写email"  style="width: 155px;"/>
-							</td>
-						</tr>
-			</table>
+		<input name="id" type="hidden" />
+			<div class="part_zoc" style="min-width:500px">
+				<div class="partnavi_zoc">
+					<span>填写部门信息：</span>
+				</div>
+				<div class="oneline">					
+					<div class="item25">
+						<div class="itemleft100">部门名称：</div>
+						<div class="righttext">
+						<input type="text" name="name" style="width:100px"/>
+						</div>
+					</div>
+					<div class="item25 lastitem" >
+						<div class="itemleft100">上级部门：</div>
+						<div class="rightselect_easyui">
+							<input type="text" name="parent.parentId"  id="parentId3" style="width:100px"/>
+						</div>
+					</div>
+					</div>
+				<div class="oneline">
+					<div class="item25">
+						<div class="itemleft100">描述：</div>
+						<div class="righttext">
+						<input type="text" name="description" style="width:100px"/>
+						</div>
+					</div>
+					<div class="item25 lastitem" >
+						<div class="itemleft100">办公地址：</div>
+						<div class="righttext">
+						<input type="text" name="officePlace" style="width:100px"/>
+						</div>
+					</div>
+				</div>
+				<div class="oneline">					
+					<div class="item25">
+						<div class="itemleft100">办公电话：</div>
+						<div class="righttext">
+						<input type="text" name="officePhone" style="width:100px"/>
+						</div>
+					</div>
+					<div class="item25 lastitem">
+						<div class="itemleft100">负责人：</div>
+						<div class="righttext">
+							<input type="text" name="officer"   style="width:100px"/>
+						</div>
+					</div>
+					</div>
+				<div class="oneline">
+					<div class="item25">
+						<div class="itemleft100">主页：</div>
+						<div class="righttext">
+						<input type="text" name="officePage" style="width:100px"/>
+						</div>
+					</div>
+					<div class="item25 lastitem" >
+						<div class="itemleft100">传真：</div>
+						<div class="righttext">
+						<input type="text" name="officePlace" style="width:100px"/>
+						</div>
+					</div>
+				</div>
+				<div class="oneline">
+					<div class="item25 lastitem">
+						<div class="itemleft100">E-mail：</div>
+						<div class="righttext">
+							<input type="text" name="email"   style="width:100px"/>
+						</div>
+					</div>
+				</div>
+			</div>
 		</form>
 	</div>
 

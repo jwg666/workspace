@@ -6,6 +6,7 @@
 
 package com.neusoft.base.service.impl;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -14,7 +15,10 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.neusoft.base.common.LoginContext;
+import com.neusoft.base.common.LoginContextHolder;
 import com.neusoft.base.common.Pager;
+import com.neusoft.base.common.SpringApplicationContextHolder;
 import com.neusoft.base.dao.DepartmentDao;
 import com.neusoft.base.domain.Department;
 import com.neusoft.base.model.DataGrid;
@@ -49,6 +53,7 @@ public class DepartmentServiceImpl implements DepartmentService{
 			for (Department tb : Departments) {
 				DepartmentQuery b = new DepartmentQuery();
 				BeanUtils.copyProperties(tb, b);
+				b.setParent(tb.getParent());
 				DepartmentQuerys.add(b);
 			}
 		}
@@ -62,6 +67,8 @@ public class DepartmentServiceImpl implements DepartmentService{
 	public void add(DepartmentQuery departmentQuery) {
 		Department t = new Department();
 		BeanUtils.copyProperties(departmentQuery, t);
+		t.setCreateBy(LoginContextHolder.get().getUserId());
+		t.setCreateTime(new Date());
 		departmentDao.save(t);
 	}
 
