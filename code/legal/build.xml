@@ -16,10 +16,10 @@
 
 	<!--法律援助申请-->
 	<target name="workflow.package.legal">
-			<echo>打包流程定义：订单修改申请</echo>
-			<copy file="${wd.legal}/CaseTrace.bpmn" tofile="${wd.legal}/CaseTrace.bpmn20.xml" />
-			<zip destfile="${workflow.deployments}/LegalAid.bar" basedir="${wd.legal}" update="true" includes="*.xml,*.png,*.form,*.drl" />
-			<delete file="${wd.legal}/CaseTrace.bpmn20.xml" />
+			<echo>打包流程定义：法律援助申请</echo>
+			<copy file="${wd.legal}/Legal.bpmn" tofile="${wd.legal}/Legal.bpmn20.xml" />
+			<zip destfile="${workflow.deployments}/Legal.bar" basedir="${wd.legal}" update="true" includes="*.xml,*.png,*.form,*.drl" />
+			<delete file="${wd.legal}/Legal.bpmn20.xml" />
 		</target>
 	
 	<!-- 流程定义打包 -->
