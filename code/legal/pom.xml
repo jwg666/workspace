@@ -819,15 +819,25 @@
 				</plugin>
 
 				<plugin>
-					<groupId>org.eclipse.jetty</groupId>
-					<artifactId>jetty-maven-plugin</artifactId>
-					<version>9.0.0.RC2</version>
-					<configuration>
-						<scanIntervalSeconds>0</scanIntervalSeconds>
-						<webAppConfig>
-							<contextPath>/legal</contextPath>
-						</webAppConfig>
-					</configuration>
+					<groupId>org.mortbay.jetty</groupId>
+					<artifactId>maven-jetty-plugin</artifactId>
+                    <version>6.1.22</version>
+                    <configuration>
+                        <contextPath>/legal</contextPath>
+                        <connectors>
+                            <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+                                <port>8081</port>
+                            </connector>
+                        </connectors>
+                        <scanIntervalSeconds>10</scanIntervalSeconds>
+                    </configuration>
+					<!--<version>9.0.0.RC2</version>-->
+					<!--<configuration>-->
+						<!--<scanIntervalSeconds>0</scanIntervalSeconds>-->
+						<!--<webAppConfig>-->
+							<!--<contextPath>/legal</contextPath>-->
+						<!--</webAppConfig>-->
+					<!--</configuration>-->
 				</plugin>
 				<plugin>
 					<groupId>org.apache.tomcat.maven</groupId>
